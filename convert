@@ -1,0 +1,28 @@
+#! /bin/bash
+
+dpi=600
+# 75 150 300 600 900 1200 1500 1800 2100 2400
+
+#comment out the next line for transparent background
+extra="-bg 255.255.255.255"
+
+widthInInches=10
+heightInInches=8
+
+control_c()
+{
+  exit
+}
+trap control_c SIGINT
+
+jar=/Users/rharris/Downloads/batik-1.7/batik-rasterizer.jar
+
+widthInDots=$(($widthInInches * $dpi))
+heightInDots=$(($heightInInches * $dpi))
+mem=$((32 + ( $dpi * $dpi ) / 1000 ))
+
+type_name=png
+mime_type=image/png
+d=.
+
+java -Xmx${mem}M -jar "${jar}" -d "${d}" -m ${mime_type} -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} ${extra} "$@"

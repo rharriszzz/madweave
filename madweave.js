@@ -1,4 +1,4 @@
-/* copyright 2004, Richard Harris, all rights reserved */
+/* copyright 2004 - 2012, Richard Harris, all rights reserved */
 
 function HSV_to_RGB(H, S, V) {
   var R, G, B;
@@ -72,6 +72,7 @@ function removeChildren(g) {
 }
 var svgNS   = 'http://www.w3.org/2000/svg';
 var xlinkNS = 'http://www.w3.org/1999/xlink';
+var inkscapeNS = 'http://www.inkscape.org/namespaces/inkscape';
 function createSVGElement(document, type) {
   return document.createElementNS(svgNS, type);
 }
@@ -95,14 +96,16 @@ var viewWidth;
 var halfViewHeight;
 var halfViewWidth;
 var sheetSize = 500;
-var d = 0.05;  var margin = 0.04; var sep = d/5;
+var d = 0.05;  var margin = 0.04; var sep = d/7;
 var buttonRectSize;
 var buttonStrokeWidth = 0.03;
 var maxS;
 
 var baseSize;
 
+var totalNumber;
 var stripsPerDirection;
+var offsetS;
 function setupNewBaseSize(document,newBaseSize) {
     var svg = document.getElementById("svg");
     if (newBaseSize===undefined) {
@@ -114,13 +117,13 @@ function setupNewBaseSize(document,newBaseSize) {
   var baseSizeEven = 2 * ((baseSize + 1) / 2);
   stripsPerDirection = 3 * baseSize;
   totalNumber = 3 * stripsPerDirection;
+  stripPathOfIndex = null;
   maxS = baseSize*3;
-    stripSpacingFraction = separationValue[separationIndex];
-    stripSpacing = stripWidth * stripSpacingFraction;
+  offsetS = Math.floor(stripsPerDirection / 2) - 0.5;
   var totalStripWidth = 3 * baseSizeEven * stripWidth * (1 + stripSpacingFraction);
   stripLength = totalStripWidth;
-  viewHeight = stripLength*1.5;
-  viewWidth = viewHeight*4/3;
+  viewHeight = stripLength*1.67;
+  viewWidth = viewHeight*1.1;
   halfViewHeight = viewHeight/2;
   halfViewWidth = viewWidth/2;
   buttonRectSize = viewHeight * d;
@@ -128,12 +131,103 @@ function setupNewBaseSize(document,newBaseSize) {
 }
 
 var starMadWeaveCenter = false;
+var starHexWeaveCenter = false; // true for layer b (1), when starMadWeaveCenter is false
+var numberOfDirections = 3; // must be a multiple of directionsInUnit
+var transformInPath = false;
+var drawOneUnit = false;
 
+var directionsPerCircle = 3;
+var unitsPerCircle = ((starMadWeaveCenter || starHexWeaveCenter) ? 6 : 3);
+var directionsInUnit = unitsPerCircle / directionsPerCircle; // either 1 or 2
+var angleOfUnit = 2*Math.PI/unitsPerCircle;
+var numberOfUnits = numberOfDirections / directionsInUnit;
+var coneFraction = directionsPerCircle / numberOfDirections;
+
+function intersectionPoint(angle, x1, y1, x2, y2) {
+  var z1, z2;
+  var alpha = Math.tan(angle);
+  if (Math.abs(alpha) < 1) {
+    z1 = y1 - alpha * x1;
+    z2 = y2 - alpha * x2;
+  } else {
+    alpha = 1 / alpha;
+    z1 = x1 - alpha * y1;
+    z2 = x2 - alpha * y2;
+  }
+  return z1 / (z1 - z2);
+}
+var npoints = 2; // 64;
+var lastAnglet = 0;
+var extraAnglet = 0;
 var firstTransformPoint = true;
+var radiansToDegrees = 180 / Math.PI; // 57.29...
 function transformPointToPath(x1, y1, x2, y2, ty, angle) {
+  if (!transformInPath) {
     var first = firstTransformPoint;
     firstTransformPoint = false;
     return (first?"M ":"L ")+x1+" "+y1+" ";
+  }
+  var cosa = Math.cos(angle/radiansToDegrees); 
+  var sina = Math.sin(angle/radiansToDegrees);
+  var path = "";
+  var xt1 = cosa*x1-sina*(y1+ty);
+  var yt1 = sina*x1+cosa*(y1+ty);
+  var xt2 = cosa*x2-sina*(y2+ty);
+  var yt2 = sina*x2+cosa*(y2+ty);
+  var anglet1 = Math.atan2(yt1, xt1);
+  var anglet2 = Math.atan2(yt2, xt2);
+  var ldAt0 = intersectionPoint(0, xt1, yt1, xt2, yt2);
+  var xAt0 = xt1 + ldAt0 * (xt2 - xt1);
+  var yAt0 = yt1 + ldAt0 * (yt2 - yt1);
+  var angleAt0 = Math.atan2(yAt0, xAt0);
+  var ldAtAngleOfUnit = intersectionPoint(angleOfUnit, xt1, yt1, xt2, yt2);
+  var xAtAngleOfUnit = xt1 + ldAtAngleOfUnit * (xt2 - xt1);
+  var yAtAngleOfUnit = yt1 + ldAtAngleOfUnit * (yt2 - yt1);
+  var angleAtAngleOfUnit = Math.atan2(yAtAngleOfUnit, xAtAngleOfUnit);
+  var eps = 1e-6;
+  var inside1 = (-eps <= anglet1 && anglet1 <= (angleOfUnit+eps));
+  var inside2 = (-eps <= anglet2 && anglet2 <= (angleOfUnit+eps));
+  var crosses0 = (Math.abs(angleAt0) < eps) && 
+                 (ldAt0 >= -eps) && (ldAt0 <= 1+eps);
+  var crossesAngleOfUnit = (Math.abs(angleAtAngleOfUnit - angleOfUnit) < eps) && 
+                 (ldAtAngleOfUnit >= -eps) && (ldAtAngleOfUnit <= 1+eps);
+  var minLD = 0, maxLD = 1;
+  if (!drawOneUnit || (inside1 && inside2)) {
+  } else if (inside1) {
+    maxLD = (crosses0?ldAt0:ldAtAngleOfUnit);
+  } else if (inside2) {
+    minLD = (crosses0?ldAt0:ldAtAngleOfUnit);
+  } else if (crosses0 && crossesAngleOfUnit) {
+    minLD = Math.min(ldAt0, ldAtAngleOfUnit);
+    maxLD = Math.max(ldAt0, ldAtAngleOfUnit);
+  } else {
+    return "";
+  }
+  var n;
+  for (n=0; n<npoints; n++) {
+    var d = n / (1e-6 + npoints - 1);
+    var ld = minLD + d * (maxLD - minLD);
+    var xt = xt1 + ld * (xt2 - xt1);
+    var yt = yt1 + ld * (yt2 - yt1);
+    var anglet = Math.atan2(yt, xt);
+    if (drawOneUnit && (anglet<(-eps) || anglet>(angleOfUnit+eps))) continue;
+    if (firstTransformPoint) {
+      extraAnglet = 0;
+    } else if (lastAnglet < -Math.PI/2 && anglet > Math.PI/2) {
+      extraAnglet += -2*Math.PI;
+    } else if (lastAnglet > Math.PI/2 && anglet < -Math.PI/2) {
+      extraAnglet += 2*Math.PI;
+    }
+    lastAnglet = anglet;
+    var rt = Math.sqrt(xt*xt + yt*yt);
+    var rT = rt; //rt*coneFraction;
+    var angleT = (anglet+extraAnglet)*coneFraction;
+    var xT = Math.cos(angleT)*rT;
+    var yT = Math.sin(angleT)*rT;
+    path = path + (firstTransformPoint?"M ":"L ")+xT+" "+yT+" ";
+    firstTransformPoint = false;
+  }
+  return path;
 }
 function rectPathWithOffset(width, length, offset, ty, angle) {
   firstTransformPoint = true;
@@ -170,6 +264,8 @@ function linePath(stripsPerDirection, index) {
     return rectLinePath(stripWidth, stripLength, ty, angle);
 }
 function trans(stripsPerDirection, index) {
+    if (transformInPath)
+        return "";
     var offsetS = Math.floor(stripsPerDirection / 2) - 0.5;
     var angle = 120*getD(stripsPerDirection, index);
     var ty = (getS(stripsPerDirection, index)-offsetS)*(stripWidth+stripSpacing);
@@ -193,15 +289,26 @@ function getN(starMadWeaveCenter,stripsPerDirection, index) {return getNFromS0(g
 
 var dx = [0.0, -0.86602540378,  0.86602540378];  /* sin  0 120 240 */
 var dy = [1.0, -0.5,           -0.5];            /* cos  0 120 240 */
-var dsnote = ["", "", ""]; // for debugging
+var dsnote = ["", "", ""];
 function getSForPoint(pt, d) {
   var x,y;
   var a = 0;
+  if (transformInPath && numberOfDirections != 6) {
+    var rT = Math.sqrt(pt.x*pt.x + pt.y*pt.y);
+    var angleT = Math.atan2(pt.y, pt.x);
+    //if (angleT < 0) angleT += Math.PI * 2;
+    var rt = rT;
+    var anglet = angleT / coneFraction;
+    a = anglet * radiansToDegrees;
+    x = rt * Math.cos(anglet);
+    y = rt * Math.sin(anglet);
+  } else {
     x = pt.x;
     y = pt.y;
+  }
     var offsetS = Math.floor(stripsPerDirection / 2) - 0.5;
   var exactS = (dx[d]*x+dy[d]*y)/(stripWidth+stripSpacing)+offsetS;
-  dsnote[d] = "S="+exactS.toFixed(2)+", A="+a.toFixed(1); // for debugging
+  dsnote[d] = "S="+exactS.toFixed(2)+", A="+a.toFixed(1);
   return Math.floor(exactS+0.5);
 }
 var showC = [true, true, true];
@@ -212,6 +319,8 @@ function isVisible(starMadWeaveCenter, stripsPerDirection, index) {
         "Z"!=stripPath(stripsPerDirection, index);
 }
 var alternate = false;
+var hand = false;
+var visibleNumber = 0;
 function getPointForEvent(evt) {
   var g = evt.target;
   var document = g.ownerDocument;
@@ -233,17 +342,16 @@ function name(stripsPerDirection, index) {
 function nextM3(x) {return (x + 1) % 3;}
 function prevM3(x) {return (x - 1) % 3;}
 
-function colorIndex(svg, index) {
-    var starMadWeaveCenter = svg.getAttribute("mwStarMadWeaveCenter")=="true";
-    var stripsPerDirection = parseInt(svg.getAttribute("mwStripsPerDirection"));
-    var colorCount = parseInt(svg.getAttribute("mwColorCount"));
-    switch (parseInt(svg.getAttribute("mwColorPattern"))) {
-    case 0: return getD(stripsPerDirection, index)%colorCount;
-    case 1: return getC(starMadWeaveCenter, stripsPerDirection, index)%colorCount;
-    case 2: return (getD(stripsPerDirection, index)+getC(starMadWeaveCenter, stripsPerDirection, index))%colorCount;
+var colorPattern = 0;
+var colorCount = 3;
+function colorIndex(colorPattern, starMadWeaveCenter, stripsPerDirection, index) {
+  switch (colorPattern) {
+  case 0: return getD(stripsPerDirection, index)%colorCount;
+  case 1: return getC(starMadWeaveCenter, stripsPerDirection, index)%colorCount;
+  case 2: return (getD(stripsPerDirection, index)+getC(starMadWeaveCenter, stripsPerDirection, index))%colorCount;
 
-    case 3: return getN(starMadWeaveCenter, stripsPerDirection, index)%colorCount;
-    case 4: return (getC(starMadWeaveCenter, stripsPerDirection, index)+getN(starMadWeaveCenter, stripsPerDirection, index))%colorCount;
+  case 3: return getN(starMadWeaveCenter, stripsPerDirection, index)%colorCount;
+  case 4: return (getC(starMadWeaveCenter, stripsPerDirection, index)+getN(starMadWeaveCenter, stripsPerDirection, index))%colorCount;
   }
 }
 var colorIndexArray;
@@ -255,19 +363,19 @@ function setColorIndex(document,stripIndex,colorIndex) {
 }
 function setVisibilityIndex(document,stripIndex,value) {
     var gstrip = document.getElementById("GP"+name(stripsPerDirection, stripIndex));
-    gstrip.setAttribute("mwVisibility",value);
+    gstrip.setAttribute("mwVisibility",value?"visible":"hidden");
     visibilityIndexArray[stripIndex] = value;
 }
-function makeColorIndexArray(svg) {
+function makeColorIndexArray(document, colorPattern, starMadWeaveCenter, stripsPerDirection) {
     var totalNumber = 3 * stripsPerDirection;
     var colorIndexArray = Array(totalNumber);
     var stripIndex;
     for (stripIndex=0; stripIndex<totalNumber; stripIndex++) {
-        colorIndexArray[stripIndex] = colorIndex(svg, stripIndex);
+        colorIndexArray[stripIndex] = colorIndex(colorPattern, starMadWeaveCenter, stripsPerDirection, stripIndex);
     }
     return colorIndexArray;
 }
-function makeVisibilityIndexArray(svg) {
+function makeVisibilityIndexArray(document, starMadWeaveCenter, stripsPerDirection) {
     var totalNumber = 3 * stripsPerDirection;
     var visibilityIndexArray = Array(totalNumber);
     var stripIndex;
@@ -276,18 +384,16 @@ function makeVisibilityIndexArray(svg) {
     }
     return visibilityIndexArray;
 }
-function resetColorIndexArray(svg) {
-    var totalNumber = 3 * stripsPerDirection;
+function resetColorIndexArray(document) {
     var stripIndex;
     for (stripIndex=0; stripIndex<totalNumber; stripIndex++) {
-        setColorIndex(svg.ownerDocument,stripIndex,colorIndex(svg, stripIndex));
+        setColorIndex(document,stripIndex,colorIndex(colorPattern, starMadWeaveCenter, stripsPerDirection, stripIndex));
     }
 }
-function resetVisibilityIndexArray(svg) {
-    var totalNumber = 3 * stripsPerDirection;
+function resetVisibilityIndexArray(document) {
     var stripIndex;
     for (stripIndex=0; stripIndex<totalNumber; stripIndex++) {
-        setVisibilityIndex(svg.ownerDocument,stripIndex,true);
+        setVisibilityIndex(document,stripIndex,true);
     }
 }
 
@@ -297,8 +403,14 @@ function resetVisibilityIndexArray(svg) {
 //var colorArray = ["rgb(153,192,133)",   "rgb(149,168,161)",   "rgb(99,161,144)",
 //                  "rgb(130,186,182)",   "rgb(115,128,156)",   "rgb(121,156,121)",
 //                  "rgb(255,255,255)",   "rgb(  0,128,128)"]; 
-var colorArray = ["rgb(183,195,67)", "rgb(64,149,118)", "rgb(191,94,47)", "rgb(54,135,186)",
-                  "rgb(165,55,191)", "rgb(77,206,214)", "rgb(255,182,237)", "rgb(255,255,255)"];
+var lizziesColors = true;
+var colorArray = lizziesColors ?
+    ["rgb(220,135,158)", "rgb(252,205,118)", "rgb(140,118,241)", "rgb(54,135,186)", 
+     "rgb(165,55,191)", "rgb(77,206,214)", "rgb(255,182,237)", "rgb(255,255,255)"]
+    :
+    ["rgb(183,195,67)", "rgb(64,149,118)", "rgb(191,94,47)", "rgb(54,135,186)",
+     "rgb(165,55,191)", "rgb(77,206,214)", "rgb(255,182,237)", "rgb(255,255,255)"];
+
 var defaultColorIndex = 0;
 var hideStrips = false;
 var showStrips = false;
@@ -588,6 +700,17 @@ function setColorFromLast(g, n) {
 }
 function changeHand(g) {
   var document = g.ownerDocument;
+  hand = !hand;
+  buildDefs(document);
+  buildStrips(document);
+  var button = document.getElementById("button-");
+  if (hand) 
+    button.setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth*2.5);
+  else
+    button.setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth);
+}
+function changeTop(g) {
+  var document = g.ownerDocument;
   alternate = !alternate;
   buildDefs(document);
   buildStrips(document);
@@ -599,9 +722,7 @@ function changeHand(g) {
 }
 function changeCenter(g) {
   var document = g.ownerDocument;
-    var starMadWeaveCenter = svg.getAttribute("mwStarMadWeaveCenter")=="true";
   starMadWeaveCenter = !starMadWeaveCenter;
-    svg.setAttribute("mwStarMadWeaveCenter", starMadWeaveCenter);
   buildDefs(document);
   buildStrips(document);
   var button = document.getElementById("buttonC");
@@ -610,14 +731,22 @@ function changeCenter(g) {
   else
     button.setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth);
 }
+
+function getCFromSD(starMadWeaveCenter, s, d) {
+  return getCFromS0(getS0FromS(starMadWeaveCenter,d,s));
+}
+
 function isCoveredBy(thisS, thisD, otherS, otherD) {
     if (thisD == otherD) return false;
     var dd = ((thisD - otherD)%3+3)%3;
+    var sd = getCFromSD(starMadWeaveCenter, thisS,thisD) == getCFromSD(starMadWeaveCenter, otherS,otherD);
     var ds = ((dd==1?-1:1)*(thisS - otherS)%3+3)%3;
     var result = ds==(starMadWeaveCenter?0:1);
     if ((dd==1)==alternate) result = !result;
+    if (sd && hand) result = !result;
     return result;
 }
+
 var dname = ["H","R","L"];
 var pname = ["HRL",  "RLH",  "LHR",  "LRH",  "RHL",  "HLR"];
 var ppn =   [[0,1,2],[1,2,0],[2,0,1],[2,1,0],[1,0,2],[0,2,1]];
@@ -628,12 +757,16 @@ function maskPath(stripsPerDirection, p) {
     // ppi[p][0] is the number of colors on top of direction 0
     var path = "";
     var a, b, c, cs;
-    for (a=-stripsPerDirection; a<2*stripsPerDirection+1; a++) {
-        for (b=-stripsPerDirection; b<2*stripsPerDirection+1; b++) {
+    // 3: 4,4 (3,1),(2,2);   6 : 6,6(3,3),(3,3)
+    var below = Math.floor((stripsPerDirection+0)/2) - 2*Math.floor((stripsPerDirection+1)/2);
+    var above = Math.floor((stripsPerDirection+0)/2) + 2*Math.floor((stripsPerDirection+1)/2) - 1;
+    for (a= below; a<=above; a++) {
+        for (b= below; b<=above; b++) {
             var ACoversB = isCoveredBy(a,0, b,1);
             if ((xa < xb) !== ACoversB) continue; 
             for (cs=0; cs<2; cs++) {
                 var c = (3*Math.floor(stripsPerDirection/2)-2) - (a+b) + cs;
+                if (c < below || c > above) continue;
                 var ACoversC = isCoveredBy(a,0, c,2);
                 if ((xa < xc) !== ACoversC) continue; 
                 var BCoversC = isCoveredBy(b,1, c,2);
@@ -662,18 +795,18 @@ function buildDefs(document) {
 }
 
 var optimizeForFixedSolidColors = false;
-var selectStrips2 = true;
 function buildStrips(document) {
     var totalNumber = 3 * stripsPerDirection;
     if (colorIndexArray == null || totalNumber != colorIndexArray.length) {
-        colorIndexArray = makeColorIndexArray(svg);
-        visibilityIndexArray = makeVisibilityIndexArray(svg);
+        colorIndexArray = makeColorIndexArray(document, colorPattern, starMadWeaveCenter, stripsPerDirection);
+        visibilityIndexArray = makeVisibilityIndexArray(document, starMadWeaveCenter, stripsPerDirection);
     }
-    buildStripsInternal(document, "", "", document.getElementById("svg"), colorIndexArray, visibilityIndexArray, stripsPerDirection);
+    buildStripsInternal(document, "", "", document.getElementById("svg"), colorIndexArray, stripsPerDirection);
 }
-function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexArray, visibilityIndexArray, stripsPerDirection) {
+function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexArray, stripsPerDirection) {
     var strips = createSVGElementWithId(document, "g", baseName+"strips");
     if (strips.parentNode == null) svg.appendChild(strips);
+    strips.setAttributeNS(inkscapeNS, "inkscape:groupmode", "layer");
     removeChildren(strips);
 
     var index;
@@ -690,7 +823,7 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
             var indexName = name(stripsPerDirection, index);
             var gstrip = createSVGElementWithId(document, "g", baseName+"GP"+indexName);
             gstrip.setAttribute("mwVisibility", visibilityIndexArray[index] ? "visible" : "hidden");
-            gstrip.setAttribute("visibility", ((baseName!="" || isVisible(starMadWeaveCenter, stripsPerDirection, index)) && visibilityIndexArray[index]) ? "visible" : "hidden");
+            gstrip.setAttribute("visibility", (isVisible(starMadWeaveCenter, stripsPerDirection, index) && visibilityIndexArray[index]) ? "visible" : "hidden");
             stripsgroup.appendChild(gstrip);
             var strip = createSVGElementWithId(document, "path", baseName+"P"+indexName);
             gstrip.appendChild(strip);
@@ -698,13 +831,13 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
             strip.setAttribute("transform", trans(stripsPerDirection, index));
             strip.setAttribute("mwColorIndex",colorIndexArray[index]);
             strip.setAttribute("fill", colorArray[colorIndexArray[index]]);
-            strip.setAttribute("fill-opacity", opacityArray[colorIndexArray[index]]);
+            strip.setAttribute("fill-opacity", (isVisible(starMadWeaveCenter, stripsPerDirection, index) && visibilityIndexArray[index]) ? opacityArray[colorIndexArray[index]] : 0);
             if (showingLines) {
                 var lstrip = createSVGElementWithId(document, "path", baseName+"LP"+indexName);
                 lstrip.setAttribute("d", linePath(stripsPerDirection, index));
                 lstrip.setAttribute("transform", trans(stripsPerDirection, index));
                 lstrip.setAttribute("fill", "dimgray");
-                lstrip.setAttribute("fill-opacity", opacityArray[colorIndexArray[index]]);
+                lstrip.setAttribute("fill-opacity", (isVisible(starMadWeaveCenter, stripsPerDirection, index) && visibilityIndexArray[index]) ? opacityArray[colorIndexArray[index]] : 0);
                 gstrip.appendChild(lstrip);
             }
         }
@@ -740,26 +873,29 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
         }
     }
     if (baseName==="") {
-        if (selectStrips2) buildStripSelector(document);
+        buildStripSelector(document);
         maybeShowPattern(document);
     }
-    return strips;
 }
-var stripSelectorSize = 0.80;
+var stripSelectorHeightFraction = 0.80;
+var stripSelectorWidthFraction = 0.72;
 function buildStripSelector(document) {
-  var strips = document.getElementById("strips");
+    var svg = document.getElementById("svg");
+    var tools = createSVGElementWithId(document, "g", "tools");
+    if (tools.parentNode == null) svg.appendChild(tools);
+    tools.setAttributeNS(inkscapeNS, "inkscape:groupmode", "layer");
   var stripsCover = createSVGElementWithId(document, "rect", "stripsCover");
-  stripsCover.setAttribute("x", -viewWidth * 0.5 * stripSelectorSize);
-  stripsCover.setAttribute("y", -viewHeight * 0.5 * stripSelectorSize);
-  stripsCover.setAttribute("width", viewWidth * stripSelectorSize);
-  stripsCover.setAttribute("height", viewHeight * stripSelectorSize);
+  stripsCover.setAttribute("x", -viewWidth * 0.5 * stripSelectorWidthFraction);
+  stripsCover.setAttribute("y", -viewHeight * 0.5 * stripSelectorHeightFraction);
+  stripsCover.setAttribute("width", viewWidth * stripSelectorWidthFraction);
+  stripsCover.setAttribute("height", viewHeight * stripSelectorHeightFraction);
   stripsCover.setAttribute("fill", "white");
   stripsCover.setAttribute("opacity", 0);
   stripsCover.setAttribute("pointer-events", "fill");
   stripsCover.setAttribute("onmousemove", "showMouseLocation(evt)");
   stripsCover.setAttribute("onmouseout", "unshowMouseStrip(evt.target)");
   stripsCover.setAttribute("onmousedown", "setCurrentStripColorToCurrentDefault(evt)");
-  if (stripsCover.parentNode == null) strips.appendChild(stripsCover);
+  if (stripsCover.parentNode == null) tools.appendChild(stripsCover);
 }
 var mltext = Array(3);
 function showMLtext(document, pos, text) {
@@ -805,7 +941,6 @@ function indexOfMouseLocation(evt) {
     updateCurrentMouseInfo(pt, d);
     //showMLtext(document, d, "d="+d+", s="+currentMouseS[d]+", "+dsnote[d]);
   }
-  var totalNumber = 3 * stripsPerDirection;
   var withinSelected = selectedMouseIndex >= 0 && selectedMouseIndex < totalNumber && 
                        selectedMouseS == currentMouseS[selectedMouseD];
   var oldestTimestamp = 1e20; var oldestTimestampD;
@@ -915,9 +1050,7 @@ function changeColorPattern(g, newColorPattern) {
   processing = true;
   var document = g.ownerDocument;
   document.getElementById("buttonCP"+colorPattern).setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth);
-  var colorPattern = newColorPattern;
-    svg.setAttribute("mwColorPattern", colorPattern)
-    var colorCount = svg.getAttribute("mwColorCount");
+  colorPattern = newColorPattern;
   document.getElementById("buttonCP"+colorPattern).setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth*2.5);
   document.getElementById("buttonCC"+colorCount).setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth*2.5);
   resetColorIndexArray(document);
@@ -931,9 +1064,7 @@ function changeColorCount(g, newColorCount) {
   processing = true;
   var document = g.ownerDocument;
   document.getElementById("buttonCC"+colorCount).setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth);
-  var colorCount = newColorCount;
-    svg.setAttribute("mwColorCount", colorPattern);
-    var colorPattern = svg.getAttribute("mwColorPattern");
+  colorCount = newColorCount;
   document.getElementById("buttonCP"+colorPattern).setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth*2.5);
   document.getElementById("buttonCC"+colorCount).setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth*2.5);
   resetColorIndexArray(document);
@@ -951,10 +1082,15 @@ function reshowStrip(document, index) {
         var indexName = name(stripsPerDirection, index);
         var path = document.getElementById("P"+indexName);
         if (path == null) return;
+        var visible = (isVisible(starMadWeaveCenter, stripsPerDirection, index) && getVisibility(visibilityIndexArray, index));
         path.setAttribute("fill", getColor(colorIndexArray, index));
-        path.setAttribute("fill-opacity", getOpacity(colorIndexArray, index));
+        path.setAttribute("fill-opacity", visible ? getOpacity(colorIndexArray, index) : 0);
         var gstrip = document.getElementById("GP"+indexName);
-        gstrip.setAttribute("visibility", (isVisible(starMadWeaveCenter, stripsPerDirection, index) && getVisibility(visibilityIndexArray, index)) ? "visible" : "hidden");
+        gstrip.setAttribute("visibility", visible ? "visible" : "hidden");
+        if (showingLines) {
+            var lstrip = createSVGElementWithId(document, "path", "LP"+indexName);
+            lstrip.setAttribute("fill-opacity", visible ? opacityArray[colorIndexArray[index]] : 0);
+        }
         maybeShowPattern(document);
     }
 }
@@ -977,8 +1113,8 @@ function getMouseStrip(document) {
     mouseStrip.setAttribute("fill", "none");
     mouseStrip.setAttribute("stroke", "black");
     mouseStrip.setAttribute("stroke-width", stripWidth*0.1);
-    var strips = document.getElementById("strips");
-    strips.appendChild(mouseStrip);
+    var tools = document.getElementById("tools");
+    tools.appendChild(mouseStrip);
   }
   return mouseStrip;
 }
@@ -990,8 +1126,12 @@ function showMouseStrip(g, index) {
             mouseStrip.setAttribute("d", stripPath(stripsPerDirection, index));
             mouseStrip.setAttribute("transform", trans(stripsPerDirection, index));
             mouseStrip.setAttribute("visibility", "visible");
+            mouseStrip.setAttribute("fill-opacity", 1); /* "visibility" work-around for inkscape */
+            mouseStrip.setAttribute("stroke-opacity", 1); /* "visibility" work-around for inkscape */
         } else {
             mouseStrip.setAttribute("visibility", "hidden");
+            mouseStrip.setAttribute("fill-opacity", 0); /* "visibility" work-around for inkscape */
+            mouseStrip.setAttribute("stroke-opacity", 0); /* "visibility" work-around for inkscape */
         }
         mouseStripIndex = index;
     }
@@ -1134,7 +1274,6 @@ function maybeShowPattern(document) {
     }
   }
 }
-var imagesForPatterns = false;
 function addButton(g, locX, locY, dirX, dirY, indexOffset, index, label, name, action, documentation) {
     var document = g.ownerDocument;
     var rg = createSVGElementWithId(document, "g", "gbutton"+name);
@@ -1148,46 +1287,23 @@ function addButton(g, locX, locY, dirX, dirY, indexOffset, index, label, name, a
     var rectX = rectCenterX-(buttonRectSize/2*widthExpand);
     var rectY = rectCenterY-buttonRectSize/2;
     var rect;
-    if (name.substring(0,2)=="CP") {
+    if (-1 < label.indexOf('.')) {
         rect = createSVGElementWithId(document, "rect", "button"+name);
         rect.setAttribute("x", rectX);
         rect.setAttribute("y", rectY);
         rect.setAttribute("width", buttonRectSize*widthExpand);
         rect.setAttribute("height", buttonRectSize*heightExpand);
-        //rect.setAttributeNS(xlinkNS, "xlink:href", label);
+        rect.setAttributeNS(xlinkNS, "xlink:href", label);
         rect.setAttribute("stroke", "black");
         rect.setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth);
         if (rect.parentNode == null) rg.appendChild(rect);
-        if (imagesForPatterns) {
-            var image = createSVGElementWithId(document, "image", "ibutton"+name);
-            image.setAttribute("x", rectX+buttonRectSize*widthExpand*0.5*(1-0.96));
-            image.setAttribute("y", rectY+buttonRectSize*widthExpand*0.5*(1-0.96));
-            image.setAttribute("width", buttonRectSize*widthExpand*0.96);
-            image.setAttribute("height", buttonRectSize*heightExpand*0.96);
-            image.setAttributeNS(xlinkNS, "xlink:href", label);
-            if (image.parentNode == null) rg.appendChild(image);
-        } else {
-            var buttonsvg = createSVGElementWithId(document, "svg", "svgbutton"+name);
-            buttonsvg.setAttribute("x", rectX+buttonRectSize*widthExpand*0.5*(1-0.96));
-            buttonsvg.setAttribute("y", rectY+buttonRectSize*widthExpand*0.5*(1-0.96));
-            buttonsvg.setAttribute("width", buttonRectSize*widthExpand*0.96);
-            buttonsvg.setAttribute("height", buttonRectSize*heightExpand*0.96);
-            var pattern = parseInt(name.substring(2,3));
-            //var sw = (stripWidth+stripSpacing)*((pattern<3)?2:4)*0.1;
-            //buttonsvg.setAttribute("view_box", "-100 -100 200 200"); //(-sw)+" "+(-sw)+" "+(2*sw)+" "+(2*sw));
-            //buttonsvg.setAttribute("transform", "scale "+(4/d));
-            if (buttonsvg.parentNode == null) rg.appendChild(buttonsvg);
-
-            var stripsPerDirection = 3 * 4;
-            var totalNumber = 3 * stripsPerDirection;
-            var starMadWeaveCenter = true;
-            var baseName = "buttonSVG"+name;
-            var clipPathBaseName = "buttonClipPath";
-            var colorIndexArray = makeColorIndexArray(svg);
-            var visibilityIndexArray = makeVisibilityIndexArray(svg);
-            var strips = buildStripsInternal(document, baseName, clipPathBaseName, buttonsvg, colorIndexArray, visibilityIndexArray, stripsPerDirection);
-            strips.setAttribute("transform", "scale("+(d*3)+")" + " " + "translate("+(2)+" "+(2)+")"); // 
-        }
+        var image = createSVGElementWithId(document, "image", "ibutton"+name);
+        image.setAttribute("x", rectX+buttonRectSize*widthExpand*0.5*(1-0.96));
+        image.setAttribute("y", rectY+buttonRectSize*widthExpand*0.5*(1-0.96));
+        image.setAttribute("width", buttonRectSize*widthExpand*0.96);
+        image.setAttribute("height", buttonRectSize*heightExpand*0.96);
+        image.setAttributeNS(xlinkNS, "xlink:href", label);
+        if (image.parentNode == null) rg.appendChild(image);
     } else {
         rect = createSVGElementWithId(document, "rect", "button"+name);
         if (rect.parentNode == null) rg.appendChild(rect);
@@ -1213,6 +1329,7 @@ function addButton(g, locX, locY, dirX, dirY, indexOffset, index, label, name, a
             (name == "Sep"+separationIndex) ||
             (name == (showingPattern?"SP":"HP")) ||
             (name == (showingLines?"Lines":"NoLines")) ||
+            (name == '-' && hand) ||
             (name == 'X' && alternate) ||
             (name == 'C' && starMadWeaveCenter))
             rect.setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth*2.5);
@@ -1305,17 +1422,19 @@ function buildButtons(document) {
   var svg = document.getElementById("svg");
   var buttons = createSVGElementWithId(document, "g", "buttons");
   if (buttons.parentNode == null) svg.appendChild(buttons);
+  buttons.setAttributeNS(inkscapeNS, "inkscape:groupmode", "layer");
   var documentations = createSVGElementWithId(document, "g", "documentations");
   if (documentations.parentNode == null) svg.appendChild(documentations);
+  documentations.setAttributeNS(inkscapeNS, "inkscape:groupmode", "layer");
 
-  var bw = (d+sep);
+  var bw = (d+sep+sep);
 
 //addButton(buttons, locX, locY, dirX, dirY, indexOffset, index, label, name, action)
-    addButton(buttons, -1+bw,-1,   0,    1,    0,           0.5, imagesForPatterns?"a.png":"0", "CP0", "changeColorPattern(evt.target,0)", "Change the pattern to pattern number 1");
-    addButton(buttons, -1+bw,-1,   0,    1,    0,           1.5, imagesForPatterns?"b.png":"1", "CP1", "changeColorPattern(evt.target,1)", "Change the pattern to pattern number 2");
-    addButton(buttons, -1+bw,-1,   0,    1,    0,           2.5, imagesForPatterns?"c.png":"2", "CP2", "changeColorPattern(evt.target,2)", "Change the pattern to pattern number 3");
-    addButton(buttons, -1+bw,-1,   0,    1,    0,           3.5, imagesForPatterns?"d.png":"3", "CP3", "changeColorPattern(evt.target,3)", "Change the pattern to pattern number 4");
-    addButton(buttons, -1+bw,-1,   0,    1,    0,           4.5, imagesForPatterns?"e.png":"4", "CP4", "changeColorPattern(evt.target,4)", "Change the pattern to pattern number 5");
+    addButton(buttons, -1+bw,-1,   0,    1,    0,           0.5, "cp1.png", "CP0", "changeColorPattern(evt.target,0)", "Change the pattern to pattern number 1");
+    addButton(buttons, -1+bw,-1,   0,    1,    0,           1.5, "cp2.png", "CP1", "changeColorPattern(evt.target,1)", "Change the pattern to pattern number 2");
+    addButton(buttons, -1+bw,-1,   0,    1,    0,           2.5, "cp3.png", "CP2", "changeColorPattern(evt.target,2)", "Change the pattern to pattern number 3");
+    addButton(buttons, -1+bw,-1,   0,    1,    0,           3.5, "cp4.png", "CP3", "changeColorPattern(evt.target,3)", "Change the pattern to pattern number 4");
+    addButton(buttons, -1+bw,-1,   0,    1,    0,           4.5, "cp5.png", "CP4", "changeColorPattern(evt.target,4)", "Change the pattern to pattern number 5");
   document.getElementById("buttonCP"+colorPattern).setAttribute("stroke-width", buttonRectSize*buttonStrokeWidth*2.5);
 
     addButton(buttons, -1-bw,-1,   0,    1,    0,           0, "1", "CC1", "changeColorCount(evt.target,1)", "Change the pattern to use 1 color");
@@ -1336,24 +1455,24 @@ function buildButtons(document) {
     addButton(buttons, -1,    1,   0,   -1,    0,           1, "7", "SC7", "setContent(evt.target,7)", "Change the pattern to use 21 strips per direction");
     addButton(buttons, -1,    1,   0,   -1,    0,           0, "8", "SC8", "setContent(evt.target,8)", "Change the pattern to use 24 strips per direction");
 
-  var cbo = -4.8;
-    addButton(buttons,  0, -1, 1, 0, cbo, 0.0, "V", "V", "setVisibleOrHidden(evt.target,true)", "Clicking on the selected strip makes it visible without altering its color")
-    addButton(buttons,  0, -1, 1, 0, cbo, 0.8, "I", "I", "setVisibleOrHidden(evt.target,false)", "Clicking on the selected strip makes it invisible without altering its color")
-  cbo = -2.7;
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 0.0, "", "C0", "setDefaultColor(evt.target,0)", "Color 1: Select this color to make changes to it, or to change to strips to this color"), 0);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 0.8, "", "C1", "setDefaultColor(evt.target,1)", "Color 2: Select this color to make changes to it, or to change to strips to this color"), 1);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 1.6, "", "C2", "setDefaultColor(evt.target,2)", "Color 3: Select this color to make changes to it, or to change to strips to this color"), 2);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 2.4, "", "C3", "setDefaultColor(evt.target,3)", "Color 4: Select this color to make changes to it, or to change to strips to this color"), 3);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 3.2, "", "C4", "setDefaultColor(evt.target,4)", "Color 5: Select this color to make changes to it, or to change to strips to this color"), 4);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 4.0, "", "C5", "setDefaultColor(evt.target,5)", "Color 6: Select this color to make changes to it, or to change to strips to this color"), 5);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 4.8, "", "C6", "setDefaultColor(evt.target,6)", "Color 7: Select this color to make changes to it, or to change to strips to this color"), 6);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 5.6, "", "C7", "setDefaultColor(evt.target,7)", "Color 8: Select this color to make changes to it, or to change to strips to this color"), 7);
+  var cbo = -5.7;
+    addButton(buttons,  0, -1, 1, 0, cbo, 0, "V", "V", "setVisibleOrHidden(evt.target,true)", "Clicking on the selected strip makes it visible without altering its color")
+    addButton(buttons,  0, -1, 1, 0, cbo, 1, "I", "I", "setVisibleOrHidden(evt.target,false)", "Clicking on the selected strip makes it invisible without altering its color")
+  cbo = -3.3;
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 0, "", "C0", "setDefaultColor(evt.target,0)", "Color 1: Select this color to make changes to it, or to change to strips to this color"), 0);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 1, "", "C1", "setDefaultColor(evt.target,1)", "Color 2: Select this color to make changes to it, or to change to strips to this color"), 1);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 2, "", "C2", "setDefaultColor(evt.target,2)", "Color 3: Select this color to make changes to it, or to change to strips to this color"), 2);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 3, "", "C3", "setDefaultColor(evt.target,3)", "Color 4: Select this color to make changes to it, or to change to strips to this color"), 3);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 4, "", "C4", "setDefaultColor(evt.target,4)", "Color 5: Select this color to make changes to it, or to change to strips to this color"), 4);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 5, "", "C5", "setDefaultColor(evt.target,5)", "Color 6: Select this color to make changes to it, or to change to strips to this color"), 5);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 6, "", "C6", "setDefaultColor(evt.target,6)", "Color 7: Select this color to make changes to it, or to change to strips to this color"), 6);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 7, "", "C7", "setDefaultColor(evt.target,7)", "Color 8: Select this color to make changes to it, or to change to strips to this color"), 7);
 
-    cbo = 6.0;
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 0.0, "", "LAST0", "setColorFromLast(evt.target,0)", "Last Color 1: Click here to change the selected color to this color"), -1);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 0.8, "", "LAST1", "setColorFromLast(evt.target,1)", "Last Color 2: Click here to change the selected color to this color"), -2);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 1.6, "", "LAST2", "setColorFromLast(evt.target,2)", "Last Color 3: Click here to change the selected color to this color"), -3);
-    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 2.4, "", "LAST3", "setColorFromLast(evt.target,3)", "Last Color 4: Click here to change the selected color to this color"), -4);
+    cbo = 5.3;
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 0, "", "LAST0", "setColorFromLast(evt.target,0)", "Last Color 1: Click here to change the selected color to this color"), -1);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 1, "", "LAST1", "setColorFromLast(evt.target,1)", "Last Color 2: Click here to change the selected color to this color"), -2);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 2, "", "LAST2", "setColorFromLast(evt.target,2)", "Last Color 3: Click here to change the selected color to this color"), -3);
+    setButtonRectColor(addButton(buttons,  0, -1, 1, 0,cbo, 3, "", "LAST3", "setColorFromLast(evt.target,3)", "Last Color 4: Click here to change the selected color to this color"), -4);
     
     addButton(buttons,  1,-1,   0,    1,    0,         1.2,  "", "OB", "setOpacity(evt)", "Change the opacity of the selected color");
     addButton(buttons,  1,-1,   0,    1,    0,         2.2,  "", "HB", "setHue(evt)", "Change the hue of the selected color");
@@ -1363,8 +1482,9 @@ function buildButtons(document) {
   //addButton(buttons,  0,    1,   0,    0,    0,           0, "S", "SP", "showOrHidePattern(evt.target)", "Show or hide details about the pattern");
     addButton(buttons,  0,    1,   0,    0,    0,           0, "HB", "HideButtons", "showOrHideButtons(evt.target)", "Hide all the buttons; click here again to make them visible");
 
-    addButton(buttons,  1-bw, 1,   0,   -1,    0,         8.9, "X", "X", "changeHand(evt.target)", "Switch between clockwise and counterclockwise");
-    addButton(buttons,  1+bw, 1,   0,   -1,    0,         8.9, "C", "C", "changeCenter(evt.target)", "Change the type of the center by shifting the pattern one unit");
+    addButton(buttons,  1-2*bw, 1,   0,   -1,    0,         8.9, "-", "-", "changeHand(evt.target)", "Switch between clockwise and counterclockwise");
+    addButton(buttons,  1,      1,   0,   -1,    0,         8.9, "X", "X", "changeTop(evt.target)", "Flip top and bottom");
+    addButton(buttons,  1+2*bw, 1,   0,   -1,    0,         8.9, "C", "C", "changeCenter(evt.target)", "Change the type of the center by shifting the pattern one unit");
 
     addButton(buttons,  1-bw, 1,   0,   -1,    0,         7.6, "a", "VH0", "toggleVisibilityH(evt.target,0)", "Hide or Show the \"a\" hex weave");
     addButton(buttons,  1-bw, 1,   0,   -1,    0,         6.6, "b", "VH1", "toggleVisibilityH(evt.target,1)", "Hide or Show the \"b\" hex weave");
@@ -1417,6 +1537,7 @@ function setSavedContent(g) {
         lastColor[i] = lastButton.getAttribute("fill");
         lastOpacity[i] = lastButton.getAttribute("fill-opacity");
     }
+    hand = parseFloat(document.getElementById("button-").getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
     alternate = parseFloat(document.getElementById("buttonX").getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
     starMadWeaveCenter = parseFloat(document.getElementById("buttonC").getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
     for (i=0; i<3; i++) {

@@ -1,118 +1,22 @@
-#! /bin/bash
-control_c()
-{
-  exit
-}
-trap control_c SIGINT
-
 jar=/Users/rharris/Downloads/batik-1.7/batik-rasterizer.jar
-files=madweave.svg
-#files=*.svg
-for dpi in 75 150 300 600 900 1200 1500 1800 2100 2400
+for dpi in 75 150 300 600 1200 
 do
 widthInInches=10
 widthInDots=$(($widthInInches * $dpi))
 heightInInches=8
 heightInDots=$(($heightInInches * $dpi))
+jpgd=jpg_${widthInInches}_${heightInInches}_$dpi
 mem=$((32 + ( $dpi * $dpi ) / 1000 ))
 
-type_name=png
-mime_type=image/png
-extra="-bg 255.255.255.255"
-d=${type_name}_${widthInInches}_${heightInInches}_${dpi}
-mkdir -p ${d}
-echo ${d}
-time java -Xmx${mem}M -jar ${jar} -d ${d} -m ${mime_type} -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} ${extra} ${files}
+mkdir ${jpgd}
+java -Xmx${mem}M -jar ${jar} -d ${jpgd} -m image/jpeg -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} -q 0.98 *.svg
 
-continue
+#pdfd=pdf_${widthInInches}_${heightInInches}_$dpi
+#mkdir ${pdfd}
+#java -Xmx${mem}M -jar ${jar} -d ${pdfd} -m application/pdf -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} *.svg
 
-type_name=jpg
-mime_type=image/jpeg
-extra="-q 0.99"
-d=${type_name}_${widthInInches}_${heightInInches}_${dpi}_q99
-mkdir -p ${d}
-java -Xmx${mem}M -jar ${jar} -d ${d} -m ${mime_type} -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} ${extra} ${files}
-
-type_name=jpg
-mime_type=image/jpeg
-extra="-q 0.75"
-d=${type_name}_${widthInInches}_${heightInInches}_${dpi}_q75
-mkdir -p ${d}
-java -Xmx${mem}M -jar ${jar} -d ${d} -m ${mime_type} -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} ${extra} ${files}
-
-type_name=pdf
-mime_type=application/pdf
-extra=
-d=${type_name}_${widthInInches}_${heightInInches}_${dpi}
-mkdir -p ${d}
-java -Xmx${mem}M -jar ${jar} -d ${d} -m ${mime_type} -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} ${extra} ${files}
-
-type_name=tiff
-mime_type=image/tiff
-extra=
-d=${type_name}_${widthInInches}_${heightInInches}_${dpi}
-mkdir -p ${d}
-java -Xmx${mem}M -jar ${jar} -d ${d} -m ${mime_type} -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} ${extra} ${files}
+#tiffd=tiff_${widthInInches}_${heightInInches}_$dpi
+#mkdir ${tiffd}
+#java -Xmx${mem}M -jar ${jar} -d ${tiffd} -m image/tiff -h ${heightInDots} -w ${widthInDots} -dpi ${dpi} *.svg
 
 done
-
-# file sizes
-# input file: svg  127152
-#output file:
-#              75     150      300       600      1200
-#pdf       153661  154824   158080    172803    234763
-#png        64958  142141   320018    751513   1877304
-#jpg q75    46508  114213   299807    861292   2632373
-#jpg q99   130937  292837   664858   1611039   4173792
-#tiff     1800794 7201394 28802594 115204994 460809794
-
-# png_10_8_75
-# real	0m4.834s
-# user	0m6.172s
-# sys	0m0.343s
-
-# png_10_8_150
-# real	0m5.272s
-# user	0m6.711s
-# sys	0m0.332s
-
-# png_10_8_300
-# real	0m7.024s
-# user	0m8.472s
-# sys	0m0.431s
-
-# png_10_8_600
-# real	0m12.732s
-# user	0m14.416s
-# sys	0m0.679s
-
-# png_10_8_900
-# real	0m22.642s
-# user	0m24.469s
-# sys	0m1.047s
-
-# png_10_8_1200
-# real	0m35.974s
-# user	0m37.970s
-# sys	0m1.571s
-
-# png_10_8_1500
-# real	0m56.782s
-# user	0m58.755s
-# sys	0m2.337s
-
-# png_10_8_1800
-# real	4m53.271s
-# user	1m30.027s
-# sys	0m17.843s
-
-# png_10_8_2100
-# real	7m44.068s
-# user	1m56.042s
-# sys	0m35.358s
-
-# png_10_8_2400
-# real	12m59.272s
-# user	2m37.222s
-# sys	1m15.765s
-

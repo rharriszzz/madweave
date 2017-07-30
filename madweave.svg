@@ -2,12 +2,14 @@
 <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
 
 
-<svg contentScriptType="text/ecmascript" mwBaseSize="2"
+<svg contentScriptType="text/ecmascript" zoomAndPan="disable"
      xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
-     zoomAndPan="disable" contentStyleType="text/css"
-     viewBox="-11.97 -8.977500000000001 23.94 17.955000000000002" id="svg"
-     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
-     onload="setSavedContent(evt.target)" version="1.1">
+     onload="setSavedContent(evt.target)" contentStyleType="text/css" id="svg"
+     version="1.1" mwBaseSize="2"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     preserveAspectRatio="xMidYMid meet"
+     viewBox="-10.994445 -9.99495 21.98889 19.9899"
+     xmlns="http://www.w3.org/2000/svg">
     <script xlink:actuate="onLoad" xlink:type="simple" xlink:show="other"
             type="text/ecmascript" xmlns:xlink="http://www.w3.org/1999/xlink"
             xlink:href="madweave.js"/>
@@ -18,174 +20,174 @@
         <linearGradient xlink:actuate="onLoad" xlink:type="simple"
                         id="hueAtSatValue" xlink:show="other"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
-            <stop stop-color="rgb(195,67,67)" offset="0%"
+            <stop stop-color="rgb(220,135,135)" offset="0%"
                   id="hueAtSatValuestop0"/>
-            <stop stop-color="rgb(195,118,67)" offset="6%"
+            <stop stop-color="rgb(220,169,135)" offset="6%"
                   id="hueAtSatValuestop1"/>
-            <stop stop-color="rgb(195,170,67)" offset="13%"
+            <stop stop-color="rgb(220,203,135)" offset="13%"
                   id="hueAtSatValuestop2"/>
-            <stop stop-color="rgb(170,195,67)" offset="20%"
+            <stop stop-color="rgb(203,220,135)" offset="20%"
                   id="hueAtSatValuestop3"/>
-            <stop stop-color="rgb(118,195,67)" offset="26%"
+            <stop stop-color="rgb(169,220,135)" offset="26%"
                   id="hueAtSatValuestop4"/>
-            <stop stop-color="rgb(67,195,67)" offset="33%"
+            <stop stop-color="rgb(135,220,135)" offset="33%"
                   id="hueAtSatValuestop5"/>
-            <stop stop-color="rgb(67,195,118)" offset="40%"
+            <stop stop-color="rgb(135,220,169)" offset="40%"
                   id="hueAtSatValuestop6"/>
-            <stop stop-color="rgb(67,195,170)" offset="46%"
+            <stop stop-color="rgb(135,220,203)" offset="46%"
                   id="hueAtSatValuestop7"/>
-            <stop stop-color="rgb(67,170,195)" offset="53%"
+            <stop stop-color="rgb(135,203,220)" offset="53%"
                   id="hueAtSatValuestop8"/>
-            <stop stop-color="rgb(67,118,195)" offset="60%"
+            <stop stop-color="rgb(135,169,220)" offset="60%"
                   id="hueAtSatValuestop9"/>
-            <stop stop-color="rgb(67,67,195)" offset="66%"
+            <stop stop-color="rgb(135,135,220)" offset="66%"
                   id="hueAtSatValuestop10"/>
-            <stop stop-color="rgb(118,67,195)" offset="73%"
+            <stop stop-color="rgb(169,135,220)" offset="73%"
                   id="hueAtSatValuestop11"/>
-            <stop stop-color="rgb(170,67,195)" offset="80%"
+            <stop stop-color="rgb(203,135,220)" offset="80%"
                   id="hueAtSatValuestop12"/>
-            <stop stop-color="rgb(195,67,170)" offset="86%"
+            <stop stop-color="rgb(220,135,203)" offset="86%"
                   id="hueAtSatValuestop13"/>
-            <stop stop-color="rgb(195,67,118)" offset="93%"
+            <stop stop-color="rgb(220,135,169)" offset="93%"
                   id="hueAtSatValuestop14"/>
-            <stop stop-color="rgb(195,67,67)" offset="100%"
+            <stop stop-color="rgb(220,135,135)" offset="100%"
                   id="hueAtSatValuestop15"/>
         </linearGradient>
         <linearGradient xlink:actuate="onLoad" xlink:type="simple"
                         id="satAtHueValue" xlink:show="other"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
-            <stop stop-color="rgb(195,195,195)" offset="0%"
+            <stop stop-color="rgb(220,220,220)" offset="0%"
                   id="satAtHueValuestop0"/>
-            <stop stop-color="rgb(194,195,182)" offset="6%"
+            <stop stop-color="rgb(220,206,210)" offset="6%"
                   id="satAtHueValuestop1"/>
-            <stop stop-color="rgb(193,195,169)" offset="13%"
+            <stop stop-color="rgb(220,191,199)" offset="13%"
                   id="satAtHueValuestop2"/>
-            <stop stop-color="rgb(192,195,156)" offset="20%"
+            <stop stop-color="rgb(220,176,188)" offset="20%"
                   id="satAtHueValuestop3"/>
-            <stop stop-color="rgb(190,195,143)" offset="26%"
+            <stop stop-color="rgb(220,161,177)" offset="26%"
                   id="satAtHueValuestop4"/>
-            <stop stop-color="rgb(189,195,130)" offset="33%"
+            <stop stop-color="rgb(220,147,167)" offset="33%"
                   id="satAtHueValuestop5"/>
-            <stop stop-color="rgb(188,195,117)" offset="40%"
+            <stop stop-color="rgb(220,132,156)" offset="40%"
                   id="satAtHueValuestop6"/>
-            <stop stop-color="rgb(187,195,104)" offset="46%"
+            <stop stop-color="rgb(220,117,145)" offset="46%"
                   id="satAtHueValuestop7"/>
-            <stop stop-color="rgb(185,195,91)" offset="53%"
+            <stop stop-color="rgb(220,103,134)" offset="53%"
                   id="satAtHueValuestop8"/>
-            <stop stop-color="rgb(184,195,78)" offset="60%"
+            <stop stop-color="rgb(220,88,124)" offset="60%"
                   id="satAtHueValuestop9"/>
-            <stop stop-color="rgb(183,195,65)" offset="66%"
+            <stop stop-color="rgb(220,73,113)" offset="66%"
                   id="satAtHueValuestop10"/>
-            <stop stop-color="rgb(182,195,52)" offset="73%"
+            <stop stop-color="rgb(220,58,102)" offset="73%"
                   id="satAtHueValuestop11"/>
-            <stop stop-color="rgb(181,195,39)" offset="80%"
+            <stop stop-color="rgb(220,44,91)" offset="80%"
                   id="satAtHueValuestop12"/>
-            <stop stop-color="rgb(179,195,26)" offset="86%"
+            <stop stop-color="rgb(220,29,81)" offset="86%"
                   id="satAtHueValuestop13"/>
-            <stop stop-color="rgb(178,195,13)" offset="93%"
+            <stop stop-color="rgb(220,14,70)" offset="93%"
                   id="satAtHueValuestop14"/>
-            <stop stop-color="rgb(177,195,0)" offset="100%"
+            <stop stop-color="rgb(220,0,59)" offset="100%"
                   id="satAtHueValuestop15"/>
         </linearGradient>
         <linearGradient xlink:actuate="onLoad" xlink:type="simple"
                         id="valueAtHueSat" xlink:show="other"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
             <stop stop-color="rgb(0,0,0)" offset="0%" id="valueAtHueSatstop0"/>
-            <stop stop-color="rgb(16,17,5)" offset="6%" id="valueAtHueSatstop1"/>
-            <stop stop-color="rgb(32,34,11)" offset="13%"
+            <stop stop-color="rgb(17,10,12)" offset="6%" id="valueAtHueSatstop1"/>
+            <stop stop-color="rgb(34,20,24)" offset="13%"
                   id="valueAtHueSatstop2"/>
-            <stop stop-color="rgb(48,51,17)" offset="20%"
+            <stop stop-color="rgb(51,31,36)" offset="20%"
                   id="valueAtHueSatstop3"/>
-            <stop stop-color="rgb(64,68,23)" offset="26%"
+            <stop stop-color="rgb(68,41,49)" offset="26%"
                   id="valueAtHueSatstop4"/>
-            <stop stop-color="rgb(80,85,29)" offset="33%"
+            <stop stop-color="rgb(85,52,61)" offset="33%"
                   id="valueAtHueSatstop5"/>
-            <stop stop-color="rgb(96,102,35)" offset="40%"
+            <stop stop-color="rgb(102,62,73)" offset="40%"
                   id="valueAtHueSatstop6"/>
-            <stop stop-color="rgb(112,119,41)" offset="46%"
+            <stop stop-color="rgb(119,73,85)" offset="46%"
                   id="valueAtHueSatstop7"/>
-            <stop stop-color="rgb(128,136,46)" offset="53%"
+            <stop stop-color="rgb(136,83,98)" offset="53%"
                   id="valueAtHueSatstop8"/>
-            <stop stop-color="rgb(144,153,52)" offset="60%"
+            <stop stop-color="rgb(153,94,110)" offset="60%"
                   id="valueAtHueSatstop9"/>
-            <stop stop-color="rgb(160,170,58)" offset="66%"
+            <stop stop-color="rgb(170,104,122)" offset="66%"
                   id="valueAtHueSatstop10"/>
-            <stop stop-color="rgb(176,187,64)" offset="73%"
+            <stop stop-color="rgb(187,115,134)" offset="73%"
                   id="valueAtHueSatstop11"/>
-            <stop stop-color="rgb(192,204,70)" offset="80%"
+            <stop stop-color="rgb(204,125,147)" offset="80%"
                   id="valueAtHueSatstop12"/>
-            <stop stop-color="rgb(208,221,76)" offset="86%"
+            <stop stop-color="rgb(221,136,159)" offset="86%"
                   id="valueAtHueSatstop13"/>
-            <stop stop-color="rgb(224,238,82)" offset="93%"
+            <stop stop-color="rgb(238,146,171)" offset="93%"
                   id="valueAtHueSatstop14"/>
-            <stop stop-color="rgb(240,255,87)" offset="100%"
+            <stop stop-color="rgb(255,157,183)" offset="100%"
                   id="valueAtHueSatstop15"/>
         </linearGradient>
         <g id="HStrips">
             <g visibility="visible" id="GPHa0" mwVisibility="visible">
-                <path fill="rgb(183,195,67)" fill-opacity="1" id="PHa0"
+                <path fill="rgb(220,135,158)" fill-opacity="1" id="PHa0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="0" transform="rotate(0) translate(0,-3.325)"/>
             </g>
             <g visibility="visible" id="GPHb0" mwVisibility="visible">
-                <path fill="rgb(183,195,67)" fill-opacity="1" id="PHb0"
+                <path fill="rgb(220,135,158)" fill-opacity="1" id="PHb0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="0" transform="rotate(0) translate(0,-1.995)"/>
             </g>
             <g visibility="visible" id="GPHc0" mwVisibility="visible">
-                <path fill="rgb(183,195,67)" fill-opacity="1" id="PHc0"
+                <path fill="rgb(220,135,158)" fill-opacity="1" id="PHc0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="0" transform="rotate(0) translate(0,-0.665)"/>
             </g>
             <g visibility="visible" id="GPHa1" mwVisibility="visible">
-                <path fill="rgb(183,195,67)" fill-opacity="1" id="PHa1"
+                <path fill="rgb(220,135,158)" fill-opacity="1" id="PHa1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="0" transform="rotate(0) translate(0,0.665)"/>
             </g>
             <g visibility="visible" id="GPHb1" mwVisibility="visible">
-                <path fill="rgb(183,195,67)" fill-opacity="1" id="PHb1"
+                <path fill="rgb(220,135,158)" fill-opacity="1" id="PHb1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="0" transform="rotate(0) translate(0,1.995)"/>
             </g>
             <g visibility="visible" id="GPHc1" mwVisibility="visible">
-                <path fill="rgb(183,195,67)" fill-opacity="1" id="PHc1"
+                <path fill="rgb(220,135,158)" fill-opacity="1" id="PHc1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="0" transform="rotate(0) translate(0,3.325)"/>
             </g>
         </g>
         <g id="RStrips">
             <g visibility="visible" id="GPRa0" mwVisibility="visible">
-                <path fill="rgb(64,149,118)" fill-opacity="1" id="PRa0"
+                <path fill="rgb(252,205,118)" fill-opacity="1" id="PRa0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="1"
                       transform="rotate(120) translate(0,-3.325)"/>
             </g>
             <g visibility="visible" id="GPRb0" mwVisibility="visible">
-                <path fill="rgb(64,149,118)" fill-opacity="1" id="PRb0"
+                <path fill="rgb(252,205,118)" fill-opacity="1" id="PRb0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="1"
                       transform="rotate(120) translate(0,-1.995)"/>
             </g>
             <g visibility="visible" id="GPRc0" mwVisibility="visible">
-                <path fill="rgb(64,149,118)" fill-opacity="1" id="PRc0"
+                <path fill="rgb(252,205,118)" fill-opacity="1" id="PRc0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="1"
                       transform="rotate(120) translate(0,-0.665)"/>
             </g>
             <g visibility="visible" id="GPRa1" mwVisibility="visible">
-                <path fill="rgb(64,149,118)" fill-opacity="1" id="PRa1"
+                <path fill="rgb(252,205,118)" fill-opacity="1" id="PRa1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="1"
                       transform="rotate(120) translate(0,0.665)"/>
             </g>
             <g visibility="visible" id="GPRb1" mwVisibility="visible">
-                <path fill="rgb(64,149,118)" fill-opacity="1" id="PRb1"
+                <path fill="rgb(252,205,118)" fill-opacity="1" id="PRb1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="1"
                       transform="rotate(120) translate(0,1.995)"/>
             </g>
             <g visibility="visible" id="GPRc1" mwVisibility="visible">
-                <path fill="rgb(64,149,118)" fill-opacity="1" id="PRc1"
+                <path fill="rgb(252,205,118)" fill-opacity="1" id="PRc1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="1"
                       transform="rotate(120) translate(0,3.325)"/>
@@ -193,98 +195,105 @@
         </g>
         <g id="LStrips">
             <g visibility="visible" id="GPLa0" mwVisibility="visible">
-                <path fill="rgb(191,94,47)" fill-opacity="1" id="PLa0"
+                <path fill="rgb(140,118,241)" fill-opacity="1" id="PLa0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="2"
                       transform="rotate(240) translate(0,-3.325)"/>
             </g>
             <g visibility="visible" id="GPLb0" mwVisibility="visible">
-                <path fill="rgb(191,94,47)" fill-opacity="1" id="PLb0"
+                <path fill="rgb(140,118,241)" fill-opacity="1" id="PLb0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="2"
                       transform="rotate(240) translate(0,-1.995)"/>
             </g>
             <g visibility="visible" id="GPLc0" mwVisibility="visible">
-                <path fill="rgb(191,94,47)" fill-opacity="1" id="PLc0"
+                <path fill="rgb(140,118,241)" fill-opacity="1" id="PLc0"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="2"
                       transform="rotate(240) translate(0,-0.665)"/>
             </g>
             <g visibility="visible" id="GPLa1" mwVisibility="visible">
-                <path fill="rgb(191,94,47)" fill-opacity="1" id="PLa1"
+                <path fill="rgb(140,118,241)" fill-opacity="1" id="PLa1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="2"
                       transform="rotate(240) translate(0,0.665)"/>
             </g>
             <g visibility="visible" id="GPLb1" mwVisibility="visible">
-                <path fill="rgb(191,94,47)" fill-opacity="1" id="PLb1"
+                <path fill="rgb(140,118,241)" fill-opacity="1" id="PLb1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="2"
                       transform="rotate(240) translate(0,1.995)"/>
             </g>
             <g visibility="visible" id="GPLc1" mwVisibility="visible">
-                <path fill="rgb(191,94,47)" fill-opacity="1" id="PLc1"
+                <path fill="rgb(140,118,241)" fill-opacity="1" id="PLc1"
                       d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
                       mwColorIndex="2"
                       transform="rotate(240) translate(0,3.325)"/>
             </g>
         </g>
         <clipPath id="HRLClipPath">
-            <path d="M 25 -9 L 26 -8 L 24 -8 Z M 23 -9 L 24 -8 L 25 -9 Z M 19 -9 L 20 -8 L 18 -8 Z M 17 -9 L 18 -8 L 19 -9 Z M 13 -9 L 14 -8 L 12 -8 Z M 11 -9 L 12 -8 L 13 -9 Z M 7 -9 L 8 -8 L 6 -8 Z M 5 -9 L 6 -8 L 7 -9 Z M 1 -9 L 2 -8 L 0 -8 Z M -1 -9 L 0 -8 L 1 -9 Z M -5 -9 L -4 -8 L -6 -8 Z M -7 -9 L -6 -8 L -5 -9 Z M -11 -9 L -10 -8 L -12 -8 Z M 22 -8 L 23 -7 L 21 -7 Z M 20 -8 L 21 -7 L 22 -8 Z M 16 -8 L 17 -7 L 15 -7 Z M 14 -8 L 15 -7 L 16 -8 Z M 10 -8 L 11 -7 L 9 -7 Z M 8 -8 L 9 -7 L 10 -8 Z M 4 -8 L 5 -7 L 3 -7 Z M 2 -8 L 3 -7 L 4 -8 Z M -2 -8 L -1 -7 L -3 -7 Z M -4 -8 L -3 -7 L -2 -8 Z M -8 -8 L -7 -7 L -9 -7 Z M -10 -8 L -9 -7 L -8 -8 Z M 23 -7 L 24 -6 L 25 -7 Z M 19 -7 L 20 -6 L 18 -6 Z M 17 -7 L 18 -6 L 19 -7 Z M 13 -7 L 14 -6 L 12 -6 Z M 11 -7 L 12 -6 L 13 -7 Z M 7 -7 L 8 -6 L 6 -6 Z M 5 -7 L 6 -6 L 7 -7 Z M 1 -7 L 2 -6 L 0 -6 Z M -1 -7 L 0 -6 L 1 -7 Z M -5 -7 L -4 -6 L -6 -6 Z M -7 -7 L -6 -6 L -5 -7 Z M -11 -7 L -10 -6 L -12 -6 Z M -13 -7 L -12 -6 L -11 -7 Z M 22 -6 L 23 -5 L 21 -5 Z M 20 -6 L 21 -5 L 22 -6 Z M 16 -6 L 17 -5 L 15 -5 Z M 14 -6 L 15 -5 L 16 -6 Z M 10 -6 L 11 -5 L 9 -5 Z M 8 -6 L 9 -5 L 10 -6 Z M 4 -6 L 5 -5 L 3 -5 Z M 2 -6 L 3 -5 L 4 -6 Z M -2 -6 L -1 -5 L -3 -5 Z M -4 -6 L -3 -5 L -2 -6 Z M -8 -6 L -7 -5 L -9 -5 Z M -10 -6 L -9 -5 L -8 -6 Z M -14 -6 L -13 -5 L -15 -5 Z M 19 -5 L 20 -4 L 18 -4 Z M 17 -5 L 18 -4 L 19 -5 Z M 13 -5 L 14 -4 L 12 -4 Z M 11 -5 L 12 -4 L 13 -5 Z M 7 -5 L 8 -4 L 6 -4 Z M 5 -5 L 6 -4 L 7 -5 Z M 1 -5 L 2 -4 L 0 -4 Z M -1 -5 L 0 -4 L 1 -5 Z M -5 -5 L -4 -4 L -6 -4 Z M -7 -5 L -6 -4 L -5 -5 Z M -11 -5 L -10 -4 L -12 -4 Z M -13 -5 L -12 -4 L -11 -5 Z M 20 -4 L 21 -3 L 22 -4 Z M 16 -4 L 17 -3 L 15 -3 Z M 14 -4 L 15 -3 L 16 -4 Z M 10 -4 L 11 -3 L 9 -3 Z M 8 -4 L 9 -3 L 10 -4 Z M 4 -4 L 5 -3 L 3 -3 Z M 2 -4 L 3 -3 L 4 -4 Z M -2 -4 L -1 -3 L -3 -3 Z M -4 -4 L -3 -3 L -2 -4 Z M -8 -4 L -7 -3 L -9 -3 Z M -10 -4 L -9 -3 L -8 -4 Z M -14 -4 L -13 -3 L -15 -3 Z M -16 -4 L -15 -3 L -14 -4 Z M 19 -3 L 20 -2 L 18 -2 Z M 17 -3 L 18 -2 L 19 -3 Z M 13 -3 L 14 -2 L 12 -2 Z M 11 -3 L 12 -2 L 13 -3 Z M 7 -3 L 8 -2 L 6 -2 Z M 5 -3 L 6 -2 L 7 -3 Z M 1 -3 L 2 -2 L 0 -2 Z M -1 -3 L 0 -2 L 1 -3 Z M -5 -3 L -4 -2 L -6 -2 Z M -7 -3 L -6 -2 L -5 -3 Z M -11 -3 L -10 -2 L -12 -2 Z M -13 -3 L -12 -2 L -11 -3 Z M -17 -3 L -16 -2 L -18 -2 Z M 16 -2 L 17 -1 L 15 -1 Z M 14 -2 L 15 -1 L 16 -2 Z M 10 -2 L 11 -1 L 9 -1 Z M 8 -2 L 9 -1 L 10 -2 Z M 4 -2 L 5 -1 L 3 -1 Z M 2 -2 L 3 -1 L 4 -2 Z M -2 -2 L -1 -1 L -3 -1 Z M -4 -2 L -3 -1 L -2 -2 Z M -8 -2 L -7 -1 L -9 -1 Z M -10 -2 L -9 -1 L -8 -2 Z M -14 -2 L -13 -1 L -15 -1 Z M -16 -2 L -15 -1 L -14 -2 Z M 17 -1 L 18 0 L 19 -1 Z M 13 -1 L 14 0 L 12 0 Z M 11 -1 L 12 0 L 13 -1 Z M 7 -1 L 8 0 L 6 0 Z M 5 -1 L 6 0 L 7 -1 Z M 1 -1 L 2 0 L 0 0 Z M -1 -1 L 0 0 L 1 -1 Z M -5 -1 L -4 0 L -6 0 Z M -7 -1 L -6 0 L -5 -1 Z M -11 -1 L -10 0 L -12 0 Z M -13 -1 L -12 0 L -11 -1 Z M -17 -1 L -16 0 L -18 0 Z M -19 -1 L -18 0 L -17 -1 Z M 16 0 L 17 1 L 15 1 Z M 14 0 L 15 1 L 16 0 Z M 10 0 L 11 1 L 9 1 Z M 8 0 L 9 1 L 10 0 Z M 4 0 L 5 1 L 3 1 Z M 2 0 L 3 1 L 4 0 Z M -2 0 L -1 1 L -3 1 Z M -4 0 L -3 1 L -2 0 Z M -8 0 L -7 1 L -9 1 Z M -10 0 L -9 1 L -8 0 Z M -14 0 L -13 1 L -15 1 Z M -16 0 L -15 1 L -14 0 Z M -20 0 L -19 1 L -21 1 Z M 13 1 L 14 2 L 12 2 Z M 11 1 L 12 2 L 13 1 Z M 7 1 L 8 2 L 6 2 Z M 5 1 L 6 2 L 7 1 Z M 1 1 L 2 2 L 0 2 Z M -1 1 L 0 2 L 1 1 Z M -5 1 L -4 2 L -6 2 Z M -7 1 L -6 2 L -5 1 Z M -11 1 L -10 2 L -12 2 Z M -13 1 L -12 2 L -11 1 Z M -17 1 L -16 2 L -18 2 Z M -19 1 L -18 2 L -17 1 Z M 14 2 L 15 3 L 16 2 Z M 10 2 L 11 3 L 9 3 Z M 8 2 L 9 3 L 10 2 Z M 4 2 L 5 3 L 3 3 Z M 2 2 L 3 3 L 4 2 Z M -2 2 L -1 3 L -3 3 Z M -4 2 L -3 3 L -2 2 Z M -8 2 L -7 3 L -9 3 Z M -10 2 L -9 3 L -8 2 Z M -14 2 L -13 3 L -15 3 Z M -16 2 L -15 3 L -14 2 Z M -20 2 L -19 3 L -21 3 Z M -22 2 L -21 3 L -20 2 Z M 13 3 L 14 4 L 12 4 Z M 11 3 L 12 4 L 13 3 Z M 7 3 L 8 4 L 6 4 Z M 5 3 L 6 4 L 7 3 Z M 1 3 L 2 4 L 0 4 Z M -1 3 L 0 4 L 1 3 Z M -5 3 L -4 4 L -6 4 Z M -7 3 L -6 4 L -5 3 Z M -11 3 L -10 4 L -12 4 Z M -13 3 L -12 4 L -11 3 Z M -17 3 L -16 4 L -18 4 Z M -19 3 L -18 4 L -17 3 Z M -23 3 L -22 4 L -24 4 Z M 10 4 L 11 5 L 9 5 Z M 8 4 L 9 5 L 10 4 Z M 4 4 L 5 5 L 3 5 Z M 2 4 L 3 5 L 4 4 Z M -2 4 L -1 5 L -3 5 Z M -4 4 L -3 5 L -2 4 Z M -8 4 L -7 5 L -9 5 Z M -10 4 L -9 5 L -8 4 Z M -14 4 L -13 5 L -15 5 Z M -16 4 L -15 5 L -14 4 Z M -20 4 L -19 5 L -21 5 Z M -22 4 L -21 5 L -20 4 Z M 11 5 L 12 6 L 13 5 Z M 7 5 L 8 6 L 6 6 Z M 5 5 L 6 6 L 7 5 Z M 1 5 L 2 6 L 0 6 Z M -1 5 L 0 6 L 1 5 Z M -5 5 L -4 6 L -6 6 Z M -7 5 L -6 6 L -5 5 Z M -11 5 L -10 6 L -12 6 Z M -13 5 L -12 6 L -11 5 Z M -17 5 L -16 6 L -18 6 Z M -19 5 L -18 6 L -17 5 Z M -23 5 L -22 6 L -24 6 Z M -25 5 L -24 6 L -23 5 Z M 10 6 L 11 7 L 9 7 Z M 8 6 L 9 7 L 10 6 Z M 4 6 L 5 7 L 3 7 Z M 2 6 L 3 7 L 4 6 Z M -2 6 L -1 7 L -3 7 Z M -4 6 L -3 7 L -2 6 Z M -8 6 L -7 7 L -9 7 Z M -10 6 L -9 7 L -8 6 Z M -14 6 L -13 7 L -15 7 Z M -16 6 L -15 7 L -14 6 Z M -20 6 L -19 7 L -21 7 Z M -22 6 L -21 7 L -20 6 Z M -26 6 L -25 7 L -27 7 Z M 7 7 L 8 8 L 6 8 Z M 5 7 L 6 8 L 7 7 Z M 1 7 L 2 8 L 0 8 Z M -1 7 L 0 8 L 1 7 Z M -5 7 L -4 8 L -6 8 Z M -7 7 L -6 8 L -5 7 Z M -11 7 L -10 8 L -12 8 Z M -13 7 L -12 8 L -11 7 Z M -17 7 L -16 8 L -18 8 Z M -19 7 L -18 8 L -17 7 Z M -23 7 L -22 8 L -24 8 Z M -25 7 L -24 8 L -23 7 Z M 8 8 L 9 9 L 10 8 Z M 4 8 L 5 9 L 3 9 Z M 2 8 L 3 9 L 4 8 Z M -2 8 L -1 9 L -3 9 Z M -4 8 L -3 9 L -2 8 Z M -8 8 L -7 9 L -9 9 Z M -10 8 L -9 9 L -8 8 Z M -14 8 L -13 9 L -15 9 Z M -16 8 L -15 9 L -14 8 Z M -20 8 L -19 9 L -21 9 Z M -22 8 L -21 9 L -20 8 Z M -26 8 L -25 9 L -27 9 Z M -28 8 L -27 9 L -26 8 Z M 7 9 L 8 10 L 6 10 Z M 5 9 L 6 10 L 7 9 Z M 1 9 L 2 10 L 0 10 Z M -1 9 L 0 10 L 1 9 Z M -5 9 L -4 10 L -6 10 Z M -7 9 L -6 10 L -5 9 Z M -11 9 L -10 10 L -12 10 Z M -13 9 L -12 10 L -11 9 Z M -17 9 L -16 10 L -18 10 Z M -19 9 L -18 10 L -17 9 Z M -23 9 L -22 10 L -24 10 Z M -25 9 L -24 10 L -23 9 Z M -29 9 L -28 10 L -30 10 Z "
+            <path d="M 4 -6 L 5 -5 L 3 -5 Z M 2 -6 L 3 -5 L 4 -6 Z M -2 -6 L -1 -5 L -3 -5 Z M -4 -6 L -3 -5 L -2 -6 Z M 7 -5 L 8 -4 L 6 -4 Z M 5 -5 L 6 -4 L 7 -5 Z M 1 -5 L 2 -4 L 0 -4 Z M -1 -5 L 0 -4 L 1 -5 Z M -5 -5 L -4 -4 L -6 -4 Z M -7 -5 L -6 -4 L -5 -5 Z M 4 -4 L 5 -3 L 3 -3 Z M 2 -4 L 3 -3 L 4 -4 Z M -2 -4 L -1 -3 L -3 -3 Z M -4 -4 L -3 -3 L -2 -4 Z M -8 -4 L -7 -3 L -9 -3 Z M 7 -3 L 8 -2 L 6 -2 Z M 5 -3 L 6 -2 L 7 -3 Z M 1 -3 L 2 -2 L 0 -2 Z M -1 -3 L 0 -2 L 1 -3 Z M -5 -3 L -4 -2 L -6 -2 Z M -7 -3 L -6 -2 L -5 -3 Z M 10 -2 L 11 -1 L 9 -1 Z M 8 -2 L 9 -1 L 10 -2 Z M 4 -2 L 5 -1 L 3 -1 Z M 2 -2 L 3 -1 L 4 -2 Z M -2 -2 L -1 -1 L -3 -1 Z M -4 -2 L -3 -1 L -2 -2 Z M -8 -2 L -7 -1 L -9 -1 Z M -10 -2 L -9 -1 L -8 -2 Z M 7 -1 L 8 0 L 6 0 Z M 5 -1 L 6 0 L 7 -1 Z M 1 -1 L 2 0 L 0 0 Z M -1 -1 L 0 0 L 1 -1 Z M -5 -1 L -4 0 L -6 0 Z M -7 -1 L -6 0 L -5 -1 Z M -11 -1 L -10 0 L -12 0 Z M 10 0 L 11 1 L 9 1 Z M 8 0 L 9 1 L 10 0 Z M 4 0 L 5 1 L 3 1 Z M 2 0 L 3 1 L 4 0 Z M -2 0 L -1 1 L -3 1 Z M -4 0 L -3 1 L -2 0 Z M -8 0 L -7 1 L -9 1 Z M -10 0 L -9 1 L -8 0 Z M 7 1 L 8 2 L 6 2 Z M 5 1 L 6 2 L 7 1 Z M 1 1 L 2 2 L 0 2 Z M -1 1 L 0 2 L 1 1 Z M -5 1 L -4 2 L -6 2 Z M -7 1 L -6 2 L -5 1 Z M 8 2 L 9 3 L 10 2 Z M 4 2 L 5 3 L 3 3 Z M 2 2 L 3 3 L 4 2 Z M -2 2 L -1 3 L -3 3 Z M -4 2 L -3 3 L -2 2 Z M -8 2 L -7 3 L -9 3 Z M -10 2 L -9 3 L -8 2 Z M 7 3 L 8 4 L 6 4 Z M 5 3 L 6 4 L 7 3 Z M 1 3 L 2 4 L 0 4 Z M -1 3 L 0 4 L 1 3 Z M -5 3 L -4 4 L -6 4 Z M -7 3 L -6 4 L -5 3 Z M 4 4 L 5 5 L 3 5 Z M 2 4 L 3 5 L 4 4 Z M -2 4 L -1 5 L -3 5 Z M -4 4 L -3 5 L -2 4 Z M 5 5 L 6 6 L 7 5 Z M 1 5 L 2 6 L 0 6 Z M -1 5 L 0 6 L 1 5 Z M -5 5 L -4 6 L -6 6 Z M -7 5 L -6 6 L -5 5 Z "
                   id="HRLClipPath_path"
                   transform="scale(1.33) scale(0.5773502691896257 1.0)"/>
         </clipPath>
         <clipPath id="RLHClipPath">
-            <path d="M 21 -9 L 22 -8 L 20 -8 Z M 21 -9 L 22 -8 L 23 -9 Z M 15 -9 L 16 -8 L 14 -8 Z M 15 -9 L 16 -8 L 17 -9 Z M 9 -9 L 10 -8 L 8 -8 Z M 9 -9 L 10 -8 L 11 -9 Z M 3 -9 L 4 -8 L 2 -8 Z M 3 -9 L 4 -8 L 5 -9 Z M -3 -9 L -2 -8 L -4 -8 Z M -3 -9 L -2 -8 L -1 -9 Z M -9 -9 L -8 -8 L -10 -8 Z M -9 -9 L -8 -8 L -7 -9 Z M 24 -8 L 25 -7 L 23 -7 Z M 24 -8 L 25 -7 L 26 -8 Z M 18 -8 L 19 -7 L 17 -7 Z M 18 -8 L 19 -7 L 20 -8 Z M 12 -8 L 13 -7 L 11 -7 Z M 12 -8 L 13 -7 L 14 -8 Z M 6 -8 L 7 -7 L 5 -7 Z M 6 -8 L 7 -7 L 8 -8 Z M 0 -8 L 1 -7 L -1 -7 Z M 0 -8 L 1 -7 L 2 -8 Z M -6 -8 L -5 -7 L -7 -7 Z M -6 -8 L -5 -7 L -4 -8 Z M -12 -8 L -11 -7 L -13 -7 Z M -12 -8 L -11 -7 L -10 -8 Z M 21 -7 L 22 -6 L 20 -6 Z M 21 -7 L 22 -6 L 23 -7 Z M 15 -7 L 16 -6 L 14 -6 Z M 15 -7 L 16 -6 L 17 -7 Z M 9 -7 L 10 -6 L 8 -6 Z M 9 -7 L 10 -6 L 11 -7 Z M 3 -7 L 4 -6 L 2 -6 Z M 3 -7 L 4 -6 L 5 -7 Z M -3 -7 L -2 -6 L -4 -6 Z M -3 -7 L -2 -6 L -1 -7 Z M -9 -7 L -8 -6 L -10 -6 Z M -9 -7 L -8 -6 L -7 -7 Z M 18 -6 L 19 -5 L 17 -5 Z M 18 -6 L 19 -5 L 20 -6 Z M 12 -6 L 13 -5 L 11 -5 Z M 12 -6 L 13 -5 L 14 -6 Z M 6 -6 L 7 -5 L 5 -5 Z M 6 -6 L 7 -5 L 8 -6 Z M 0 -6 L 1 -5 L -1 -5 Z M 0 -6 L 1 -5 L 2 -6 Z M -6 -6 L -5 -5 L -7 -5 Z M -6 -6 L -5 -5 L -4 -6 Z M -12 -6 L -11 -5 L -13 -5 Z M -12 -6 L -11 -5 L -10 -6 Z M 21 -5 L 22 -4 L 20 -4 Z M 21 -5 L 22 -4 L 23 -5 Z M 15 -5 L 16 -4 L 14 -4 Z M 15 -5 L 16 -4 L 17 -5 Z M 9 -5 L 10 -4 L 8 -4 Z M 9 -5 L 10 -4 L 11 -5 Z M 3 -5 L 4 -4 L 2 -4 Z M 3 -5 L 4 -4 L 5 -5 Z M -3 -5 L -2 -4 L -4 -4 Z M -3 -5 L -2 -4 L -1 -5 Z M -9 -5 L -8 -4 L -10 -4 Z M -9 -5 L -8 -4 L -7 -5 Z M -15 -5 L -14 -4 L -16 -4 Z M -15 -5 L -14 -4 L -13 -5 Z M 18 -4 L 19 -3 L 17 -3 Z M 18 -4 L 19 -3 L 20 -4 Z M 12 -4 L 13 -3 L 11 -3 Z M 12 -4 L 13 -3 L 14 -4 Z M 6 -4 L 7 -3 L 5 -3 Z M 6 -4 L 7 -3 L 8 -4 Z M 0 -4 L 1 -3 L -1 -3 Z M 0 -4 L 1 -3 L 2 -4 Z M -6 -4 L -5 -3 L -7 -3 Z M -6 -4 L -5 -3 L -4 -4 Z M -12 -4 L -11 -3 L -13 -3 Z M -12 -4 L -11 -3 L -10 -4 Z M 15 -3 L 16 -2 L 14 -2 Z M 15 -3 L 16 -2 L 17 -3 Z M 9 -3 L 10 -2 L 8 -2 Z M 9 -3 L 10 -2 L 11 -3 Z M 3 -3 L 4 -2 L 2 -2 Z M 3 -3 L 4 -2 L 5 -3 Z M -3 -3 L -2 -2 L -4 -2 Z M -3 -3 L -2 -2 L -1 -3 Z M -9 -3 L -8 -2 L -10 -2 Z M -9 -3 L -8 -2 L -7 -3 Z M -15 -3 L -14 -2 L -16 -2 Z M -15 -3 L -14 -2 L -13 -3 Z M 18 -2 L 19 -1 L 17 -1 Z M 18 -2 L 19 -1 L 20 -2 Z M 12 -2 L 13 -1 L 11 -1 Z M 12 -2 L 13 -1 L 14 -2 Z M 6 -2 L 7 -1 L 5 -1 Z M 6 -2 L 7 -1 L 8 -2 Z M 0 -2 L 1 -1 L -1 -1 Z M 0 -2 L 1 -1 L 2 -2 Z M -6 -2 L -5 -1 L -7 -1 Z M -6 -2 L -5 -1 L -4 -2 Z M -12 -2 L -11 -1 L -13 -1 Z M -12 -2 L -11 -1 L -10 -2 Z M -18 -2 L -17 -1 L -19 -1 Z M -18 -2 L -17 -1 L -16 -2 Z M 15 -1 L 16 0 L 14 0 Z M 15 -1 L 16 0 L 17 -1 Z M 9 -1 L 10 0 L 8 0 Z M 9 -1 L 10 0 L 11 -1 Z M 3 -1 L 4 0 L 2 0 Z M 3 -1 L 4 0 L 5 -1 Z M -3 -1 L -2 0 L -4 0 Z M -3 -1 L -2 0 L -1 -1 Z M -9 -1 L -8 0 L -10 0 Z M -9 -1 L -8 0 L -7 -1 Z M -15 -1 L -14 0 L -16 0 Z M -15 -1 L -14 0 L -13 -1 Z M 12 0 L 13 1 L 11 1 Z M 12 0 L 13 1 L 14 0 Z M 6 0 L 7 1 L 5 1 Z M 6 0 L 7 1 L 8 0 Z M 0 0 L 1 1 L -1 1 Z M 0 0 L 1 1 L 2 0 Z M -6 0 L -5 1 L -7 1 Z M -6 0 L -5 1 L -4 0 Z M -12 0 L -11 1 L -13 1 Z M -12 0 L -11 1 L -10 0 Z M -18 0 L -17 1 L -19 1 Z M -18 0 L -17 1 L -16 0 Z M 15 1 L 16 2 L 14 2 Z M 15 1 L 16 2 L 17 1 Z M 9 1 L 10 2 L 8 2 Z M 9 1 L 10 2 L 11 1 Z M 3 1 L 4 2 L 2 2 Z M 3 1 L 4 2 L 5 1 Z M -3 1 L -2 2 L -4 2 Z M -3 1 L -2 2 L -1 1 Z M -9 1 L -8 2 L -10 2 Z M -9 1 L -8 2 L -7 1 Z M -15 1 L -14 2 L -16 2 Z M -15 1 L -14 2 L -13 1 Z M -21 1 L -20 2 L -22 2 Z M -21 1 L -20 2 L -19 1 Z M 12 2 L 13 3 L 11 3 Z M 12 2 L 13 3 L 14 2 Z M 6 2 L 7 3 L 5 3 Z M 6 2 L 7 3 L 8 2 Z M 0 2 L 1 3 L -1 3 Z M 0 2 L 1 3 L 2 2 Z M -6 2 L -5 3 L -7 3 Z M -6 2 L -5 3 L -4 2 Z M -12 2 L -11 3 L -13 3 Z M -12 2 L -11 3 L -10 2 Z M -18 2 L -17 3 L -19 3 Z M -18 2 L -17 3 L -16 2 Z M 9 3 L 10 4 L 8 4 Z M 9 3 L 10 4 L 11 3 Z M 3 3 L 4 4 L 2 4 Z M 3 3 L 4 4 L 5 3 Z M -3 3 L -2 4 L -4 4 Z M -3 3 L -2 4 L -1 3 Z M -9 3 L -8 4 L -10 4 Z M -9 3 L -8 4 L -7 3 Z M -15 3 L -14 4 L -16 4 Z M -15 3 L -14 4 L -13 3 Z M -21 3 L -20 4 L -22 4 Z M -21 3 L -20 4 L -19 3 Z M 12 4 L 13 5 L 11 5 Z M 12 4 L 13 5 L 14 4 Z M 6 4 L 7 5 L 5 5 Z M 6 4 L 7 5 L 8 4 Z M 0 4 L 1 5 L -1 5 Z M 0 4 L 1 5 L 2 4 Z M -6 4 L -5 5 L -7 5 Z M -6 4 L -5 5 L -4 4 Z M -12 4 L -11 5 L -13 5 Z M -12 4 L -11 5 L -10 4 Z M -18 4 L -17 5 L -19 5 Z M -18 4 L -17 5 L -16 4 Z M -24 4 L -23 5 L -25 5 Z M -24 4 L -23 5 L -22 4 Z M 9 5 L 10 6 L 8 6 Z M 9 5 L 10 6 L 11 5 Z M 3 5 L 4 6 L 2 6 Z M 3 5 L 4 6 L 5 5 Z M -3 5 L -2 6 L -4 6 Z M -3 5 L -2 6 L -1 5 Z M -9 5 L -8 6 L -10 6 Z M -9 5 L -8 6 L -7 5 Z M -15 5 L -14 6 L -16 6 Z M -15 5 L -14 6 L -13 5 Z M -21 5 L -20 6 L -22 6 Z M -21 5 L -20 6 L -19 5 Z M 6 6 L 7 7 L 5 7 Z M 6 6 L 7 7 L 8 6 Z M 0 6 L 1 7 L -1 7 Z M 0 6 L 1 7 L 2 6 Z M -6 6 L -5 7 L -7 7 Z M -6 6 L -5 7 L -4 6 Z M -12 6 L -11 7 L -13 7 Z M -12 6 L -11 7 L -10 6 Z M -18 6 L -17 7 L -19 7 Z M -18 6 L -17 7 L -16 6 Z M -24 6 L -23 7 L -25 7 Z M -24 6 L -23 7 L -22 6 Z M 9 7 L 10 8 L 8 8 Z M 9 7 L 10 8 L 11 7 Z M 3 7 L 4 8 L 2 8 Z M 3 7 L 4 8 L 5 7 Z M -3 7 L -2 8 L -4 8 Z M -3 7 L -2 8 L -1 7 Z M -9 7 L -8 8 L -10 8 Z M -9 7 L -8 8 L -7 7 Z M -15 7 L -14 8 L -16 8 Z M -15 7 L -14 8 L -13 7 Z M -21 7 L -20 8 L -22 8 Z M -21 7 L -20 8 L -19 7 Z M -27 7 L -26 8 L -28 8 Z M -27 7 L -26 8 L -25 7 Z M 6 8 L 7 9 L 5 9 Z M 6 8 L 7 9 L 8 8 Z M 0 8 L 1 9 L -1 9 Z M 0 8 L 1 9 L 2 8 Z M -6 8 L -5 9 L -7 9 Z M -6 8 L -5 9 L -4 8 Z M -12 8 L -11 9 L -13 9 Z M -12 8 L -11 9 L -10 8 Z M -18 8 L -17 9 L -19 9 Z M -18 8 L -17 9 L -16 8 Z M -24 8 L -23 9 L -25 9 Z M -24 8 L -23 9 L -22 8 Z M 3 9 L 4 10 L 2 10 Z M 3 9 L 4 10 L 5 9 Z M -3 9 L -2 10 L -4 10 Z M -3 9 L -2 10 L -1 9 Z M -9 9 L -8 10 L -10 10 Z M -9 9 L -8 10 L -7 9 Z M -15 9 L -14 10 L -16 10 Z M -15 9 L -14 10 L -13 9 Z M -21 9 L -20 10 L -22 10 Z M -21 9 L -20 10 L -19 9 Z M -27 9 L -26 10 L -28 10 Z M -27 9 L -26 10 L -25 9 Z "
+            <path d="M 6 -6 L 7 -5 L 5 -5 Z M 0 -6 L 1 -5 L -1 -5 Z M 0 -6 L 1 -5 L 2 -6 Z M -6 -6 L -5 -5 L -7 -5 Z M -6 -6 L -5 -5 L -4 -6 Z M 3 -5 L 4 -4 L 2 -4 Z M 3 -5 L 4 -4 L 5 -5 Z M -3 -5 L -2 -4 L -4 -4 Z M -3 -5 L -2 -4 L -1 -5 Z M 6 -4 L 7 -3 L 5 -3 Z M 6 -4 L 7 -3 L 8 -4 Z M 0 -4 L 1 -3 L -1 -3 Z M 0 -4 L 1 -3 L 2 -4 Z M -6 -4 L -5 -3 L -7 -3 Z M -6 -4 L -5 -3 L -4 -4 Z M 9 -3 L 10 -2 L 8 -2 Z M 3 -3 L 4 -2 L 2 -2 Z M 3 -3 L 4 -2 L 5 -3 Z M -3 -3 L -2 -2 L -4 -2 Z M -3 -3 L -2 -2 L -1 -3 Z M -9 -3 L -8 -2 L -10 -2 Z M -9 -3 L -8 -2 L -7 -3 Z M 6 -2 L 7 -1 L 5 -1 Z M 6 -2 L 7 -1 L 8 -2 Z M 0 -2 L 1 -1 L -1 -1 Z M 0 -2 L 1 -1 L 2 -2 Z M -6 -2 L -5 -1 L -7 -1 Z M -6 -2 L -5 -1 L -4 -2 Z M 9 -1 L 10 0 L 8 0 Z M 9 -1 L 10 0 L 11 -1 Z M 3 -1 L 4 0 L 2 0 Z M 3 -1 L 4 0 L 5 -1 Z M -3 -1 L -2 0 L -4 0 Z M -3 -1 L -2 0 L -1 -1 Z M -9 -1 L -8 0 L -10 0 Z M -9 -1 L -8 0 L -7 -1 Z M 6 0 L 7 1 L 5 1 Z M 6 0 L 7 1 L 8 0 Z M 0 0 L 1 1 L -1 1 Z M 0 0 L 1 1 L 2 0 Z M -6 0 L -5 1 L -7 1 Z M -6 0 L -5 1 L -4 0 Z M -12 0 L -11 1 L -10 0 Z M 9 1 L 10 2 L 8 2 Z M 9 1 L 10 2 L 11 1 Z M 3 1 L 4 2 L 2 2 Z M 3 1 L 4 2 L 5 1 Z M -3 1 L -2 2 L -4 2 Z M -3 1 L -2 2 L -1 1 Z M -9 1 L -8 2 L -10 2 Z M -9 1 L -8 2 L -7 1 Z M 6 2 L 7 3 L 5 3 Z M 6 2 L 7 3 L 8 2 Z M 0 2 L 1 3 L -1 3 Z M 0 2 L 1 3 L 2 2 Z M -6 2 L -5 3 L -7 3 Z M -6 2 L -5 3 L -4 2 Z M 3 3 L 4 4 L 2 4 Z M 3 3 L 4 4 L 5 3 Z M -3 3 L -2 4 L -4 4 Z M -3 3 L -2 4 L -1 3 Z M -9 3 L -8 4 L -7 3 Z M 6 4 L 7 5 L 5 5 Z M 6 4 L 7 5 L 8 4 Z M 0 4 L 1 5 L -1 5 Z M 0 4 L 1 5 L 2 4 Z M -6 4 L -5 5 L -7 5 Z M -6 4 L -5 5 L -4 4 Z M 3 5 L 4 6 L 2 6 Z M 3 5 L 4 6 L 5 5 Z M -3 5 L -2 6 L -4 6 Z M -3 5 L -2 6 L -1 5 Z "
                   id="RLHClipPath_path"
                   transform="scale(1.33) scale(0.5773502691896257 1.0)"/>
         </clipPath>
         <clipPath id="LHRClipPath">
-            <path d="M 25 -9 L 26 -8 L 27 -9 Z M 23 -9 L 24 -8 L 22 -8 Z M 19 -9 L 20 -8 L 21 -9 Z M 17 -9 L 18 -8 L 16 -8 Z M 13 -9 L 14 -8 L 15 -9 Z M 11 -9 L 12 -8 L 10 -8 Z M 7 -9 L 8 -8 L 9 -9 Z M 5 -9 L 6 -8 L 4 -8 Z M 1 -9 L 2 -8 L 3 -9 Z M -1 -9 L 0 -8 L -2 -8 Z M -5 -9 L -4 -8 L -3 -9 Z M -7 -9 L -6 -8 L -8 -8 Z M -11 -9 L -10 -8 L -9 -9 Z M 22 -8 L 23 -7 L 24 -8 Z M 20 -8 L 21 -7 L 19 -7 Z M 16 -8 L 17 -7 L 18 -8 Z M 14 -8 L 15 -7 L 13 -7 Z M 10 -8 L 11 -7 L 12 -8 Z M 8 -8 L 9 -7 L 7 -7 Z M 4 -8 L 5 -7 L 6 -8 Z M 2 -8 L 3 -7 L 1 -7 Z M -2 -8 L -1 -7 L 0 -8 Z M -4 -8 L -3 -7 L -5 -7 Z M -8 -8 L -7 -7 L -6 -8 Z M -10 -8 L -9 -7 L -11 -7 Z M 23 -7 L 24 -6 L 22 -6 Z M 19 -7 L 20 -6 L 21 -7 Z M 17 -7 L 18 -6 L 16 -6 Z M 13 -7 L 14 -6 L 15 -7 Z M 11 -7 L 12 -6 L 10 -6 Z M 7 -7 L 8 -6 L 9 -7 Z M 5 -7 L 6 -6 L 4 -6 Z M 1 -7 L 2 -6 L 3 -7 Z M -1 -7 L 0 -6 L -2 -6 Z M -5 -7 L -4 -6 L -3 -7 Z M -7 -7 L -6 -6 L -8 -6 Z M -11 -7 L -10 -6 L -9 -7 Z M -13 -7 L -12 -6 L -14 -6 Z M 22 -6 L 23 -5 L 24 -6 Z M 20 -6 L 21 -5 L 19 -5 Z M 16 -6 L 17 -5 L 18 -6 Z M 14 -6 L 15 -5 L 13 -5 Z M 10 -6 L 11 -5 L 12 -6 Z M 8 -6 L 9 -5 L 7 -5 Z M 4 -6 L 5 -5 L 6 -6 Z M 2 -6 L 3 -5 L 1 -5 Z M -2 -6 L -1 -5 L 0 -6 Z M -4 -6 L -3 -5 L -5 -5 Z M -8 -6 L -7 -5 L -6 -6 Z M -10 -6 L -9 -5 L -11 -5 Z M -14 -6 L -13 -5 L -12 -6 Z M 19 -5 L 20 -4 L 21 -5 Z M 17 -5 L 18 -4 L 16 -4 Z M 13 -5 L 14 -4 L 15 -5 Z M 11 -5 L 12 -4 L 10 -4 Z M 7 -5 L 8 -4 L 9 -5 Z M 5 -5 L 6 -4 L 4 -4 Z M 1 -5 L 2 -4 L 3 -5 Z M -1 -5 L 0 -4 L -2 -4 Z M -5 -5 L -4 -4 L -3 -5 Z M -7 -5 L -6 -4 L -8 -4 Z M -11 -5 L -10 -4 L -9 -5 Z M -13 -5 L -12 -4 L -14 -4 Z M 20 -4 L 21 -3 L 19 -3 Z M 16 -4 L 17 -3 L 18 -4 Z M 14 -4 L 15 -3 L 13 -3 Z M 10 -4 L 11 -3 L 12 -4 Z M 8 -4 L 9 -3 L 7 -3 Z M 4 -4 L 5 -3 L 6 -4 Z M 2 -4 L 3 -3 L 1 -3 Z M -2 -4 L -1 -3 L 0 -4 Z M -4 -4 L -3 -3 L -5 -3 Z M -8 -4 L -7 -3 L -6 -4 Z M -10 -4 L -9 -3 L -11 -3 Z M -14 -4 L -13 -3 L -12 -4 Z M -16 -4 L -15 -3 L -17 -3 Z M 19 -3 L 20 -2 L 21 -3 Z M 17 -3 L 18 -2 L 16 -2 Z M 13 -3 L 14 -2 L 15 -3 Z M 11 -3 L 12 -2 L 10 -2 Z M 7 -3 L 8 -2 L 9 -3 Z M 5 -3 L 6 -2 L 4 -2 Z M 1 -3 L 2 -2 L 3 -3 Z M -1 -3 L 0 -2 L -2 -2 Z M -5 -3 L -4 -2 L -3 -3 Z M -7 -3 L -6 -2 L -8 -2 Z M -11 -3 L -10 -2 L -9 -3 Z M -13 -3 L -12 -2 L -14 -2 Z M -17 -3 L -16 -2 L -15 -3 Z M 16 -2 L 17 -1 L 18 -2 Z M 14 -2 L 15 -1 L 13 -1 Z M 10 -2 L 11 -1 L 12 -2 Z M 8 -2 L 9 -1 L 7 -1 Z M 4 -2 L 5 -1 L 6 -2 Z M 2 -2 L 3 -1 L 1 -1 Z M -2 -2 L -1 -1 L 0 -2 Z M -4 -2 L -3 -1 L -5 -1 Z M -8 -2 L -7 -1 L -6 -2 Z M -10 -2 L -9 -1 L -11 -1 Z M -14 -2 L -13 -1 L -12 -2 Z M -16 -2 L -15 -1 L -17 -1 Z M 17 -1 L 18 0 L 16 0 Z M 13 -1 L 14 0 L 15 -1 Z M 11 -1 L 12 0 L 10 0 Z M 7 -1 L 8 0 L 9 -1 Z M 5 -1 L 6 0 L 4 0 Z M 1 -1 L 2 0 L 3 -1 Z M -1 -1 L 0 0 L -2 0 Z M -5 -1 L -4 0 L -3 -1 Z M -7 -1 L -6 0 L -8 0 Z M -11 -1 L -10 0 L -9 -1 Z M -13 -1 L -12 0 L -14 0 Z M -17 -1 L -16 0 L -15 -1 Z M -19 -1 L -18 0 L -20 0 Z M 16 0 L 17 1 L 18 0 Z M 14 0 L 15 1 L 13 1 Z M 10 0 L 11 1 L 12 0 Z M 8 0 L 9 1 L 7 1 Z M 4 0 L 5 1 L 6 0 Z M 2 0 L 3 1 L 1 1 Z M -2 0 L -1 1 L 0 0 Z M -4 0 L -3 1 L -5 1 Z M -8 0 L -7 1 L -6 0 Z M -10 0 L -9 1 L -11 1 Z M -14 0 L -13 1 L -12 0 Z M -16 0 L -15 1 L -17 1 Z M -20 0 L -19 1 L -18 0 Z M 13 1 L 14 2 L 15 1 Z M 11 1 L 12 2 L 10 2 Z M 7 1 L 8 2 L 9 1 Z M 5 1 L 6 2 L 4 2 Z M 1 1 L 2 2 L 3 1 Z M -1 1 L 0 2 L -2 2 Z M -5 1 L -4 2 L -3 1 Z M -7 1 L -6 2 L -8 2 Z M -11 1 L -10 2 L -9 1 Z M -13 1 L -12 2 L -14 2 Z M -17 1 L -16 2 L -15 1 Z M -19 1 L -18 2 L -20 2 Z M 14 2 L 15 3 L 13 3 Z M 10 2 L 11 3 L 12 2 Z M 8 2 L 9 3 L 7 3 Z M 4 2 L 5 3 L 6 2 Z M 2 2 L 3 3 L 1 3 Z M -2 2 L -1 3 L 0 2 Z M -4 2 L -3 3 L -5 3 Z M -8 2 L -7 3 L -6 2 Z M -10 2 L -9 3 L -11 3 Z M -14 2 L -13 3 L -12 2 Z M -16 2 L -15 3 L -17 3 Z M -20 2 L -19 3 L -18 2 Z M -22 2 L -21 3 L -23 3 Z M 13 3 L 14 4 L 15 3 Z M 11 3 L 12 4 L 10 4 Z M 7 3 L 8 4 L 9 3 Z M 5 3 L 6 4 L 4 4 Z M 1 3 L 2 4 L 3 3 Z M -1 3 L 0 4 L -2 4 Z M -5 3 L -4 4 L -3 3 Z M -7 3 L -6 4 L -8 4 Z M -11 3 L -10 4 L -9 3 Z M -13 3 L -12 4 L -14 4 Z M -17 3 L -16 4 L -15 3 Z M -19 3 L -18 4 L -20 4 Z M -23 3 L -22 4 L -21 3 Z M 10 4 L 11 5 L 12 4 Z M 8 4 L 9 5 L 7 5 Z M 4 4 L 5 5 L 6 4 Z M 2 4 L 3 5 L 1 5 Z M -2 4 L -1 5 L 0 4 Z M -4 4 L -3 5 L -5 5 Z M -8 4 L -7 5 L -6 4 Z M -10 4 L -9 5 L -11 5 Z M -14 4 L -13 5 L -12 4 Z M -16 4 L -15 5 L -17 5 Z M -20 4 L -19 5 L -18 4 Z M -22 4 L -21 5 L -23 5 Z M 11 5 L 12 6 L 10 6 Z M 7 5 L 8 6 L 9 5 Z M 5 5 L 6 6 L 4 6 Z M 1 5 L 2 6 L 3 5 Z M -1 5 L 0 6 L -2 6 Z M -5 5 L -4 6 L -3 5 Z M -7 5 L -6 6 L -8 6 Z M -11 5 L -10 6 L -9 5 Z M -13 5 L -12 6 L -14 6 Z M -17 5 L -16 6 L -15 5 Z M -19 5 L -18 6 L -20 6 Z M -23 5 L -22 6 L -21 5 Z M -25 5 L -24 6 L -26 6 Z M 10 6 L 11 7 L 12 6 Z M 8 6 L 9 7 L 7 7 Z M 4 6 L 5 7 L 6 6 Z M 2 6 L 3 7 L 1 7 Z M -2 6 L -1 7 L 0 6 Z M -4 6 L -3 7 L -5 7 Z M -8 6 L -7 7 L -6 6 Z M -10 6 L -9 7 L -11 7 Z M -14 6 L -13 7 L -12 6 Z M -16 6 L -15 7 L -17 7 Z M -20 6 L -19 7 L -18 6 Z M -22 6 L -21 7 L -23 7 Z M -26 6 L -25 7 L -24 6 Z M 7 7 L 8 8 L 9 7 Z M 5 7 L 6 8 L 4 8 Z M 1 7 L 2 8 L 3 7 Z M -1 7 L 0 8 L -2 8 Z M -5 7 L -4 8 L -3 7 Z M -7 7 L -6 8 L -8 8 Z M -11 7 L -10 8 L -9 7 Z M -13 7 L -12 8 L -14 8 Z M -17 7 L -16 8 L -15 7 Z M -19 7 L -18 8 L -20 8 Z M -23 7 L -22 8 L -21 7 Z M -25 7 L -24 8 L -26 8 Z M 8 8 L 9 9 L 7 9 Z M 4 8 L 5 9 L 6 8 Z M 2 8 L 3 9 L 1 9 Z M -2 8 L -1 9 L 0 8 Z M -4 8 L -3 9 L -5 9 Z M -8 8 L -7 9 L -6 8 Z M -10 8 L -9 9 L -11 9 Z M -14 8 L -13 9 L -12 8 Z M -16 8 L -15 9 L -17 9 Z M -20 8 L -19 9 L -18 8 Z M -22 8 L -21 9 L -23 9 Z M -26 8 L -25 9 L -24 8 Z M -28 8 L -27 9 L -29 9 Z M 7 9 L 8 10 L 9 9 Z M 5 9 L 6 10 L 4 10 Z M 1 9 L 2 10 L 3 9 Z M -1 9 L 0 10 L -2 10 Z M -5 9 L -4 10 L -3 9 Z M -7 9 L -6 10 L -8 10 Z M -11 9 L -10 10 L -9 9 Z M -13 9 L -12 10 L -14 10 Z M -17 9 L -16 10 L -15 9 Z M -19 9 L -18 10 L -20 10 Z M -23 9 L -22 10 L -21 9 Z M -25 9 L -24 10 L -26 10 Z M -29 9 L -28 10 L -27 9 Z "
+            <path d="M 4 -6 L 5 -5 L 6 -6 Z M 2 -6 L 3 -5 L 1 -5 Z M -2 -6 L -1 -5 L 0 -6 Z M -4 -6 L -3 -5 L -5 -5 Z M 5 -5 L 6 -4 L 4 -4 Z M 1 -5 L 2 -4 L 3 -5 Z M -1 -5 L 0 -4 L -2 -4 Z M -5 -5 L -4 -4 L -3 -5 Z M -7 -5 L -6 -4 L -8 -4 Z M 8 -4 L 9 -3 L 7 -3 Z M 4 -4 L 5 -3 L 6 -4 Z M 2 -4 L 3 -3 L 1 -3 Z M -2 -4 L -1 -3 L 0 -4 Z M -4 -4 L -3 -3 L -5 -3 Z M -8 -4 L -7 -3 L -6 -4 Z M 7 -3 L 8 -2 L 9 -3 Z M 5 -3 L 6 -2 L 4 -2 Z M 1 -3 L 2 -2 L 3 -3 Z M -1 -3 L 0 -2 L -2 -2 Z M -5 -3 L -4 -2 L -3 -3 Z M -7 -3 L -6 -2 L -8 -2 Z M 8 -2 L 9 -1 L 7 -1 Z M 4 -2 L 5 -1 L 6 -2 Z M 2 -2 L 3 -1 L 1 -1 Z M -2 -2 L -1 -1 L 0 -2 Z M -4 -2 L -3 -1 L -5 -1 Z M -8 -2 L -7 -1 L -6 -2 Z M -10 -2 L -9 -1 L -11 -1 Z M 11 -1 L 12 0 L 10 0 Z M 7 -1 L 8 0 L 9 -1 Z M 5 -1 L 6 0 L 4 0 Z M 1 -1 L 2 0 L 3 -1 Z M -1 -1 L 0 0 L -2 0 Z M -5 -1 L -4 0 L -3 -1 Z M -7 -1 L -6 0 L -8 0 Z M -11 -1 L -10 0 L -9 -1 Z M 10 0 L 11 1 L 12 0 Z M 8 0 L 9 1 L 7 1 Z M 4 0 L 5 1 L 6 0 Z M 2 0 L 3 1 L 1 1 Z M -2 0 L -1 1 L 0 0 Z M -4 0 L -3 1 L -5 1 Z M -8 0 L -7 1 L -6 0 Z M -10 0 L -9 1 L -11 1 Z M 7 1 L 8 2 L 9 1 Z M 5 1 L 6 2 L 4 2 Z M 1 1 L 2 2 L 3 1 Z M -1 1 L 0 2 L -2 2 Z M -5 1 L -4 2 L -3 1 Z M -7 1 L -6 2 L -8 2 Z M -11 1 L -10 2 L -9 1 Z M 8 2 L 9 3 L 7 3 Z M 4 2 L 5 3 L 6 2 Z M 2 2 L 3 3 L 1 3 Z M -2 2 L -1 3 L 0 2 Z M -4 2 L -3 3 L -5 3 Z M -8 2 L -7 3 L -6 2 Z M 7 3 L 8 4 L 9 3 Z M 5 3 L 6 4 L 4 4 Z M 1 3 L 2 4 L 3 3 Z M -1 3 L 0 4 L -2 4 Z M -5 3 L -4 4 L -3 3 Z M -7 3 L -6 4 L -8 4 Z M 4 4 L 5 5 L 6 4 Z M 2 4 L 3 5 L 1 5 Z M -2 4 L -1 5 L 0 4 Z M -4 4 L -3 5 L -5 5 Z M -8 4 L -7 5 L -6 4 Z M 5 5 L 6 6 L 4 6 Z M 1 5 L 2 6 L 3 5 Z M -1 5 L 0 6 L -2 6 Z M -5 5 L -4 6 L -3 5 Z "
                   id="LHRClipPath_path"
                   transform="scale(1.33) scale(0.5773502691896257 1.0)"/>
         </clipPath>
         <linearGradient xlink:actuate="onLoad" xlink:type="simple"
                         id="opacityAtColor" xlink:show="other"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
-            <stop stop-opacity="0" stop-color="rgb(183,195,67)"
+            <stop stop-opacity="0" stop-color="rgb(220,135,158)"
                   id="opacityAtColorstop0" offset="0%"/>
             <stop stop-opacity="0.06666666666666667"
-                  stop-color="rgb(183,195,67)" id="opacityAtColorstop1"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop1"
                   offset="6%"/>
             <stop stop-opacity="0.13333333333333333"
-                  stop-color="rgb(183,195,67)" id="opacityAtColorstop2"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop2"
                   offset="13%"/>
-            <stop stop-opacity="0.2" stop-color="rgb(183,195,67)"
+            <stop stop-opacity="0.2" stop-color="rgb(220,135,158)"
                   id="opacityAtColorstop3" offset="20%"/>
             <stop stop-opacity="0.26666666666666666"
-                  stop-color="rgb(183,195,67)" id="opacityAtColorstop4"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop4"
                   offset="26%"/>
-            <stop stop-opacity="0.3333333333333333" stop-color="rgb(183,195,67)"
-                  id="opacityAtColorstop5" offset="33%"/>
-            <stop stop-opacity="0.4" stop-color="rgb(183,195,67)"
+            <stop stop-opacity="0.3333333333333333"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop5"
+                  offset="33%"/>
+            <stop stop-opacity="0.4" stop-color="rgb(220,135,158)"
                   id="opacityAtColorstop6" offset="40%"/>
-            <stop stop-opacity="0.4666666666666667" stop-color="rgb(183,195,67)"
-                  id="opacityAtColorstop7" offset="46%"/>
-            <stop stop-opacity="0.5333333333333333" stop-color="rgb(183,195,67)"
-                  id="opacityAtColorstop8" offset="53%"/>
-            <stop stop-opacity="0.6" stop-color="rgb(183,195,67)"
+            <stop stop-opacity="0.4666666666666667"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop7"
+                  offset="46%"/>
+            <stop stop-opacity="0.5333333333333333"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop8"
+                  offset="53%"/>
+            <stop stop-opacity="0.6" stop-color="rgb(220,135,158)"
                   id="opacityAtColorstop9" offset="60%"/>
-            <stop stop-opacity="0.6666666666666666" stop-color="rgb(183,195,67)"
-                  id="opacityAtColorstop10" offset="66%"/>
-            <stop stop-opacity="0.7333333333333333" stop-color="rgb(183,195,67)"
-                  id="opacityAtColorstop11" offset="73%"/>
-            <stop stop-opacity="0.8" stop-color="rgb(183,195,67)"
+            <stop stop-opacity="0.6666666666666666"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop10"
+                  offset="66%"/>
+            <stop stop-opacity="0.7333333333333333"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop11"
+                  offset="73%"/>
+            <stop stop-opacity="0.8" stop-color="rgb(220,135,158)"
                   id="opacityAtColorstop12" offset="80%"/>
-            <stop stop-opacity="0.8666666666666667" stop-color="rgb(183,195,67)"
-                  id="opacityAtColorstop13" offset="86%"/>
-            <stop stop-opacity="0.9333333333333333" stop-color="rgb(183,195,67)"
-                  id="opacityAtColorstop14" offset="93%"/>
-            <stop stop-opacity="1" stop-color="rgb(183,195,67)"
+            <stop stop-opacity="0.8666666666666667"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop13"
+                  offset="86%"/>
+            <stop stop-opacity="0.9333333333333333"
+                  stop-color="rgb(220,135,158)" id="opacityAtColorstop14"
+                  offset="93%"/>
+            <stop stop-opacity="1" stop-color="rgb(220,135,158)"
                   id="opacityAtColorstop15" offset="100%"/>
         </linearGradient>
     </defs>
-    <g id="strips">
+    <g inkscape:groupmode="layer" id="strips">
         <g id="HRLG" clip-path="url(#HRLClipPath)">
             <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseL"
                  xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -318,1282 +327,1209 @@
                  xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
                  xlink:href="#LStrips"/>
         </g>
-        <rect x="-9.576" y="-7.182000000000001" fill="white" width="19.152"
+    </g>
+    <g inkscape:groupmode="layer" id="tools">
+        <rect x="-7.916000400000001" y="-7.99596" fill="white"
+              width="15.832000800000001"
               onmouseout="unshowMouseStrip(evt.target)" opacity="0"
-              id="stripsCover" height="14.364000000000003"
+              id="stripsCover" height="15.99192"
               onmousemove="showMouseLocation(evt)"
               onmousedown="setCurrentStripColorToCurrentDefault(evt)"
               pointer-events="fill"/>
     </g>
-    <g id="buttons">
+    <g inkscape:groupmode="layer" id="buttons">
         <g id="gbuttonCP0">
-            <rect x="-10.237941" y="-7.72065" width="0.8977500000000002"
-                  xlink:href="a.png" id="buttonCP0" height="0.8977500000000002"
-                  stroke="black" stroke-width="0.06733125000000001"/>
-            <image x="-10.219985999999999" y="-7.702695"
-                   width="0.8618400000000002"
-                   xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="a.png"
-                   xlink:type="simple" xlink:actuate="onLoad"
-                   height="0.8618400000000002" id="ibuttonCP0"
+            <rect x="-9.4500110475" y="-8.624213999999998" width="0.999495"
+                  xlink:href="cp1.png" id="buttonCP0" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <image x="-9.4300211475" y="-8.604224099999998" width="0.9595152"
+                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="cp1.png" xlink:type="simple"
+                   xlink:actuate="onLoad" height="0.9595152" id="ibuttonCP0"
                    preserveAspectRatio="xMidYMid meet" xlink:show="embed"/>
-            <rect x="-10.237941"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-7.72065"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-9.4500110475"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-8.624213999999998" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCP0" height="0.8977500000000002"
+                  id="cbuttonCP0" height="0.999495"
                   onmousedown="changeColorPattern(evt.target,0)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCP1">
-            <rect x="-10.237941" y="-6.64335" width="0.8977500000000002"
-                  xlink:href="b.png" id="buttonCP1" height="0.8977500000000002"
-                  stroke="black" stroke-width="0.026932500000000005"/>
-            <image x="-10.219985999999999" y="-6.625395"
-                   width="0.8618400000000002"
-                   xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="b.png"
-                   xlink:type="simple" xlink:actuate="onLoad"
-                   height="0.8618400000000002" id="ibuttonCP1"
+            <rect x="-9.4500110475" y="-7.481934" width="0.999495"
+                  xlink:href="cp2.png" id="buttonCP1" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <image x="-9.4300211475" y="-7.4619441" width="0.9595152"
+                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="cp2.png" xlink:type="simple"
+                   xlink:actuate="onLoad" height="0.9595152" id="ibuttonCP1"
                    preserveAspectRatio="xMidYMid meet" xlink:show="embed"/>
-            <rect x="-10.237941"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-6.64335"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-9.4500110475"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-7.481934" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCP1" height="0.8977500000000002"
+                  id="cbuttonCP1" height="0.999495"
                   onmousedown="changeColorPattern(evt.target,1)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCP2">
-            <rect x="-10.237941" y="-5.566050000000001"
-                  width="0.8977500000000002" xlink:href="c.png" id="buttonCP2"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <image x="-10.219985999999999" y="-5.548095000000001"
-                   width="0.8618400000000002"
-                   xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="c.png"
-                   xlink:type="simple" xlink:actuate="onLoad"
-                   height="0.8618400000000002" id="ibuttonCP2"
+            <rect x="-9.4500110475" y="-6.3396539999999995" width="0.999495"
+                  xlink:href="cp3.png" id="buttonCP2" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <image x="-9.4300211475" y="-6.3196641" width="0.9595152"
+                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="cp3.png" xlink:type="simple"
+                   xlink:actuate="onLoad" height="0.9595152" id="ibuttonCP2"
                    preserveAspectRatio="xMidYMid meet" xlink:show="embed"/>
-            <rect x="-10.237941"
+            <rect x="-9.4500110475"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-5.566050000000001" fill="white" width="0.8977500000000002"
+                  y="-6.3396539999999995" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCP2" height="0.8977500000000002"
+                  id="cbuttonCP2" height="0.999495"
                   onmousedown="changeColorPattern(evt.target,2)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCP3">
-            <rect x="-10.237941" y="-4.4887500000000005"
-                  width="0.8977500000000002" xlink:href="d.png" id="buttonCP3"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <image x="-10.219985999999999" y="-4.470795000000001"
-                   width="0.8618400000000002"
-                   xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="d.png"
-                   xlink:type="simple" xlink:actuate="onLoad"
-                   height="0.8618400000000002" id="ibuttonCP3"
+            <rect x="-9.4500110475" y="-5.197373999999999" width="0.999495"
+                  xlink:href="cp4.png" id="buttonCP3" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <image x="-9.4300211475" y="-5.177384099999999" width="0.9595152"
+                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="cp4.png" xlink:type="simple"
+                   xlink:actuate="onLoad" height="0.9595152" id="ibuttonCP3"
                    preserveAspectRatio="xMidYMid meet" xlink:show="embed"/>
-            <rect x="-10.237941"
+            <rect x="-9.4500110475"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-4.4887500000000005" fill="white"
-                  width="0.8977500000000002"
+                  y="-5.197373999999999" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCP3" height="0.8977500000000002"
+                  id="cbuttonCP3" height="0.999495"
                   onmousedown="changeColorPattern(evt.target,3)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCP4">
-            <rect x="-10.237941" y="-3.41145" width="0.8977500000000002"
-                  xlink:href="e.png" id="buttonCP4" height="0.8977500000000002"
-                  stroke="black" stroke-width="0.026932500000000005"/>
-            <image x="-10.219985999999999" y="-3.3934949999999997"
-                   width="0.8618400000000002"
-                   xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="e.png"
-                   xlink:type="simple" xlink:actuate="onLoad"
-                   height="0.8618400000000002" id="ibuttonCP4"
+            <rect x="-9.4500110475" y="-4.0550939999999995" width="0.999495"
+                  xlink:href="cp5.png" id="buttonCP4" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <image x="-9.4300211475" y="-4.0351041" width="0.9595152"
+                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                   xlink:href="cp5.png" xlink:type="simple"
+                   xlink:actuate="onLoad" height="0.9595152" id="ibuttonCP4"
                    preserveAspectRatio="xMidYMid meet" xlink:show="embed"/>
-            <rect x="-10.237941"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-3.41145"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-9.4500110475"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-4.0550939999999995" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCP4" height="0.8977500000000002"
+                  id="cbuttonCP4" height="0.999495"
                   onmousedown="changeColorPattern(evt.target,4)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCC1">
-            <rect x="-11.487609" y="-8.2593" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonCC1"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-11.038734000000002" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textCC1"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.6798182525" y="-9.195354" fill="whitesmoke"
+                  width="0.999495" id="buttonCC1" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-10.1800707525" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textCC1" stroke-width="0.02998485">
                 1
             </text>
-            <rect x="-11.487609"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-10.6798182525"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCC1" height="0.8977500000000002"
+                  id="cbuttonCC1" height="0.999495"
                   onmousedown="changeColorCount(evt.target,1)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCC2">
-            <rect x="-11.487609" y="-7.182000000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonCC2"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-11.038734000000002" font-size="0.6284250000000001"
-                  y="-6.471281250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textCC2"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.6798182525" y="-8.053073999999999" fill="whitesmoke"
+                  width="0.999495" id="buttonCC2" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-10.1800707525" font-size="0.6996465"
+                  y="-7.261807124999999" text-anchor="middle" fill="dimgray"
+                  font-family="Verdana" id="textCC2" stroke-width="0.02998485">
                 2
             </text>
-            <rect x="-11.487609"
+            <rect x="-10.6798182525"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-7.182000000000001" fill="white" width="0.8977500000000002"
+                  y="-8.053073999999999" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCC2" height="0.8977500000000002"
+                  id="cbuttonCC2" height="0.999495"
                   onmousedown="changeColorCount(evt.target,2)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCC3">
-            <rect x="-11.487609" y="-6.104700000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonCC3"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="-11.038734000000002" font-size="0.6284250000000001"
-                  y="-5.393981250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textCC3"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.6798182525" y="-6.910794" fill="whitesmoke"
+                  width="0.999495" id="buttonCC3" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="-10.1800707525" font-size="0.6996465" y="-6.119527125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textCC3" stroke-width="0.02998485">
                 3
             </text>
-            <rect x="-11.487609"
+            <rect x="-10.6798182525"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-6.104700000000001" fill="white" width="0.8977500000000002"
+                  y="-6.910794" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCC3" height="0.8977500000000002"
+                  id="cbuttonCC3" height="0.999495"
                   onmousedown="changeColorCount(evt.target,3)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCC4">
-            <rect x="-11.487609" y="-5.027400000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonCC4"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-11.038734000000002" font-size="0.6284250000000001"
-                  y="-4.316681250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textCC4"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.6798182525" y="-5.768514" fill="whitesmoke"
+                  width="0.999495" id="buttonCC4" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-10.1800707525" font-size="0.6996465" y="-4.977247125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textCC4" stroke-width="0.02998485">
                 4
             </text>
-            <rect x="-11.487609"
+            <rect x="-10.6798182525"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-5.027400000000001" fill="white" width="0.8977500000000002"
+                  y="-5.768514" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCC4" height="0.8977500000000002"
+                  id="cbuttonCC4" height="0.999495"
                   onmousedown="changeColorCount(evt.target,4)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCC5">
-            <rect x="-11.487609" y="-3.9501" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonCC5"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-11.038734000000002" font-size="0.6284250000000001"
-                  y="-3.2393812499999997" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textCC5"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.6798182525" y="-4.626233999999999" fill="whitesmoke"
+                  width="0.999495" id="buttonCC5" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-10.1800707525" font-size="0.6996465"
+                  y="-3.8349671249999995" text-anchor="middle" fill="dimgray"
+                  font-family="Verdana" id="textCC5" stroke-width="0.02998485">
                 5
             </text>
-            <rect x="-11.487609"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-3.9501"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-10.6798182525"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-4.626233999999999" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCC5" height="0.8977500000000002"
+                  id="cbuttonCC5" height="0.999495"
                   onmousedown="changeColorCount(evt.target,5)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonCC6">
-            <rect x="-11.487609" y="-2.8727999999999994" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonCC6"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-11.038734000000002" font-size="0.6284250000000001"
-                  y="-2.162081249999999" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textCC6"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.6798182525" y="-3.483953999999999" fill="whitesmoke"
+                  width="0.999495" id="buttonCC6" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-10.1800707525" font-size="0.6996465"
+                  y="-2.692687124999999" text-anchor="middle" fill="dimgray"
+                  font-family="Verdana" id="textCC6" stroke-width="0.02998485">
                 6
             </text>
-            <rect x="-11.487609"
+            <rect x="-10.6798182525"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-2.8727999999999994" fill="white"
-                  width="0.8977500000000002"
+                  y="-3.483953999999999" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonCC6" height="0.8977500000000002"
+                  id="cbuttonCC6" height="0.999495"
                   onmousedown="changeColorCount(evt.target,6)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonSC1">
-            <rect x="-10.862775" y="-0.17955000000000082" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC1"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-10.4139" font-size="0.6284250000000001"
-                  y="0.5311687499999993" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSC1"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.06491465" y="0.1998989999999995" fill="whitesmoke"
+                  width="0.999495" id="buttonSC1" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-9.56516715" font-size="0.6996465" y="0.9911658749999994"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSC1" stroke-width="0.02998485">
                 1
             </text>
-            <rect x="-10.862775"
+            <rect x="-10.06491465"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-0.17955000000000082" fill="white"
-                  width="0.8977500000000002"
+                  y="0.1998989999999995" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC1" height="0.8977500000000002"
+                  id="cbuttonSC1" height="0.999495"
                   onmousedown="setContent(evt.target,1)" pointer-events="fill"/>
         </g>
         <g id="gbuttonSC2">
-            <rect x="-10.862775" y="0.8977499999999992" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC2"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="-10.4139" font-size="0.6284250000000001"
-                  y="1.6084687499999992" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSC2"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.06491465" y="1.3421789999999998" fill="whitesmoke"
+                  width="0.999495" id="buttonSC2" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="-9.56516715" font-size="0.6996465" y="2.1334458749999996"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSC2" stroke-width="0.02998485">
                 2
             </text>
-            <rect x="-10.862775"
+            <rect x="-10.06491465"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="0.8977499999999992" fill="white" width="0.8977500000000002"
+                  y="1.3421789999999998" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC2" height="0.8977500000000002"
+                  id="cbuttonSC2" height="0.999495"
                   onmousedown="setContent(evt.target,2)" pointer-events="fill"/>
         </g>
         <g id="gbuttonSC3">
-            <rect x="-10.862775" y="1.975049999999999" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC3"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-10.4139" font-size="0.6284250000000001"
-                  y="2.6857687499999994" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSC3"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.06491465" y="2.4844589999999993" fill="whitesmoke"
+                  width="0.999495" id="buttonSC3" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-9.56516715" font-size="0.6996465" y="3.275725874999999"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSC3" stroke-width="0.02998485">
                 3
             </text>
-            <rect x="-10.862775"
+            <rect x="-10.06491465"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="1.975049999999999" fill="white" width="0.8977500000000002"
+                  y="2.4844589999999993" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC3" height="0.8977500000000002"
+                  id="cbuttonSC3" height="0.999495"
                   onmousedown="setContent(evt.target,3)" pointer-events="fill"/>
         </g>
         <g id="gbuttonSC4">
-            <rect x="-10.862775" y="3.0523499999999997" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC4"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-10.4139" font-size="0.6284250000000001" y="3.76306875"
+            <rect x="-10.06491465" y="3.6267389999999997" fill="whitesmoke"
+                  width="0.999495" id="buttonSC4" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-9.56516715" font-size="0.6996465" y="4.4180058749999995"
                   text-anchor="middle" fill="dimgray" font-family="Verdana"
-                  id="textSC4" stroke-width="0.026932500000000005">
+                  id="textSC4" stroke-width="0.02998485">
                 4
             </text>
-            <rect x="-10.862775"
+            <rect x="-10.06491465"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="3.0523499999999997" fill="white" width="0.8977500000000002"
+                  y="3.6267389999999997" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC4" height="0.8977500000000002"
+                  id="cbuttonSC4" height="0.999495"
                   onmousedown="setContent(evt.target,4)" pointer-events="fill"/>
         </g>
         <g id="gbuttonSC5">
-            <rect x="-10.862775" y="4.129650000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC5"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-10.4139" font-size="0.6284250000000001"
-                  y="4.8403687500000006" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSC5"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.06491465" y="4.769019" fill="whitesmoke"
+                  width="0.999495" id="buttonSC5" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-9.56516715" font-size="0.6996465" y="5.560285875"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSC5" stroke-width="0.02998485">
                 5
             </text>
-            <rect x="-10.862775"
-                  onmouseover="showButtonDocumentation(evt.target)"
-                  y="4.129650000000001" fill="white" width="0.8977500000000002"
+            <rect x="-10.06491465"
+                  onmouseover="showButtonDocumentation(evt.target)" y="4.769019"
+                  fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC5" height="0.8977500000000002"
+                  id="cbuttonSC5" height="0.999495"
                   onmousedown="setContent(evt.target,5)" pointer-events="fill"/>
         </g>
         <g id="gbuttonSC6">
-            <rect x="-10.862775" y="5.206950000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC6"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-10.4139" font-size="0.6284250000000001"
-                  y="5.917668750000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSC6"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.06491465" y="5.9112990000000005" fill="whitesmoke"
+                  width="0.999495" id="buttonSC6" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-9.56516715" font-size="0.6996465" y="6.702565875"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSC6" stroke-width="0.02998485">
                 6
             </text>
-            <rect x="-10.862775"
+            <rect x="-10.06491465"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="5.206950000000001" fill="white" width="0.8977500000000002"
+                  y="5.9112990000000005" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC6" height="0.8977500000000002"
+                  id="cbuttonSC6" height="0.999495"
                   onmousedown="setContent(evt.target,6)" pointer-events="fill"/>
         </g>
         <g id="gbuttonSC7">
-            <rect x="-10.862775" y="6.284250000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC7"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-10.4139" font-size="0.6284250000000001"
-                  y="6.994968750000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSC7"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.06491465" y="7.053578999999999" fill="whitesmoke"
+                  width="0.999495" id="buttonSC7" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-9.56516715" font-size="0.6996465" y="7.844845874999999"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSC7" stroke-width="0.02998485">
                 7
             </text>
-            <rect x="-10.862775"
+            <rect x="-10.06491465"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="6.284250000000001" fill="white" width="0.8977500000000002"
+                  y="7.053578999999999" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC7" height="0.8977500000000002"
+                  id="cbuttonSC7" height="0.999495"
                   onmousedown="setContent(evt.target,7)" pointer-events="fill"/>
         </g>
         <g id="gbuttonSC8">
-            <rect x="-10.862775" y="7.36155" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSC8"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-10.4139" font-size="0.6284250000000001"
-                  y="8.072268750000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSC8"
-                  stroke-width="0.026932500000000005">
+            <rect x="-10.06491465" y="8.195859" fill="whitesmoke"
+                  width="0.999495" id="buttonSC8" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="-9.56516715" font-size="0.6996465" y="8.987125875"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSC8" stroke-width="0.02998485">
                 8
             </text>
-            <rect x="-10.862775"
-                  onmouseover="showButtonDocumentation(evt.target)" y="7.36155"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-10.06491465"
+                  onmouseover="showButtonDocumentation(evt.target)" y="8.195859"
+                  fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSC8" height="0.8977500000000002"
+                  id="cbuttonSC8" height="0.999495"
                   onmousedown="setContent(evt.target,8)" pointer-events="fill"/>
         </g>
         <g id="gbuttonV">
-            <rect x="-7.343595000000001" y="-8.2593" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonV"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-6.894720000000001" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textV"
-                  stroke-width="0.026932500000000005">
+            <rect x="-7.6618431000000005" y="-9.195354" fill="whitesmoke"
+                  width="0.999495" id="buttonV" height="0.999495" stroke="black"
+                  stroke-width="0.02998485"/>
+            <text x="-7.162095600000001" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textV" stroke-width="0.02998485">
                 V
             </text>
-            <rect x="-7.343595000000001"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-7.6618431000000005"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonV" height="0.8977500000000002"
+                  id="cbuttonV" height="0.999495"
                   onmousedown="setVisibleOrHidden(evt.target,true)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonI">
-            <rect x="-6.194475000000001" y="-8.2593" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonI"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-5.7456000000000005" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textI"
-                  stroke-width="0.026932500000000005">
+            <rect x="-6.405335100000001" y="-9.195354" fill="whitesmoke"
+                  width="0.999495" id="buttonI" height="0.999495" stroke="black"
+                  stroke-width="0.02998485"/>
+            <text x="-5.905587600000001" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textI" stroke-width="0.02998485">
                 I
             </text>
-            <rect x="-6.194475000000001"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-6.405335100000001"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonI" height="0.8977500000000002"
+                  id="cbuttonI" height="0.999495"
                   onmousedown="setVisibleOrHidden(evt.target,false)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC0">
-            <rect x="-4.327155000000001" y="-8.2593" fill-opacity="1"
-                  fill="rgb(183,195,67)" width="0.8977500000000002"
-                  id="buttonC0" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="-3.878280000000001" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC0"
-                  stroke-width="0.026932500000000005">
+            <rect x="-4.646223900000001" y="-9.195354" fill-opacity="1"
+                  fill="rgb(220,135,158)" width="0.999495" id="buttonC0"
+                  height="0.999495" stroke="black" stroke-width="0.074962125"/>
+            <text x="-4.146476400000001" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC0" stroke-width="0.02998485">
             </text>
-            <rect x="-4.327155000000001"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-4.646223900000001"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC0" height="0.8977500000000002"
+                  id="cbuttonC0" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,0)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC1">
-            <rect x="-3.178035000000001" y="-8.2593" fill-opacity="1"
-                  fill="rgb(64,149,118)" width="0.8977500000000002"
-                  id="buttonC1" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-2.7291600000000007" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC1"
-                  stroke-width="0.026932500000000005">
+            <rect x="-3.3897158999999997" y="-9.195354" fill-opacity="1"
+                  fill="rgb(252,205,118)" width="0.999495" id="buttonC1"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="-2.8899684" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC1" stroke-width="0.02998485">
             </text>
-            <rect x="-3.178035000000001"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-3.3897158999999997"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC1" height="0.8977500000000002"
+                  id="cbuttonC1" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,1)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC2">
-            <rect x="-2.0289150000000005" y="-8.2593" fill-opacity="1"
-                  fill="rgb(191,94,47)" width="0.8977500000000002" id="buttonC2"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-1.5800400000000006" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC2"
-                  stroke-width="0.026932500000000005">
+            <rect x="-2.1332079000000004" y="-9.195354" fill-opacity="1"
+                  fill="rgb(140,118,241)" width="0.999495" id="buttonC2"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="-1.6334604000000001" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC2" stroke-width="0.02998485">
             </text>
-            <rect x="-2.0289150000000005"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-2.1332079000000004"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC2" height="0.8977500000000002"
+                  id="cbuttonC2" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,2)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC3">
-            <rect x="-0.8797950000000005" y="-8.2593" fill-opacity="1"
-                  fill="rgb(54,135,186)" width="0.8977500000000002"
-                  id="buttonC3" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="-0.4309200000000004" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC3"
-                  stroke-width="0.026932500000000005">
+            <rect x="-0.8766998999999998" y="-9.195354" fill-opacity="1"
+                  fill="rgb(54,135,186)" width="0.999495" id="buttonC3"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="-0.3769523999999998" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC3" stroke-width="0.02998485">
             </text>
-            <rect x="-0.8797950000000005"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-0.8766998999999998"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC3" height="0.8977500000000002"
+                  id="cbuttonC3" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,3)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC4">
-            <rect x="0.269325" y="-8.2593" fill-opacity="1"
-                  fill="rgb(165,55,191)" width="0.8977500000000002"
-                  id="buttonC4" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="0.7182000000000001" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC4"
-                  stroke-width="0.026932500000000005">
+            <rect x="0.3798081000000003" y="-9.195354" fill-opacity="1"
+                  fill="rgb(165,55,191)" width="0.999495" id="buttonC4"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="0.8795556000000003" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC4" stroke-width="0.02998485">
             </text>
-            <rect x="0.269325" onmouseover="showButtonDocumentation(evt.target)"
-                  y="-8.2593" fill="white" width="0.8977500000000002"
+            <rect x="0.3798081000000003"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC4" height="0.8977500000000002"
+                  id="cbuttonC4" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,4)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC5">
-            <rect x="1.418445" y="-8.2593" fill-opacity="1"
-                  fill="rgb(77,206,214)" width="0.8977500000000002"
-                  id="buttonC5" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="1.86732" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC5"
-                  stroke-width="0.026932500000000005">
+            <rect x="1.6363161000000004" y="-9.195354" fill-opacity="1"
+                  fill="rgb(77,206,214)" width="0.999495" id="buttonC5"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="2.1360636000000004" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC5" stroke-width="0.02998485">
             </text>
-            <rect x="1.418445" onmouseover="showButtonDocumentation(evt.target)"
-                  y="-8.2593" fill="white" width="0.8977500000000002"
+            <rect x="1.6363161000000004"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC5" height="0.8977500000000002"
+                  id="cbuttonC5" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,5)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC6">
-            <rect x="2.567565" y="-8.2593" fill-opacity="1"
-                  fill="rgb(255,182,237)" width="0.8977500000000002"
-                  id="buttonC6" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="3.0164400000000002" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC6"
-                  stroke-width="0.026932500000000005">
+            <rect x="2.8928241000000003" y="-9.195354" fill-opacity="1"
+                  fill="rgb(255,182,237)" width="0.999495" id="buttonC6"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="3.3925716000000006" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC6" stroke-width="0.02998485">
             </text>
-            <rect x="2.567565" onmouseover="showButtonDocumentation(evt.target)"
-                  y="-8.2593" fill="white" width="0.8977500000000002"
+            <rect x="2.8928241000000003"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC6" height="0.8977500000000002"
+                  id="cbuttonC6" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,6)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonC7">
-            <rect x="3.716685" y="-8.2593" fill-opacity="1"
-                  fill="rgb(255,255,255)" width="0.8977500000000002"
-                  id="buttonC7" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="4.16556" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC7"
-                  stroke-width="0.026932500000000005">
+            <rect x="4.149332100000001" y="-9.195354" fill-opacity="1"
+                  fill="rgb(255,255,255)" width="0.999495" id="buttonC7"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="4.649079600000001" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC7" stroke-width="0.02998485">
             </text>
-            <rect x="3.716685" onmouseover="showButtonDocumentation(evt.target)"
-                  y="-8.2593" fill="white" width="0.8977500000000002"
+            <rect x="4.149332100000001"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC7" height="0.8977500000000002"
+                  id="cbuttonC7" height="0.999495"
                   onmousedown="setDefaultColor(evt.target,7)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonLAST0">
-            <rect x="8.169525000000002" y="-8.2593" fill-opacity="1"
-                  fill="rgb(255,255,255)" width="0.8977500000000002"
-                  id="buttonLAST0" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="8.618400000000001" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textLAST0"
-                  stroke-width="0.026932500000000005">
+            <rect x="6.1597449000000015" y="-9.195354" fill-opacity="1"
+                  fill="rgb(255,255,255)" width="0.999495" id="buttonLAST0"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="6.659492400000001" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textLAST0" stroke-width="0.02998485">
             </text>
-            <rect x="8.169525000000002"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="6.1597449000000015"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonLAST0" height="0.8977500000000002"
+                  id="cbuttonLAST0" height="0.999495"
                   onmousedown="setColorFromLast(evt.target,0)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonLAST1">
-            <rect x="9.318645000000002" y="-8.2593" fill-opacity="1"
-                  fill="rgb(255,255,255)" width="0.8977500000000002"
-                  id="buttonLAST1" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="9.767520000000001" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textLAST1"
-                  stroke-width="0.026932500000000005">
+            <rect x="7.416252900000002" y="-9.195354" fill-opacity="1"
+                  fill="rgb(255,255,255)" width="0.999495" id="buttonLAST1"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="7.9160004000000015" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textLAST1" stroke-width="0.02998485">
             </text>
-            <rect x="9.318645000000002"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="7.416252900000002"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonLAST1" height="0.8977500000000002"
+                  id="cbuttonLAST1" height="0.999495"
                   onmousedown="setColorFromLast(evt.target,1)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonLAST2">
-            <rect x="10.467765000000002" y="-8.2593" fill-opacity="1"
-                  fill="rgb(255,255,255)" width="0.8977500000000002"
-                  id="buttonLAST2" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="10.916640000000001" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textLAST2"
-                  stroke-width="0.026932500000000005">
+            <rect x="8.6727609" y="-9.195354" fill-opacity="1"
+                  fill="rgb(255,255,255)" width="0.999495" id="buttonLAST2"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="9.1725084" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textLAST2" stroke-width="0.02998485">
             </text>
-            <rect x="10.467765000000002"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="8.6727609"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonLAST2" height="0.8977500000000002"
+                  id="cbuttonLAST2" height="0.999495"
                   onmousedown="setColorFromLast(evt.target,2)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonLAST3">
-            <rect x="11.616885000000003" y="-8.2593" fill-opacity="1"
-                  fill="rgb(255,255,255)" width="0.8977500000000002"
-                  id="buttonLAST3" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="12.065760000000003" font-size="0.6284250000000001"
-                  y="-7.548581250000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textLAST3"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.929268900000002" y="-9.195354" fill-opacity="1"
+                  fill="rgb(255,255,255)" width="0.999495" id="buttonLAST3"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="10.429016400000002" font-size="0.6996465" y="-8.404087125"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textLAST3" stroke-width="0.02998485">
             </text>
-            <rect x="11.616885000000003"
-                  onmouseover="showButtonDocumentation(evt.target)" y="-8.2593"
-                  fill="white" width="0.8977500000000002"
+            <rect x="9.929268900000002"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-9.195354" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonLAST3" height="0.8977500000000002"
+                  id="cbuttonLAST3" height="0.999495"
                   onmousedown="setColorFromLast(evt.target,3)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonOB">
-            <rect x="9.2917125" y="-6.96654" fill="url(#opacityAtColor)"
-                  width="2.2443750000000002" id="buttonOB"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
+            <rect x="8.3157984" y="-7.824617999999999"
+                  fill="url(#opacityAtColor)" width="2.4987375" id="buttonOB"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
             <g id="buttonOBptr">
-                <line x1="11.536087499999999" x2="11.536087499999999"
-                      y1="-6.96654" y2="-6.78699" id="buttonOBline0"
+                <line x1="10.8145359" x2="10.8145359" y1="-7.824617999999999"
+                      y2="-7.624718999999999" id="buttonOBline0"
                       stroke="rgb(0,0,0)" stroke-opacity="0.9"
-                      stroke-width="0.026932500000000005"/>
-                <line x1="11.536087499999999" x2="11.536087499999999"
-                      y1="-6.78699" y2="-6.60744" id="buttonOBline1"
+                      stroke-width="0.02998485"/>
+                <line x1="10.8145359" x2="10.8145359" y1="-7.624718999999999"
+                      y2="-7.4248199999999995" id="buttonOBline1"
                       stroke="rgb(255,255,255)" stroke-opacity="0.9"
-                      stroke-width="0.026932500000000005"/>
-                <line x1="11.536087499999999" x2="11.536087499999999"
-                      y1="-6.42789" y2="-6.24834" id="buttonOBline3"
+                      stroke-width="0.02998485"/>
+                <line x1="10.8145359" x2="10.8145359" y1="-7.224920999999999"
+                      y2="-7.025021999999999" id="buttonOBline3"
                       stroke="rgb(255,255,255)" stroke-opacity="0.9"
-                      stroke-width="0.026932500000000005"/>
-                <line x1="11.536087499999999" x2="11.536087499999999"
-                      y1="-6.24834" y2="-6.06879" id="buttonOBline4"
-                      stroke="rgb(0,0,0)" stroke-opacity="0.9"
-                      stroke-width="0.026932500000000005"/>
+                      stroke-width="0.02998485"/>
+                <line x1="10.8145359" x2="10.8145359" y1="-7.025021999999999"
+                      y2="-6.825123" id="buttonOBline4" stroke="rgb(0,0,0)"
+                      stroke-opacity="0.9" stroke-width="0.02998485"/>
             </g>
-            <text x="10.4139" font-size="0.6284250000000001" y="-6.25582125"
+            <text x="9.56516715" font-size="0.6996465" y="-7.033351124999999"
                   text-anchor="middle" fill="dimgray" font-family="Verdana"
-                  id="textOB" stroke-width="0.026932500000000005">
+                  id="textOB" stroke-width="0.02998485">
             </text>
             <rect x="0" onmouseover="showButtonDocumentation(evt.target)" y="0"
-                  transform="translate(9.2917125,-6.96654) scale(2.2443750000000002,0.8977500000000002)"
+                  transform="translate(8.3157984,-7.824617999999999) scale(2.4987375,0.999495)"
                   fill="white" width="1"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
                   id="cbuttonOB" height="1" onmousedown="setOpacity(evt)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonHB">
-            <rect x="9.2917125" y="-5.889239999999999"
-                  fill="url(#hueAtSatValue)" width="2.2443750000000002"
-                  id="buttonHB" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
+            <rect x="8.3157984" y="-6.682337999999999"
+                  fill="url(#hueAtSatValue)" width="2.4987375" id="buttonHB"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
             <g id="buttonHBptr">
-                <line x1="9.700843359375" x2="9.700843359375"
-                      y1="-5.889239999999999" y2="-5.709689999999999"
+                <line x1="10.701847738235294" x2="10.701847738235294"
+                      y1="-6.682337999999999" y2="-6.4824389999999985"
                       id="buttonHBline0" stroke="rgb(0,0,0)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
-                <line x1="9.700843359375" x2="9.700843359375"
-                      y1="-5.709689999999999" y2="-5.530139999999999"
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
+                <line x1="10.701847738235294" x2="10.701847738235294"
+                      y1="-6.4824389999999985" y2="-6.282539999999999"
                       id="buttonHBline1" stroke="rgb(255,255,255)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
-                <line x1="9.700843359375" x2="9.700843359375"
-                      y1="-5.350589999999999" y2="-5.171039999999999"
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
+                <line x1="10.701847738235294" x2="10.701847738235294"
+                      y1="-6.082640999999999" y2="-5.882741999999999"
                       id="buttonHBline3" stroke="rgb(255,255,255)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
-                <line x1="9.700843359375" x2="9.700843359375"
-                      y1="-5.171039999999999" y2="-4.991489999999999"
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
+                <line x1="10.701847738235294" x2="10.701847738235294"
+                      y1="-5.882741999999999" y2="-5.682842999999998"
                       id="buttonHBline4" stroke="rgb(0,0,0)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
             </g>
-            <text x="10.4139" font-size="0.6284250000000001"
-                  y="-5.178521249999999" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textHB"
-                  stroke-width="0.026932500000000005">
+            <text x="9.56516715" font-size="0.6996465" y="-5.891071124999999"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textHB" stroke-width="0.02998485">
             </text>
             <rect x="0" onmouseover="showButtonDocumentation(evt.target)" y="0"
-                  transform="translate(9.2917125,-5.889239999999999) scale(2.2443750000000002,0.8977500000000002)"
+                  transform="translate(8.3157984,-6.682337999999999) scale(2.4987375,0.999495)"
                   fill="white" width="1"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
                   id="cbuttonHB" height="1" onmousedown="setHue(evt)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonSB">
-            <rect x="9.2917125" y="-4.81194" fill="url(#satAtHueValue)"
-                  width="2.2443750000000002" id="buttonSB"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
+            <rect x="8.3157984" y="-5.540057999999999"
+                  fill="url(#satAtHueValue)" width="2.4987375" id="buttonSB"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
             <g id="buttonSBptr">
-                <line x1="10.764943269230768" x2="10.764943269230768"
-                      y1="-4.81194" y2="-4.63239" id="buttonSBline0"
-                      stroke="rgb(0,0,0)" stroke-opacity="0.9"
-                      stroke-width="0.010773000000000003"/>
-                <line x1="10.764943269230768" x2="10.764943269230768"
-                      y1="-4.63239" y2="-4.45284" id="buttonSBline1"
+                <line x1="9.281219706818183" x2="9.281219706818183"
+                      y1="-5.540057999999999" y2="-5.340158999999999"
+                      id="buttonSBline0" stroke="rgb(0,0,0)"
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
+                <line x1="9.281219706818183" x2="9.281219706818183"
+                      y1="-5.340158999999999" y2="-5.14026" id="buttonSBline1"
                       stroke="rgb(255,255,255)" stroke-opacity="0.9"
-                      stroke-width="0.010773000000000003"/>
-                <line x1="10.764943269230768" x2="10.764943269230768"
-                      y1="-4.273289999999999" y2="-4.0937399999999995"
+                      stroke-width="0.011993940000000002"/>
+                <line x1="9.281219706818183" x2="9.281219706818183"
+                      y1="-4.940360999999999" y2="-4.740461999999999"
                       id="buttonSBline3" stroke="rgb(255,255,255)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
-                <line x1="10.764943269230768" x2="10.764943269230768"
-                      y1="-4.0937399999999995" y2="-3.9141899999999996"
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
+                <line x1="9.281219706818183" x2="9.281219706818183"
+                      y1="-4.740461999999999" y2="-4.540562999999999"
                       id="buttonSBline4" stroke="rgb(0,0,0)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
             </g>
-            <text x="10.4139" font-size="0.6284250000000001" y="-4.10122125"
+            <text x="9.56516715" font-size="0.6996465" y="-4.7487911249999994"
                   text-anchor="middle" fill="dimgray" font-family="Verdana"
-                  id="textSB" stroke-width="0.026932500000000005">
+                  id="textSB" stroke-width="0.02998485">
             </text>
             <rect x="0" onmouseover="showButtonDocumentation(evt.target)" y="0"
-                  transform="translate(9.2917125,-4.81194) scale(2.2443750000000002,0.8977500000000002)"
+                  transform="translate(8.3157984,-5.540057999999999) scale(2.4987375,0.999495)"
                   fill="white" width="1"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
                   id="cbuttonSB" height="1" onmousedown="setSat(evt)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonVB">
-            <rect x="9.2917125" y="-3.7346399999999993"
-                  fill="url(#valueAtHueSat)" width="2.2443750000000002"
-                  id="buttonVB" height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
+            <rect x="8.3157984" y="-4.397778" fill="url(#valueAtHueSat)"
+                  width="2.4987375" id="buttonVB" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
             <g id="buttonVBptr">
-                <line x1="11.007999264705882" x2="11.007999264705882"
-                      y1="-3.7346399999999993" y2="-3.5550899999999994"
-                      id="buttonVBline0" stroke="rgb(0,0,0)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
-                <line x1="11.007999264705882" x2="11.007999264705882"
-                      y1="-3.5550899999999994" y2="-3.375539999999999"
+                <line x1="10.471571929411764" x2="10.471571929411764"
+                      y1="-4.397778" y2="-4.1978789999999995" id="buttonVBline0"
+                      stroke="rgb(0,0,0)" stroke-opacity="0.9"
+                      stroke-width="0.011993940000000002"/>
+                <line x1="10.471571929411764" x2="10.471571929411764"
+                      y1="-4.1978789999999995" y2="-3.9979799999999996"
                       id="buttonVBline1" stroke="rgb(255,255,255)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
-                <line x1="11.007999264705882" x2="11.007999264705882"
-                      y1="-3.195989999999999" y2="-3.0164399999999993"
-                      id="buttonVBline3" stroke="rgb(255,255,255)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
-                <line x1="11.007999264705882" x2="11.007999264705882"
-                      y1="-3.0164399999999993" y2="-2.836889999999999"
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
+                <line x1="10.471571929411764" x2="10.471571929411764"
+                      y1="-3.798081" y2="-3.5981819999999995" id="buttonVBline3"
+                      stroke="rgb(255,255,255)" stroke-opacity="0.9"
+                      stroke-width="0.011993940000000002"/>
+                <line x1="10.471571929411764" x2="10.471571929411764"
+                      y1="-3.5981819999999995" y2="-3.3982829999999997"
                       id="buttonVBline4" stroke="rgb(0,0,0)"
-                      stroke-opacity="0.9" stroke-width="0.010773000000000003"/>
+                      stroke-opacity="0.9" stroke-width="0.011993940000000002"/>
             </g>
-            <text x="10.4139" font-size="0.6284250000000001"
-                  y="-3.023921249999999" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textVB"
-                  stroke-width="0.026932500000000005">
+            <text x="9.56516715" font-size="0.6996465" y="-3.6065111249999995"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textVB" stroke-width="0.02998485">
             </text>
             <rect x="0" onmouseover="showButtonDocumentation(evt.target)" y="0"
-                  transform="translate(9.2917125,-3.7346399999999993) scale(2.2443750000000002,0.8977500000000002)"
+                  transform="translate(8.3157984,-4.397778) scale(2.4987375,0.999495)"
                   fill="white" width="1"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
                   id="cbuttonVB" height="1" onmousedown="setValue(evt)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonHideButtons">
-            <rect x="-0.4488750000000001" y="7.36155" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonHideButtons"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="0" font-size="0.31421250000000006" y="7.941346875000001"
+            <rect x="-0.4997475" y="8.195859" fill="whitesmoke" width="0.999495"
+                  id="buttonHideButtons" height="0.999495" stroke="black"
+                  stroke-width="0.02998485"/>
+            <text x="0" font-size="0.34982325" y="8.8413661875"
                   text-anchor="middle" fill="dimgray" font-family="Verdana"
-                  id="textHideButtons" stroke-width="0.026932500000000005">
+                  id="textHideButtons" stroke-width="0.02998485">
                 HB
             </text>
-            <rect x="-0.4488750000000001"
-                  onmouseover="showButtonDocumentation(evt.target)" y="7.36155"
-                  fill="white" width="0.8977500000000002"
+            <rect x="-0.4997475"
+                  onmouseover="showButtonDocumentation(evt.target)" y="8.195859"
+                  fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonHideButtons" height="0.8977500000000002"
+                  id="cbuttonHideButtons" height="0.999495"
                   onmousedown="showOrHideButtons(evt.target)"
                   pointer-events="fill"/>
         </g>
-        <g id="gbuttonX">
-            <rect x="9.340191" y="-2.226420000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonX"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="9.789066" font-size="0.6284250000000001"
-                  y="-1.5157012500000007" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textX"
-                  stroke-width="0.026932500000000005">
-                X
+        <g id="gbutton-">
+            <rect x="7.835612445000001" y="-1.970433000000002" fill="whitesmoke"
+                  width="0.999495" id="button-" height="0.999495" stroke="black"
+                  stroke-width="0.02998485"/>
+            <text x="8.335359945" font-size="0.6996465" y="-1.179166125000002"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="text-" stroke-width="0.02998485">
+                -
             </text>
-            <rect x="9.340191" onmouseover="showButtonDocumentation(evt.target)"
-                  y="-2.226420000000001" fill="white" width="0.8977500000000002"
+            <rect x="7.835612445000001"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-1.970433000000002" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonX" height="0.8977500000000002"
+                  id="cbutton-" height="0.999495"
                   onmousedown="changeHand(evt.target)" pointer-events="fill"/>
         </g>
+        <g id="gbuttonX">
+            <rect x="9.06541965" y="-1.970433000000002" fill="whitesmoke"
+                  width="0.999495" id="buttonX" height="0.999495" stroke="black"
+                  stroke-width="0.02998485"/>
+            <text x="9.56516715" font-size="0.6996465" y="-1.179166125000002"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textX" stroke-width="0.02998485">
+                X
+            </text>
+            <rect x="9.06541965"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-1.970433000000002" fill="white" width="0.999495"
+                  onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
+                  id="cbuttonX" height="0.999495"
+                  onmousedown="changeTop(evt.target)" pointer-events="fill"/>
+        </g>
         <g id="gbuttonC">
-            <rect x="10.589859000000002" y="-2.226420000000001"
-                  fill="whitesmoke" width="0.8977500000000002" id="buttonC"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="11.038734000000002" font-size="0.6284250000000001"
-                  y="-1.5157012500000007" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textC"
-                  stroke-width="0.026932500000000005">
+            <rect x="10.295226855000001" y="-1.970433000000002"
+                  fill="whitesmoke" width="0.999495" id="buttonC"
+                  height="0.999495" stroke="black" stroke-width="0.02998485"/>
+            <text x="10.794974355" font-size="0.6996465" y="-1.179166125000002"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textC" stroke-width="0.02998485">
                 C
             </text>
-            <rect x="10.589859000000002"
+            <rect x="10.295226855000001"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-2.226420000000001" fill="white" width="0.8977500000000002"
+                  y="-1.970433000000002" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonC" height="0.8977500000000002"
+                  id="cbuttonC" height="0.999495"
                   onmousedown="changeCenter(evt.target)" pointer-events="fill"/>
         </g>
         <g id="gbuttonVH0">
-            <rect x="9.340191" y="-0.8259300000000005" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonVH0"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="9.789066" font-size="0.6284250000000001"
-                  y="-0.11521125000000032" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textVH0"
-                  stroke-width="0.026932500000000005">
+            <rect x="8.4505160475" y="-0.4854690000000009" fill="whitesmoke"
+                  width="0.999495" id="buttonVH0" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="8.9502635475" font-size="0.6996465" y="0.30579787499999905"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textVH0" stroke-width="0.02998485">
                 a
             </text>
-            <rect x="9.340191" onmouseover="showButtonDocumentation(evt.target)"
-                  y="-0.8259300000000005" fill="white"
-                  width="0.8977500000000002"
+            <rect x="8.4505160475"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="-0.4854690000000009" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonVH0" height="0.8977500000000002"
+                  id="cbuttonVH0" height="0.999495"
                   onmousedown="toggleVisibilityH(evt.target,0)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonVH1">
-            <rect x="9.340191" y="0.2513699999999996" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonVH1"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="9.789066" font-size="0.6284250000000001"
-                  y="0.9620887499999997" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textVH1"
-                  stroke-width="0.026932500000000005">
+            <rect x="8.4505160475" y="0.6568109999999994" fill="whitesmoke"
+                  width="0.999495" id="buttonVH1" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="8.9502635475" font-size="0.6996465" y="1.4480778749999994"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textVH1" stroke-width="0.02998485">
                 b
             </text>
-            <rect x="9.340191" onmouseover="showButtonDocumentation(evt.target)"
-                  y="0.2513699999999996" fill="white" width="0.8977500000000002"
+            <rect x="8.4505160475"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="0.6568109999999994" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonVH1" height="0.8977500000000002"
+                  id="cbuttonVH1" height="0.999495"
                   onmousedown="toggleVisibilityH(evt.target,1)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonVH2">
-            <rect x="9.340191" y="1.3286699999999996" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonVH2"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="9.789066" font-size="0.6284250000000001"
-                  y="2.0393887499999996" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textVH2"
-                  stroke-width="0.026932500000000005">
+            <rect x="8.4505160475" y="1.7990909999999996" fill="whitesmoke"
+                  width="0.999495" id="buttonVH2" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="8.9502635475" font-size="0.6996465" y="2.5903578749999996"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textVH2" stroke-width="0.02998485">
                 c
             </text>
-            <rect x="9.340191" onmouseover="showButtonDocumentation(evt.target)"
-                  y="1.3286699999999996" fill="white" width="0.8977500000000002"
+            <rect x="8.4505160475"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="1.7990909999999996" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonVH2" height="0.8977500000000002"
+                  id="cbuttonVH2" height="0.999495"
                   onmousedown="toggleVisibilityH(evt.target,2)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonVD0">
-            <rect x="10.589859000000002" y="-0.8259300000000005"
-                  fill="whitesmoke" width="0.8977500000000002" id="buttonVD0"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="11.038734000000002" font-size="0.6284250000000001"
-                  y="-0.11521125000000032" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textVD0"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.680323252500001" y="-0.4854690000000009"
+                  fill="whitesmoke" width="0.999495" id="buttonVD0"
+                  height="0.999495" stroke="black" stroke-width="0.074962125"/>
+            <text x="10.1800707525" font-size="0.6996465"
+                  y="0.30579787499999905" text-anchor="middle" fill="dimgray"
+                  font-family="Verdana" id="textVD0" stroke-width="0.02998485">
                 H
             </text>
-            <rect x="10.589859000000002"
+            <rect x="9.680323252500001"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="-0.8259300000000005" fill="white"
-                  width="0.8977500000000002"
+                  y="-0.4854690000000009" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonVD0" height="0.8977500000000002"
+                  id="cbuttonVD0" height="0.999495"
                   onmousedown="toggleVisibilityD(evt.target,0)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonVD1">
-            <rect x="10.589859000000002" y="0.2513699999999996"
-                  fill="whitesmoke" width="0.8977500000000002" id="buttonVD1"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="11.038734000000002" font-size="0.6284250000000001"
-                  y="0.9620887499999997" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textVD1"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.680323252500001" y="0.6568109999999994" fill="whitesmoke"
+                  width="0.999495" id="buttonVD1" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="10.1800707525" font-size="0.6996465" y="1.4480778749999994"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textVD1" stroke-width="0.02998485">
                 R
             </text>
-            <rect x="10.589859000000002"
+            <rect x="9.680323252500001"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="0.2513699999999996" fill="white" width="0.8977500000000002"
+                  y="0.6568109999999994" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonVD1" height="0.8977500000000002"
+                  id="cbuttonVD1" height="0.999495"
                   onmousedown="toggleVisibilityD(evt.target,1)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonVD2">
-            <rect x="10.589859000000002" y="1.3286699999999996"
-                  fill="whitesmoke" width="0.8977500000000002" id="buttonVD2"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="11.038734000000002" font-size="0.6284250000000001"
-                  y="2.0393887499999996" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textVD2"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.680323252500001" y="1.7990909999999996" fill="whitesmoke"
+                  width="0.999495" id="buttonVD2" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="10.1800707525" font-size="0.6996465" y="2.5903578749999996"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textVD2" stroke-width="0.02998485">
                 L
             </text>
-            <rect x="10.589859000000002"
+            <rect x="9.680323252500001"
                   onmouseover="showButtonDocumentation(evt.target)"
-                  y="1.3286699999999996" fill="white" width="0.8977500000000002"
+                  y="1.7990909999999996" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonVD2" height="0.8977500000000002"
+                  id="cbuttonVD2" height="0.999495"
                   onmousedown="toggleVisibilityD(evt.target,2)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonLines">
-            <rect x="9.965025" y="2.72916" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonLines"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="10.4139" font-size="0.6284250000000001" y="3.43987875"
+            <rect x="9.06541965" y="3.2840549999999995" fill="whitesmoke"
+                  width="0.999495" id="buttonLines" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="9.56516715" font-size="0.6996465" y="4.075321874999999"
                   text-anchor="middle" fill="dimgray" font-family="Verdana"
-                  id="textLines" stroke-width="0.026932500000000005">
+                  id="textLines" stroke-width="0.02998485">
                 L
             </text>
-            <rect x="9.965025" onmouseover="showButtonDocumentation(evt.target)"
-                  y="2.72916" fill="white" width="0.8977500000000002"
+            <rect x="9.06541965"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="3.2840549999999995" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonLines" height="0.8977500000000002"
+                  id="cbuttonLines" height="0.999495"
                   onmousedown="showOrHideLines(evt.target)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonSep0">
-            <rect x="9.965025" y="4.129650000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSep0"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="10.4139" font-size="0.6284250000000001"
-                  y="4.8403687500000006" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSep0"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.06541965" y="4.769019" fill="whitesmoke" width="0.999495"
+                  id="buttonSep0" height="0.999495" stroke="black"
+                  stroke-width="0.02998485"/>
+            <text x="9.56516715" font-size="0.6996465" y="5.560285875"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSep0" stroke-width="0.02998485">
                 N
             </text>
-            <rect x="9.965025" onmouseover="showButtonDocumentation(evt.target)"
-                  y="4.129650000000001" fill="white" width="0.8977500000000002"
+            <rect x="9.06541965"
+                  onmouseover="showButtonDocumentation(evt.target)" y="4.769019"
+                  fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSep0" height="0.8977500000000002"
+                  id="cbuttonSep0" height="0.999495"
                   onmousedown="setSeparation(evt.target,0)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonSep1">
-            <rect x="9.965025" y="5.206950000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSep1"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.06733125000000001"/>
-            <text x="10.4139" font-size="0.6284250000000001"
-                  y="5.917668750000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSep1"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.06541965" y="5.9112990000000005" fill="whitesmoke"
+                  width="0.999495" id="buttonSep1" height="0.999495"
+                  stroke="black" stroke-width="0.074962125"/>
+            <text x="9.56516715" font-size="0.6996465" y="6.702565875"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSep1" stroke-width="0.02998485">
                 M
             </text>
-            <rect x="9.965025" onmouseover="showButtonDocumentation(evt.target)"
-                  y="5.206950000000001" fill="white" width="0.8977500000000002"
+            <rect x="9.06541965"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="5.9112990000000005" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSep1" height="0.8977500000000002"
+                  id="cbuttonSep1" height="0.999495"
                   onmousedown="setSeparation(evt.target,1)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonSep2">
-            <rect x="9.965025" y="6.284250000000001" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSep2"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="10.4139" font-size="0.6284250000000001"
-                  y="6.994968750000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSep2"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.06541965" y="7.053578999999999" fill="whitesmoke"
+                  width="0.999495" id="buttonSep2" height="0.999495"
+                  stroke="black" stroke-width="0.02998485"/>
+            <text x="9.56516715" font-size="0.6996465" y="7.844845874999999"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSep2" stroke-width="0.02998485">
                 W
             </text>
-            <rect x="9.965025" onmouseover="showButtonDocumentation(evt.target)"
-                  y="6.284250000000001" fill="white" width="0.8977500000000002"
+            <rect x="9.06541965"
+                  onmouseover="showButtonDocumentation(evt.target)"
+                  y="7.053578999999999" fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSep2" height="0.8977500000000002"
+                  id="cbuttonSep2" height="0.999495"
                   onmousedown="setSeparation(evt.target,2)"
                   pointer-events="fill"/>
         </g>
         <g id="gbuttonSep3">
-            <rect x="9.965025" y="7.36155" fill="whitesmoke"
-                  width="0.8977500000000002" id="buttonSep3"
-                  height="0.8977500000000002" stroke="black"
-                  stroke-width="0.026932500000000005"/>
-            <text x="10.4139" font-size="0.6284250000000001"
-                  y="8.072268750000001" text-anchor="middle" fill="dimgray"
-                  font-family="Verdana" id="textSep3"
-                  stroke-width="0.026932500000000005">
+            <rect x="9.06541965" y="8.195859" fill="whitesmoke" width="0.999495"
+                  id="buttonSep3" height="0.999495" stroke="black"
+                  stroke-width="0.02998485"/>
+            <text x="9.56516715" font-size="0.6996465" y="8.987125875"
+                  text-anchor="middle" fill="dimgray" font-family="Verdana"
+                  id="textSep3" stroke-width="0.02998485">
                 E
             </text>
-            <rect x="9.965025" onmouseover="showButtonDocumentation(evt.target)"
-                  y="7.36155" fill="white" width="0.8977500000000002"
+            <rect x="9.06541965"
+                  onmouseover="showButtonDocumentation(evt.target)" y="8.195859"
+                  fill="white" width="0.999495"
                   onmouseout="hideButtonDocumentation(evt.target)" opacity="0"
-                  id="cbuttonSep3" height="0.8977500000000002"
+                  id="cbuttonSep3" height="0.999495"
                   onmousedown="setSeparation(evt.target,3)"
                   pointer-events="fill"/>
         </g>
     </g>
-    <g id="documentations">
+    <g inkscape:groupmode="layer" id="documentations">
         <g visibility="hidden" id="docCP0">
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-7.066040624999999" text-anchor="start"
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-7.895415562499998" text-anchor="start"
                   font-family="Verdana" id="docCP0_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to pattern number 1
             </text>
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-7.066040624999999" fill="black" text-anchor="start"
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-7.895415562499998" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCP0_1">
                 Change the pattern to pattern number 1
             </text>
         </g>
         <g visibility="hidden" id="docCP1">
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-5.988740624999999" text-anchor="start"
-                  font-family="Verdana" id="docCP1_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-6.7531355625" text-anchor="start" font-family="Verdana"
+                  id="docCP1_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Change the pattern to pattern number 2
             </text>
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-5.988740624999999" fill="black" text-anchor="start"
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-6.7531355625" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCP1_1">
                 Change the pattern to pattern number 2
             </text>
         </g>
         <g visibility="hidden" id="docCP2">
-            <text x="-9.1157535" font-size="0.4937625000000001" y="-4.911440625"
-                  text-anchor="start" font-family="Verdana" id="docCP2_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-5.610855562499999" text-anchor="start"
+                  font-family="Verdana" id="docCP2_0" stroke="white"
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to pattern number 3
             </text>
-            <text x="-9.1157535" font-size="0.4937625000000001" y="-4.911440625"
-                  fill="black" text-anchor="start" font-family="Verdana"
-                  id="docCP2_1">
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-5.610855562499999" fill="black" text-anchor="start"
+                  font-family="Verdana" id="docCP2_1">
                 Change the pattern to pattern number 3
             </text>
         </g>
         <g visibility="hidden" id="docCP3">
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-3.8341406250000003" text-anchor="start"
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-4.468575562499999" text-anchor="start"
                   font-family="Verdana" id="docCP3_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to pattern number 4
             </text>
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-3.8341406250000003" fill="black" text-anchor="start"
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-4.468575562499999" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCP3_1">
                 Change the pattern to pattern number 4
             </text>
         </g>
         <g visibility="hidden" id="docCP4">
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-2.7568406249999997" text-anchor="start"
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-3.3262955624999995" text-anchor="start"
                   font-family="Verdana" id="docCP4_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to pattern number 5
             </text>
-            <text x="-9.1157535" font-size="0.4937625000000001"
-                  y="-2.7568406249999997" fill="black" text-anchor="start"
+            <text x="-8.2006422975" font-size="0.5497222500000001"
+                  y="-3.3262955624999995" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCP4_1">
                 Change the pattern to pattern number 5
             </text>
         </g>
         <g visibility="hidden" id="docCC1">
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-7.604690625" text-anchor="start" font-family="Verdana"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-8.4665555625" text-anchor="start" font-family="Verdana"
                   id="docCC1_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Change the pattern to use 1 color
             </text>
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-7.604690625" fill="black" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-8.4665555625" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCC1_1">
                 Change the pattern to use 1 color
             </text>
         </g>
         <g visibility="hidden" id="docCC2">
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-6.527390625000001" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-7.324275562499999" text-anchor="start"
                   font-family="Verdana" id="docCC2_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 2 colors
             </text>
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-6.527390625000001" fill="black" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-7.324275562499999" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCC2_1">
                 Change the pattern to use 2 colors
             </text>
         </g>
         <g visibility="hidden" id="docCC3">
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-5.4500906250000005" text-anchor="start"
-                  font-family="Verdana" id="docCC3_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-6.1819955625" text-anchor="start" font-family="Verdana"
+                  id="docCC3_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Change the pattern to use 3 colors
             </text>
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-5.4500906250000005" fill="black" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-6.1819955625" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCC3_1">
                 Change the pattern to use 3 colors
             </text>
         </g>
         <g visibility="hidden" id="docCC4">
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-4.372790625" text-anchor="start" font-family="Verdana"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-5.0397155625" text-anchor="start" font-family="Verdana"
                   id="docCC4_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Change the pattern to use 4 colors
             </text>
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-4.372790625" fill="black" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-5.0397155625" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCC4_1">
                 Change the pattern to use 4 colors
             </text>
         </g>
         <g visibility="hidden" id="docCC5">
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-3.295490625" text-anchor="start" font-family="Verdana"
-                  id="docCC5_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-3.8974355624999992" text-anchor="start"
+                  font-family="Verdana" id="docCC5_0" stroke="white"
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 5 colors
             </text>
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-3.295490625" fill="black" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-3.8974355624999992" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCC5_1">
                 Change the pattern to use 5 colors
             </text>
         </g>
         <g visibility="hidden" id="docCC6">
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-2.218190624999999" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-2.755155562499999" text-anchor="start"
                   font-family="Verdana" id="docCC6_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 6 colors
             </text>
-            <text x="-10.365421500000002" font-size="0.4937625000000001"
-                  y="-2.218190624999999" fill="black" text-anchor="start"
+            <text x="-9.4304495025" font-size="0.5497222500000001"
+                  y="-2.755155562499999" fill="black" text-anchor="start"
                   font-family="Verdana" id="docCC6_1">
                 Change the pattern to use 6 colors
             </text>
         </g>
         <g visibility="hidden" id="docSC1">
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="0.4750593749999993" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="0.9286974374999996" text-anchor="start"
                   font-family="Verdana" id="docSC1_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 3 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="0.4750593749999993" fill="black" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="0.9286974374999996" fill="black" text-anchor="start"
                   font-family="Verdana" id="docSC1_1">
                 Change the pattern to use 3 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docSC2">
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="1.5523593749999993" text-anchor="start"
-                  font-family="Verdana" id="docSC2_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="-8.8155459" font-size="0.5497222500000001" y="2.0709774375"
+                  text-anchor="start" font-family="Verdana" id="docSC2_0"
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 6 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="1.5523593749999993" fill="black" text-anchor="start"
-                  font-family="Verdana" id="docSC2_1">
+            <text x="-8.8155459" font-size="0.5497222500000001" y="2.0709774375"
+                  fill="black" text-anchor="start" font-family="Verdana"
+                  id="docSC2_1">
                 Change the pattern to use 6 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docSC3">
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="2.6296593749999992" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="3.2132574374999994" text-anchor="start"
                   font-family="Verdana" id="docSC3_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 9 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="2.6296593749999992" fill="black" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="3.2132574374999994" fill="black" text-anchor="start"
                   font-family="Verdana" id="docSC3_1">
                 Change the pattern to use 9 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docSC4">
-            <text x="-9.7405875" font-size="0.4937625000000001" y="3.706959375"
+            <text x="-8.8155459" font-size="0.5497222500000001" y="4.3555374375"
                   text-anchor="start" font-family="Verdana" id="docSC4_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 12 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001" y="3.706959375"
+            <text x="-8.8155459" font-size="0.5497222500000001" y="4.3555374375"
                   fill="black" text-anchor="start" font-family="Verdana"
                   id="docSC4_1">
                 Change the pattern to use 12 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docSC5">
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="4.784259375000001" text-anchor="start"
-                  font-family="Verdana" id="docSC5_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="-8.8155459" font-size="0.5497222500000001" y="5.4978174375"
+                  text-anchor="start" font-family="Verdana" id="docSC5_0"
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 15 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="4.784259375000001" fill="black" text-anchor="start"
-                  font-family="Verdana" id="docSC5_1">
+            <text x="-8.8155459" font-size="0.5497222500000001" y="5.4978174375"
+                  fill="black" text-anchor="start" font-family="Verdana"
+                  id="docSC5_1">
                 Change the pattern to use 15 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docSC6">
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="5.8615593750000015" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="6.640097437500001" text-anchor="start"
                   font-family="Verdana" id="docSC6_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 18 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="5.8615593750000015" fill="black" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="6.640097437500001" fill="black" text-anchor="start"
                   font-family="Verdana" id="docSC6_1">
                 Change the pattern to use 18 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docSC7">
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="6.938859375000002" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="7.782377437499999" text-anchor="start"
                   font-family="Verdana" id="docSC7_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 21 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001"
-                  y="6.938859375000002" fill="black" text-anchor="start"
+            <text x="-8.8155459" font-size="0.5497222500000001"
+                  y="7.782377437499999" fill="black" text-anchor="start"
                   font-family="Verdana" id="docSC7_1">
                 Change the pattern to use 21 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docSC8">
-            <text x="-9.7405875" font-size="0.4937625000000001" y="8.016159375"
+            <text x="-8.8155459" font-size="0.5497222500000001" y="8.9246574375"
                   text-anchor="start" font-family="Verdana" id="docSC8_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the pattern to use 24 strips per direction
             </text>
-            <text x="-9.7405875" font-size="0.4937625000000001" y="8.016159375"
+            <text x="-8.8155459" font-size="0.5497222500000001" y="8.9246574375"
                   fill="black" text-anchor="start" font-family="Verdana"
                   id="docSC8_1">
                 Change the pattern to use 24 strips per direction
             </text>
         </g>
         <g visibility="hidden" id="docV">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
-                  text-anchor="middle" font-family="Verdana" id="docV_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+            <text x="-6.412474350000001" font-size="0.5497222500000001"
+                  y="-8.4665555625" text-anchor="start" font-family="Verdana"
+                  id="docV_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Clicking on the selected strip makes it visible without
                 altering its color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
-                  fill="black" text-anchor="middle" font-family="Verdana"
-                  id="docV_1">
+            <text x="-6.412474350000001" font-size="0.5497222500000001"
+                  y="-8.4665555625" fill="black" text-anchor="start"
+                  font-family="Verdana" id="docV_1">
                 Clicking on the selected strip makes it visible without
                 altering its color
             </text>
         </g>
         <g visibility="hidden" id="docI">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docI_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Clicking on the selected strip makes it invisible without
                 altering its color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docI_1">
                 Clicking on the selected strip makes it invisible without
@@ -1601,14 +1537,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC0">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC0_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 1: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC0_1">
                 Color 1: Select this color to make changes to it, or to change
@@ -1616,14 +1551,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC1">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC1_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 2: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC1_1">
                 Color 2: Select this color to make changes to it, or to change
@@ -1631,14 +1565,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC2">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC2_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 3: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC2_1">
                 Color 3: Select this color to make changes to it, or to change
@@ -1646,14 +1579,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC3">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC3_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 4: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC3_1">
                 Color 4: Select this color to make changes to it, or to change
@@ -1661,14 +1593,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC4">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC4_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 5: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC4_1">
                 Color 5: Select this color to make changes to it, or to change
@@ -1676,14 +1607,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC5">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC5_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 6: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC5_1">
                 Color 6: Select this color to make changes to it, or to change
@@ -1691,14 +1621,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC6">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC6_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 7: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC6_1">
                 Color 7: Select this color to make changes to it, or to change
@@ -1706,14 +1635,13 @@
             </text>
         </g>
         <g visibility="hidden" id="docC7">
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   text-anchor="middle" font-family="Verdana" id="docC7_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Color 8: Select this color to make changes to it, or to change
                 to strips to this color
             </text>
-            <text x="0" font-size="0.4937625000000001" y="-6.527390625"
+            <text x="0" font-size="0.5497222500000001" y="-7.2671615625"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docC7_1">
                 Color 8: Select this color to make changes to it, or to change
@@ -1721,294 +1649,304 @@
             </text>
         </g>
         <g visibility="hidden" id="docLAST0">
-            <text x="7.945087500000001" font-size="0.4937625000000001"
-                  y="-7.604690625" text-anchor="end" font-family="Verdana"
+            <text x="5.909871150000002" font-size="0.5497222500000001"
+                  y="-8.4665555625" text-anchor="end" font-family="Verdana"
                   id="docLAST0_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Last Color 1: Click here to change the selected color to this
                 color
             </text>
-            <text x="7.945087500000001" font-size="0.4937625000000001"
-                  y="-7.604690625" fill="black" text-anchor="end"
+            <text x="5.909871150000002" font-size="0.5497222500000001"
+                  y="-8.4665555625" fill="black" text-anchor="end"
                   font-family="Verdana" id="docLAST0_1">
                 Last Color 1: Click here to change the selected color to this
                 color
             </text>
         </g>
         <g visibility="hidden" id="docLAST1">
-            <text x="9.094207500000001" font-size="0.4937625000000001"
-                  y="-7.604690625" text-anchor="end" font-family="Verdana"
+            <text x="7.166379150000002" font-size="0.5497222500000001"
+                  y="-8.4665555625" text-anchor="end" font-family="Verdana"
                   id="docLAST1_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Last Color 2: Click here to change the selected color to this
                 color
             </text>
-            <text x="9.094207500000001" font-size="0.4937625000000001"
-                  y="-7.604690625" fill="black" text-anchor="end"
+            <text x="7.166379150000002" font-size="0.5497222500000001"
+                  y="-8.4665555625" fill="black" text-anchor="end"
                   font-family="Verdana" id="docLAST1_1">
                 Last Color 2: Click here to change the selected color to this
                 color
             </text>
         </g>
         <g visibility="hidden" id="docLAST2">
-            <text x="10.243327500000001" font-size="0.4937625000000001"
-                  y="-7.604690625" text-anchor="end" font-family="Verdana"
+            <text x="8.42288715" font-size="0.5497222500000001"
+                  y="-8.4665555625" text-anchor="end" font-family="Verdana"
                   id="docLAST2_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Last Color 3: Click here to change the selected color to this
                 color
             </text>
-            <text x="10.243327500000001" font-size="0.4937625000000001"
-                  y="-7.604690625" fill="black" text-anchor="end"
+            <text x="8.42288715" font-size="0.5497222500000001"
+                  y="-8.4665555625" fill="black" text-anchor="end"
                   font-family="Verdana" id="docLAST2_1">
                 Last Color 3: Click here to change the selected color to this
                 color
             </text>
         </g>
         <g visibility="hidden" id="docLAST3">
-            <text x="11.392447500000003" font-size="0.4937625000000001"
-                  y="-7.604690625" text-anchor="end" font-family="Verdana"
+            <text x="9.679395150000001" font-size="0.5497222500000001"
+                  y="-8.4665555625" text-anchor="end" font-family="Verdana"
                   id="docLAST3_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Last Color 4: Click here to change the selected color to this
                 color
             </text>
-            <text x="11.392447500000003" font-size="0.4937625000000001"
-                  y="-7.604690625" fill="black" text-anchor="end"
+            <text x="9.679395150000001" font-size="0.5497222500000001"
+                  y="-8.4665555625" fill="black" text-anchor="end"
                   font-family="Verdana" id="docLAST3_1">
                 Last Color 4: Click here to change the selected color to this
                 color
             </text>
         </g>
         <g visibility="hidden" id="docOB">
-            <text x="8.73061875" font-size="0.4937625000000001" y="-6.311930625"
-                  text-anchor="end" font-family="Verdana" id="docOB_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-7.095819562499999" text-anchor="end" font-family="Verdana"
+                  id="docOB_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Change the opacity of the selected color
             </text>
-            <text x="8.73061875" font-size="0.4937625000000001" y="-6.311930625"
-                  fill="black" text-anchor="end" font-family="Verdana"
-                  id="docOB_1">
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-7.095819562499999" fill="black" text-anchor="end"
+                  font-family="Verdana" id="docOB_1">
                 Change the opacity of the selected color
             </text>
         </g>
         <g visibility="hidden" id="docHB">
-            <text x="8.73061875" font-size="0.4937625000000001"
-                  y="-5.2346306249999985" text-anchor="end"
-                  font-family="Verdana" id="docHB_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-5.953539562499999" text-anchor="end" font-family="Verdana"
+                  id="docHB_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Change the hue of the selected color
             </text>
-            <text x="8.73061875" font-size="0.4937625000000001"
-                  y="-5.2346306249999985" fill="black" text-anchor="end"
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-5.953539562499999" fill="black" text-anchor="end"
                   font-family="Verdana" id="docHB_1">
                 Change the hue of the selected color
             </text>
         </g>
         <g visibility="hidden" id="docSB">
-            <text x="8.73061875" font-size="0.4937625000000001"
-                  y="-4.157330624999999" text-anchor="end" font-family="Verdana"
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-4.811259562499999" text-anchor="end" font-family="Verdana"
                   id="docSB_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Change the saturation of the selected color
             </text>
-            <text x="8.73061875" font-size="0.4937625000000001"
-                  y="-4.157330624999999" fill="black" text-anchor="end"
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-4.811259562499999" fill="black" text-anchor="end"
                   font-family="Verdana" id="docSB_1">
                 Change the saturation of the selected color
             </text>
         </g>
         <g visibility="hidden" id="docVB">
-            <text x="8.73061875" font-size="0.4937625000000001"
-                  y="-3.080030624999999" text-anchor="end" font-family="Verdana"
-                  id="docVB_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-3.6689795624999997" text-anchor="end"
+                  font-family="Verdana" id="docVB_0" stroke="white"
+                  stroke-opacity="0.65" stroke-width="0.0599697">
                 Change the value of the selected color
             </text>
-            <text x="8.73061875" font-size="0.4937625000000001"
-                  y="-3.080030624999999" fill="black" text-anchor="end"
+            <text x="7.691114025000001" font-size="0.5497222500000001"
+                  y="-3.6689795624999997" fill="black" text-anchor="end"
                   font-family="Verdana" id="docVB_1">
                 Change the value of the selected color
             </text>
         </g>
         <g visibility="hidden" id="docHideButtons">
-            <text x="0" font-size="0.4937625000000001" y="6.938859375000001"
+            <text x="0" font-size="0.5497222500000001" y="7.725263437500001"
                   text-anchor="middle" font-family="Verdana"
                   id="docHideButtons_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Hide all the buttons; click here again to make them visible
             </text>
-            <text x="0" font-size="0.4937625000000001" y="6.938859375000001"
+            <text x="0" font-size="0.5497222500000001" y="7.725263437500001"
                   fill="black" text-anchor="middle" font-family="Verdana"
                   id="docHideButtons_1">
                 Hide all the buttons; click here again to make them visible
             </text>
         </g>
-        <g visibility="hidden" id="docX">
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="-1.5718106250000008" text-anchor="end"
-                  font-family="Verdana" id="docX_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+        <g visibility="hidden" id="doc-">
+            <text x="7.585738695000001" font-size="0.5497222500000001"
+                  y="-1.241634562500002" text-anchor="end" font-family="Verdana"
+                  id="doc-_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Switch between clockwise and counterclockwise
             </text>
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="-1.5718106250000008" fill="black" text-anchor="end"
-                  font-family="Verdana" id="docX_1">
+            <text x="7.585738695000001" font-size="0.5497222500000001"
+                  y="-1.241634562500002" fill="black" text-anchor="end"
+                  font-family="Verdana" id="doc-_1">
                 Switch between clockwise and counterclockwise
             </text>
         </g>
+        <g visibility="hidden" id="docX">
+            <text x="8.8155459" font-size="0.5497222500000001"
+                  y="-1.241634562500002" text-anchor="end" font-family="Verdana"
+                  id="docX_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
+                Flip top and bottom
+            </text>
+            <text x="8.8155459" font-size="0.5497222500000001"
+                  y="-1.241634562500002" fill="black" text-anchor="end"
+                  font-family="Verdana" id="docX_1">
+                Flip top and bottom
+            </text>
+        </g>
         <g visibility="hidden" id="docC">
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="-1.5718106250000008" text-anchor="end"
-                  font-family="Verdana" id="docC_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="10.045353105" font-size="0.5497222500000001"
+                  y="-1.241634562500002" text-anchor="end" font-family="Verdana"
+                  id="docC_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Change the type of the center by shifting the pattern one unit
             </text>
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="-1.5718106250000008" fill="black" text-anchor="end"
+            <text x="10.045353105" font-size="0.5497222500000001"
+                  y="-1.241634562500002" fill="black" text-anchor="end"
                   font-family="Verdana" id="docC_1">
                 Change the type of the center by shifting the pattern one unit
             </text>
         </g>
         <g visibility="hidden" id="docVH0">
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="-0.1713206250000003" text-anchor="end"
-                  font-family="Verdana" id="docVH0_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="8.2006422975" font-size="0.5497222500000001"
+                  y="0.2433294374999991" text-anchor="end" font-family="Verdana"
+                  id="docVH0_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Hide or Show the&quot;a&quot; hex weave
             </text>
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="-0.1713206250000003" fill="black" text-anchor="end"
+            <text x="8.2006422975" font-size="0.5497222500000001"
+                  y="0.2433294374999991" fill="black" text-anchor="end"
                   font-family="Verdana" id="docVH0_1">
                 Hide or Show the&quot;a&quot; hex weave
             </text>
         </g>
         <g visibility="hidden" id="docVH1">
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="0.9059793749999997" text-anchor="end" font-family="Verdana"
+            <text x="8.2006422975" font-size="0.5497222500000001"
+                  y="1.3856094374999994" text-anchor="end" font-family="Verdana"
                   id="docVH1_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Hide or Show the&quot;b&quot; hex weave
             </text>
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="0.9059793749999997" fill="black" text-anchor="end"
+            <text x="8.2006422975" font-size="0.5497222500000001"
+                  y="1.3856094374999994" fill="black" text-anchor="end"
                   font-family="Verdana" id="docVH1_1">
                 Hide or Show the&quot;b&quot; hex weave
             </text>
         </g>
         <g visibility="hidden" id="docVH2">
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="1.9832793749999997" text-anchor="end" font-family="Verdana"
+            <text x="8.2006422975" font-size="0.5497222500000001"
+                  y="2.5278894375" text-anchor="end" font-family="Verdana"
                   id="docVH2_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Hide or Show the&quot;c&quot; hex weave
             </text>
-            <text x="9.1157535" font-size="0.4937625000000001"
-                  y="1.9832793749999997" fill="black" text-anchor="end"
+            <text x="8.2006422975" font-size="0.5497222500000001"
+                  y="2.5278894375" fill="black" text-anchor="end"
                   font-family="Verdana" id="docVH2_1">
                 Hide or Show the&quot;c&quot; hex weave
             </text>
         </g>
         <g visibility="hidden" id="docVD0">
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="-0.1713206250000003" text-anchor="end"
-                  font-family="Verdana" id="docVD0_0" stroke="white"
-                  stroke-opacity="0.65" stroke-width="0.05386500000000001">
+            <text x="9.4304495025" font-size="0.5497222500000001"
+                  y="0.2433294374999991" text-anchor="end" font-family="Verdana"
+                  id="docVD0_0" stroke="white" stroke-opacity="0.65"
+                  stroke-width="0.0599697">
                 Hide or Show the Horizontal strips
             </text>
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="-0.1713206250000003" fill="black" text-anchor="end"
+            <text x="9.4304495025" font-size="0.5497222500000001"
+                  y="0.2433294374999991" fill="black" text-anchor="end"
                   font-family="Verdana" id="docVD0_1">
                 Hide or Show the Horizontal strips
             </text>
         </g>
         <g visibility="hidden" id="docVD1">
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="0.9059793749999997" text-anchor="end" font-family="Verdana"
+            <text x="9.4304495025" font-size="0.5497222500000001"
+                  y="1.3856094374999994" text-anchor="end" font-family="Verdana"
                   id="docVD1_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Hide or Show the strips that go up and to the Right
             </text>
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="0.9059793749999997" fill="black" text-anchor="end"
+            <text x="9.4304495025" font-size="0.5497222500000001"
+                  y="1.3856094374999994" fill="black" text-anchor="end"
                   font-family="Verdana" id="docVD1_1">
                 Hide or Show the strips that go up and to the Right
             </text>
         </g>
         <g visibility="hidden" id="docVD2">
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="1.9832793749999997" text-anchor="end" font-family="Verdana"
+            <text x="9.4304495025" font-size="0.5497222500000001"
+                  y="2.5278894375" text-anchor="end" font-family="Verdana"
                   id="docVD2_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Hide or Show the strips that go up and to the Left
             </text>
-            <text x="10.365421500000002" font-size="0.4937625000000001"
-                  y="1.9832793749999997" fill="black" text-anchor="end"
+            <text x="9.4304495025" font-size="0.5497222500000001"
+                  y="2.5278894375" fill="black" text-anchor="end"
                   font-family="Verdana" id="docVD2_1">
                 Hide or Show the strips that go up and to the Left
             </text>
         </g>
         <g visibility="hidden" id="docLines">
-            <text x="9.7405875" font-size="0.4937625000000001" y="3.383769375"
+            <text x="8.8155459" font-size="0.5497222500000001" y="4.0128534375"
                   text-anchor="end" font-family="Verdana" id="docLines_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Hide or Show lines at the edges of the strips
             </text>
-            <text x="9.7405875" font-size="0.4937625000000001" y="3.383769375"
+            <text x="8.8155459" font-size="0.5497222500000001" y="4.0128534375"
                   fill="black" text-anchor="end" font-family="Verdana"
                   id="docLines_1">
                 Hide or Show lines at the edges of the strips
             </text>
         </g>
         <g visibility="hidden" id="docSep0">
-            <text x="9.7405875" font-size="0.4937625000000001"
-                  y="4.784259375000001" text-anchor="end" font-family="Verdana"
-                  id="docSep0_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+            <text x="8.8155459" font-size="0.5497222500000001" y="5.4978174375"
+                  text-anchor="end" font-family="Verdana" id="docSep0_0"
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Set the strip separation to Narrow
             </text>
-            <text x="9.7405875" font-size="0.4937625000000001"
-                  y="4.784259375000001" fill="black" text-anchor="end"
-                  font-family="Verdana" id="docSep0_1">
+            <text x="8.8155459" font-size="0.5497222500000001" y="5.4978174375"
+                  fill="black" text-anchor="end" font-family="Verdana"
+                  id="docSep0_1">
                 Set the strip separation to Narrow
             </text>
         </g>
         <g visibility="hidden" id="docSep1">
-            <text x="9.7405875" font-size="0.4937625000000001"
-                  y="5.8615593750000015" text-anchor="end" font-family="Verdana"
+            <text x="8.8155459" font-size="0.5497222500000001"
+                  y="6.640097437500001" text-anchor="end" font-family="Verdana"
                   id="docSep1_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Set the strip separation to Medium
             </text>
-            <text x="9.7405875" font-size="0.4937625000000001"
-                  y="5.8615593750000015" fill="black" text-anchor="end"
+            <text x="8.8155459" font-size="0.5497222500000001"
+                  y="6.640097437500001" fill="black" text-anchor="end"
                   font-family="Verdana" id="docSep1_1">
                 Set the strip separation to Medium
             </text>
         </g>
         <g visibility="hidden" id="docSep2">
-            <text x="9.7405875" font-size="0.4937625000000001"
-                  y="6.938859375000002" text-anchor="end" font-family="Verdana"
+            <text x="8.8155459" font-size="0.5497222500000001"
+                  y="7.782377437499999" text-anchor="end" font-family="Verdana"
                   id="docSep2_0" stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke-width="0.0599697">
                 Set the strip separation to Wide
             </text>
-            <text x="9.7405875" font-size="0.4937625000000001"
-                  y="6.938859375000002" fill="black" text-anchor="end"
+            <text x="8.8155459" font-size="0.5497222500000001"
+                  y="7.782377437499999" fill="black" text-anchor="end"
                   font-family="Verdana" id="docSep2_1">
                 Set the strip separation to Wide
             </text>
         </g>
         <g visibility="hidden" id="docSep3">
-            <text x="9.7405875" font-size="0.4937625000000001" y="8.016159375"
+            <text x="8.8155459" font-size="0.5497222500000001" y="8.9246574375"
                   text-anchor="end" font-family="Verdana" id="docSep3_0"
-                  stroke="white" stroke-opacity="0.65"
-                  stroke-width="0.05386500000000001">
+                  stroke="white" stroke-opacity="0.65" stroke-width="0.0599697">
                 Set the strip separation to Extra wide
             </text>
-            <text x="9.7405875" font-size="0.4937625000000001" y="8.016159375"
+            <text x="8.8155459" font-size="0.5497222500000001" y="8.9246574375"
                   fill="black" text-anchor="end" font-family="Verdana"
                   id="docSep3_1">
                 Set the strip separation to Extra wide

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>MadWeaver - An interactive madweave program</title>
+    <link href="madweave.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <h2>MadWeaver - An interactive madweave program</h2>
+
+<a href="madweave.svg"><img src="madweave_small.png"></a>
+
+<p>This program has many features, including:
+
+<li>Use up to eight colors in a single design.  <span class="location">top edge, in the middle</span> <span class="button">1</span> to <span class="button">8</span>
+<li>Control the hue, value, saturation, and transparency of each color.  <span class="location">rectangles, right edge, near the top</span>
+<li>Use up to 24 strips per direction.  <span class="location">left edge, near the bottom</span> <span class="button">1</span> to <span class="button">8</span>
+<li>Add one strip at a time to build your own design or modify one of the built-in patterns.
+<li>Control the number of colors used by the built in patterns. <span class="location">left edge, near the top</span> <span class="button">1</span> to <span class="button">6</span>
+<li>There are five built-in patterns, or you can develop your own.  <span class="location">left edge, near the top</span>
+<li>Hide the buttons so that you save only the mad weave image.  <span class="location">bottom edge, in the center</span> <span class="button">HB</span>
+<li>Create a right- or left-pointing mad weave. <span class="location">right edge, in the middle</span> <span class="button">-</span>
+<li>Flip the mad weave over. <span class="location">right edge, in the middle</span> <span class="button">X</span>
+<li>Outline the strips or not. <span class="location">right edge, in the middle</span> <span class="button">L</span>
+<li>Four densities let you control how tightly the strips are woven.  <span class="location">right edge, near the bottom</span> <span class="button">N</span>, <span class="button">M</span>, <span class="button">W</span>, <span class="button">E</span>
+<li>Show or hide each direction independently.  <span class="location">right edge, in the middle</span> <span class="button">H</span>, <span class="button">R</span>, <span class="button">L</span>
+<li>Show or hide each layer independently.  <span class="location">right edge, in the middle</span> <span class="button">a</span>, <span class="button">b</span>, <span class="button">c</span>
+<li>Remove strips by making them completely invisible or visible.  <span class="location">top edge, near the left</span> <span class="button">I</span> or <span class="button">V</span>.
+<li>There is a history of recently changed colors.  <span class="location">top edge, to the right</span>
+
+<p>To change the color of a single strip, first you need to select one of the eight color boxes at the top (move the mouse over it, then click on it).  Then you need to select the strip (move the mouse over it until it shows a dark black outlining rectangle, then click left on it).
+
+<p>To change the color of all the strips that have a particular color, first you select its color box along the top.  Then you click in one of the rectangles on the upper left to change the Opacity, Hue, Saturation, or Value.
+
+<p>To make all the strips of one color use the same color as is in a different color box, first select the the color box that has the color you want to keep.  Second, select the color box you want to change.  Finally, click on the left most of the color history boxes in the upper right.
+
+<p>If you have changed the pattern by clicking on the strips, please remember that clicking on any of the buttons along the left edge will reset the pattern.
+
+<p>Clicking either on any of the four color history boxes in the top edge to the right, or on the opacity, hue, saturation or value rectangles along the right edge near the top always changes the currently selected color box.  If you decide you do not like the new color, you can click in the leftmost color history box to get the old color back.
+
+<p>Please use <a href="http://www.mozilla.com/en-US/firefox/">Firefox</a> to run the <a href="madweave.svg"><b>Madweave</b></a> program.  Saving your work requires you to use "Save As" with "Web Page, Complete".   
+
+<p>You can also use <a href="http://xmlgraphics.apache.org/batik/tools/browser.html">Squiggle</a> to run the <a href="madweave.svg"><b>Madweave</b></a> program.  After starting Suiggle, load the Madweave program by "Open Location" and then typing "http://fiberwoman.com/madweave/madweave.svg".  Save your work by "Save SVG As", then navigate to the correct directory, and type the filename you want to use and make sure it ends in ".svg".  It will bring up "Options for saving SVG", make sure that the first check box is NOT checked.  Installing and running Squiggle is easy on the Mac (just download <a href="http://apache.claz.org/xmlgraphics/batik/Squiggle-1.7.dmg">this file</a>).  On any other platform, you will need to install <a href="http://xmlgraphics.apache.org/batik/">the Batik SVG toolkit</a>.
+
+<p>You can use a recent version of <a href="http://windows.microsoft.com/en-US/internet-explorer/download-ie">Internet Explorer</a> to run the <a href="madweave.svg"><b>Madweave</b></a> program, however you cannot save your work.
+
+<p>Neither Safari nor Chrome work well.   
+
+<p>If you need to convert your work to an image, you can install <a href="http://inkscape.org/">Inkscape</a>, then load your saved ".svg" file, then save as a ".png" file.
+
+<p>For advanced users, who are comfortable with installing cygwin (if on Windows) and java and running command line programs, if you need high quality conversion to ".png", I recommend installing <a href="http://xmlgraphics.apache.org/batik/">the Batik SVG toolkit</a> and using this script, named <a href="convert.txt">convert</a>.  
+
+<p><small>Copyright &copy; 2012, Richard Harris.  All rights reserved</small>
+  </body>
+</html>
