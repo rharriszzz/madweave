@@ -1,18 +1,153 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"  
-  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
 
-<?AdobeSVGViewer save="snapshot"?>
 
-<svg id="svg"
-     onload="setContent(evt.target, 2)"
-     zoomAndPan="disable"
-     xmlns="http://www.w3.org/2000/svg" 
-     xmlns:xlink="http://www.w3.org/1999/xlink" 
-     xmlns:a3="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-     a3:scriptImplementation="Adobe">
+<svg contentScriptType="text/ecmascript" mwBaseSize="2"
+     xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+     zoomAndPan="disable" contentStyleType="text/css"
+     viewBox="-11.97 -8.9775 23.94 17.955" id="svg"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.1">
+    <title>
+        MadWeave
+    </title>
+    <defs id="defs">
+        <g id="HStrips">
+            <path fill="rgb(183,195,67)" fill-opacity="1" id="PAX0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="0" transform="rotate(0) translate(0,-3.325)"/>
+            <path fill="rgb(183,195,67)" fill-opacity="1" id="PAY0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="0" transform="rotate(0) translate(0,-1.995)"/>
+            <path fill="rgb(183,195,67)" fill-opacity="1" id="PAZ0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="0" transform="rotate(0) translate(0,-0.665)"/>
+            <path fill="rgb(183,195,67)" fill-opacity="1" id="PAX1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="0" transform="rotate(0) translate(0,0.665)"/>
+            <path fill="rgb(183,195,67)" fill-opacity="1" id="PAY1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="0" transform="rotate(0) translate(0,1.995)"/>
+            <path fill="rgb(183,195,67)" fill-opacity="1" id="PAZ1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="0" transform="rotate(0) translate(0,3.325)"/>
+        </g>
+        <g id="RStrips">
+            <path fill="rgb(64,149,118)" fill-opacity="1" id="PBX0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="1" transform="rotate(120) translate(0,-3.325)"/>
+            <path fill="rgb(64,149,118)" fill-opacity="1" id="PBY0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="1" transform="rotate(120) translate(0,-1.995)"/>
+            <path fill="rgb(64,149,118)" fill-opacity="1" id="PBZ0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="1" transform="rotate(120) translate(0,-0.665)"/>
+            <path fill="rgb(64,149,118)" fill-opacity="1" id="PBX1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="1" transform="rotate(120) translate(0,0.665)"/>
+            <path fill="rgb(64,149,118)" fill-opacity="1" id="PBY1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="1" transform="rotate(120) translate(0,1.995)"/>
+            <path fill="rgb(64,149,118)" fill-opacity="1" id="PBZ1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="1" transform="rotate(120) translate(0,3.325)"/>
+        </g>
+        <g id="LStrips">
+            <path fill="rgb(191,94,47)" fill-opacity="1" id="PCX0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="2" transform="rotate(240) translate(0,-3.325)"/>
+            <path fill="rgb(191,94,47)" fill-opacity="1" id="PCY0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="2" transform="rotate(240) translate(0,-1.995)"/>
+            <path fill="rgb(191,94,47)" fill-opacity="1" id="PCZ0"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="2" transform="rotate(240) translate(0,-0.665)"/>
+            <path fill="rgb(191,94,47)" fill-opacity="1" id="PCX1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="2" transform="rotate(240) translate(0,0.665)"/>
+            <path fill="rgb(191,94,47)" fill-opacity="1" id="PCY1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="2" transform="rotate(240) translate(0,1.995)"/>
+            <path fill="rgb(191,94,47)" fill-opacity="1" id="PCZ1"
+                  d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+                  mwColorIndex="2" transform="rotate(240) translate(0,3.325)"/>
+        </g>
 
-  <script type="text/ecmascript" xlink:href="testclip.es" a3:scriptImplementation="Adobe"/>
+        <pattern id="HPattern" patternUnits="userSpaceOnUse"
+                 x="0" y="0" width="6" height="2" 
+                 patternTransform="rotate(0) scale(1.33) scale(0.5773502691896257 1.0)">
+          <path d="M 0 0 L 2 0 L 3 1 L 1 1 Z   M 3 1 L 5 1 L 6 2 L 4 2 Z"
+                fill="white"/>
+        </pattern>
+        <pattern id="RPattern" patternUnits="userSpaceOnUse"
+                 x="0" y="0" width="6" height="2" 
+                 patternTransform="rotate(120) scale(1.33) scale(0.5773502691896257 1.0)">
+          <path d="M 0 0 L 2 0 L 3 1 L 1 1 Z   M 3 1 L 5 1 L 6 2 L 4 2 Z"
+                fill="white"/>
+        </pattern>
+        <pattern id="LPattern" patternUnits="userSpaceOnUse"
+                 x="0" y="0" width="6" height="2" 
+                 patternTransform="rotate(240) scale(1.33) scale(0.5773502691896257 1.0)">
+          <path d="M 0 0 L 2 0 L 3 1 L 1 1 Z   M 3 1 L 5 1 L 6 2 L 4 2 Z"
+                fill="white"/>
+        </pattern>
 
-  <title>MadWeave</title>
-
+        <mask id="HMask" maskUnits="userSpaceOnUse" 
+              x="-9.576" y="-7.182" width="19.152" height="14.364">                
+          <rect fill="url(#HPattern)"
+                x="-9.576" y="-7.182" width="19.152" height="14.364"/>                
+        </mask>
+        <mask id="RMask" maskUnits="userSpaceOnUse" 
+              x="-9.576" y="-7.182" width="19.152" height="14.364">                
+          <rect fill="url(#RPattern)"
+                x="-9.576" y="-7.182" width="19.152" height="14.364"/>                
+        </mask>
+        <mask id="LMask" maskUnits="userSpaceOnUse" 
+              x="-9.576" y="-7.182" width="19.152" height="14.364">                
+          <rect fill="url(#LPattern)"
+                x="-9.576" y="-7.182" width="19.152" height="14.364"/>
+        </mask>
+        <!-- the mask and its rect have the x y width height of the stripsCover -->
+    </defs>
+    <g id="strips">
+        <g id="HG" mask="url(#HMask)">
+            <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseL"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#LStrips"/>
+            <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseR"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#RStrips"/>
+            <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseH"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#HStrips"/>
+        </g>
+        <g id="RG" mask="url(#RMask)">
+            <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseH"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#HStrips"/>
+            <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseL"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#LStrips"/>
+            <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseR"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#RStrips"/>
+        </g>
+        <g id="LG" mask="url(#LMask)">
+            <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseR"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#RStrips"/>
+            <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseH"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#HStrips"/>
+            <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseL"
+                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="#LStrips"/>
+        </g>
+        <rect x="-9.576" y="-7.182" width="19.152" height="14.364"
+              fill="white" opacity="0" id="stripsCover"/>
+        <path transform="rotate(120) translate(0,-3.325)" fill="none"
+              visibility="hidden" id="MSP"
+              d="M -5.985 -0.5 L -5.985 0.5 L 5.985 0.5 L 5.985 -0.5 Z"
+              stroke="black" stroke-width="0.1"/>
+    </g>
 </svg>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+
+
+<svg contentScriptType="text/ecmascript" mwBaseSize="2"
+     xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full"
+     zoomAndPan="disable" contentStyleType="text/css"
+     viewBox="-11.97 -8.9775 23.94 17.955" id="svg"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.1">
+  <title>
+    Test 2
+  </title>
+  <defs id="defs">
+    <pattern id="color0" width="1" height="1">
+      <rect id="color0rect" x="0" y="0" width="10" height="10" fill="rgb(183,195,67)"/>
+    </pattern>
+    <pattern id="color1" x="0" y="0" width="1" height="1">
+      <rect id="color0rect" x="0" y="0" width="10" height="10" fill="rgb(64,149,118)"/>
+    </pattern>
+    <pattern id="color2" x="0" y="0" width="1" height="1">
+      <rect id="color0rect" x="0" y="0" width="10" height="10" fill="rgb(191,94,47)"/>
+    </pattern>
+
+    <pattern id="CP0" x="0" y="0" width="1.0" height="1.0" patternUnits="objectBoundingBox" 
+             viewBox="-1.76 -2.1 3.52 4.2">
+      <g transform="rotate(0) scale(0.5773502691896257 1.0) translate(-3 -2)">
+        <path fill="url(#color0)" d="M 0 -1 L 2 -1 L 3 0 L 1 0 Z"/>
+        <path fill="url(#color0)" d="M -3 0 L -1 0 L 0 1 L -2 1 Z   M 3 0 L 5 0 L 6 1 L 4 1 Z"/>
+        <path fill="url(#color0)" d="M 6 1 L 8 1 L 9 2 L 7 2 Z   M 0 1 L 2 1 L 3 2 L 1 2 Z"/>
+        <path fill="url(#color0)" d="M -3 2 L -1 2 L 0 3 L -2 3 Z   M 3 2 L 5 2 L 6 3 L 4 3 Z"/>
+        <path fill="url(#color0)" d="M 0 3 L 2 3 L 3 4 L 1 4 Z   M 6 3 L 8 3 L 9 4 L 7 4 Z"/>
+        <path fill="url(#color0)" d="M 3 4 L 5 4 L 6 5 L 4 5 Z"/>
+      </g>
+      <g transform="rotate(120) scale(0.5773502691896257 1.0) translate(-3 -2)">
+        <path fill="url(#color1)" d="M 0 -1 L 2 -1 L 3 0 L 1 0 Z"/>
+        <path fill="url(#color1)" d="M -3 0 L -1 0 L 0 1 L -2 1 Z   M 3 0 L 5 0 L 6 1 L 4 1 Z"/>
+        <path fill="url(#color1)" d="M 6 1 L 8 1 L 9 2 L 7 2 Z   M 0 1 L 2 1 L 3 2 L 1 2 Z"/>
+        <path fill="url(#color1)" d="M -3 2 L -1 2 L 0 3 L -2 3 Z   M 3 2 L 5 2 L 6 3 L 4 3 Z"/>
+        <path fill="url(#color1)" d="M 0 3 L 2 3 L 3 4 L 1 4 Z   M 6 3 L 8 3 L 9 4 L 7 4 Z"/>
+        <path fill="url(#color1)" d="M 3 4 L 5 4 L 6 5 L 4 5 Z"/>
+      </g>
+      <g transform="rotate(240) scale(0.5773502691896257 1.0) translate(-3 -2)">
+        <path fill="url(#color2)" d="M 0 -1 L 2 -1 L 3 0 L 1 0 Z"/>
+        <path fill="url(#color2)" d="M -3 0 L -1 0 L 0 1 L -2 1 Z   M 3 0 L 5 0 L 6 1 L 4 1 Z"/>
+        <path fill="url(#color2)" d="M 6 1 L 8 1 L 9 2 L 7 2 Z   M 0 1 L 2 1 L 3 2 L 1 2 Z"/>
+        <path fill="url(#color2)" d="M -3 2 L -1 2 L 0 3 L -2 3 Z   M 3 2 L 5 2 L 6 3 L 4 3 Z"/>
+        <path fill="url(#color2)" d="M 0 3 L 2 3 L 3 4 L 1 4 Z   M 6 3 L 8 3 L 9 4 L 7 4 Z"/>
+        <path fill="url(#color2)" d="M 3 4 L 5 4 L 6 5 L 4 5 Z"/>
+      </g>
+    </pattern>
+  </defs>
+  <g visibility="visible" id="gbuttonCP0">
+    <rect x="-10.237941" y="-7.72065" width="0.89775"
+          id="buttonCP0" height="0.89775"
+          fill="url(#CP0)"
+          stroke="black" stroke-width="0.06733125"/>
+    <rect x="-10.237941" y="-7.72065" fill="white"
+          width="0.89775" opacity="0" id="cbuttonCP0"
+          height="0.89775"/>
+  </g>
+    <rect x="0" y="0" width="4" height="4"
+          id="buttonCP0" 
+          fill="url(#CP0)"/>
+
+</svg>
