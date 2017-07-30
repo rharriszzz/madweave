@@ -1,0 +1,18 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"  
+  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<?AdobeSVGViewer save="snapshot"?>
+
+<svg id="svg"
+     onload="setContent(evt.target, 2)"
+     zoomAndPan="disable"
+     xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     xmlns:a3="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+     a3:scriptImplementation="Adobe">
+
+  <script type="text/ecmascript" xlink:href="testclip.es" a3:scriptImplementation="Adobe"/>
+
+  <title>MadWeave</title>
+
+</svg>

@@ -1,0 +1,23 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"  
+  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg id="svg" 
+     xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     version="1.1"
+     baseProfile="full"
+     zoomAndPan="disable" 
+     preserveAspectRatio="xMidYMid meet" 
+     viewBox="-7.98 -5.985 15.96 11.97">
+
+<title>MadWeave test button 2</title>
+
+<g id="buttons">
+  <g id="gbutton2">
+    <rect id="button2" x="6.64335" y="-4.788" width="0.5985" height="0.5985" fill="whitesmoke" stroke="black" stroke-width="0.017955"/>
+    <text id="text2" x="6.9426" y="-4.33913" font-family="Verdana" font-size="0.41895" fill="dimgray" stroke-width="0.017955" text-anchor="middle" startOffset="0">2</text>
+    <rect id="cbutton2" x="6.64335" y="-4.788" width="0.5985" height="0.5985" fill="white" opacity="0" pointer-events="fill"/>
+  </g>
+</g>
+
+</svg>
