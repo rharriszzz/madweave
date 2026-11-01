@@ -42,7 +42,7 @@ Node.js 24.22.1, and Playwright 1.63.0. The starting application revision was
 | Playwright Firefox 155.0 | Passed, 14 tests | Entire suite, using isolated macOS application data |
 | Playwright WebKit 26.6 | Passed, 14 tests | Entire suite; this is separate from Safari |
 | Installed Google Chrome 156.0.8078.74 | Passed, 14 tests | Entire suite through the `chrome` channel, in a temporary profile |
-| Installed Safari 27.2 (22625.2.8.11.9) | Passed targeted checks | Published editor controls; real HTML downloads; exact state after file reopen, editing, resaving, second reopen, and Open Project; static SVG download from the initial editor |
+| Installed Safari 27.2 (22625.2.8.11.9) | Passed targeted checks | Published editor controls; real HTML downloads; exact state after file reopen, editing, resaving, second reopen, and Open Project; static SVG download after import |
 | Installed Firefox 120.0.1 | Passed targeted checks | Published editor controls; real HTML downloads; exact state after file reopen, editing, resaving, second reopen, and Open Project; static SVG download |
 
 The native Safari/Firefox probes used WebDriver (Selenium 4.52.0, the system
@@ -61,13 +61,13 @@ suite. These results do not certify physical touch devices, screen readers, or
 complete SVG keyboard operation. The manual checklist above remains useful
 following browser or editor updates.
 
-Safari WebDriver had one automation limitation after a file upload: its native
-export-button click returned successfully but dispatched no click event, even
-though the button was enabled and was the element at the click coordinates.
-Programmatic activation then downloaded a valid SVG, and a native export click
-in the initial editor also worked. Retain the manual post-import export check;
-this probe alone does not certify that exact pointer sequence. No application
-change was made to compensate for the driver's missed event.
+An initial Safari WebDriver run missed an export click after a file upload:
+the driver returned successfully but dispatched no click event. The user
+reported possibly interacting with the automation window. At their request,
+the entire native save/open/resave sequence was repeated with the window left
+alone; the post-import native export click downloaded a valid SVG successfully.
+The earlier miss is not a confirmed application defect, and no application
+workaround was added. Leave the automation window untouched during these tests.
 
 ### Repeating the automated checks
 
