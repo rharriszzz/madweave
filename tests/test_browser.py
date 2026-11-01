@@ -1,6 +1,8 @@
 """Exercise the actual published files, SVG UI, reload state, and export in Chromium."""
 import functools
 import http.server
+import os
+import json
 import tempfile
 import threading
 import unittest
@@ -27,7 +29,7 @@ class BrowserTests(unittest.TestCase):
         cls.thread.start()
         cls.base = f'http://127.0.0.1:{cls.server.server_port}/madweave/'
         cls.playwright = sync_playwright().start()
-        cls.browser = cls.playwright.chromium.launch()
+        cls.browser = getattr(cls.playwright, os.environ.get('MADWEAVE_BROWSER', 'chromium')).launch()
 
     @classmethod
     def tearDownClass(cls):
@@ -85,7 +87,7 @@ class BrowserTests(unittest.TestCase):
         self.open_svg()
         self.page.locator('#cbuttonC7').click()
         # Use the real selector's mouse handlers at a point inside the weave.
-        box = self.page.locator('#svg').bounding_box()
+        box = self.page.locator('#stripsCover').bounding_box()
         self.page.mouse.move(box['x']+box['width']*.50, box['y']+box['height']*.50)
         # The original selector requires a short dwell plus another mouse move.
         self.page.wait_for_timeout(self.page.evaluate('timestampIntervalThreshold') + 20)
@@ -145,7 +147,7 @@ class BrowserTests(unittest.TestCase):
         button = self.page.get_by_role('button', name='Export artwork as SVG')
         button.wait_for()
         self.page.wait_for_function('!document.getElementById("export").disabled')
-        self.page.evaluate('''() => { const d=document.getElementById('weave').contentDocument; d.defaultView.setDefaultColor(d.documentElement,7); d.defaultView.setStripColorToCurrentDefault(d.documentElement,0); }''')
+        self.page.evaluate('''() => { const d=document.getElementById('weave').contentDocument; const root=d.getElementById('svg'); d.defaultView.setDefaultColor(root,7); d.defaultView.setStripColorToCurrentDefault(root,0); }''')
         with self.page.expect_download() as event:
             button.click()
         download = event.value
@@ -181,3 +183,127 @@ class BrowserTests(unittest.TestCase):
             self.assertTrue(page.locator('h1').is_visible())
             self.assertGreater(page.locator('a[href="editor.html"]').count(),0)
         context.close()
+
+    def open_editor(self):
+        self.page.goto(self.base+'editor.html')
+        self.page.wait_for_function('!document.getElementById("save-project").disabled')
+
+    def state(self):
+        return self.page.evaluate('MadWeaveProject.capture(document.getElementById("weave").contentWindow)')
+
+    def save_project(self, target):
+        with self.page.expect_download() as event:
+            self.page.get_by_role('button', name='Save Project', exact=True).click()
+        self.assertEqual(event.value.suggested_filename, 'madweave-project.html')
+        event.value.save_as(target)
+        return target
+
+    def test_editable_project_round_trip_offline_and_resave(self):
+        self.open_editor()
+        # Exercise combinations the old DOM-only format could lose, including hide mode.
+        for spacing in range(4):
+            self.page.evaluate('''spacing => {
+                const w=document.getElementById('weave').contentWindow;
+                const root=w.document.getElementById('svg');
+                w.setContent(root, spacing+2);
+                w.setSeparation(root, spacing);
+                w.changeColorPattern(root, 4);
+                w.changeColorCount(root, 6);
+                w.changeCenter(root);
+                w.changeHand(root);
+                w.changeTop(root);
+                w.toggleVisibilityD(root, 1);
+                w.toggleVisibilityH(root, 2);
+                w.showOrHideLines(root);
+                w.setDefaultColor(root, 5);
+                w.setStripColorToCurrentDefault(root, 0);
+                w.opacityArray[5]=0.37;
+                w.colorArray[5]='rgb(12,34,56)';
+                w.lastColor[0]='rgb(98,76,54)';
+                w.lastOpacity[0]=0.61;
+                w.buildStrips(w.document);
+                w.buildButtons(w.document);
+                w.setVisibleOrHidden(root,false);
+                w.setStripColorToCurrentDefault(root,1);
+                w.showOrHideButtons(root);
+            }''', spacing)
+            before = self.state()
+            saved = self.save_project(Path(self.folder.name)/f'project-{spacing}.html')
+            # New tab and offline networking prove independence from the hosting site.
+            context = self.browser.new_context(accept_downloads=True, offline=True)
+            offline = context.new_page()
+            requests, errors = [], []
+            offline.on('request', lambda request: requests.append(request.url) if request.url.startswith(('http:', 'https:')) else None)
+            offline.on('pageerror', lambda error: errors.append(str(error)))
+            offline.goto(saved.as_uri())
+            offline.wait_for_function('!document.getElementById("save-project").disabled')
+            actual = offline.evaluate('MadWeaveProject.capture(document.getElementById("weave").contentWindow)')
+            self.assertEqual(actual, before)
+            self.assertEqual(requests, [])
+            self.assertEqual(errors, [])
+            # Can reveal controls, paint, change size/pattern, and save again offline.
+            frame = next(f for f in offline.frames if f.parent_frame is not None)
+            frame.locator('#cbuttonHideButtons').click()
+            frame.locator('#cbuttonC7').click()
+            frame.locator('#cbuttonCP2').click()
+            frame.locator('#cbuttonSC8').click()
+            changed = offline.evaluate('MadWeaveProject.capture(document.getElementById("weave").contentWindow)')
+            with offline.expect_download() as event:
+                offline.get_by_role('button', name='Save Project', exact=True).click()
+            second = Path(self.folder.name)/f'resaved-{spacing}.html'
+            event.value.save_as(second)
+            offline.goto(second.as_uri())
+            offline.wait_for_function('!document.getElementById("save-project").disabled')
+            self.assertEqual(offline.evaluate('MadWeaveProject.capture(document.getElementById("weave").contentWindow)'), changed)
+            self.assertEqual(requests, [])
+            context.close()
+            # Open Project reads only the metadata and recreates the editor in the website.
+            self.page.locator('#project-file').set_input_files(saved)
+            self.page.wait_for_function('document.getElementById("export-status").textContent.startsWith("Opened ")')
+            self.assertEqual(self.state(), before)
+            with self.page.expect_download() as event:
+                self.page.get_by_role('button', name='Export artwork as SVG').click()
+            artwork = Path(self.folder.name)/f'imported-artwork-{spacing}.svg'
+            event.value.save_as(artwork)
+            root = ET.parse(artwork).getroot()
+            self.assertFalse(any(e.tag.endswith('script') for e in root.iter()))
+            self.open_editor()
+
+    def test_open_legacy_editable_svg_and_reject_artwork(self):
+        self.open_svg()
+        self.page.evaluate('''() => {
+            const root=document.documentElement;
+            changeCenter(root); setSeparation(root,3); toggleVisibilityD(root,1);
+            setDefaultColor(root,7); setStripColorToCurrentDefault(root,0);
+        }''')
+        legacy = self.page.evaluate('new XMLSerializer().serializeToString(document.documentElement)')
+        # Opening an original SVG never executes its scripts or event handlers.
+        legacy = legacy.replace('</svg>', '<script>parent.importExecuted=true</script></svg>')
+        self.open_editor()
+        self.page.locator('#project-file').set_input_files({'name':'legacy.svg','mimeType':'image/svg+xml','buffer':legacy.encode()})
+        self.page.wait_for_function('document.getElementById("export-status").textContent.startsWith("Opened ")')
+        state = self.state()
+        self.assertEqual(state['directions'], [True,False,True])
+        self.assertEqual(state['separation'], 3)
+        self.assertTrue(state['center'])
+        self.assertEqual(state['stripColors'][0], 7)
+        self.assertFalse(self.page.evaluate('Boolean(window.importExecuted)'))
+        with self.page.expect_download() as event:
+            self.page.get_by_role('button', name='Export artwork as SVG').click()
+        path=Path(self.folder.name)/'artwork-only.svg'
+        event.value.save_as(path)
+        self.page.locator('#project-file').set_input_files(path)
+        self.page.wait_for_function('document.getElementById("export-status").textContent.startsWith("Project was not opened:")')
+        self.assertEqual(self.state(), state)
+
+    def test_invalid_project_keeps_current_design(self):
+        self.open_editor()
+        before = self.state()
+        bad_version = {**before, 'version': 999}
+        bad_colors = {**before, 'stripColors': [99] * len(before['stripColors'])}
+        bad_opacity = {**before, 'opacity': [-1] * 8}
+        for data in ('not a project', json.dumps(bad_version), json.dumps(bad_colors), json.dumps(bad_opacity)):
+            self.page.locator('#project-file').set_input_files({'name':'bad.json','mimeType':'application/json','buffer':data.encode()})
+            self.page.wait_for_function('document.getElementById("export-status").textContent.startsWith("Project was not opened:")')
+            self.assertEqual(self.state(), before)
+            self.assertFalse(self.page.get_by_role('button', name='Save Project', exact=True).is_disabled())

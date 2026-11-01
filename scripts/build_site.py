@@ -5,7 +5,7 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = (
-    'index.html', 'guide.html', 'editor.html', 'site.css', 'editor.js',
+    'index.html', 'guide.html', 'editor.html', 'site.css', 'editor.js', 'project.js',
     'madweave.js', 'madweave.svg', 'madweave_init.svg', 'madweave_small.png',
     'cp1.png', 'cp2.png', 'cp3.png', 'cp4.png', 'cp5.png',
     'MadWeaver.html', 'madweave.html', 'HandbookOfTriaxialWeaves.html',

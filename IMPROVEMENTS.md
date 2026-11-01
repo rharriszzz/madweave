@@ -2,19 +2,19 @@
 
 This is a backlog based on source inspection and the 2026-11-01 Chromium review.
 Items below are proposals, not capabilities already implemented. The update adds
-current documentation, a GitHub Pages site, static SVG artwork export, regression
-tests, and fixes to SVG state restoration; it leaves the original engine intact
+current documentation, a GitHub Pages site, editable offline project saving and opening, legacy SVG import, static artwork
+export, regression tests, and fixes to SVG state restoration; it leaves the original engine intact
 apart from those restoration fixes.
 
 ## Highest priority: keep work safe and make controls accessible
 
 | Proposal | Why it matters | A useful acceptance check |
 | --- | --- | --- |
-| Versioned editable project format and import/export | Static artwork export does not preserve an editable session. The historical DOM format is coupled to button styles and script paths. | Round-trip a design with custom colors, opacity, hidden strips, layer/direction settings, every spacing, and center/orientation settings in a fresh browser session. |
+| Project-file evolution and optional overwrite | Version 1 saves complete offline HTML projects with validated state and supports legacy editable SVG import. Each save downloads a new file. | Add explicit format migrations when needed; consider a native overwrite picker where supported, keeping standard downloads as the fallback. |
 | Undo/redo and a reset warning | Pattern/color-count changes discard hand edits without a recovery path. | Undo painting, palette changes, visibility, resizing, and pattern replacement; verify redo and a clear unsaved-change state. |
 | Keyboard and screen-reader controls | Original SVG hit rectangles have mouse handlers and hover descriptions but no complete keyboard model. | Operate all controls and select/paint strips without a mouse; expose selected state and control names to assistive technology. |
 | Pointer events and touch interaction | Hover-dependent selection is awkward on phones and tablets. | Test actual touch devices with tap selection, explicit painting/visibility modes, and no accidental page-scroll painting. |
-| Cross-browser verification | This update exercises Chromium only. | Run the same real SVG and export tests in Firefox and WebKit, then manually check Safari and at least one physical touch device. |
+| Cross-browser verification | Automated checks cover Chromium and Firefox, with WebKit in CI; actual Mac browser checks remain useful. | Complete the Mac acceptance checks in Safari, Chrome, and Firefox; manually test at least one physical touch device. |
 
 ## Engine reliability and maintainability
 

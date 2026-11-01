@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Design triaxial weaving patterns in MadWeaver's interactive SVG editor."><title>MadWeaver — Pattern editor</title><link rel="stylesheet" href="site.css"><script defer src="editor.js"></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Design triaxial weaving patterns in MadWeaver's interactive SVG editor."><title>MadWeaver — Pattern editor</title><link rel="stylesheet" href="site.css"><script defer src="project.js"></script><script defer src="editor.js"></script></head>
 <body>
 <a class="skip" href="#main">Skip to editor</a>
 <header class="site-header"><a class="wordmark" href="index.html">Mad<span>Weave</span></a><nav aria-label="Main"><a href="guide.html">User guide</a><a href="https://github.com/rharriszzz/madweave">Source ↗</a></nav></header>
 <main id="main" class="editor-main">
-<div class="editor-heading"><div><p class="eyebrow">The interactive pattern editor</p><h1>Make your weave.</h1></div><div class="editor-toolbar"><button id="export" type="button" disabled>Export artwork as SVG</button><a href="madweave.svg">Open SVG directly ↗</a></div></div>
+<div class="editor-heading"><div><p class="eyebrow">The interactive pattern editor</p><h1>Make your weave.</h1></div><div class="editor-toolbar"><button id="save-project" type="button" disabled>Save Project</button><button id="open-project" type="button">Open Project</button><input id="project-file" type="file" accept=".html,.json,.svg,text/html,application/json,image/svg+xml" hidden><button id="export" type="button" disabled>Export artwork as SVG</button><a href="madweave.svg">Open SVG directly ↗</a></div></div>
 <p class="notice">Choose a color along the top, then click a strip. Hover over a control for its description. A mouse or trackpad works best. On smaller screens, scroll the editor sideways.</p>
-<div class="canvas"><object id="weave" data="madweave.svg" type="image/svg+xml" aria-label="MadWeaver interactive weaving editor"><p><a href="madweave.svg">Open the SVG editor directly</a> if embedded SVG is unavailable.</p></object></div>
-<p id="export-status" role="status">Changes are kept only in this tab. Export downloads a static image of your artwork; it does not save an editable project.</p>
-<noscript><p>JavaScript is required for editing and exporting. <a href="madweave_small.png">View an example weave</a> or <a href="guide.html">read the guide</a>.</p></noscript>
+<div class="canvas"><iframe id="weave" src="madweave.svg" title="MadWeaver interactive weaving editor"></iframe></div>
+<p id="export-status" role="status">Save Project downloads an editable file you can reopen, even offline. Open Project also accepts original editable SVG files. Export artwork downloads a static image. Save before closing; there is no autosave.</p>
+<noscript><p>JavaScript is required for editing, project saving, and exporting. <a href="madweave_small.png">View an example weave</a> or <a href="guide.html">read the guide</a>.</p></noscript>
 <details><summary>Quick control reference</summary><p>Left: five patterns, 1–6 pattern colors, and size 1–8 (3–24 strips per direction). Top: eight palette colors and recent colors. Right: color sliders, orientation, layers, directions, outlines, and N/M/W/E spacing. Bottom: HB hides the SVG controls.</p><p>Pattern and color-count buttons reset manual strip edits. Changing the size resets strip edits when the strip count changes. There is no undo or automatic saving.</p></details>
 </main>
 <footer><p>MadWeave · Richard Harris</p><div><a href="index.html">About the project</a><a href="guide.html">Full user guide</a></div></footer>

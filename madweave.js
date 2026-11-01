@@ -1188,7 +1188,8 @@ function showOrHideButtons(g) {
     var child = buttons.firstChild;
     while (child != null) {
         var nextChild = child.nextSibling;
-        if (child.hasAttributes() && child.getAttribute("id").match("gbutton.*")) {
+        if (child.nodeType === 1 && /^gbutton/.test(child.getAttribute("id") || "") &&
+            child.getAttribute("id") !== "gbuttonHideButtons") {
             child.setAttribute("visibility", hidingButtons?"hidden":"visible");
         }
         child = nextChild;

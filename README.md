@@ -14,7 +14,7 @@ colors, spacing, layers, handedness, and over-and-under structure.
 
 The application is plain HTML, JavaScript, and SVG. It needs no package install,
 server-side application, account, or browser plug-in. Serve the checkout over HTTP
-so embedded SVG and export can share the same origin:
+so the editor, project saving, and artwork export can share the same origin:
 
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
@@ -33,22 +33,34 @@ Open <http://127.0.0.1:8000/> for the website or
 5. Explore the **a/b/c** layers, **H/R/L** directions, **−/X/C** orientation
    controls, and **N/M/W/E** spacing. Lower-left **1–8** selects 3–24 strips
    per direction. Hover over a control for its description.
-6. Choose **Export artwork as SVG** on the editor page to download a static
-   vector image without controls or scripts.
+6. Choose **Save Project** to download `madweave-project.html`. It includes your
+   design, the editor, and all pattern images. Open that file in a browser to
+   continue editing offline, or use **Open Project** on the website.
+7. Choose **Export artwork as SVG** when you want a static vector image without
+   controls or scripts.
+
+Save again after editing: each save downloads a new copy, and your browser may
+add a number to the filename. Rename copies to keep different designs. **Open
+Project** also accepts original editable MadWeave SVG files; it cannot restore
+editing information removed by static artwork export.
+
+Project saving preserves strip colors and visibility, the complete palette and
+opacity, recent colors, size, pattern settings, spacing, orientation, visible
+layers/directions, paint/hide/show mode, and whether controls are hidden.
 
 Pattern and color-count changes reset manual strip edits; changing the strip
-count also resets them. There is no full undo or autosave. Export is an artwork
-image, **not an editable project file**. Keep the tab open to continue editing.
-See [the complete control reference](guide.html) for details.
+count also resets them. Save a project before those changes if you want to keep
+the previous design. There is no full undo or autosave.
 
-The current automated browser checks use Chromium. The original SVG controls
-expect a mouse or trackpad; complete keyboard and touch operation are not yet
-implemented. The website adapts to smaller screens and lets the editor scroll
-horizontally. Firefox and Safari have not been verified in this update.
+The browser checks cover Chromium and Firefox, with WebKit in CI. The original
+SVG controls expect a mouse or trackpad; complete keyboard and touch operation
+are not yet implemented. The website adapts to smaller screens and lets the
+editor scroll horizontally. See [the testing record](docs/TESTING.md) for the
+exact browser coverage and a short Mac acceptance check.
 
 ## Documentation
 
-- [User guide](guide.html): controls, export, browser support, and limitations.
+- [User guide](guide.html): project saving, controls, artwork export, and limitations.
 - [Architecture and development](docs/DEVELOPMENT.md): rendering, saved state,
   source map, local checks, and GitHub Pages publishing.
 - [Testing record](docs/TESTING.md): checks, regression evidence, and coverage limits.
@@ -59,13 +71,14 @@ horizontally. Firefox and Safari have not been verified in this update.
 ## Test and build
 
 Node.js 24+ runs the dependency-free color/indexing checks. Python 3.10+ runs the
-site build and tests. Browser tests additionally require Playwright and Chromium:
+site build and tests. Browser tests additionally require Playwright and the browser under test:
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
-.venv/bin/python -m playwright install chromium
+.venv/bin/python -m playwright install chromium firefox webkit
 node --check madweave.js
+node --check project.js
 node --check editor.js
 node --test tests/math.test.cjs
 .venv/bin/python -m unittest discover -s tests -v
@@ -74,7 +87,9 @@ python3 scripts/build_site.py
 
 On Windows, use `.venv\Scripts\python` in place of `.venv/bin/python`. On a fresh
 Linux system, Playwright may require `python -m playwright install --with-deps
-chromium`. The site-only checks have no third-party dependencies:
+chromium`. Set `MADWEAVE_BROWSER=firefox` or `MADWEAVE_BROWSER=webkit` to run the same
+suite in those engines (the default is Chromium). The site-only checks have no
+third-party dependencies:
 
 ```sh
 python3 -m unittest discover -s tests -p test_site.py -v

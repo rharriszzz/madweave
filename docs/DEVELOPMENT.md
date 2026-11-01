@@ -5,8 +5,9 @@
 | File | Purpose |
 | --- | --- |
 | `index.html`, `site.css` | Buildless project landing page and shared website styles |
-| `editor.html`, `editor.js` | Same-origin SVG embedding and static artwork export |
+| `editor.html`, `editor.js` | SVG iframe, offline project save/open, and static artwork export |
 | `guide.html` | Current user guide and control reference |
+| `project.js` | Versioned state capture, validation, application, and legacy SVG import |
 | `madweave.js` | Original global-scope SVG engine and event handlers |
 | `madweave.svg` | Serialized starter design, loaded with `setSavedContent` |
 | `madweave_init.svg` | Minimal fresh-design entry point, loaded with `setContent(..., 2)` |
@@ -59,12 +60,43 @@ before saved spacing was restored; and hidden-control state was read from the
 button rectangle rather than its containing group. Reload tests use a fresh SVG
 document so existing JavaScript globals cannot hide these errors.
 
-The new HTML wrapper provides a deliberately narrower, reliable **static artwork
-export**. It clones the current SVG, removes controls, tools, hover descriptions,
-scripts, and event attributes, and downloads the result through a Blob URL. The
-artwork's `<defs>`, clipping paths, and local fragment references remain intact.
-It needs no external images or scripts. It is not accepted as an editable project.
-There is no project import, local storage, or autosave.
+## Editable projects
+
+`project.js` defines the version 1 `madweave-project` state schema. It captures
+all user-facing settings, the eight-color palette and opacity, four recent
+colors and opacity, strip colors and visibility, size, pattern/count, selected
+color, paint/hide/show mode, layers/directions, spacing, orientation/center,
+outlines, and control visibility. Validation checks types, supported versions,
+lengths, bounds, and RGB values and produces a fresh object with known fields.
+
+**Save Project** downloads a standalone HTML document with two inert JSON script
+blocks: `madweave-project` (validated state) and `madweave-assets` (the engine,
+wrapper scripts, CSS, and five pattern images as data URLs). A small bootstrap
+loads the bundled editor and reconstructs a fresh SVG inside an iframe. Saving
+again reuses the bundle; no external resource is required for editing or saving
+offline. Online documentation links remain links, not load dependencies.
+
+**Open Project** reads a selected HTML/JSON project or an original editable SVG.
+For imported HTML it reads only the state block; it does not execute the file's
+scripts or trust its bundled application code. For a legacy SVG it extracts
+known color, strip, and button attributes without inserting the document into
+the page. Both paths validate state and rebuild it with the current editor code
+and assets. Invalid input leaves the current editor in place. A valid import
+replaces it, so users must save their current design first.
+
+The saved HTML format avoids dependence on browser-specific Save As behavior,
+relative script/image paths, or native file-system picker APIs. Saving downloads
+a new copy instead of overwriting an existing file. Loading an offline saved
+project is explicitly tested through `file://` with networking disabled.
+
+Static artwork export remains separate: it clones only the current SVG and
+removes scripts, controls, tools, descriptions, and event handlers. It keeps
+local definitions and clipping references. An artwork export lacks the original
+editable controls and is rejected by Open Project. There is no local storage,
+autosave, or undo history.
+
+The hidden-control routine now ignores whitespace text nodes in old SVG files
+and leaves the HB control available so users can bring the other controls back.
 
 ## Working locally
 
@@ -77,7 +109,8 @@ Use the commands in [README.md](../README.md#test-and-build). Python tests build
 an isolated temporary site under `/madweave/`, serve it on a dynamically assigned
 loopback port, and close their server/browser afterward. Browser screenshots go
 to ignored `test-results/`. The browser suite requires installed Playwright and
-Chromium; it fails rather than silently skipping browser verification.
+the selected engine. Set `MADWEAVE_BROWSER` to `chromium`, `firefox`, or `webkit`;
+the suite fails rather than silently skipping browser verification.
 
 ## Publishing
 
@@ -88,8 +121,10 @@ accidental publication of checkout-only material. Historical broken-link
 experiments are retained in Git but omitted from the site artifact.
 
 The workflow follows GitHub's [custom Pages workflow model](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
-Its build job checks JS syntax, runs Node/Python/browser tests, builds `dist/`, and
-uploads that directory. Only the deploy job receives `pages: write` and
+Its matrix jobs check JS syntax, run Node/Python/browser tests in Chromium,
+Firefox, and WebKit, and build `dist/`. The Chromium job uploads the site;
+deployment waits for all three engines to pass. Only the deploy job receives
+`pages: write` and
 `id-token: write`. Pull requests do not deploy. Current official Actions majors
 were checked against the upstream releases when the workflow was added.
 
@@ -109,8 +144,10 @@ The surrounding HTML uses semantic landmarks, visible keyboard focus, a skip
 link, native links/buttons, image descriptions, reduced-motion support, and
 responsive layouts. The original SVG editor uses inline mouse handlers and
 hover feedback and still needs accessibility work. Do not claim full keyboard,
-screen-reader, mobile-touch, Firefox, or Safari support from Chromium checks.
+screen-reader or mobile-touch support from browser automation. Actual Mac Safari
+and the Mac Chrome/Firefox builds should receive the acceptance check in
+[MAC_TESTING.md](MAC_TESTING.md).
 
 Batik helpers are not used in the site build or browser tests. Modernizing those
-scripts, licensing the project, and deciding a durable editable format need
+scripts, licensing the project, and extending the editable format need
 separate work; see [IMPROVEMENTS.md](../IMPROVEMENTS.md).
