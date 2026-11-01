@@ -107,7 +107,8 @@ class BrowserTests(unittest.TestCase):
         for identifier, expression in [('VD0','showD[0]'),('VH1','showC[1]'),('-','hand'),('X','alternate'),('C','starMadWeaveCenter'),('Lines','showingLines')]:
             old = self.page.evaluate(expression)
             self.page.locator('[id="cbutton'+identifier+'"]').click()
-            self.assertEqual(self.page.evaluate(expression), not old)
+            self.page.wait_for_function(f'({expression}) === {json.dumps(not old)}', timeout=3000)
+            self.assertEqual(self.page.evaluate(expression), not old, identifier)
         self.assertFalse(self.page.evaluate('processing'))
 
     def test_saved_visibility_spacing_and_controls_survive_rebuild(self):
@@ -230,7 +231,10 @@ class BrowserTests(unittest.TestCase):
             before = self.state()
             saved = self.save_project(Path(self.folder.name)/f'project-{spacing}.html')
             # New tab and offline networking prove independence from the hosting site.
-            context = self.browser.new_context(accept_downloads=True, offline=True)
+            context = self.browser.new_context(accept_downloads=True)
+            # WebKit's simulated offline mode also blocks file:// navigations.
+            # Block network requests explicitly while allowing local files.
+            context.route('**/*', lambda route: route.abort() if route.request.url.startswith(('http:', 'https:')) else route.continue_())
             offline = context.new_page()
             requests, errors = [], []
             offline.on('request', lambda request: requests.append(request.url) if request.url.startswith(('http:', 'https:')) else None)

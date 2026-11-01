@@ -41,7 +41,7 @@ relying on a browser installed on the runner.
 - Editable projects round-trip at all four spacings with custom strip colors,
   opacity, recent colors, hidden strips, layer/direction choices, orientation,
   center, outlines, hide mode, and hidden controls. A fresh browser context with
-  networking disabled opens the downloaded HTML through `file://`, preserves
+  network requests blocked opens the downloaded HTML through `file://`, preserves
   every saved setting, permits further editing through the actual controls,
   downloads another project, and restores that updated state on reopening.
 - The offline project makes no HTTP requests. Open Project on the hosted editor
