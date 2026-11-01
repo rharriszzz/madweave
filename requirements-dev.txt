@@ -1,0 +1,2 @@
+# Browser checks only; the application itself has no installed dependencies.
+playwright==1.63.0

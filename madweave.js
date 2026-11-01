@@ -1522,6 +1522,16 @@ function setSavedContent(g) {
   if (processing) return;
   processing = true;
     var document = g.ownerDocument;
+    // Restore spacing before calculating geometry and the button selection threshold.
+    for (var separation = 0; separation < separationValue.length; separation++) {
+        var separationButton = document.getElementById("buttonSep"+separation);
+        if (parseFloat(separationButton.getAttribute("stroke-width")) >
+            parseFloat(separationButton.getAttribute("width"))*buttonStrokeWidth*1.1) {
+            separationIndex = separation;
+            stripSpacingFraction = separationValue[separationIndex];
+            stripSpacing = stripWidth * stripSpacingFraction;
+        }
+    }
     setupNewBaseSize(document);
     var i;
     for (i=0; i<colorArray.length; i++) {
@@ -1542,18 +1552,11 @@ function setSavedContent(g) {
     starMadWeaveCenter = parseFloat(document.getElementById("buttonC").getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
     for (i=0; i<3; i++) {
         showC[i] = parseFloat(document.getElementById("buttonVH"+i).getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
-        showD[d] = parseFloat(document.getElementById("buttonVD"+i).getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
+        showD[i] = parseFloat(document.getElementById("buttonVD"+i).getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
     }
     showingLines = parseFloat(document.getElementById("buttonLines").getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
     hideStrips = parseFloat(document.getElementById("buttonI").getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
     showStrips = parseFloat(document.getElementById("buttonV").getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1;
-    for (i=0; i<4; i++) {
-        if (parseFloat(document.getElementById("buttonSep"+i).getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1) {
-            separationIndex = i;
-            stripSpacingFraction = separationValue[separationIndex];
-            stripSpacing = stripWidth * stripSpacingFraction;
-        }
-    }
     for (i=0; i<5; i++) {
         if (parseFloat(document.getElementById("buttonCP"+i).getAttribute("stroke-width"))>buttonRectSize*buttonStrokeWidth*1.1) {
             colorPattern = i;
@@ -1576,7 +1579,7 @@ function setSavedContent(g) {
         visibilityIndexArray[i] = gstrip.getAttribute("mwVisibility")=="visible";
     }
     var defaultColorButton = document.getElementById("buttonC"+defaultColorIndex);
-    hidingButtons = document.getElementById("buttonLines").getAttribute("visibility") == "hidden";
+    hidingButtons = document.getElementById("gbuttonLines").getAttribute("visibility") == "hidden";
     setColorChooserColor(document, defaultColorButton.getAttribute("fill"), defaultColorButton.getAttribute("fill-opacity"));
 
   processing = false;
