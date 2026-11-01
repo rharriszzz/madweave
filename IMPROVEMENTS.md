@@ -14,7 +14,7 @@ apart from those restoration fixes.
 | Undo/redo and a reset warning | Pattern/color-count changes discard hand edits without a recovery path. | Undo painting, palette changes, visibility, resizing, and pattern replacement; verify redo and a clear unsaved-change state. |
 | Keyboard and screen-reader controls | Original SVG hit rectangles have mouse handlers and hover descriptions but no complete keyboard model. | Operate all controls and select/paint strips without a mouse; expose selected state and control names to assistive technology. |
 | Pointer events and touch interaction | Hover-dependent selection is awkward on phones and tablets. | Test actual touch devices with tap selection, explicit painting/visibility modes, and no accidental page-scroll painting. |
-| Cross-browser verification | Automated checks cover Chromium and Firefox, with WebKit in CI; actual Mac browser checks remain useful. | Complete the Mac acceptance checks in Safari, Chrome, and Firefox; manually test at least one physical touch device. |
+| Cross-browser verification | The Mac suite and targeted installed Safari/Chrome/Firefox checks passed on 2026-11-01; see docs/MAC_TESTING.md. | Repeat native-browser checks after updates, add a periodic Mac runner, and manually test at least one physical touch device. |
 
 ## Engine reliability and maintainability
 
@@ -67,3 +67,17 @@ apart from those restoration fixes.
 - Add visual regression baselines only after agreeing which original rendering
   details to preserve. Avoid recording broad screenshot changes as correctness
   without reviewing the actual interlacing.
+
+## Follow-ups from the Mac and Pages review (2026-11-01)
+
+- Add a periodic `macos-latest` CI job for the three bundled engines. The existing
+  Pages workflow runs on Linux and would not have detected the macOS Firefox
+  shared-data startup/temporary-folder cleanup problem found in this review.
+  Keep native Safari checks separate from Playwright WebKit coverage.
+- Keep the portfolio's featured MadWeave card pointed at `/madweave/`; the current
+  card, search, Browser apps filter, and navigation passed live checks. Update
+  its screenshot when the editor appearance changes. Keep a periodic smoke
+  check for this cross-repository link and the app's More projects return link.
+- Continue physical touch and assistive-technology checks: narrow-viewport layout
+  passes do not establish that the original hover-dependent editor is usable
+  with those input methods.

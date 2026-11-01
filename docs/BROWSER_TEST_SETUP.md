@@ -117,8 +117,20 @@ requires upgrading your personal Firefox installation.
 For automated tests on a Mac, create `.venv`, install `requirements-dev.txt`,
 set the same `PLAYWRIGHT_BROWSERS_PATH` convention, and install the browsers.
 Skip the Linux `sudo ... install-deps` and `apt` commands. Python and Node must
-already be installed. Automated WebKit is not the actual Safari application;
-finish with [the Mac acceptance checklist](MAC_TESTING.md) in Safari, Chrome,
-and Firefox.
+already be installed. The Mac Firefox test setup isolates application data as
+well as its browser profile, avoiding the macOS 27 startup failure documented in
+[the Mac testing record](MAC_TESTING.md#macos-firefox-startup-and-cleanup). It does
+not require granting access to your normal Firefox data.
+
+To run the complete suite in an already installed Chrome application:
+
+```sh
+MADWEAVE_BROWSER=chromium MADWEAVE_CHANNEL=chrome .venv/bin/python -m unittest discover -s tests -v
+```
+
+Leave `MADWEAVE_CHANNEL` unset for the bundled Chromium/Firefox/WebKit builds.
+Automated WebKit is separate from the actual Safari application; keep using
+[the Mac acceptance checklist and results](MAC_TESTING.md) for installed Safari,
+Chrome, and Firefox.
 
 Reference: [Playwright Python browser installation and configuration](https://playwright.dev/python/docs/browsers).

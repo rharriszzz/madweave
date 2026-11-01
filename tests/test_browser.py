@@ -1,8 +1,9 @@
-"""Exercise the actual published files, SVG UI, reload state, and export in Chromium."""
+"""Exercise the built site, SVG UI, reload state, and export in a real browser."""
 import functools
 import http.server
 import os
 import json
+import sys
 import tempfile
 import threading
 import unittest
@@ -29,7 +30,21 @@ class BrowserTests(unittest.TestCase):
         cls.thread.start()
         cls.base = f'http://127.0.0.1:{cls.server.server_port}/madweave/'
         cls.playwright = sync_playwright().start()
-        cls.browser = getattr(cls.playwright, os.environ.get('MADWEAVE_BROWSER', 'chromium')).launch()
+        browser_type = getattr(cls.playwright, os.environ.get('MADWEAVE_BROWSER', 'chromium'))
+        options = {}
+        if os.environ.get('MADWEAVE_CHANNEL'):
+            options['channel'] = os.environ['MADWEAVE_CHANNEL']
+        if sys.platform == 'darwin' and browser_type.name == 'firefox':
+            # macOS 27 protects Firefox's shared application-data directory,
+            # even with a disposable profile. Keep all test app data isolated.
+            firefox_home = Path(cls.folder.name) / 'firefox-home'
+            # Precreate standard folders before macOS gives them deny-delete
+            # ACLs, which would prevent temporary-folder cleanup.
+            for directory in ('Documents', 'Downloads', 'Library/Application Support',
+                              'Library/Caches', 'Library/Preferences'):
+                (firefox_home / directory).mkdir(parents=True, exist_ok=True)
+            options['env'] = {**os.environ, 'CFFIXED_USER_HOME': str(firefox_home)}
+        cls.browser = browser_type.launch(**options)
 
     @classmethod
     def tearDownClass(cls):

@@ -56,7 +56,8 @@ The browser checks cover Chromium and Firefox, with WebKit in CI. The original
 SVG controls expect a mouse or trackpad; complete keyboard and touch operation
 are not yet implemented. The website adapts to smaller screens and lets the
 editor scroll horizontally. See [the testing record](docs/TESTING.md) for the
-exact browser coverage and a short Mac acceptance check.
+exact browser coverage, and [Mac testing results](docs/MAC_TESTING.md) for
+installed Safari, Chrome, and Firefox checks.
 
 ## Documentation
 

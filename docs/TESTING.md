@@ -75,7 +75,9 @@ temporary extracted Linux libraries during investigation; the permanent
 setup is documented in [BROWSER_TEST_SETUP.md](BROWSER_TEST_SETUP.md). CI installs
 the system dependencies normally for each engine. These are desktop and responsive-emulation
 checks, not physical touch-device or screen-reader certification. Actual Mac
-Safari, Chrome, and Firefox still need [the acceptance check](MAC_TESTING.md).
+Safari, Chrome, and Firefox results are recorded in
+[the Mac testing record](MAC_TESTING.md#results-on-2026-11-01); keep using its
+acceptance checklist after browser/editor updates.
 
 The geometry checks do not prove every crossing mathematically or physically
 correct, and this update does not validate a physical weaving process. The
@@ -114,3 +116,12 @@ and legacy saved-DOM initialization apply it. The existing control-toggle and
 offline save/reopen tests detect this regression. HTTP requests are blocked
 explicitly in offline-file tests because WebKit's simulated offline setting
 also prevented local-file navigation.
+
+## Mac and live-site verification
+
+On 2026-11-01 the full suite also passed on macOS 27.2 in Playwright Chromium,
+Firefox, and WebKit, and in installed Chrome through `MADWEAVE_CHANNEL=chrome`.
+Targeted WebDriver checks exercised actual installed Safari and Firefox against
+the published editor, including native downloads, file reopening/resaving,
+project import, and static artwork export. See [MAC_TESTING.md](MAC_TESTING.md)
+for exact versions, the Firefox startup fix, scope, and live portfolio checks.
