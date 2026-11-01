@@ -87,7 +87,7 @@ replaces it, so users must save their current design first.
 The saved HTML format avoids dependence on browser-specific Save As behavior,
 relative script/image paths, or native file-system picker APIs. Saving downloads
 a new copy instead of overwriting an existing file. Loading an offline saved
-project is explicitly tested through `file://` with networking disabled.
+project is explicitly tested through `file://` with HTTP requests blocked.
 
 Static artwork export remains separate: it clones only the current SVG and
 removes scripts, controls, tools, descriptions, and event handlers. It keeps
@@ -97,6 +97,8 @@ autosave, or undo history.
 
 The hidden-control routine now ignores whitespace text nodes in old SVG files
 and leaves the HB control available so users can bring the other controls back.
+Hover-help groups use `pointer-events="none"` so their text cannot intercept
+clicks on controls, including in WebKit.
 
 ## Working locally
 

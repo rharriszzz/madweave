@@ -70,9 +70,10 @@ rejected. They do not verify external historical URLs.
 
 ## Coverage limits
 
-The local automated suite passes in Chromium and Firefox. WebKit could not
-start locally because its system libraries are missing; CI runs it with the
-required dependencies installed. These are desktop and responsive-emulation
+The local automated suite passes in Chromium, Firefox, and WebKit. WebKit used
+temporary extracted Linux libraries during investigation; the permanent
+setup is documented in [BROWSER_TEST_SETUP.md](BROWSER_TEST_SETUP.md). CI installs
+the system dependencies normally for each engine. These are desktop and responsive-emulation
 checks, not physical touch-device or screen-reader certification. Actual Mac
 Safari, Chrome, and Firefox still need [the acceptance check](MAC_TESTING.md).
 
@@ -105,3 +106,11 @@ reopen/Open Project sequence through WebDriver BiDi in an isolated profile.
 Firefox's test fixture was copied to a normal Windows-local file because its
 file navigation rejected the WSL network-share path; the application workflow
 then passed without changing Firefox or upgrading it.
+
+
+WebKit testing exposed hover-help text intercepting clicks on SVG controls.
+Documentation groups now have `pointer-events="none"`; both normal initialization
+and legacy saved-DOM initialization apply it. The existing control-toggle and
+offline save/reopen tests detect this regression. HTTP requests are blocked
+explicitly in offline-file tests because WebKit's simulated offline setting
+also prevented local-file navigation.

@@ -234,7 +234,8 @@ class BrowserTests(unittest.TestCase):
             context = self.browser.new_context(accept_downloads=True)
             # WebKit's simulated offline mode also blocks file:// navigations.
             # Block network requests explicitly while allowing local files.
-            context.route('**/*', lambda route: route.abort() if route.request.url.startswith(('http:', 'https:')) else route.continue_())
+            context.route('http://**/*', lambda route: route.abort())
+            context.route('https://**/*', lambda route: route.abort())
             offline = context.new_page()
             requests, errors = [], []
             offline.on('request', lambda request: requests.append(request.url) if request.url.startswith(('http:', 'https:')) else None)

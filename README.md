@@ -107,6 +107,13 @@ checks without deploying. The repository's **Settings → Pages → Source** mus
 be **GitHub Actions**. See [deployment notes](docs/DEVELOPMENT.md#publishing)
 for setup and verification.
 
+## Keeping browser-test dependencies installed
+
+For a setup that survives `/tmp` cleanup and reboots, follow
+[Persistent browser-test setup](docs/BROWSER_TEST_SETUP.md). It covers Ubuntu/WSL
+system packages, a project virtual environment, durable browser storage, and
+commands for all three test engines.
+
 ## History and rights
 
 The original program carries “copyright 2004–2012, Richard Harris, all rights

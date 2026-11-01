@@ -1425,6 +1425,7 @@ function buildButtons(document) {
   if (buttons.parentNode == null) svg.appendChild(buttons);
   buttons.setAttributeNS(inkscapeNS, "inkscape:groupmode", "layer");
   var documentations = createSVGElementWithId(document, "g", "documentations");
+  documentations.setAttribute("pointer-events", "none");
   if (documentations.parentNode == null) svg.appendChild(documentations);
   documentations.setAttributeNS(inkscapeNS, "inkscape:groupmode", "layer");
 
@@ -1523,6 +1524,8 @@ function setSavedContent(g) {
   if (processing) return;
   processing = true;
     var document = g.ownerDocument;
+    // Hover help is display-only and must never intercept clicks on controls.
+    document.getElementById("documentations").setAttribute("pointer-events", "none");
     // Restore spacing before calculating geometry and the button selection threshold.
     for (var separation = 0; separation < separationValue.length; separation++) {
         var separationButton = document.getElementById("buttonSep"+separation);
