@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Copy the explicit public site files into dist/, without a package install."""
 from pathlib import Path
+import hashlib
 import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +31,18 @@ def build(output=None):
         if destination.is_symlink():
             raise ValueError(f'Symlinked publication target: {name}')
         shutil.copyfile(source, destination)
+
+    # Version the deployed CSS URL from its actual content. Otherwise browsers
+    # may continue using an older site.css after a GitHub Pages deployment.
+    css_version = hashlib.sha256((output / 'site.css').read_bytes()).hexdigest()[:12]
+    for name in ('index.html', 'guide.html', 'editor.html'):
+        page = output / name
+        source_html = page.read_text(encoding='utf-8')
+        old_link = 'href="site.css"'
+        if source_html.count(old_link) != 1:
+            raise ValueError(f'Expected one stylesheet link in {name}')
+        page.write_text(source_html.replace(old_link, f'href="site.css?v={css_version}"'),
+                        encoding='utf-8')
     marker = output / '.nojekyll'
     if marker.is_symlink():
         raise ValueError('Symlinked publication marker')
