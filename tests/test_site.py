@@ -1,4 +1,5 @@
 import importlib.util
+import hashlib
 from html.parser import HTMLParser
 from pathlib import Path
 import tempfile
@@ -52,6 +53,21 @@ class SiteTests(unittest.TestCase):
                     href = element.get('{http://www.w3.org/1999/xlink}href', '')
                     if href and not href.startswith('#'):
                         self.assertTrue((output/href).is_file(), href)
+
+    def test_published_stylesheet_is_versioned_and_hero_is_level(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output = site.build(folder)
+            css = (output / 'site.css').read_bytes()
+            version = hashlib.sha256(css).hexdigest()[:12]
+            self.assertNotIn(b'transform:rotate(2deg)', css)
+            self.assertNotIn(b'.hero-image{transform:rotate(', css)
+            for name in ('index.html', 'guide.html', 'editor.html'):
+                with self.subTest(page=name):
+                    html = (output / name).read_text(encoding='utf-8')
+                    self.assertEqual(html.count(f'href="site.css?v={version}"'), 1)
+                    self.assertNotIn('href="site.css"', html)
+            # Keep editable sources simple; versioning happens at build time.
+            self.assertIn('href="site.css"', (site.ROOT / 'index.html').read_text())
 
     def test_build_refuses_unexpected_files(self):
         with tempfile.TemporaryDirectory() as folder:
