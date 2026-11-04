@@ -351,3 +351,39 @@ The current references and cone-readiness checklist have been updated. The
 remaining priorities are defined symmetry checks, broader finite-end and
 boundary-side pixel coverage, and the dormant angular mapping specification.
 The editor and cone settings have not been changed.
+
+## Preparatory goals completed and Firefox rendering control (2026-11-04)
+
+The [readiness record](CONE_READINESS.md) now maps all four original goals to
+current documentation and executable checks. The 34-stage local `--app` suite
+passed, including the 33-stage research suite and all eleven application tests.
+Those application tests also passed separately in Firefox. Baseline commit
+`61603be` was pushed and passed Actions run `41919725799`; subsequent exact
+revision/run evidence is recorded in the testing reference.
+
+The [symmetry report](SYMMETRY.md) separates finite rectangle geometry,
+pairwise order, class permutations, and fixed colors. Tests cover 768 rotations,
+383,616 pair comparisons, and 5,280 visible-top probes. The broader boundary
+matrix passes 3,608 pairs across 128 settings and 512 patches, including 384
+explicit finite ends in H/R/L directions.
+
+At the user's request, the faint lines were compared in Firefox and Chromium.
+All 21 strip/mask path and transform records were identical. Both showed exact
+seam deviations; neutral unclipped controls removed them. Single-pixel profiles
+revealed narrow effects hidden by the first 3×3 neutral average. The
+[rendering report](BOUNDARY_RENDERING.md) classifies this as a known SVG
+clipping/compositing artifact. Browser-engine source debugging is not a
+precondition for cone work.
+
+The [cone contract](CONE_MAPPING_SPEC.md) specifies the first N=6, U=3 fixture,
+coordinate spaces, unit closure, global identity/seams, inverse picking,
+bounded approximation, and saved-state requirements. It derives the required
+unit count `N*U/3`, identifies the dormant six-unit bookkeeping inconsistency,
+and accounts for the existing endpoint and inverse-selection quirks. The
+angular-helper tests retain f=1 throughout. No nonunit fraction or application
+cone UI was introduced during preparation.
+
+The guide also now states the observed I/V and palette-exit behavior accurately.
+The original engine remains unchanged. Work following this checkpoint is the
+specified cone prototype implementation, rather than an open-ended continuation
+of preparatory investigation.

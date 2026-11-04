@@ -1,97 +1,65 @@
-# Preparation for coneFraction
+# Readiness for the first cone experiment
 
-The planar renderer has a useful tested baseline, but the preparation for cone
-work is **not complete**. The next task is to close the gaps below while retaining
-`numberOfDirections=3`, `transformInPath=false`, and `coneFraction=1` in the app.
-This is a research completion checklist, not a request to expose a cone control.
+**Preparation for the current planar app is complete.** Every exposed control is
+mapped and characterized; the planar model, independent geometry, parameter
+matrix, symmetry, boundary rendering, and dormant angular helpers have documented
+results and executable checks. The [cone mapping contract](CONE_MAPPING_SPEC.md)
+defines the next implementation phase. The application still uses
+`numberOfDirections=3`, `transformInPath=false`, and `coneFraction=1`.
 
-## Readiness criteria
+Completion here means that the preparatory questions have explicit answers,
+tests, or a documented limitation with a concrete implementation requirement.
+It does not mean that cone rendering or a physical cone weave has been built.
 
-| Area | Current evidence | Remaining deliverable |
+## Goal completion
+
+| User goal | Deliverable | Verification |
 |---|---|---|
-| Every control | All 52 targets characterized; wrapper workflows have application tests | Resolve or explicitly account for the V recoloring and first-swatch-after-I/V discrepancies before reusing those behaviors in cone tests |
-| Strip identity and classes | Independent rectangles and actual browser class partitions pass all 256 size/spacing/orientation cases | Preserve these checks as the planar identity baseline for later transformations |
-| Pairwise order | Antisymmetry plus independent-cell/painter-order checks pass across 256 cases; 128-case pixel matrix uses pairwise order rather than SVG mask containment for predictions | Extend independent pixel locations beyond the central patch, especially crossings near finite ends |
-| Triple overlap and mask boundaries | 128-case central pixel matrix passes zero/one/two/three-strip regions; extra-wide triple emptiness is explicit; original 924-pair boundary audit remains | Broaden the dedicated two-sided mask-boundary audit beyond size 3, medium spacing; measure faint boundary lines seen in zooms separately from interior correctness |
-| Mask geometry | Independent slab construction covers all finite-strip cells and rejects duplicate triangles; transformed browser masks agree across 256 cases | Keep exact shared boundaries separate from positive-area coverage; extend checks when transformation changes the geometry |
-| Center structure and color | C preserves physical tracks; 240 pattern/count/orientation cases preserve strip/mask geometry and match color formulas | State and test symmetry separately for strip geometry, classes, local order, and color; compare neutral and uniquely labeled diagnostic views |
-| Angular mapping | Dormant source path identified below | Specify admissible parameters, forward/inverse coordinates, seams, units, masks, and approximation tolerance before enabling it |
-| Repeatability | One local suite command with JSON/logs and image evidence | Keep required stages passing locally and in branch CI; clearly distinguish current runs from historical evidence |
+| Understand every app button | [Control reference](CONTROLS.md) and user guide; all 52 SVG targets plus wrapper actions | Control inventory, reset/preservation checks, actual pointer tests, recent-color/opacity checks, and application save/open/export tests |
+| Understand hexweave and madweave details | [Planar model](PLANAR_MODEL.md), [symmetry](SYMMETRY.md), and detailed reports | Class partitions, physical identities, center shifts, order, geometry, color invariance, corrected centerline derivation, and occupancy tests |
+| Develop a test suite | [Research testing](TESTING.md) and `research/run-tests.py` | 33 research stages; 34 with the application browser suite; versioned branch CI |
+| Finish preparation before coneFraction | [Mapping specification](CONE_MAPPING_SPEC.md), this checklist, and unit-fraction helper tests | Explicit spaces, parameter/unit derivation, forward/inverse mapping, seams, approximation bound, persistence requirements, and a bounded first fixture |
 
-Structural checks for all **8 sizes × 4 spacings × 8 orientations** now pass.
-The documented 128-case central pixel matrix includes sizes 1, 2, 3, and 8 at
-all spacings and orientations. It verifies 4,278 samples, including backgrounds
-and single-strip regions, and explicitly checks 32 extra-wide cases with no
-positive-area triple overlap. See the [geometry matrix report](GEOMETRY_MATRIX_REPORT.md).
-This is a central-patch pixel result; finite-end and two-sided-boundary pixels
-still need broader parameter coverage. Pixel thresholds were retained, while
-zoom and geometric clearance make narrow features resolvable.
+## Readiness checks and evidence
 
-## What coneFraction actually controls in the source
+| Topic | Completed preparatory evidence |
+|---|---|
+| Strip identity and classes | Original indexing plus independent rectangles and actual browser partitions at all 256 size/spacing/orientation settings |
+| Mask coverage and local order | 158,208 finite-cell coverage checks, 92,928 generated triangles, and 371,712 browser mask cells; missing/duplicate negative controls fail |
+| Independent pixels | 4,278 central pixel samples at 128 settings; extra-wide triple emptiness explicitly checked in 32 cases |
+| Boundaries and finite ends | 3,608 passing two-sided pairs, including 384 explicit H/R/L end pairs, across 128 settings and 512 zooms |
+| Symmetry | 768 rotation cases, 383,616 pair comparisons, and 5,280 visible-top comparisons; geometry, classes, order, and colors distinguished |
+| Color invariance | 240 pattern/count/orientation cases preserve physical and mask geometry and satisfy the documented formulas |
+| SVG rendering lines | Firefox/Chromium same-geometry comparison and clipped/unclipped neutral controls classify a known raster/compositing artifact |
+| Dormant angular helpers | At f=1: 15 finite intersection checks, 428 clipped segments, 5,184 strip picks, and explicit endpoint/branch/initialization characterizations |
+| Save/reopen and app behavior | Eleven application tests pass locally in Chromium and separately in Firefox; the consolidated CI includes the Chromium application suite |
 
-The initial angular setup in [`madweave.js`](../madweave.js) is:
+The full local `--app` run passed 34 stages. The first pushed baseline,
+`61603be`, also passed [branch CI](https://github.com/rharriszzz/madweave/actions/runs/41919725799).
+The [testing record](TESTING.md) identifies versions, artifacts, reproduction,
+and the scope of subsequent verification.
 
-```text
-directionsPerCircle = 3
-unitsPerCircle = (starMadWeaveCenter || starHexWeaveCenter) ? 6 : 3
-directionsInUnit = unitsPerCircle / directionsPerCircle
-angleOfUnit = 2π / unitsPerCircle
-numberOfUnits = numberOfDirections / directionsInUnit
-coneFraction = directionsPerCircle / numberOfDirections
-```
+## Known limitations that are accounted for
 
-These are assignments at script initialization. Pressing C later toggles the
-center and rebuilds strips, but does not recompute this angular setup. A future
-parameter API must define which quantities are inputs and recompute all derived
-values consistently. Changing `coneFraction` alone is not a complete setup.
+- V currently shows **and recolors** a strip. The first palette press after I/V
+  exits that mode while retaining the previous swatch. These existing behaviors
+  are characterized and explained; they are not requirements for the new cone UI.
+- Exact clip-edge pixels can show faint lines in both Firefox and Chromium.
+  Geometric coverage and safely interior pixels pass independently. Browser-engine
+  debugging is a separate project, not a prerequisite for a cone prototype.
+- The legacy angular setup is not reactive; the star-unit bookkeeping is
+  inconsistent with closure when U=6; endpoint sampling contracts the last point;
+  and the six-direction picking shortcut is not suitable for a nonunit map.
+  The mapping specification gives explicit replacements and acceptance checks.
+- Physical weaving feasibility, arbitrary displaced symmetry centers, exhaustive
+  pixels at every location, and nonunit cone behavior have not been claimed.
+  The implemented finite planar baseline and the specified first experiment
+  have bounded, repeatable coverage.
 
-When `transformInPath=false`, strip positions use ordinary SVG transforms;
-the nonlinear transformation branch is bypassed. In `transformPointToPath`, the
-other branch first rotates/translates a point, computes polar coordinates, and
-maps its angle to `theta'=coneFraction*theta`, retaining the radius. Its source
-contains a commented-out alternative radius scaling. The current formula alone
-does not establish how a physical strip should be measured on a cone.
+## Next implementation phase
 
-The following source details need explicit decisions and tests:
-
-- **Angular branch and seam:** `lastAnglet`, `extraAnglet`, and
-  `firstTransformPoint` unwrap angles along each path. Verify continuity at
-  `atan2`'s branch cut, the origin, and the intended joined seam.
-- **Unit clipping:** `drawOneUnit` invokes ray/edge intersections and angular
-  clipping. Test parallel/degenerate edges, ray endpoints, and points near both
-  unit boundaries. `intersectionPoint` can divide by a vanishing difference.
-- **Curve approximation:** `npoints=2` currently samples segments very sparsely.
-  An angle-scaled straight strip edge is generally curved. Specify an error
-  bound, endpoint handling, and how resolution is chosen before trusting it.
-- **Picking:** `getSForPoint` applies an inverse angular map only when
-  `transformInPath && numberOfDirections != 6`. Explain that exception and test
-  forward/inverse strip selection, including both sides of the seam.
-- **Composition:** strip directions, mask permutations, mask transforms, and
-  `<use>` construction remain built around H/R/L. Determine how unit replication
-  and transformed clipping will work together; mapping strip paths while leaving
-  masks planar is not an established renderer.
-- **Dormant settings:** `starHexWeaveCenter` has a layer-b comment, and
-  `numberOfDirections` has a divisibility constraint, but neither has a verified
-  user-facing configuration. `numberOfUnits` currently has no later use in this
-  source. Do not infer completed unit assembly from those names.
-- **Persistence:** the project schema currently describes the planar UI state;
-  cone parameters and derived geometry need an explicit save/reopen design if
-  they become editable settings.
-
-## Order of work
-
-1. Close planar coverage gaps and preserve independent, labeled evidence for
-   crossings, overlaps, mask continuity, and center structure.
-2. Write a precise angular-mapping specification, with coordinate systems,
-   parameter constraints, seam matching, inverse selection, and numeric tolerance.
-3. Test dormant mapping helpers in isolation, including the unit-fraction
-   baseline, before connecting them to the editor's rendering and saved state.
-4. Choose one nonunit fraction whose expected construction can be described
-   independently. Compare its predicted seam/strip relationships and rendered
-   output, keeping a planar regression case alongside it.
-5. Broaden fractions and UI support only after that experiment is explained and
-   reproducible.
-
-A passing screenshot comparison against the same SVG mask logic is useful
-renderer evidence. It cannot, by itself, establish a physically realizable cone
-weave or validate all of these angular assumptions.
+Implement the contract in this order: explicit parameter derivation and exact
+f=1 equivalence; safe unit clipping and bounded approximation; the N=6, U=3
+research fixture; seam/global-strip identity and inverse picking; then versioned
+editable state and UI. Keep the planar suite passing throughout. The nonunit
+fixture has been specified but not executed during preparation.

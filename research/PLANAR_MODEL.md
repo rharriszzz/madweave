@@ -142,13 +142,17 @@ does not constitute an independent physical weaving theory.
 
 ## What remains to understand
 
-The present checks establish the finite-cell coverage described above and sample
-the program's planar output. They do not provide exhaustive pixels everywhere
-on every design, a mathematical description of all center symmetries, or a
-physical construction proof. In particular, visual threefold/sixfold symmetry
-must distinguish strip geometry, class membership, crossing order, and coloring.
-The dormant `starHexWeaveCenter` comment is not evidence of a separate verified
-planar crossing mode.
+The finite-cell coverage, broad boundary/end pixels, and
+[origin-centered rotational symmetries](SYMMETRY.md) now have passing checks.
+Geometry, class membership, crossing order, and coloring have distinct symmetry
+classifications. The [boundary rendering report](BOUNDARY_RENDERING.md) accounts
+for exact-seam raster artifacts in Chromium and Firefox.
 
-[The readiness checklist](CONE_READINESS.md) turns these remaining questions and
-the angular-mapping code into concrete prerequisites for cone experiments.
+These results do not assert exhaustive pixels everywhere, every displaced
+symmetry center, or physical weaving feasibility. The dormant
+`starHexWeaveCenter` comment is not a separate verified renderer; its angular
+bookkeeping limitations and a closure-consistent replacement are explained in
+the [cone mapping contract](CONE_MAPPING_SPEC.md).
+
+[The readiness record](CONE_READINESS.md) maps the completed preparation to the
+next bounded cone experiment.

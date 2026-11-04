@@ -15,17 +15,17 @@ python3 research/run-tests.py --unit-only
 ```
 
 For the full research suite, install the workflow's Node dependencies and matching
-browser. An external dependency folder avoids adding package files to this
+browsers. An external dependency folder avoids adding package files to this
 buildless repository:
 
 ```sh
 npm install --prefix /tmp/madweave-research-deps --no-save playwright@1.58.2 pngjs@7.0.0
 export NODE_PATH=/tmp/madweave-research-deps/node_modules
-/tmp/madweave-research-deps/node_modules/.bin/playwright install chromium
+/tmp/madweave-research-deps/node_modules/.bin/playwright install chromium firefox
 python3 research/run-tests.py
 ```
 
-On supported Linux runners, use `playwright install --with-deps chromium` when
+On supported Linux runners, use `playwright install --with-deps chromium firefox` when
 system browser libraries are missing. See [persistent browser setup](../docs/BROWSER_TEST_SETUP.md)
 for durable installations. Node 22+ and Python 3.10+ are sufficient for the
 research runner; the application's existing README specifies its own toolchain.
@@ -48,7 +48,7 @@ Playwright browser, then run this with that Python environment:
 ```
 
 `MADWEAVE_BROWSER` and `MADWEAVE_CHANNEL` configure that application suite as
-before; the research pixel tests use Chromium. Each research browser script can
+before; the parameter-matrix pixel tests use Chromium, and the seam comparison also uses Firefox. Each research browser script can
 also run independently against `http://127.0.0.1:8766/editor.html`, or an editor
 URL supplied through `MADWEAVE_URL`. Both routes exercise the actual editor,
 except the explicitly separate SVG diagnostic.
@@ -61,6 +61,10 @@ except the explicitly separate SVG diagnostic.
 | `planar-indexing.test.cjs` | Original-engine indexing, classes, groups, period three, and equal class counts at all eight sizes and both centers | Browser layer visibility; this test formerly used copied functions and now executes `madweave.js` |
 | `crossing-audit.cjs` | Original source functions: pairwise antisymmetry and mask permutations/counts in eight orientations | Global transitivity, complete mask coverage, or pixels |
 | `planar-geometry.test.cjs` | Independent nearest-strip slab/finite-rectangle construction; coverage, triangle shape, uniqueness, local order, and central occupancy at all 256 settings | A separate physical precedence law or arbitrary new spacings |
+| `symmetry.test.cjs` | 768 rotation cases, 383,616 pair comparisons, and 5,280 visible-top comparisons; class/color distinctions | Every displaced center or nonplanar symmetry |
+| `angular-baseline.test.cjs` | At f=1: intersections, clipped segments, strip picking, branch handling, endpoint contraction, and startup-state limitations | Any nonunit fraction or completed unit replication |
+| `boundary-matrix-check.cjs` | 128 settings, 512 center/end patches, 3,608 boundary/end pairs; neutral clipped/unclipped controls | Every boundary point or a browser-source diagnosis |
+| `compare-seams.cjs` | Same SVG geometry in Chromium/Firefox; measured seam pixels and solid unclipped neutral control | Identical browser raster output or absence of exact-edge artifacts |
 | `planar-matrix-check.cjs` | Actual transformed SVG shapes, painter order, and class partitions at all 256 settings; 4,278 independent central pixel probes over 128 cases; 240 color-invariance cases | Pixels everywhere in the finite design or broad two-sided-boundary coverage |
 | `browser-svg-check.cjs` | Eight configurations of the separately labeled SVG diagnostic; paths, masks, references, and exports | Correctness of the editor UI or an independent weaving algorithm |
 | `editor-button-experiments.cjs` | Inventory of 52 SVG targets; every pattern/count/size, palette, recent swatch, slider, filter, orientation, spacing, outline, and hide-control action | All physical pointer paths; ordinary buttons dispatch actual `mousedown` handlers, while sliders use real coordinates |
@@ -82,7 +86,7 @@ current-behavior characterizations, not desired product behavior.
 
 ## Latest local research run
 
-On 2026-11-04, the full runner passed **25 stages**, using Node 24.16.0,
+On 2026-11-04, the full runner passed **34 stages with `--app`** (33 research stages without it), using Node 24.16.0,
 Playwright 1.58.2, Chrome for Testing 145.0.7632.6, and pngjs 7.0.0:
 
 - 52 SVG control targets, with 153 recorded state observations.
@@ -91,6 +95,10 @@ Playwright 1.58.2, Chrome for Testing 145.0.7632.6, and pngjs 7.0.0:
 - 1,056/1,056 three-strip interior samples across eight orientations.
 - 924/924 boundary pairs, or 1,848/1,848 side samples, across eight orientations.
 - Original-engine math/indexing/crossing checks and four site tests.
+- 3,608/3,608 boundary/end pairs at 128 settings, including 384 H/R/L end pairs.
+- 768 symmetry cases, 383,616 pair comparisons, and 5,280 visible-top comparisons.
+- 15 finite intersection, 428 unit-clipping, and 5,184 unit-fraction picking checks.
+- Chromium/Firefox same-geometry seam controls; see [boundary rendering](BOUNDARY_RENDERING.md).
 - Independent finite-cell geometry at 256 settings: 158,208 visible-cell checks
   and 92,928 generated triangle checks.
 - Browser geometry, class partition, and painter order at 256 settings;
@@ -108,9 +116,18 @@ The local host required Playwright's Ubuntu 24.04 browser build; its downloaded
 Chrome executable was supplied through a temporary launcher override. No launch
 override is required by the repository or its Ubuntu CI workflow.
 
-This run did **not** include `--app`; prior application results remain recorded
-in the application testing documents. It was a local run of the working tree,
-not verification of a new GitHub Actions run.
+The complete local run included `--app` and passed all eleven Chromium
+application tests. The same eleven application tests also passed separately in
+Firefox using Python Playwright 1.63.0. The comparison's Firefox 155.0 used Node
+Playwright 1.63.0 and the matching installed build; Chromium's research audits
+retained Node Playwright 1.58.2 / Chromium 145.0.7632.6. Optional
+`MADWEAVE_FIREFOX_NODE_PATH` and `MADWEAVE_FIREFOX_BROWSERS_PATH` let the runner
+use a separate installed Firefox client/build locally. They are unnecessary in
+CI, which installs both research browsers with its pinned Node client.
+
+Baseline commit `61603be` passed [branch CI](https://github.com/rharriszzz/madweave/actions/runs/41919725799).
+The final preparation changes add the stages below; their exact commit/run
+verification is recorded separately when pushed.
 
 ## Evidence and next tests
 
@@ -123,11 +140,12 @@ retained artifact alone.
 The consolidated `planar-research.yml` workflow runs the full runner on research
 branch pushes and pull requests to master. The six individual browser workflows
 remain available by manual dispatch, avoiding duplicate automatic experiment
-runs. This workflow wiring has been checked locally; its next Actions run is
-still required to establish CI success for these changes.
+runs. The consolidated baseline passed CI; the workflow now also installs Firefox
+and the Python application client and runs the 34-stage `--app` command.
 
-The highest-value next tests are symmetry assertions with a defined meaning and
-broader pixel/boundary checks near the finite ends of strips. Independent cell
-geometry, the parameter matrix, and color-versus-geometry invariance now have
-passing checks. The angular mapping then needs its own forward/inverse, seam,
-clipping, and approximation checks, as specified in [cone readiness](CONE_READINESS.md).
+The preparatory symmetry, broad boundary/end, Firefox rendering-control,
+and unit-fraction angular tests are now complete. The next implementation tests
+are the f=1 replacement pipeline, nonunit fixture, seam/global-strip identity,
+bounded curve approximation, and inverse selection in the
+[cone mapping contract](CONE_MAPPING_SPEC.md). Those nonunit tests belong to
+the next phase and have not been executed during preparation.

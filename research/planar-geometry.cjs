@@ -76,13 +76,17 @@ function occupancy(m,p){
 }
 // Split central cells by all relevant finite rectangle boundaries. Each resulting
 // convex polygon has constant strip occupancy; its centroid is a pixel probe.
-function centralRegions(m,radius=2){
+function patchRegions(m,center=[0,0],radius=1){
  const regions=[];
- for(let a=Math.floor(m.offset-2);a<=Math.ceil(m.offset+2);a++)for(let b=Math.floor(m.offset-3);b<=Math.ceil(m.offset+3);b++){
+ const ranges=normals.slice(0,2).map(n=>{
+  const q=dot(n,center)+m.offset,extent=radius*(Math.abs(n[0])+Math.abs(n[1]));
+  return [Math.floor(q-extent-.5),Math.ceil(q+extent+.5)];
+ });
+ for(let a=ranges[0][0];a<=ranges[0][1];a++)for(let b=ranges[1][0];b<=ranges[1][1];b++){
   const last=3*m.offset-a-b;
   for(const c of [Math.floor(last),Math.ceil(last)]){
    const indices=[a,b,c];let poly=cell(indices,m.offset);
-   for(const normal of [[1,0],[-1,0],[0,1],[0,-1]])poly=clip(poly,normal,radius);
+   for(const normal of [[1,0],[-1,0],[0,1],[0,-1]])poly=clip(poly,normal,dot(normal,center)+radius);
    if(area(poly)<EPS)continue;
    let pieces=[poly];
    for(let d=0;d<3;d++){
@@ -99,14 +103,16 @@ function centralRegions(m,radius=2){
  }
  return regions;
 }
+function centralRegions(m,radius=2){return patchRegions(m,[0,0],radius);}
 function clearance(m,p){
  let distance=Infinity;
  for(let d=0;d<3;d++){
   const s=Math.max(0,Math.min(m.n-1,Math.round(dot(normals[d],p)+m.offset)));
   const side=m.width/2-Math.abs(dot(normals[d],p)-(s-m.offset));
   const end=m.length/2-Math.abs(dot(tangents[d],p));
-  if(end>=0)distance=Math.min(distance,Math.abs(side));
-  if(side>=0)distance=Math.min(distance,Math.abs(end));
+  const toBoundary=side>=0&&end>=0?Math.min(side,end):
+   side<0&&end<0?Math.hypot(side,end):Math.max(-side,-end);
+  distance=Math.min(distance,toBoundary);
  }
  return distance;
 }
@@ -133,4 +139,4 @@ function triangles(path){
 function samePolygon(a,b,tolerance=1e-7){
  return a.length===b.length&&a.every(p=>b.some(q=>Math.hypot(p[0]-q[0],p[1]-q[1])<=tolerance));
 }
-module.exports={EPS,normals,tangents,dot,area,clip,centroid,cell,model,visibleCells,occupancy,centralRegions,clearance,order,triangles,samePolygon};
+module.exports={EPS,normals,tangents,dot,area,clip,centroid,cell,model,visibleCells,occupancy,patchRegions,centralRegions,clearance,order,triangles,samePolygon};

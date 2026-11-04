@@ -12,6 +12,9 @@ with the original planar settings until the readiness checks below are satisfied
 | Using the app | [User guide](../guide.html) | Make, edit, save, and reopen a design |
 | Every control | [Control reference](CONTROLS.md) | Labels, internal IDs, effects, resets, and verified surprises |
 | How the weave works | [Planar model](PLANAR_MODEL.md) | Physical strips, hexweave classes, center changes, geometry, and local layering |
+| Symmetry | [Rotational symmetry](SYMMETRY.md) | Geometry, crossing order, hexweave labels, and palette distinctions |
+| Boundary rendering | [Boundary and Firefox comparison](BOUNDARY_RENDERING.md) | Finite ends, mask sides, and the known clipping artifact |
+| Cone prototype contract | [Mapping specification](CONE_MAPPING_SPEC.md) | Coordinates, units, seams, inverse selection, tolerance, and saved state |
 | Evidence and reproduction | [Research testing](TESTING.md) | One suite command, coverage, results, and remaining test work |
 | Independent geometry evidence | [Geometry matrix report](GEOMETRY_MATRIX_REPORT.md) | Finite-strip tiling, 256 structural cases, and 128 pixel cases |
 | Before cone work | [Cone readiness](CONE_READINESS.md) | Prerequisites, dormant code, open questions, and the first bounded experiment |
@@ -36,9 +39,14 @@ records the latest pixel-audit repair.
   128-case pixel matrix passes 4,278 central samples; 240 color-pattern cases
   preserve strip and mask geometry. Full-design crossing and boundary tests
   remain alongside it. See the [matrix report](GEOMETRY_MATRIX_REPORT.md).
-- **Cone preparation:** not complete. Symmetry, broader boundary/pixel locations,
-  physical interpretation, and the dormant angular mapping still need work.
-  [Cone readiness](CONE_READINESS.md) defines the outstanding deliverables.
+- **Boundary and symmetry preparation:** 3,608 boundary/end pairs pass across
+  128 settings. Structural symmetries, visible-top witnesses, and fixed-color
+  distinctions are tested. Firefox/Chromium controls classify the faint lines
+  as a known clipping/compositing artifact.
+- **Cone preparation:** complete for the current planar app. Unit-fraction helper
+  behavior and limitations are tested, and the [mapping contract](CONE_MAPPING_SPEC.md)
+  specifies the first bounded prototype. No nonunit fraction has been executed.
+  [Cone readiness](CONE_READINESS.md) maps the original goals to their evidence.
 
 ## Working cycle
 
@@ -48,5 +56,6 @@ and its scope. Keep source-derived facts, observed output, and unresolved
 hypotheses distinguishable. Update these references when a question is resolved;
 use the notebook for the investigation history.
 
-Run `python3 research/run-tests.py` for the planar research suite, or add
+Run `python3 research/run-tests.py` for the 33-stage research suite, add `--app`
+for all 34 stages including application browser tests, or add
 `--unit-only` for dependency-free checks. See [setup and coverage](TESTING.md).

@@ -11,6 +11,16 @@ for(let size=1;size<=8;size++){
  const geometries=[.07,.33,.8,2].map(separation=>{
   const m=g.model(size,separation),cells=g.visibleCells(m),regions=g.centralRegions(m);
   assert(cells.length>0);
+  // Include points beyond a corner: treating both outside coordinates as an
+  // infinite clearance would admit antialiased rectangle-corner pixels.
+  for(const point of [[0,0],[100,100],[m.length/2+.01,m.width/2+.01]]){
+   const expected=Math.min(...m.rectangles.flatMap(r=>r.vertices.map((a,i)=>{
+    const b=r.vertices[(i+1)%r.vertices.length],v=[b[0]-a[0],b[1]-a[1]];
+    const t=Math.max(0,Math.min(1,((point[0]-a[0])*v[0]+(point[1]-a[1])*v[1])/(v[0]*v[0]+v[1]*v[1])));
+    return Math.hypot(point[0]-a[0]-t*v[0],point[1]-a[1]-t*v[1]);
+   })));
+   assert(Math.abs(g.clearance(m,point)-expected)<1e-8,'Finite rectangle-corner clearance mismatch');
+  }
   const byOccupancy=Array.from({length:4},(_,count)=>regions.filter(r=>r.present.length===count).length);
   assert(byOccupancy[0]>0&&byOccupancy[1]>0&&byOccupancy[2]>0,'Missing independent occupancy regions');
   assert.equal(byOccupancy[3]>0,separation<2,'Extra-wide spacing must have no positive-area triple region');

@@ -7,6 +7,10 @@ cases preserved strip and mask geometry. The complete research runner passed
 25 stages locally. These results advance the planar baseline; they do not
 establish physical weaving feasibility or nonplanar behavior.
 
+The subsequent [readiness record](CONE_READINESS.md) adds symmetry, broader
+boundary/end pixels, Firefox controls, and the angular specification. This report
+preserves the initial geometry-matrix checkpoint.
+
 ## Independent construction
 
 [`planar-geometry.cjs`](planar-geometry.cjs) uses ordinary Euclidean half-plane
@@ -112,8 +116,9 @@ Representative narrow-gap and extra-wide zooms were visually inspected. Faint
 light lines are visible along some triangular clipping boundaries even inside
 otherwise continuous colored strips. The geometric cell checks find no missing
 positive-area cells, while these pixel probes deliberately avoid exact boundary
-antialiasing. Measuring those lines and distinguishing clipping/rasterization
-effects from geometric defects remains a separate rendering question.
+antialiasing. The subsequent [Firefox and neutral-control comparison](BOUNDARY_RENDERING.md)
+classifies those lines as a known clipping/compositing artifact; the geometric
+checks remain independent of exact-boundary raster pixels.
 
 ## Negative controls and retained evidence
 

@@ -109,6 +109,5 @@ called `SP` exists in comments/code but is not an exposed button.
 | Quick control reference | Native HTML disclosure; it describes controls rather than changing the weave |
 
 The wrapper is implemented in [`editor.js`](../editor.js) and [`project.js`](../project.js).
-The application browser suite covers saving/importing/exporting. The guide and
-SVG tooltips still contain the V-mode promise; consult the verified discrepancy
-above when interpreting it. There is no full undo or autosave.
+The application browser suite covers saving/importing/exporting. The guide now explains the current I/V behavior; the historical SVG tooltip
+still promises visibility without recoloring, as documented above. There is no full undo or autosave.
