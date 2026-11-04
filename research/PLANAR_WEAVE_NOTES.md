@@ -149,3 +149,9 @@ Inspected `observations.json` from failed [button workflow run 41884562220](http
 Other recorded transitions in this same run show CP0–CP4 color pattern changes, CC2/CC3 color count changes, SC3/SC2 size changes, and spacing button changes. These observations are actual Chromium-executed original SVG button handlers. The workflow failed only on the mistaken geometry assertion. A new CI run is required to verify the corrected script passes. The experiment did not yet test mouse painting or slider interaction.
 
 This is a useful general lesson for the research harness: when a control is intentionally toggled twice, preserve ordered observations rather than reducing to a map keyed only by the control label.
+
+## Pointer and color-control experiment (2026-11-04)
+
+The corrected [button run 41885348489](https://github.com/rharriszzz/madweave/actions/runs/41885348489) passed. Added `research/editor-pointer-experiments.cjs` and `.github/workflows/editor-pointer.yml` to test palette selection and genuine pointer clicks on the four slider hit targets (OB opacity, HB hue, SB saturation, VB value). The test also calls the **original** `setStripColorToCurrentDefault` function on a known strip after selecting palette / invisible / visible modes, avoiding hover-timing ambiguity. This verifies the actual strip-editing logic, **not** the full user hover-to-selection mechanism; that remains a separate test.
+
+The test records the original SVG window's state and saves an image. It asserts expected normalized slider positions and the visibility toggle effects. **This new workflow is not considered passed until its GitHub Actions run and artifact are inspected.** If the slider test fails, check the SVG coordinate transform and Playwright mouse click mapping before changing the editor.
