@@ -135,3 +135,9 @@ Added `research/editor-button-experiments.cjs` and `.github/workflows/editor-but
 Source-derived control map: CP0–CP4 select colorIndex formulas (d, c, d+c, n, c+n); CC1–CC6 select modulo color count; SC1–SC8 set 3–24 strips per direction; '-' toggles `hand`; X toggles `alternate`; C toggles `starMadWeaveCenter`; VH0–VH2 toggle residue-class visibility; VD0–VD2 toggle direction visibility; Lines toggles strip edge lines; Sep0–Sep3 select spacing; C0–C7 select palette slots; I/V choose invisibility/visibility painting modes; LAST0–LAST3 are recent palette colors; OB/HB/SB/VB are opacity/hue/saturation/value sliders; HideButtons hides controls.
 
 **Next:** Inspect CI status and the JSON artifact, fix any control-dispatch or SVG iframe failures, then add assertions for expected state transitions and pixel/screenshot comparisons. Preserve findings here. Remain planar.
+
+## Button experiment correction: event type (2026-11-04)
+
+The initial button workflow [41884081237](https://github.com/rharriszzz/madweave/actions/runs/41884081237) reported success and produced an observations JSON artifact. **Inspection revealed that every state snapshot was unchanged.** The experiment was invalid: it dispatched synthetic `click` events, while `buildButtons` installs SVG handlers using `onmousedown` on `cbutton*` rectangles. The original program's UI is not implicated.
+
+Updated `research/editor-button-experiments.cjs` to dispatch `mousedown` and added required state-transition assertions for pattern, color count, size, hand, alternate, center, and spacing. A fresh workflow run [41884346850](https://github.com/rharriszzz/madweave/actions/runs/41884346850) was queued at this checkpoint. **Do not claim button behavior has been experimentally verified until the new run succeeds and its observations are inspected.** Note that duplicate labels in the sequential observation list require care when interpreting the final snapshot by name.
