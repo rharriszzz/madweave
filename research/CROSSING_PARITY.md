@@ -1,26 +1,38 @@
-# Crossing geometry: even and odd strip counts
+# Corrected planar crossing geometry (2026-11-04)
 
-## Failure investigated (2026-11-04)
+## Important correction
 
-[Workflow 41895233731](https://github.com/rharriszzz/madweave/actions/runs/41895233731) passed all 48 sampled two-strip crossing checks for `baseSize=2` (six strips per direction), but failed with `0 !== 24` at `baseSize=3` (nine strips per direction). The error came from the research script's **candidate selection**, before it compared any pixel against `isCoveredBy`. It is not evidence of an incorrect renderer.
+The earlier version of this notebook claimed odd strip counts produce three-centerline intersections. **That claim was wrong.** It used the centering offset `(N-1)/2`, whereas the original `madweave.js` uses:
 
-## Why the candidate set is empty
+```js
+var offsetS = Math.floor(stripsPerDirection / 2) - 0.5;
+```
 
-The three direction normals in the planar renderer obey `n_H+n_R+n_L=0`. The centerline of strip `s` in direction `d` has signed offset `(s-(N-1)/2)*pitch`, with `N=3*baseSize`.
+This offset is half-integral for **both odd and even** strip counts. The original strip centerline equations are
 
-At an intersection of the H strip `s` and R strip `t`, the projection onto the L normal is the negative sum of their offsets. Its implied L strip index is
+`n_d · (x,y) = (s - offsetS) * pitch`,
 
-`u=3*(N-1)/2-s-t`.
+where `n_H+n_R+n_L=0`. At an H/R centerline intersection the implied third-direction index is
 
-If `N` is odd, `(N-1)/2` is an integer and `u` is an integer: where the corresponding third strip exists, the crossing is a **three-centerline intersection**. The existing audit intentionally rejects crossings covered by a third strip, so it can find zero eligible samples in its central window. If `N` is even, the implied third index is a half-integer and the pair intersection lies between third-direction centerlines. That supports the original two-strip sampling method.
+`l = 3*offsetS - h - r`.
 
-This is a structural difference between odd and even `baseSize` values, not a cosmetic test-harness issue.
+Since `offsetS` is half-integral, `3*offsetS` is half-integral, so `l` is **never an integer**. Thus no three strip centerlines intersect at exactly the same point in the planar geometry, regardless of the parity of `N`.
 
-## Corrected next experiment
+The previous baseSize=3 failure (`0 !== 24`) was a **test-harness coordinate bug**, not evidence of an odd/even topological distinction. The attempted triple-centerline checker repeated that wrong offset, and its failure was not evidence of a cyclic physical three-way centerline crossing. The checker was retired.
 
-- Retain `baseSize=2` as the regression baseline.
-- Use `baseSize=4` (12 strips per direction) for a second **two-strip** pixel audit. This is committed in the crossing workflow; inspect its result before claiming success.
-- Develop a separate **three-strip intersection** audit for `baseSize=3`: determine the top strip using all three pairwise `isCoveredBy` relations and the actual SVG clipping/painter order. Sample points safely inside the three-strip overlap, avoiding mask boundaries and antialiasing. Do not simply relax the third-strip exclusion and reuse the two-strip expected color.
-- Extend the eight `C/X/-` configurations after these geometry cases are covered.
+## Source evidence
 
-Keep `coneFraction=1`, `transformInPath=false`, and `master` unchanged. The even/odd distinction should be included in the eventual mathematical description of planar weaving.
+- `madweave.js`: `stripPath`, `trans`, and `getSForPoint` each use `Math.floor(stripsPerDirection/2)-0.5`.
+- `research/crossing-pixel-check.cjs` now uses the same offset for its geometry.
+- The pixel-check workflow now runs `baseSize=2` and `baseSize=3` against the original renderer. **Check the workflow outcome before recording a pass.**
+
+There can still be regions where **three strips overlap in area**, and local over/under relations can be cyclic around such a region. This is different from three coincident strip *centerlines*. The SVG `maskPath` divides the plane into triangles and assigns painter-order permutations to those triangles; a cycle of pairwise relations need not yield one global top strip across an extended overlap region.
+
+## Next research
+
+1. Confirm the corrected baseSize=3 pixel check and review its annotated images.
+2. For genuine three-strip **area overlaps**, choose points strictly inside each SVG mask triangle, identify the active clip path and its `ppn` painter order, and compare predicted pixel color with the rendered image.
+3. Avoid sampling exactly on mask boundaries; report coverage and antialiasing separately.
+4. Continue the `C/X/-` orientation matrix after geometric verification.
+
+Keep `coneFraction=1` and `master` unchanged.
