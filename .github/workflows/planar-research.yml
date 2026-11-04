@@ -1,0 +1,26 @@
+name: Planar weaving research checks
+on:
+  push:
+    branches: [research/planar-weave-experiments]
+  workflow_dispatch:
+jobs:
+  planar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Strip indexing checks
+        run: node research/planar-indexing.test.cjs > planar-indexing.json
+      - name: Crossing and SVG mask checks
+        run: node research/crossing-audit.cjs > planar-crossings.json
+      - name: Upload machine-readable findings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: planar-weave-research-results
+          path: |
+            planar-indexing.json
+            planar-crossings.json
+          if-no-files-found: ignore
