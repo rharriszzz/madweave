@@ -1,5 +1,9 @@
 # Source of the faint SVG seams
 
+The renderer now includes the [tested solution](SVG_SEAM_FIX.md). This report
+records the original mechanism; its reduction test explicitly restores the old
+painting method before measuring it.
+
 The faint lines come from **antialiased clip coverage being composited repeatedly
 as transparency**. MadWeave paints separate direction stacks through adjoining
 clip paths. At a shared edge, each stack contributes only fractional coverage;
@@ -163,9 +167,8 @@ Other controls prevent misleading shortcuts:
 MadWeave cannot simply union all masks and use one global direction stack:
 local order is what makes the weave. A production remedy must combine compatible
 paint regions or otherwise preserve correlated coverage while retaining local
-order, palette opacity, hidden strips, and outlines. This investigation identifies
-the source and a minimal reproducer; it does not change the application's weave
-renderer.
+order, palette opacity, hidden strips, and outlines. The follow-up [solution report](SVG_SEAM_FIX.md) describes the implemented
+compositing change and its browser regression tests.
 
 ## Reproduce
 

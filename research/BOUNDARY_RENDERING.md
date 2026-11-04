@@ -7,6 +7,11 @@ The subsequent [source isolation report](SEAM_ROOT_CAUSE.md) reduces the effect
 to four rectangles, predicts the measured seam color, and identifies relevant
 Firefox/Chromium source paths.
 
+The [implemented solution](SVG_SEAM_FIX.md) addresses that mechanism. The
+comparison values below record the original renderer; the same scripts now
+measure the corrected renderer. Exact-edge regression tests and current results
+are in the solution report.
+
 ## Broader boundary and finite-end verification
 
 [`boundary-matrix-check.cjs`](boundary-matrix-check.cjs) uses independently
@@ -35,7 +40,7 @@ Exact clip-edge pixels are measured separately rather than subjected to interior
 color expectations. This is broad representative coverage, not every point
 along every finite end or boundary.
 
-## Firefox and Chromium comparison
+## Original-renderer Firefox and Chromium comparison
 
 Both browsers rendered the same size-2, medium-spacing, ordinary-center SVG at
 1198 × 826 pixels. The 18 strip paths and three populated mask paths had

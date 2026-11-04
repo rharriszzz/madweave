@@ -32,6 +32,13 @@ function fixture(stack,options={}){
   await frame.locator('#cbuttonSC2').dispatchEvent('mousedown');await frame.locator('#cbuttonSep1').dispatchEvent('mousedown');
   const setup=await svg.evaluate(root=>{
    const w=root.ownerDocument.defaultView,p=w.stripWidth+w.stripSpacing;
+   // Keep the original rendering mechanism as an explicit negative control.
+   const strips=root.querySelector('#strips');strips.style.isolation='';
+   for(const group of strips.children){
+    group.style.mixBlendMode='';group.style.filter='';
+    const stack=[...group.children].find(node=>node.id.endsWith('Stack'));
+    if(stack){group.append(...stack.children);stack.remove();}
+   }
    if(w.starMadWeaveCenter||w.alternate||w.hand||w.colorPattern!==0||w.colorCount!==3)throw Error('Unexpected source fixture');
    root.setAttribute('viewBox',[-p,-p,2*p,2*p].join(' '));
    const matrix=root.getScreenCTM(),bounds=root.getBoundingClientRect(),point=new DOMPoint(Math.sqrt(3)/2*p,0).matrixTransform(matrix);
@@ -47,7 +54,7 @@ function fixture(stack,options={}){
   async function capture(name,match=true){
    const png=PNG.sync.read(await svg.screenshot({path:OUT+'/'+name+'.png'}));
    const observed=at(png,probe.pixel),counts=await svg.evaluate(root=>({paths:root.querySelectorAll('path').length,rectangles:root.querySelectorAll('rect').length,clips:root.querySelectorAll('clipPath').length,uses:root.querySelectorAll('use').length}));
-   const raw=await svg.evaluate(root=>new XMLSerializer().serializeToString(root));fs.writeFileSync(OUT+'/'+name+'.svg',raw);
+   const raw=await svg.evaluate(root=>{const clone=root.cloneNode(true),box=root.getBoundingClientRect();clone.setAttribute('width',box.width);clone.setAttribute('height',box.height);return new XMLSerializer().serializeToString(clone);});fs.writeFileSync(OUT+'/'+name+'.svg',raw);
    if(match)assert(dist(observed,probe.color)<2,'Reduction changed seam pixel at '+name+': '+observed+' != '+probe.color);
    stages.push({name,observed,...counts});
   }
@@ -55,7 +62,6 @@ function fixture(stack,options={}){
   await svg.evaluate(root=>{
    for(const node of [...root.children])if(!['defs','strips'].includes(node.id))node.remove();
    for(const node of [root,...root.querySelectorAll('*')])for(const attr of [...node.attributes])if(attr.name.startsWith('on'))node.removeAttribute(attr.name);
-   root.setAttribute('width',root.getBoundingClientRect().width);root.setAttribute('height',root.getBoundingClientRect().height);
   });
   await capture('01-isolated-svg');
   await svg.evaluate((root,keep)=>{

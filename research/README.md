@@ -2,8 +2,8 @@
 
 The project has four connected goals: explain every control, explain the planar
 hexweave and madweave construction, make those explanations testable, and finish
-the preparation for `coneFraction`. Work stays on `research/planar-weave-experiments`
-with the original planar settings until the readiness checks below are satisfied.
+the preparation for `coneFraction`. The planar preparation was merged into `master`; the SVG seam investigation
+and fix are on `research/svg-seam-rendering`. `coneFraction` remains 1.
 
 ## Reading paths
 
@@ -15,6 +15,7 @@ with the original planar settings until the readiness checks below are satisfied
 | Symmetry | [Rotational symmetry](SYMMETRY.md) | Geometry, crossing order, hexweave labels, and palette distinctions |
 | Boundary rendering | [Boundary and Firefox comparison](BOUNDARY_RENDERING.md) | Finite ends, mask sides, and the known clipping artifact |
 | Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
+| Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
 | Cone prototype contract | [Mapping specification](CONE_MAPPING_SPEC.md) | Coordinates, units, seams, inverse selection, tolerance, and saved state |
 | Evidence and reproduction | [Research testing](TESTING.md) | One suite command, coverage, results, and remaining test work |
 | Independent geometry evidence | [Geometry matrix report](GEOMETRY_MATRIX_REPORT.md) | Finite-strip tiling, 256 structural cases, and 128 pixel cases |
@@ -43,7 +44,8 @@ records the latest pixel-audit repair.
 - **Boundary and symmetry preparation:** 3,608 boundary/end pairs pass across
   128 settings. Structural symmetries, visible-top witnesses, and fixed-color
   distinctions are tested. Firefox/Chromium controls classify the faint lines
-  as a known clipping/compositing artifact.
+  as a clipping/compositing artifact; a [tested rendering change](SVG_SEAM_FIX.md)
+  addresses it in Chromium, Firefox, and WebKit.
 - **Cone preparation:** complete for the current planar app. Unit-fraction helper
   behavior and limitations are tested, and the [mapping contract](CONE_MAPPING_SPEC.md)
   specifies the first bounded prototype. No nonunit fraction has been executed.

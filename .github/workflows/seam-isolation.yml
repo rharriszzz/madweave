@@ -1,36 +1,46 @@
-name: SVG seam reduction and alpha model
+name: SVG seam diagnosis and fix
 on:
   push:
-    branches: [research/svg-seam-rendering]
+    branches: [master, research/svg-seam-rendering]
+  pull_request:
+    branches: [master]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  reduction:
+  rendering:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    env:
+      MADWEAVE_RESEARCH_BROWSER: ${{ matrix.browser }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: '24'
-      - name: Install both rendering engines
+      - name: Install rendering engine
         run: |
           npm install --no-save playwright@1.58.2 pngjs@7.0.0
-          npx playwright install --with-deps chromium firefox
+          npx playwright install --with-deps ${{ matrix.browser }}
       - name: Serve isolated fixtures
         run: |
           python3 -m http.server 8766 --bind 127.0.0.1 > /tmp/madweave-seam-server.log 2>&1 &
           for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8766/editor.html >/dev/null && exit 0; sleep 1; done
           exit 1
-      - run: node --check research/seam-isolation-check.cjs
-      - name: Reduce SVG and check model in Chromium
-        run: MADWEAVE_RESEARCH_BROWSER=chromium node research/seam-isolation-check.cjs
-      - name: Reduce SVG and check model in Firefox
-        run: MADWEAVE_RESEARCH_BROWSER=firefox node research/seam-isolation-check.cjs
+      - name: Check original reduction and alpha model
+        if: matrix.browser != 'webkit'
+        run: node research/seam-isolation-check.cjs
+      - name: Check corrected fixture, full weave, and static SVG image
+        run: node research/seam-fix-check.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: svg-seam-reduction
-          path: research/output/seam-isolation/
+          name: svg-seams-${{ matrix.browser }}
+          path: |
+            research/output/seam-isolation/
+            research/output/seam-fix/
           if-no-files-found: warn
