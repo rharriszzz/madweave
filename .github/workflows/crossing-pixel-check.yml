@@ -30,6 +30,10 @@ jobs:
         run: node --check research/triple-area-check.cjs
       - name: Verify three-strip area overlap pixels
         run: node research/triple-area-check.cjs
+      - name: Check mask-boundary audit syntax
+        run: node --check research/mask-boundary-check.cjs
+      - name: Verify pixels on both sides of clipping-mask boundaries
+        run: node research/mask-boundary-check.cjs
       - name: Upload annotated screenshots and measurements
         if: always()
         uses: actions/upload-artifact@v4
@@ -38,4 +42,5 @@ jobs:
           path: |
             research/output/crossing-pixels/
             research/output/triple-area/
+            research/output/mask-boundaries/
           if-no-files-found: ignore
