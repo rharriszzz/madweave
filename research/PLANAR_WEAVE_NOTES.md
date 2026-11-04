@@ -1,6 +1,6 @@
 # Planar madweave / hexweave: research notebook
 
-Status: **source inspection and indexing tests only**. This branch does not alter the editor or enable cone transformations.
+Status: **historical investigation notebook**. Start with the [current research guide](README.md) for the control reference, planar model, test suite, and cone-readiness checklist. The opening sections below describe the initial checkpoint; later entries supersede their pending items. This branch does not alter the editor or enable cone transformations.
 
 ## Scope and method
 
@@ -216,3 +216,138 @@ A **new independent pixel-level audit of the original editor screenshots** is do
 Using 24 central two-strip intersection coordinates per mode (8 each H/R, H/L, R/L), the screenshot colors agreed with the original `isCoveredBy` top-strip prediction at **24/24 ordinary-center crossings** and **24/24 C-shifted-center crossings**. Of these 24 physical crossing positions, **15 reverse which direction appears on top after pressing C**. The original strip paths and transforms remain fixed. This corroborates the SVG clipping-mask interpretation with independently sampled rendered pixels. It is a sampled validation, not exhaustive mathematical proof.
 
 A reproducible Chromium pixel checker was added as `research/crossing-pixel-check.cjs`, with workflow `.github/workflows/crossing-pixel-check.yml`; it generates JSON plus marked/unmarked screenshots. The first two attempts suffered test-only Playwright argument-passing mistakes, which were fixed. **Check the latest workflow outcome before claiming that the new automated run passed.** The independent results above were computed from the already-successful original-editor archived run 41888189144. Continue to keep the editor and `master` unchanged, and `coneFraction=1`.
+
+## Resolved: mask-boundary detector rejected every candidate (2026-11-04)
+
+The failure was in `research/mask-boundary-check.cjs`. Reproducing the branch
+head produced zero samples in all eight orientations. Three harness defects
+were identified and corrected:
+
+1. The triangle regex contained doubled backslashes in a JavaScript regex
+   literal, so it parsed **zero triangles**. Correct escaping reads 600 triangles
+   and visits 1,800 triangle edges per orientation. The checker now fails at the
+   parser if any populated mask has unparsed triangles, and records these counts.
+2. After the parser fix, valid probes reached different masks but were all
+   rejected by `left.top === right.top`. A change in mask permutation does not
+   require a change in the visible direction: an absent third direction can
+   change order while the two present directions retain their order. The audit
+   now checks both sides against their respective predicted colors, including
+   these continuity cases. Every selected pair in this run had two present
+   directions and the same visible top direction on both sides.
+3. Retaining those pairs exposed false pixel failures. Strip membership used
+   infinite centerlines, including points beyond the finite SVG strip ends.
+   It also treated strips within 0.09 units of their side edges as absent even
+   when they still covered pixels. Membership now respects `stripLength`, and
+   probes near either side of a strip edge or end are excluded. This prevents
+   obscuring strips from being silently omitted from the top-direction choice.
+
+The SVG coordinate transformations did not need changes. Mask-local triangles
+are transformed into root user coordinates, containment probes are transformed
+back into mask-local coordinates, and root points are mapped into screenshot
+pixels. The corrected pixel checks passed using these existing transforms.
+
+The selector now retains up to 12 pairs **for every detected ordered mask
+transition**, removing a global 144-pair cap that truncated some transition
+groups. Results include per-transition candidate and sample counts, rejection
+diagnostics, edge coordinates/offsets, and side/end clearances. Coverage assertions
+require nonempty samples and representation of every detected transition.
+
+### Locally verified results
+
+Executed with Playwright **1.58.2**, its Chrome for Testing **145.0.7632.6**
+build, and pngjs **7.0.0**, using the original editor at base size 3 and the
+default spacing. These are local results, not a claim about a new Actions run.
+
+| C | X | Hand | Candidate pairs | Ordered transition types | Passing sampled pairs |
+|---|---|---|---:|---:|---:|
+| off | off | off | 846 | 6 | 72/72 |
+| on | off | off | 900 | 6 | 72/72 |
+| off | on | off | 846 | 6 | 72/72 |
+| on | on | off | 900 | 6 | 72/72 |
+| off | off | on | 900 | 21 | 216/216 |
+| on | off | on | 870 | 10 | 102/102 |
+| off | on | on | 900 | 21 | 216/216 |
+| on | on | on | 870 | 10 | 102/102 |
+
+Total: **924/924 sampled pairs**, or **1,848/1,848 side samples**, with zero
+page errors. The existing RGB distance/margin thresholds were unchanged.
+As a negative control, repainting the strips black in the browser DOM caused
+**all 924 pairs to fail** and the audit to exit unsuccessfully, confirming that
+retaining unchanged-top pairs still detects incorrect rendered colors.
+The ordinary-center annotated screenshot was also visually inspected; all
+marked probes lie on the weave, with no failed probes. Raw JSON and all eight
+marked/unmarked image pairs are generated under the ignored
+`research/output/mask-boundaries/` directory and remain CI upload artifacts.
+Triangle edges may be visited from both adjacent triangles, so pair counts do
+not imply distinct physical boundaries or exhaustive coverage.
+
+Companion checks also passed: **48/48** two-strip crossings at each of base sizes
+2 and 3, **1,056/1,056** three-strip interior samples across eight orientations,
+the planar indexing and crossing audits, four Node math tests, and four Python
+site tests. This verifies the audit against sampled renderer output; it does
+not establish physical weaving feasibility or cover other spacing/size settings.
+
+### Reproduction
+
+Install `playwright@1.58.2`, `pngjs@7.0.0`, and the matching Chromium build, as
+in `.github/workflows/crossing-pixel-check.yml`. From the repository root, serve
+the checkout with `python3 -m http.server 8766 --bind 127.0.0.1`, then run:
+
+```sh
+node research/mask-boundary-check.cjs
+MADWEAVE_BASE_SIZE=2 node research/crossing-pixel-check.cjs
+MADWEAVE_BASE_SIZE=3 node research/crossing-pixel-check.cjs
+node research/triple-area-check.cjs
+```
+
+All three pixel scripts now accept `MADWEAVE_URL` when the default server port
+is occupied. For example, use
+`MADWEAVE_URL=http://127.0.0.1:49721/editor.html` with a server on port 49721.
+The existing CI boundary step runs the corrected detector without workflow
+changes. The editor source remains unchanged on this research branch.
+
+## Research references and consolidated suite (2026-11-04)
+
+The [research guide](README.md) now links the current [control reference](CONTROLS.md),
+[planar model](PLANAR_MODEL.md), [testing reference](TESTING.md), and
+[cone-readiness checklist](CONE_READINESS.md). These supersede stale pending
+statements in earlier notebook checkpoints without discarding their history.
+
+The new `python3 research/run-tests.py` command serves an isolated local checkout
+and runs the source, browser interaction, partition, and pixel checks with logs
+and a JSON summary. Indexing checks now execute the original engine at all eight
+sizes instead of copied functions. The complete control test enumerates all 52
+targets and verifies their state/geometry effects, including reset behavior,
+same-size preservation, recent color/opacity recall, and hidden-control recovery.
+It also reproduces two existing discrepancies: V recolors while showing a strip,
+and the first swatch press after I/V leaves the old swatch selected. These are
+documented current behaviors; no engine fix is included in this documentation
+and test pass.
+
+The full local research run passed all 22 stages, including 153 recorded control
+observations. The main research workflow now runs that suite; individual browser
+workflows remain manually dispatchable. This records local verification, not a
+new remote CI result. Cone work remains deferred to the explicit readiness
+criteria.
+
+
+## Independent finite-cell and parameter-matrix verification (2026-11-04)
+
+The [geometry matrix report](GEOMETRY_MATRIX_REPORT.md) records a new independent
+slab/rectangle construction, source and browser checks at all 256
+size/spacing/orientation settings, and 4,278 passing central pixel probes across
+128 selected cases. It also verifies 240 color-pattern/count/orientation cases
+without changes to physical strip or mask geometry. The full runner now passes
+25 stages locally.
+
+The independent source checker rejects missing and duplicate mask cells in
+negative controls. Extra-wide spacing has no positive-area triple overlap;
+32 pixel cases explicitly check that empty category while retaining background,
+single-strip, and two-strip probes. An initial zoom level correctly failed the
+narrow-gap pixel-coverage requirement; a closer central view resolved the
+features without changing color thresholds.
+
+The current references and cone-readiness checklist have been updated. The
+remaining priorities are defined symmetry checks, broader finite-end and
+boundary-side pixel coverage, and the dormant angular mapping specification.
+The editor and cone settings have not been changed.

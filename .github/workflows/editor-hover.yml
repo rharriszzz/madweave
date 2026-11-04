@@ -1,7 +1,5 @@
 name: Original editor hover and paint
 on:
-  push:
-    branches: [research/planar-weave-experiments]
   workflow_dispatch:
 jobs:
   hover:

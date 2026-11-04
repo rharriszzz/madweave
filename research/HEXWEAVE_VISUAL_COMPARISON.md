@@ -78,10 +78,16 @@ The three colors in this particular screenshot series encode **direction**, not 
 
 **Verified:** Eight original-editor renders; 18 versus 6 visible strips; all H/R/L directions retained; disjoint and exhaustive a/b/c partition in both modes; unchanged geometrical strip paths under C; changed SVG layer masks and visually changed over-under arrangement; unchanged planar transformation parameters.
 
-**Not yet verified:** An independent crossing-by-crossing comparison against `isCoveredBy` for a selection of locations; any 3D folding behavior; the effect of the separate dormant `starHexWeaveCenter` configuration; seam continuity or any nonunit `coneFraction`; how the color/symmetry appearance generalizes beyond the current base size and default color scheme.
+**Subsequent verification:** Selected two-strip crossing pixels now match `isCoveredBy` at base sizes 2 and 3. Three-strip interior and mask-boundary checks also pass across eight orientations at size 3. See the [current test reference](TESTING.md) for scope and counts.
 
-## Recommended next experiment
+**Not yet verified:** Any 3D folding behavior; the effect of the separate dormant `starHexWeaveCenter` configuration; seam continuity or any nonunit `coneFraction`; how the color/symmetry appearance generalizes beyond the current base size and default color scheme.
+
+## Original next experiment
 
 Choose a small number of labeled crossings around the center in both full-pattern renders. Resolve the physical strip indices there, evaluate the **original** `isCoveredBy` for those strips, and sample the browser-rendered topmost color (or use `document.elementFromPoint` with suitable care around clipped SVG `<use>` elements). Save the evidence in machine-readable form and annotate the crossing locations. That would test the top/bottom semantics, not just the existence of clipping paths.
+
+That sampled pixel experiment has since passed. Current next work is tracked in
+[cone readiness](CONE_READINESS.md), including broader parameter coverage and
+independent geometry and symmetry checks.
 
 Afterward repeat at a second base size, and only later return to the nonplanar center constructions. No changes to the production editor or cone fraction are needed for these checks.

@@ -61,6 +61,8 @@ installed Safari, Chrome, and Firefox checks.
 
 ## Documentation
 
+- [Planar weaving research](research/README.md): complete control reference,
+  hexweave/madweave model, reproducible research suite, and preparation for cone work.
 - [User guide](guide.html): project saving, controls, artwork export, and limitations.
 - [Architecture and development](docs/DEVELOPMENT.md): rendering, saved state,
   source map, local checks, and GitHub Pages publishing.

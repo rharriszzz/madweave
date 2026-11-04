@@ -9,7 +9,7 @@ const fs=require('node:fs');
   const page=await browser.newPage({viewport:{width:1100,height:1100},deviceScaleFactor:1});
   const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://127.0.0.1:8766/research/planar-svg-diagnostic.html');
+  await page.goto(new URL('research/planar-svg-diagnostic.html', process.env.MADWEAVE_URL || 'http://127.0.0.1:8766/editor.html').href);
   await page.waitForSelector('#diagram g[data-order]');
   fs.mkdirSync('research/output',{recursive:true});
   const reports=[];

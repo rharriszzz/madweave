@@ -37,7 +37,7 @@ function smallSummary(rows) {
  try{
   const page=await browser.newPage({viewport:{width:1500,height:1100},deviceScaleFactor:1});
   const errors=[];page.on('pageerror',err=>errors.push(err.message));
-  await page.goto('http://127.0.0.1:8766/editor.html');
+  await page.goto(process.env.MADWEAVE_URL || 'http://127.0.0.1:8766/editor.html');
   const frame=page.frameLocator('#weave');
   await frame.locator('#cbuttonC').waitFor();
   // Exercise the original size control, rather than modifying renderer state directly.

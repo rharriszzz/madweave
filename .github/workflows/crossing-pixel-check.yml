@@ -1,7 +1,5 @@
 name: Planar SVG crossing pixel verification
 on:
-  push:
-    branches: [research/planar-weave-experiments]
   workflow_dispatch:
 jobs:
   pixel-crossings:

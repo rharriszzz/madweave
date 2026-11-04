@@ -1,5 +1,9 @@
 # Corrected planar crossing geometry (2026-11-04)
 
+For current test coverage and remaining work, see the [research guide](README.md)
+and [test reference](TESTING.md). The checkpoints below preserve the derivation
+and its investigation history.
+
 ## Important correction
 
 The earlier version of this notebook claimed odd strip counts produce three-centerline intersections. **That claim was wrong.** It used the centering offset `(N-1)/2`, whereas the original `madweave.js` uses:

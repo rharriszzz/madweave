@@ -6,7 +6,7 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
  try{
   const page=await browser.newPage({viewport:{width:1600,height:1200}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://127.0.0.1:8766/editor.html');
+  await page.goto(process.env.MADWEAVE_URL || 'http://127.0.0.1:8766/editor.html');
   const frame=page.frameLocator('#weave');
   await frame.locator('#cbuttonC0').waitFor();
   const output={};

@@ -1,7 +1,5 @@
 name: Planar weaving browser SVG validation
 on:
-  push:
-    branches: [research/planar-weave-experiments]
   workflow_dispatch:
 jobs:
   svg:

@@ -30,7 +30,7 @@ The original SVG clipping-mask painter order correctly predicts the visible dire
 ## Coverage limitations and next work
 
 1. Inspect representative annotated screenshots visually; the CI checker verified pixels but this report has not manually inspected the PNGs.
-2. Test mask **boundary neighborhoods**, including points on either side of a boundary. The current grid excludes strip edges but not clip-mask edges explicitly, and a zero ambiguous count is not a boundary-distance guarantee.
+2. Mask **boundary neighborhoods** now have a separate, locally passing audit: 924 sampled pairs across all eight orientations. See [the boundary-detector findings](PLANAR_WEAVE_NOTES.md#resolved-mask-boundary-detector-rejected-every-candidate-2026-11-04). The triple-area grid itself still does not measure distance to clip-mask edges, and a zero ambiguous count is not a boundary-distance guarantee.
 3. Audit unsampled triangles and test additional sizes, especially to distinguish sampling density from exhaustive coverage.
 4. Compare mask assignments with independently computed strip crossing relationships, rather than deriving both expected and observed order from the same SVG implementation.
 5. Preserve `master` and planar settings until those checks are understood. Do not begin with `coneFraction`.

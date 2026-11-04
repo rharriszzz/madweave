@@ -1,7 +1,5 @@
 name: Compare madweave and isolated hexweave layers
 on:
-  push:
-    branches: [research/planar-weave-experiments]
   workflow_dispatch:
 jobs:
   hexweave:

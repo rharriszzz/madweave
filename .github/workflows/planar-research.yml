@@ -1,26 +1,34 @@
-name: Planar weaving research checks
+name: Planar weaving research suite
 on:
   push:
     branches: [research/planar-weave-experiments]
+  pull_request:
+    branches: [master]
   workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: planar-research-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   planar:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
-      - name: Strip indexing checks
-        run: node research/planar-indexing.test.cjs > planar-indexing.json
-      - name: Crossing and SVG mask checks
-        run: node research/crossing-audit.cjs > planar-crossings.json
-      - name: Upload machine-readable findings
+          node-version: '24'
+      - name: Install research browser and PNG decoder
+        run: |
+          npm install --no-save playwright@1.58.2 pngjs@7.0.0
+          npx playwright install --with-deps chromium
+      - name: Run complete planar research suite
+        run: python3 research/run-tests.py
+      - name: Upload logs, measurements, SVGs, and screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: planar-weave-research-results
-          path: |
-            planar-indexing.json
-            planar-crossings.json
-          if-no-files-found: ignore
+          path: research/output/
+          if-no-files-found: warn

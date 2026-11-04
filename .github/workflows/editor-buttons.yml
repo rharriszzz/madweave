@@ -1,7 +1,5 @@
 name: Original editor button experiments
 on:
-  push:
-    branches: [research/planar-weave-experiments]
   workflow_dispatch:
 jobs:
   buttons:
