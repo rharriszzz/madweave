@@ -59,7 +59,7 @@ function smallSummary(rows) {
       if(w.alternate || w.hand)throw Error('Unexpected alternate/hand state');
       if(w.showC.some(x=>!x)||w.showD.some(x=>!x))throw Error('Visibility unexpectedly disabled');
       const n=w.stripsPerDirection;
-      const pitch=w.stripWidth+w.stripSpacing, offset=(n-1)/2;
+      const pitch=w.stripWidth+w.stripSpacing, offset=Math.floor(n/2)-.5;
       const normals=[0,1,2].map(d=>[-Math.sin(2*Math.PI*d/3),Math.cos(2*Math.PI*d/3)]);
       const candidates=[];
       for(let d=0;d<3;d++)for(let e=d+1;e<3;e++){
