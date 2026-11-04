@@ -85,6 +85,25 @@ For other subpixel alignments the diagnostic fits complementary coverages a
 and `1-a` instead of requiring exactly 0.5; the original measured pixel fits
 approximately a=0.502 within RGB distance 0.18.
 
+## A one-group control isolates the lower-color leak
+
+Removing the second clipped group still leaves purple in the seam pixel. With
+one half-covered group, the direct clipped stack produces
+`0.5*yellow + 0.25*purple + 0.25*white`, predicted
+`[224.75,195.75,183]`; both browsers yield `[224,196,183]`.
+
+An identity-filter control makes the group render its children into an offscreen
+result first. The opaque yellow then fully covers purple before clipping. Its
+half-covered edge predicts `0.5*yellow + 0.5*white`, or
+`[253.5,230,186.5]`. Chromium yields `[253,230,186]` and Firefox
+`[253,229,185]`. The change follows the compositing model within normal
+coverage/color precision. This directly distinguishes clipping each child paint
+from clipping the already-composited group.
+
+Two problems are therefore visible: direct clipping of child paints leaks lower
+colors, and separately compositing adjoining groups leaves background coverage.
+Flattening the group changes the first problem but does not remove the second.
+
 ## Relevant browser source
 
 The application attaches the clip to each permutation group and then appends
@@ -158,7 +177,7 @@ MADWEAVE_RESEARCH_BROWSER=firefox node research/seam-isolation-check.cjs
 ```
 
 `MADWEAVE_URL` selects a server other than the default port 8766. The script
-executes **eight real-SVG reduction stages and thirteen standalone cases per
+executes **eight real-SVG reduction stages and fifteen standalone cases per
 browser**, including the checked-in fixture. JSON/PNG/SVG evidence is generated
 under `research/output/seam-isolation/`. The separate `seam-isolation.yml`
 workflow runs both engines on the investigation branch. The main 34-stage

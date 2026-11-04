@@ -18,7 +18,7 @@ function fixture(stack,options={}){
  const defs=options.union?`<clipPath id="union"><path d="M0 0H${cut}L0 ${cut}Z M${cut} 0V${cut}H0Z"/></clipPath>`:
   `<clipPath id="a"><path${shape} d="M0 0H${cut}L0 ${cut}Z"/></clipPath><clipPath id="b"><path${shape} d="M${cut} 0V${cut}H0Z"/></clipPath>`;
  const groups=options.solid?paint:options.union?`<g clip-path="url(#union)">${paint}</g>`:
-  `<g clip-path="url(#a)"${effect}>${paint}</g><g clip-path="url(#b)"${effect}>${paint}</g>`;
+  `<g clip-path="url(#a)"${effect}>${paint}</g>`+(options.oneSide?'':`<g clip-path="url(#b)"${effect}>${paint}</g>`);
  return `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240"><defs>${defs}${filters}</defs><rect width="240" height="240" fill="white"/>${groups}</svg>`;
 }
 (async()=>{
@@ -121,6 +121,8 @@ function fixture(stack,options={}){
   const variants=[
    {name:'repository-minimal',stack:[RGB.bottom,RGB.top],raw:fs.readFileSync(require('node:path').join(__dirname,'fixtures','clip-seam-minimal.svg'),'utf8'),expected:predict([RGB.bottom,RGB.top])},
    {name:'solid',stack:[RGB.top],options:{solid:true},expected:RGB.top},
+   {name:'single-clipped-stack',stack:[RGB.bottom,RGB.top],options:{oneSide:true},expected:[RGB.bottom,RGB.top].reduce((c,paint)=>blend(c,paint,.5),RGB.white)},
+   {name:'single-filtered-stack',stack:[RGB.bottom,RGB.top],options:{oneSide:true,filter:true},expected:blend(RGB.white,RGB.top,.5)},
    {name:'one-paint-per-half',stack:[RGB.top],expected:predict([RGB.top])},
    {name:'two-paints-per-half',stack:[RGB.bottom,RGB.top],expected:predict([RGB.bottom,RGB.top])},
    ...[1,2,3].map(n=>({name:'neutral-'+n+'-paints-per-half',stack:Array(n).fill(RGB.neutral),expected:predict(Array(n).fill(RGB.neutral))})),

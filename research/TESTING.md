@@ -176,7 +176,7 @@ research workflow now also runs on master so this coverage continues after merge
 ## SVG seam source isolation
 
 The separate [seam-isolation diagnostic](SEAM_ROOT_CAUSE.md) runs eight reduction
-stages on the actual SVG and thirteen minimal cases in each browser. It verifies
+stages on the actual SVG and fifteen minimal cases in each browser. It verifies
 source-over predictions, checks the standalone fixture, and confirms a union
 clip has no seam across 48,400 interior pixels. Its dedicated workflow is
 `seam-isolation.yml`; these exploratory checks do not change the baseline
