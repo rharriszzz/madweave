@@ -811,6 +811,13 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
 
     var index;
     var defs = getDefs(document);
+    // Clip each completed local stack once, then add complementary edge coverage.
+    // See research/SEAM_ROOT_CAUSE.md for the reduction and compositing model.
+    var css = document.defaultView && document.defaultView.CSS;
+    var seamlessClips = css && typeof css.supports === 'function' &&
+        css.supports('mix-blend-mode', 'plus-lighter') &&
+        css.supports('filter', 'opacity(1)');
+    strips.style.isolation = seamlessClips ? 'isolate' : '';
     var d;
     for (d=0; d<3; d++) {
         var sgname = baseName+dname[d]+"Strips";
@@ -861,7 +868,17 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
         var gname = baseName+pname[p]+"G";
         var g = createSVGElementWithId(document, "g", gname);
         g.setAttribute("clip-path", "url(#"+cpname+")");
+        g.style.mixBlendMode = seamlessClips ? 'plus-lighter' : '';
+        // Firefox needs the CSS filter to flatten before clipping; WebKit needs
+        // the nested isolated stack as well. CSS opacity(1) preserves sRGB alpha.
+        g.style.filter = seamlessClips ? 'opacity(1)' : '';
         if (g.parentNode == null) strips.appendChild(g);
+        var stack = g;
+        if (seamlessClips) {
+            stack = createSVGElementWithId(document, 'g', gname+'Stack');
+            stack.style.isolation = 'isolate';
+            g.appendChild(stack);
+        }
         var dd;
         for (dd=2; dd>=0; dd--) {
             // ppn[p][0] is the direction number of the top direction
@@ -869,7 +886,7 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
             var useDName = dname[ppn[p][dd]];
             var use = createSVGElementWithId(document, "use", baseName+pname[p]+"Use"+useDName);
             use.setAttributeNS(xlinkNS, "xlink:href", "#"+baseName+useDName+"Strips");
-            if (use.parentNode == null) g.appendChild(use);
+            stack.appendChild(use);
         }
     }
     if (baseName==="") {

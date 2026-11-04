@@ -53,6 +53,17 @@ also run independently against `http://127.0.0.1:8766/editor.html`, or an editor
 URL supplied through `MADWEAVE_URL`. Both routes exercise the actual editor,
 except the explicitly separate SVG diagnostic.
 
+## Seam diagnosis and fix regression
+
+The separate three-engine [SVG seam workflow](../.github/workflows/seam-isolation.yml)
+runs `seam-fix-check.cjs` against the actual renderer, including translucent
+colors, visibility, outlines, and the actual SVG export rendered as an image.
+It also runs `seam-isolation-check.cjs` in Chromium and Firefox after explicitly
+restoring the old painting method as a negative control. These checks supplement
+the 34-stage integration baseline; they are not included in that stage count.
+See [the solution report](SVG_SEAM_FIX.md) for commands, measured results, and
+coverage limits. Install WebKit as well to run all three engines locally.
+
 ## Coverage map
 
 | Check | What it establishes | What it does not establish |
@@ -171,3 +182,13 @@ The application/static suite now has **16 tests**: eleven browser tests and five
 site tests. The separate Mac-only launch branch cannot be rerun on this Linux
 host; its recorded Mac results remain in `docs/MAC_TESTING.md`. The consolidated
 research workflow now also runs on master so this coverage continues after merge.
+
+
+## SVG seam source isolation
+
+The separate [seam-isolation diagnostic](SEAM_ROOT_CAUSE.md) runs eight reduction
+stages on the actual SVG and fifteen minimal cases in each browser. It verifies
+source-over predictions, checks the standalone fixture, and confirms a union
+clip has no seam across 48,400 interior pixels. Its dedicated workflow is
+`seam-isolation.yml`; these exploratory checks do not change the baseline
+34-stage suite or the application's renderer.
