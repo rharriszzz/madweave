@@ -49,3 +49,13 @@ The script checks index round trips, class bounds, period-three behavior within 
 ## Geometric caution
 
 The number of direction families (three) is not the same thing as rotational symmetry at the center (threefold or sixfold). Strip color is not itself proof of crossing order. A pattern may have geometric symmetry that an arbitrary per-strip coloring breaks.
+
+## SVG crossing construction (source inspection, 2026-11-04)
+
+The renderer is **not** simply three globally stacked sets of strips. In `buildStripsInternal`, each direction's strips are defined once in SVG `<defs>`, grouped as `HStrips`, `RStrips`, and `LStrips`. It then constructs six `<clipPath>` masks, named after the six permutations of H/R/L, and adds three SVG `<use>` elements inside each clipped group. The use elements are appended bottom-to-top (loop `dd=2` down to zero), so the last painted direction is the top one. The masks partition the plane into small regions where the ordering is fixed. Thus the weave is made by **local clipping plus painter's order**, not by cutting physical strip paths at every crossing.
+
+`isCoveredBy(thisS,thisD,otherS,otherD)` encodes pairwise strip precedence. It depends on strip residue classes, the star-madweave-center flag, `alternate`, and `hand`. `maskPath` uses this predicate to assign each triangular region to one of six layer-order permutations. Consequently a useful structural test is that for two different directions, exactly one of `isCoveredBy(A,B)` and `isCoveredBy(B,A)` is true, and that the six mask permutations remain valid.
+
+The new `research/crossing-audit.cjs` evaluates the **original function bodies extracted from madweave.js** (rather than copied implementations), checks antisymmetry across many strip pairs and eight settings combinations, and records the six mask triangle counts. This is a unit-level SVG-layer audit, **not yet a browser-rendered pixel or path test**. Execute locally with `node research/crossing-audit.cjs`.
+
+The key next step is to capture the actual SVG output for two planar patterns and visually inspect whether the clipped layer ordering agrees with these predicates. Do not use cone geometry yet.
