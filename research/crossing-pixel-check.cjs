@@ -43,7 +43,7 @@ function smallSummary(rows) {
   for(const star of [false,true]){
     if(star)await frame.locator('#cbuttonC').dispatchEvent('mousedown');
     const svg=frame.locator('#svg');
-    const data=await svg.evaluate(el=>{
+    const data=await svg.evaluate((el,star)=>{
       const w=el.ownerDocument.defaultView;
       if(w.transformInPath || w.coneFraction!==1 || w.numberOfDirections!==3)throw Error('Not planar');
       if(w.starMadWeaveCenter!==star)throw Error('Unexpected center');
@@ -83,7 +83,7 @@ function smallSummary(rows) {
       }
       return {baseSize:w.baseSize,stripsPerDirection:n,star:w.starMadWeaveCenter,
         candidates:selected,allCandidateCount:candidates.length};
-    });
+    },star);
     assert.equal(data.candidates.length,24,'Too few central two-strip crossings');
     const shot=await svg.screenshot({path:OUT+'/'+(star?'shifted':'ordinary')+'-unmarked.png'});
     const png=PNG.sync.read(shot);
