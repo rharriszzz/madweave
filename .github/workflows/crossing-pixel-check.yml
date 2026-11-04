@@ -26,10 +26,16 @@ jobs:
         run: MADWEAVE_BASE_SIZE=2 node research/crossing-pixel-check.cjs
       - name: Verify crossings at base size 3 (original geometry)
         run: MADWEAVE_BASE_SIZE=3 node research/crossing-pixel-check.cjs
+      - name: Check three-strip area audit syntax
+        run: node --check research/triple-area-check.cjs
+      - name: Verify three-strip area overlap pixels
+        run: node research/triple-area-check.cjs
       - name: Upload annotated screenshots and measurements
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: planar-crossing-pixel-evidence
-          path: research/output/crossing-pixels/
+          path: |
+            research/output/crossing-pixels/
+            research/output/triple-area/
           if-no-files-found: ignore
