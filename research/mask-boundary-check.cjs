@@ -76,7 +76,6 @@ function sample(p,x,y){const xi=Math.round(x),yi=Math.round(y),v=[0,0,0];if(xi<2
         }
        }
       }
-      poly=[];
      }
     }
     // Balanced selection by transition type, avoiding one mask boundary dominating.
