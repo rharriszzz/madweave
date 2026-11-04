@@ -29,7 +29,13 @@ for(const name of ['C0','C1','I','V'])await click(name);
 await frame.locator('#svg').screenshot({path:'research/output/buttons/editor-after-controls.png'});
 fs.writeFileSync('research/output/buttons/observations.json',JSON.stringify({errors,observations},null,2));
 if(errors.length)throw Error(errors.join('; '));
-if(observations.length<20)throw Error('Insufficient observations');\nconst byLabel=Object.fromEntries(observations.map(o=>[o.label,o]));\nif(byLabel.CP1.colorPattern!==1||byLabel.CP4.colorPattern!==4)throw Error('Color pattern buttons did not change state');\nif(byLabel.CC2.colorCount!==2||byLabel.CC3.colorCount!==3)throw Error('Color count buttons failed');\nif(byLabel.SC3.baseSize!==3||byLabel.SC2.baseSize!==2)throw Error('Size buttons failed');\nif(byLabel['-'].hand!==true||byLabel.X.alternate!==true||byLabel.C.starMadWeaveCenter!==true)throw Error('Geometry switches failed');\nif(byLabel.Sep0.separationIndex!==0||byLabel.Sep2.separationIndex!==2||byLabel.Sep1.separationIndex!==1)throw Error('Spacing switches failed');
+if(observations.length<20)throw Error('Insufficient observations'); 
+const byLabel=Object.fromEntries(observations.map(o=>[o.label,o]));
+if(byLabel.CP1.colorPattern!==1||byLabel.CP4.colorPattern!==4)throw Error('Color pattern buttons did not change state');
+if(byLabel.CC2.colorCount!==2||byLabel.CC3.colorCount!==3)throw Error('Color count buttons failed');
+if(byLabel.SC3.baseSize!==3||byLabel.SC2.baseSize!==2)throw Error('Size buttons failed');
+if(byLabel['-'].hand!==true||byLabel.X.alternate!==true||byLabel.C.starMadWeaveCenter!==true)throw Error('Geometry switches failed');
+if(byLabel.Sep0.separationIndex!==0||byLabel.Sep2.separationIndex!==2||byLabel.Sep1.separationIndex!==1)throw Error('Spacing switches failed');
 console.log(JSON.stringify({observations:observations.length,errors},null,2));
 }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
