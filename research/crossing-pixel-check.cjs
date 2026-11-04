@@ -7,7 +7,9 @@ const {PNG}=require('pngjs');
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
 
-const OUT='research/output/crossing-pixels';
+const BASE_SIZE=Number(process.env.MADWEAVE_BASE_SIZE || 2);
+assert.ok(Number.isInteger(BASE_SIZE) && BASE_SIZE>=2 && BASE_SIZE<=8,'Invalid MADWEAVE_BASE_SIZE');
+const OUT=`research/output/crossing-pixels/base-${BASE_SIZE}`;
 fs.mkdirSync(OUT,{recursive:true});
 const COLORS=['H','R','L'];
 
@@ -38,6 +40,13 @@ function smallSummary(rows) {
   await page.goto('http://127.0.0.1:8766/editor.html');
   const frame=page.frameLocator('#weave');
   await frame.locator('#cbuttonC').waitFor();
+  // Exercise the original size control, rather than modifying renderer state directly.
+  await frame.locator(`#cbuttonSC${BASE_SIZE}`).dispatchEvent('mousedown');
+  await frame.locator('#svg').evaluate((el,expected)=>{
+    const w=el.ownerDocument.defaultView;
+    assertSize(w.baseSize,expected);
+    function assertSize(actual,wanted){if(actual!==wanted)throw Error(`Size control failed: ${actual} != ${wanted}`);}
+  },BASE_SIZE);
   const all=[];
   const groups=[];
   for(const star of [false,true]){
@@ -50,7 +59,7 @@ function smallSummary(rows) {
       if(w.alternate || w.hand)throw Error('Unexpected alternate/hand state');
       if(w.showC.some(x=>!x)||w.showD.some(x=>!x))throw Error('Visibility unexpectedly disabled');
       const n=w.stripsPerDirection;
-      const pitch=w.stripWidth+w.stripSpacing, offset=Math.floor(n/2)-.5;
+      const pitch=w.stripWidth+w.stripSpacing, offset=(n-1)/2;
       const normals=[0,1,2].map(d=>[-Math.sin(2*Math.PI*d/3),Math.cos(2*Math.PI*d/3)]);
       const candidates=[];
       for(let d=0;d<3;d++)for(let e=d+1;e<3;e++){
@@ -124,7 +133,7 @@ function smallSummary(rows) {
   const key=r=>r.pair+':'+r.s+':'+r.t;
   const ordinary=new Map(all[0].crossings.map(r=>[key(r),r]));
   const changed=all[1].crossings.filter(r=>ordinary.has(key(r))&&ordinary.get(key(r)).top!==r.top);
-  const report={source:'original madweave.svg in editor.html',runScope:'planar crossing color sampling',
+  const report={baseSize:BASE_SIZE,source:'original madweave.svg in editor.html',runScope:'planar crossing color sampling',
     sampleMethod:'3x3 mean of PNG around exact intersection of strip centerlines; exclude third-strip coverage',
     errors,groups,changedTopCount:changed.length,changedTopSamples:changed.slice(0,8).map(r=>({pair:r.pair,s:r.s,t:r.t,topAfter:r.top,topBefore:ordinary.get(key(r)).top})),results:all};
   fs.writeFileSync(OUT+'/crossing-results.json',JSON.stringify(report,null,2));
@@ -133,6 +142,6 @@ function smallSummary(rows) {
   assert.ok(changed.length>0,'Center shift did not alter any tested crossing');
   assert.equal(all[0].summary.failures,0,'Ordinary center pixel mismatch');
   assert.equal(all[1].summary.failures,0,'Shifted center pixel mismatch');
-  console.log('PASS: 48 original SVG two-strip crossing pixels agree with isCoveredBy');
+  console.log(`PASS: 48 original SVG two-strip crossing pixels agree with isCoveredBy at baseSize=${BASE_SIZE}`);
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
