@@ -115,3 +115,13 @@ The six `pname` values and `ppn` permutations in `madweave.js` encode six local 
 ### Restart instructions
 
 Work on `research/planar-weave-experiments`; inspect this notebook first. Verify existing CI and browser results before adding features. The next deliverable is **inspected SVG render evidence** for at least ordinary and star-madweave center modes, with exact crossing annotations. Keep `numberOfDirections=3`, `coneFraction=1`, and `transformInPath=false`. Do not merge into master without checking the generated output.
+
+## First inspection of actual browser renders (2026-11-04)
+
+Downloaded GitHub Actions artifact `planar-svg-diagnostic-renders` (artifact 13348220558) from successful [run 41877822806](https://github.com/rharriszzz/madweave/actions/runs/41877822806). Its eight PNG and eight SVG files were extracted and the PNG images `planar-000.png` (ordinary center) and `planar-100.png` (star center) were inspected directly. The JSON report lists **no JavaScript errors**, six masks, six compositing groups, 27 uniquely identified strip paths and 18 `<use>` elements for each configuration. The screenshots show visibly interlaced colored strips, with a different crossing arrangement between the two center settings. These are actual browser renders, not conceptual illustrations.
+
+**Important caveat:** Inspection of two screenshots establishes that SVG output exists and appears plausibly interlaced, not that every crossing is correct. The automated test checks structure, not exact pixel colors or consistency with the original editor. The remaining six screenshots are available in the same artifact and should be inspected systematically. The diagnostic's strip colors are assigned uniquely by strip index, rather than the editor's original palette.
+
+The next substantive experiment should select a few central crossings, identify the intersecting strip indices from geometry, evaluate `isCoveredBy`, and sample the rendered pixel to verify that the visible top strip matches the predicted color. This should be repeated across all eight configurations. Compare with the original editor only after these crossing assertions pass. Also distinguish `starHexWeaveCenter` from `starMadWeaveCenter` carefully; the present diagnostic toggles the latter only.
+
+A local eight-image comparison montage was generated for review, but is not yet committed to GitHub. The reproducible original PNG/SVG artifacts are retained in the successful Actions run.
