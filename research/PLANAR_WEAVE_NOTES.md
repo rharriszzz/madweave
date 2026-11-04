@@ -69,3 +69,11 @@ This is deliberately **not** the editor UI and not an independent weave algorith
 **Validation still needed:** open the diagnostic, check for JavaScript errors, inspect the six mask regions, compare crossing order with the original editor, and save representative screenshots/SVGs. In particular, verify strip-label placement and whether all six masks are populated. Do not claim those checks have passed until actually performed.
 
 **Continuity note for future sessions:** We are learning the original planar madweave and hexweave implementation before coneFraction. User explicitly requested that coneFraction not be the starting point. Physical models and strip colors provide context, but the SVG clipping construction is the current investigation. Branch `research/planar-weave-experiments`; master must remain unchanged until findings are verified. Existing files: `research/planar-indexing.test.cjs`, `research/crossing-audit.cjs`, this notebook, and the SVG diagnostic HTML.
+
+## Automated verification infrastructure (2026-11-04)
+
+Added `.github/workflows/planar-research.yml` on this research branch. It invokes both `node research/planar-indexing.test.cjs` and `node research/crossing-audit.cjs` on GitHub Actions, and uploads JSON output when present. This is intended to make the checks reproducible without relying on the chat environment.
+
+**Execution status:** The workflow was committed, but a subsequent query of GitHub Actions runs returned no runs. This is **not evidence of success**. Possible reasons include dispatch delay, workflow permission/configuration, or branch workflow restrictions. Before interpreting results, inspect Actions and the logs. Local direct Git clone from the execution container failed because DNS resolution for github.com was unavailable; this is an environment limitation, not a repository failure.
+
+**Important next work:** Run the tests and fix any assertions or source-extraction issues; open the SVG diagnostic in a browser; compare its crossing order against the editor and save SVG/screenshot evidence. Avoid claims of visual validation until a render has actually been inspected. Keep coneFraction fixed at 1 and do not modify master.
