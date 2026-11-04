@@ -18,12 +18,21 @@ U=3 angular units per planar turn**, ordinary center, hand off, and default
 spacing at even base size 2. These choices have simple planar 120-degree unit
 symmetry and a two-turn input domain. They also deliberately expose the legacy
 six-direction picking shortcut that must be replaced before acceptance.
+Here N means `numberOfDirections`, not the planar `stripsPerDirection` count.
 
 For the initial prototype, require integer N≥3, U in `{3,6}`, finite positive
 strip width and pitch, and explicit C/X/hand settings. Derive f, the unit angle,
 and the unit count together; f is not an unrelated mutable setting. Reject
 invalid or inconsistent combinations instead of retaining stale derived values.
 General arbitrary fractions or angular expansions are outside this first phase.
+
+Reusing one canonical unit by rotation also requires covariance of the chosen
+planar geometry and order under that unit's angle. The tested 120-degree unit
+works for all current orientations. A 60-degree unit about the origin requires
+the appropriate sixfold baseline (even size, C on, hand off); it cannot simply
+replace an ordinary-center 120-degree unit. Its class labels also need an
+explicit phase mapping, as the [symmetry report](SYMMETRY.md) demonstrates.
+Other unit phases or displaced centers must be specified and tested before use.
 
 ## Forward map and unit assembly
 
@@ -74,6 +83,12 @@ Six such units have net identity direction/class phase in the selected setup.
 That is useful input to seam matching; it is not a substitute for constructing
 and checking the actual seam identity graph. Color must be assigned consistently
 to joined physical strips, not independently reset in every unit.
+
+The f=1 equivalence test must include class, palette, opacity, visibility, and
+selection identity as well as paths. For a 120-degree copy, physical family d
+becomes `(d+1) mod 3`; ordinary classes stay fixed while C-shifted classes cycle.
+Carry those label phases explicitly when reconstructing the baseline. Repeating
+the canonical unit's literal colors would not reproduce direction coloring.
 
 ## Inverse map and picking
 

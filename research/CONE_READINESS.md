@@ -36,8 +36,10 @@ It does not mean that cone rendering or a physical cone weave has been built.
 
 The full local `--app` run passed 34 stages. The first pushed baseline,
 `61603be`, also passed [branch CI](https://github.com/rharriszzz/madweave/actions/runs/41919725799).
+Completion commit `e862210` passed the full 34-stage
+[suite in CI](https://github.com/rharriszzz/madweave/actions/runs/41923169422).
 The [testing record](TESTING.md) identifies versions, artifacts, reproduction,
-and the scope of subsequent verification.
+and the main-branch integration review.
 
 ## Known limitations that are accounted for
 

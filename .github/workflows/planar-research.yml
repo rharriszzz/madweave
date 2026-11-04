@@ -1,7 +1,7 @@
 name: Planar weaving research suite
 on:
   push:
-    branches: [research/planar-weave-experiments]
+    branches: [master, research/planar-weave-experiments]
   pull_request:
     branches: [master]
   workflow_dispatch:

@@ -4,7 +4,7 @@ The research suite connects control behavior and the planar model to executable
 checks against the original engine. It complements the application suite in
 [`tests/`](../tests) and the historical [application testing record](../docs/TESTING.md).
 The tests characterize current behavior; the [cone-readiness checklist](CONE_READINESS.md)
-identifies the work still needed before changing the geometry.
+records the completed preparation and the next geometry implementation phase.
 
 ## Run the suite
 
@@ -74,7 +74,7 @@ except the explicitly separate SVG diagnostic.
 | `crossing-pixel-check.cjs` | 24 two-strip crossings per center at sizes 2 and 3 match `isCoveredBy`; C reverses selected crossings | Triple overlaps or all eight X/hand orientations |
 | `triple-area-check.cjs` | 132 selected three-strip interior points per orientation match active-mask painter order at size 3 | Independent mask construction, every triangle, or explicit mask-edge clearance |
 | `mask-boundary-check.cjs` | Both sides of distinct-mask boundaries; finite strip bounds, strip-edge exclusions, and every detected transition type represented | Every physical boundary; triangles can contribute duplicate/reversed probes |
-| `tests/test_site.py` | Publication allowlist, links/assets, and unsafe output-target rejection | External historical links |
+| `tests/test_site.py` | Publication allowlist, links/assets, output-target rejection, and content-sensitive stylesheet URLs | External historical links |
 | `tests/test_browser.py` (`--app`) | Real application controls, saving, offline reopening/resaving, import, artwork export, and responsive wrapper | Physical-device certification or cone geometry |
 
 The button suite verifies manual-edit reset on all pattern/count/changed-size
@@ -94,7 +94,7 @@ Playwright 1.58.2, Chrome for Testing 145.0.7632.6, and pngjs 7.0.0:
 - 48/48 two-strip crossing samples at each of sizes 2 and 3.
 - 1,056/1,056 three-strip interior samples across eight orientations.
 - 924/924 boundary pairs, or 1,848/1,848 side samples, across eight orientations.
-- Original-engine math/indexing/crossing checks and four site tests.
+- Original-engine math/indexing/crossing checks and five site tests.
 - 3,608/3,608 boundary/end pairs at 128 settings, including 384 H/R/L end pairs.
 - 768 symmetry cases, 383,616 pair comparisons, and 5,280 visible-top comparisons.
 - 15 finite intersection, 428 unit-clipping, and 5,184 unit-fraction picking checks.
@@ -126,8 +126,10 @@ use a separate installed Firefox client/build locally. They are unnecessary in
 CI, which installs both research browsers with its pinned Node client.
 
 Baseline commit `61603be` passed [branch CI](https://github.com/rharriszzz/madweave/actions/runs/41919725799).
-The final preparation changes add the stages below; their exact commit/run
-verification is recorded separately when pushed.
+Completion commit `e862210` passed all 34 stages in
+[run 41923169422](https://github.com/rharriszzz/madweave/actions/runs/41923169422),
+with [logs, measurements, and images](https://github.com/rharriszzz/madweave/actions/runs/41923169422/artifacts/13368262015).
+That run includes both research browsers and the Chromium application suite.
 
 ## Evidence and next tests
 
@@ -137,7 +139,7 @@ are not part of the published website. For a durable finding, record the method,
 configuration, result, and limitation in Markdown rather than relying on a
 retained artifact alone.
 
-The consolidated `planar-research.yml` workflow runs the full runner on research
+The consolidated `planar-research.yml` workflow runs the full runner on master and research
 branch pushes and pull requests to master. The six individual browser workflows
 remain available by manual dispatch, avoiding duplicate automatic experiment
 runs. The consolidated baseline passed CI; the workflow now also installs Firefox
@@ -149,3 +151,23 @@ are the f=1 replacement pipeline, nonunit fixture, seam/global-strip identity,
 bounded curve approximation, and inverse selection in the
 [cone mapping contract](CONE_MAPPING_SPEC.md). Those nonunit tests belong to
 the next phase and have not been executed during preparation.
+
+
+## Main branch integration review
+
+The research branch already contained main revision `7034dda`, including all
+five main commits after local revision `aa3f3ca`. Their implementation changes
+concerned the hero CSS, content-versioned stylesheet build, and Mac Firefox test
+isolation; none changed the weaving engine.
+
+Before merging, the older site changes received stronger regression coverage:
+computed browser styles require an unrotated hero at 1280, 768, 390, and 320 CSS
+pixels, and a temporary source fixture verifies that changing CSS content changes
+the stylesheet URL in all three built pages. The original rotated CSS from
+`aa3f3ca` fails the computed-style assertion; the pre-versioning builder from
+`fc15617` fails the changed-content URL check. Both current checks pass.
+
+The application/static suite now has **16 tests**: eleven browser tests and five
+site tests. The separate Mac-only launch branch cannot be rerun on this Linux
+host; its recorded Mac results remain in `docs/MAC_TESTING.md`. The consolidated
+research workflow now also runs on master so this coverage continues after merge.
