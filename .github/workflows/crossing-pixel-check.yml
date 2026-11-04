@@ -1,0 +1,33 @@
+name: Planar SVG crossing pixel verification
+on:
+  push:
+    branches: [research/planar-weave-experiments]
+  workflow_dispatch:
+jobs:
+  pixel-crossings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium and PNG decoder
+        run: |
+          npm install --no-save playwright@1.58.2 pngjs@7.0.0
+          npx playwright install --with-deps chromium
+      - name: Start local server
+        run: |
+          python3 -m http.server 8766 --bind 127.0.0.1 > /tmp/madweave-server.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8766/editor.html >/dev/null && exit 0; sleep 1; done
+          exit 1
+      - name: Check JavaScript syntax
+        run: node --check research/crossing-pixel-check.cjs
+      - name: Verify crossing pixels against original predicate
+        run: node research/crossing-pixel-check.cjs
+      - name: Upload annotated screenshots and measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: planar-crossing-pixel-evidence
+          path: research/output/crossing-pixels/
+          if-no-files-found: ignore
