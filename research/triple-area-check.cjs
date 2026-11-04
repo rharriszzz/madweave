@@ -27,13 +27,19 @@ function sample(p,x,y){
   await frame.locator('#cbuttonSC3').waitFor();
   await frame.locator('#cbuttonSC3').dispatchEvent('mousedown');
   const results=[];
-  for(const star of [false,true]){
-   if(star)await frame.locator('#cbuttonC').dispatchEvent('mousedown');
+  for(let configuration=0;configuration<8;configuration++){
+   const star=Boolean(configuration&1),alternate=Boolean(configuration&2),hand=Boolean(configuration&4);
+   if(configuration>0){
+    const previous=configuration-1;
+    if(Boolean(previous&1)!==star)await frame.locator('#cbuttonC').dispatchEvent('mousedown');
+    if(Boolean(previous&2)!==alternate)await frame.locator('#cbuttonX').dispatchEvent('mousedown');
+    if(Boolean(previous&4)!==hand)await frame.locator('#cbutton-').dispatchEvent('mousedown');
+   }
    const svg=frame.locator('#svg');
-   const data=await svg.evaluate((root,star)=>{
+   const data=await svg.evaluate((root,settings)=>{
     const w=root.ownerDocument.defaultView;
-    if(w.baseSize!==3||w.stripsPerDirection!==9||w.coneFraction!==1||w.transformInPath||w.numberOfDirections!==3||w.starMadWeaveCenter!==star)throw Error('Unexpected configuration');
-    if(w.showC.some(v=>!v)||w.showD.some(v=>!v)||w.alternate||w.hand)throw Error('Unexpected visibility/orientation');
+    if(w.baseSize!==3||w.stripsPerDirection!==9||w.coneFraction!==1||w.transformInPath||w.numberOfDirections!==3||w.starMadWeaveCenter!==settings.star)throw Error('Unexpected configuration');
+    if(w.showC.some(v=>!v)||w.showD.some(v=>!v)||w.alternate!==settings.alternate||w.hand!==settings.hand)throw Error('Unexpected visibility/orientation');
     const pitch=w.stripWidth+w.stripSpacing,offset=Math.floor(w.stripsPerDirection/2)-.5;
     const normals=[0,1,2].map(d=>[-Math.sin(d*2*Math.PI/3),Math.cos(d*2*Math.PI/3)]);
     const masks=w.pname.map((name,i)=>({name,i,path:root.ownerDocument.getElementById(name+'ClipPath_path')}));
@@ -68,9 +74,9 @@ function sample(p,x,y){
     const chosen=[];
     for(let i=0;i<rows.length;i+=Math.max(1,Math.floor(rows.length/120)))chosen.push(rows[i]);
     return {counts,eligible:rows.length,rows:chosen.slice(0,160)};
-   },star);
+   },{star,alternate,hand});
    assert(data.rows.length>=12,'Not enough interior three-strip area samples');
-   const name=star?'shifted':'ordinary';
+   const name=`C${+star}-X${+alternate}-H${+hand}`;
    const png=PNG.sync.read(await svg.screenshot({path:`${OUT}/${name}-unmarked.png`}));
    const rows=data.rows.map((r,i)=>{
     const observed=sample(png,r.px,r.py),expected=rgb(r.colors['HRL'.indexOf(r.top)]);
@@ -79,7 +85,7 @@ function sample(p,x,y){
     const other=Math.min(...alternatives.filter((_,j)=>j!=='HRL'.indexOf(r.top)).map(c=>observed?dist(observed,c):Infinity));
     return {...r,number:i+1,observed,expected,distance:d,otherDistance:other,pass:d<=28&&d+15<other};
    });
-   const summary={star,candidates:data.counts.candidate,maskAmbiguous:data.counts.maskAmbiguous,eligible:data.eligible,sampled:rows.length,passed:rows.filter(r=>r.pass).length,failed:rows.filter(r=>!r.pass).length,byMask:Object.fromEntries([...new Set(rows.map(r=>r.mask))].map(m=>[m,rows.filter(r=>r.mask===m).length]))};
+   const summary={star,alternate,hand,candidates:data.counts.candidate,maskAmbiguous:data.counts.maskAmbiguous,eligible:data.eligible,sampled:rows.length,passed:rows.filter(r=>r.pass).length,failed:rows.filter(r=>!r.pass).length,byMask:Object.fromEntries([...new Set(rows.map(r=>r.mask))].map(m=>[m,rows.filter(r=>r.mask===m).length]))};
    results.push({summary,rows});
    await svg.evaluate((root,rows)=>{
     const ns='http://www.w3.org/2000/svg',g=document.createElementNS(ns,'g');
@@ -97,6 +103,7 @@ function sample(p,x,y){
   fs.writeFileSync(`${OUT}/results.json`,JSON.stringify({errors,results},null,2));
   console.log(JSON.stringify({errors,summaries:results.map(r=>r.summary),failures:results.flatMap(r=>r.rows.filter(x=>!x.pass)).slice(0,12)},null,2));
   assert.deepEqual(errors,[]);
+  assert(results.length===8,'Missing orientation configurations');
   assert(results.every(r=>r.summary.failed===0),'Triple-area pixel mismatch; inspect artifacts');
   console.log('PASS: three-strip area overlap pixels match SVG mask painter order');
  }finally{await browser.close();}
