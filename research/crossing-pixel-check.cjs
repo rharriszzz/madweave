@@ -98,8 +98,8 @@ function smallSummary(rows) {
     all.push({star,geometry:{baseSize:data.baseSize,stripsPerDirection:data.stripsPerDirection,
       allCandidateCount:data.allCandidateCount},summary:smallSummary(rows),crossings:rows});
     // Mark measured intersections on a *copy* of the SVG DOM (never modify repository editor).
-    await svg.evaluate(({rows})=>{
-      const root=document.querySelector('#svg'),NS='http://www.w3.org/2000/svg';
+    await svg.evaluate((root,{rows})=>{
+      const NS='http://www.w3.org/2000/svg';
       const group=document.createElementNS(NS,'g');group.setAttribute('id','researchCrossingAnnotations');
       group.setAttribute('pointer-events','none');
       for(const row of rows){
