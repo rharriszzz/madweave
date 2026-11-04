@@ -53,15 +53,12 @@ function sample(p,x,y){const xi=Math.round(x),yi=Math.round(y),v=[0,0,0];if(xi<2
     // Parse the actual triangular SVG clip-path geometry rather than searching a grid.
     // Each path contains repeated M/L/L/Z triangles in local coordinates.
     for(const m of masks){
-     const tokens=m.path.getAttribute('d').match(/[MLZ]|-?\\d+(?:\\.\\d+)?/g)||[];
-     let pos=0,poly=[];
+     const raw=m.path.getAttribute('d');
+     const triangles=[...raw.matchAll(/M\\s*([-\\d.]+)\\s+([-\\d.]+)\\s+L\\s*([-\\d.]+)\\s+([-\\d.]+)\\s+L\\s*([-\\d.]+)\\s+([-\\d.]+)\\s+Z/g)];
      const matrix=root.getCTM().inverse().multiply(m.path.getCTM());
-     for(const token of tokens){
-      if(token==='Z'){poly=[];continue;}
-      if(token==='M'||token==='L')continue;
-      const x=Number(token),y=Number(tokens[++pos]);
-      const q=new DOMPoint(x,y).matrixTransform(matrix);poly.push(q);pos++;
-      if(poly.length!==3)continue;
+     for(const match of triangles){
+      const poly=[];
+      for(let k=0;k<3;k++)poly.push(new DOMPoint(Number(match[1+2*k]),Number(match[2+2*k])).matrixTransform(matrix));
       for(let k=0;k<3;k++){
        const a=poly[k],b=poly[(k+1)%3],len=Math.hypot(b.x-a.x,b.y-a.y);
        if(len<.01)continue;
