@@ -34,7 +34,7 @@ const byLabel=Object.fromEntries(observations.map(o=>[o.label,o]));
 if(byLabel.CP1.colorPattern!==1||byLabel.CP4.colorPattern!==4)throw Error('Color pattern buttons did not change state');
 if(byLabel.CC2.colorCount!==2||byLabel.CC3.colorCount!==3)throw Error('Color count buttons failed');
 if(byLabel.SC3.baseSize!==3||byLabel.SC2.baseSize!==2)throw Error('Size buttons failed');
-if(byLabel['-'].hand!==true||byLabel.X.alternate!==true||byLabel.C.starMadWeaveCenter!==true)throw Error('Geometry switches failed');
+if(byLabel['-'].hand!==true||byLabel.X.alternate!==true||observations.find(o=>o.label==='C').starMadWeaveCenter!==true)throw Error('Geometry switches failed');
 if(byLabel.Sep0.separationIndex!==0||byLabel.Sep2.separationIndex!==2||byLabel.Sep1.separationIndex!==1)throw Error('Spacing switches failed');
 console.log(JSON.stringify({observations:observations.length,errors},null,2));
 }finally{await browser.close();}
