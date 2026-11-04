@@ -1,0 +1,39 @@
+name: Planar weaving research suite
+on:
+  push:
+    branches: [master, research/planar-weave-experiments]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: planar-research-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  planar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Install research and application test dependencies
+        run: |
+          npm install --no-save playwright@1.58.2 pngjs@7.0.0
+          npx playwright install --with-deps chromium firefox
+          python -m pip install -r requirements-dev.txt
+          python -m playwright install chromium
+      - name: Run complete planar research suite
+        run: python research/run-tests.py --app
+      - name: Upload logs, measurements, SVGs, and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: planar-weave-research-results
+          path: research/output/
+          if-no-files-found: warn

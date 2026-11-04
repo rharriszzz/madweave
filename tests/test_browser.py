@@ -190,6 +190,10 @@ class BrowserTests(unittest.TestCase):
                 self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'))
                 self.assertTrue(self.page.locator('h1').is_visible())
                 self.assertTrue(self.page.evaluate('Array.from(document.images).every(i => i.complete && i.naturalWidth > 0)'))
+                if name == 'index.html':
+                    self.assertEqual(self.page.locator('.hero-image').evaluate(
+                        'element => getComputedStyle(element).transform'), 'none',
+                        f'Hero should remain level at width {width}')
                 if width in (1280,390) and name == 'index.html':
                     self.page.screenshot(path=str(screenshots/f'home-{width}.png'), full_page=True)
         context = self.browser.new_context(java_script_enabled=False)

@@ -1,0 +1,389 @@
+# Planar madweave / hexweave: research notebook
+
+Status: **historical investigation notebook**. Start with the [current research guide](README.md) for the control reference, planar model, test suite, and cone-readiness checklist. The opening sections below describe the initial checkpoint; later entries supersede their pending items. This branch does not alter the editor or enable cone transformations.
+
+## Scope and method
+
+Start with planar weaving. Keep `numberOfDirections = 3`, `transformInPath = false`, hence `coneFraction = 1`. Study strip identity, strip color, crossings, and the two center variants before attempting nonplanar configurations.
+
+The test script `research/planar-indexing.test.cjs` transcribes a small, explicitly identified subset of pure indexing functions from `madweave.js`. It is **not** yet an end-to-end execution of the browser renderer; that is a future task.
+
+## Confirmed by source inspection
+
+- Three direction families are represented by `dx = [0, -sqrt(3)/2, +sqrt(3)/2]` and `dy = [1, -1/2, -1/2]`, to numerical precision. These are 120-degree-separated normals used for strip indexing.
+- `setupNewBaseSize` sets `stripsPerDirection = 3 * baseSize` and `totalNumber = 3 * stripsPerDirection`.
+- A strip index is decomposed into `d = floor(index / stripsPerDirection)` and `s = index % stripsPerDirection`.
+- `getSOffset(starMadWeaveCenter,d)` is zero in the ordinary case and `3-d` in star-madweave mode. Consequently the class `getC` is `(s + offset) % 3` and the group `getN` is `floor((s + offset)/3)`.
+- `starHexWeaveCenter` and `starMadWeaveCenter` both select six units per full circle in the setup logic; otherwise three units. The star-hex flag also has a separate comment concerning layer b. This alone does **not** establish all of their rendered differences.
+- `getColor(colorIndexArray,index)` selects `colorArray[colorIndexArray[index]]`. This allows per-strip color assignment in principle, subject to the editor's array initialization and palette behavior.
+- `transformInPath` defaults to false. No cone transformations are required for these planar experiments.
+
+## Testable consequences
+
+For any integer `baseSize > 0`, each direction has `3*baseSize` strips, and the three residue classes of `getC` occur equally often in each direction. Star-madweave mode shifts the residue class by direction, without changing the class totals.
+
+Run:
+
+```sh
+node research/planar-indexing.test.cjs > /tmp/madweave-planar-indexing.json
+```
+
+The script checks index round trips, class bounds, period-three behavior within each direction, and equal class counts. **The script has been committed but not executed in the current environment**; do not record these as observed passes until run.
+
+## Not yet established
+
+1. Which rendered crossing is above/below for each pair of strip identities, including the exact SVG layering order.
+2. How madweave and hexweave differ combinatorially rather than merely in the colors or chosen center.
+3. Whether each strip can be assigned a unique, persistent visible color without altering rendering logic.
+4. Whether the center modes produce the expected threefold or sixfold rotational symmetry in the *complete colored and layered image*.
+5. Whether crossings remain consistent after changing strip colors and canvas size.
+
+## Next experiments
+
+- Build a headless browser or SVG DOM harness around the actual editor, rather than replacing its rendering implementation.
+- Generate one small ordinary madweave and one hexweave example, with every strip distinctly labeled and colored; include a neutral-color baseline.
+- Export SVG plus machine-readable strip/crossing records and test whether each crossing's visible upper strip matches the rendered SVG.
+- Inspect the central neighborhood at several base sizes and document observed center symmetries.
+- Only after these pass, consider changing `coneFraction`.
+
+## Geometric caution
+
+The number of direction families (three) is not the same thing as rotational symmetry at the center (threefold or sixfold). Strip color is not itself proof of crossing order. A pattern may have geometric symmetry that an arbitrary per-strip coloring breaks.
+
+## SVG crossing construction (source inspection, 2026-11-04)
+
+The renderer is **not** simply three globally stacked sets of strips. In `buildStripsInternal`, each direction's strips are defined once in SVG `<defs>`, grouped as `HStrips`, `RStrips`, and `LStrips`. It then constructs six `<clipPath>` masks, named after the six permutations of H/R/L, and adds three SVG `<use>` elements inside each clipped group. The use elements are appended bottom-to-top (loop `dd=2` down to zero), so the last painted direction is the top one. The masks partition the plane into small regions where the ordering is fixed. Thus the weave is made by **local clipping plus painter's order**, not by cutting physical strip paths at every crossing.
+
+`isCoveredBy(thisS,thisD,otherS,otherD)` encodes pairwise strip precedence. It depends on strip residue classes, the star-madweave-center flag, `alternate`, and `hand`. `maskPath` uses this predicate to assign each triangular region to one of six layer-order permutations. Consequently a useful structural test is that for two different directions, exactly one of `isCoveredBy(A,B)` and `isCoveredBy(B,A)` is true, and that the six mask permutations remain valid.
+
+The new `research/crossing-audit.cjs` evaluates the **original function bodies extracted from madweave.js** (rather than copied implementations), checks antisymmetry across many strip pairs and eight settings combinations, and records the six mask triangle counts. This is a unit-level SVG-layer audit, **not yet a browser-rendered pixel or path test**. Execute locally with `node research/crossing-audit.cjs`.
+
+The key next step is to capture the actual SVG output for two planar patterns and visually inspect whether the clipped layer ordering agrees with these predicates. Do not use cone geometry yet.
+
+## Interactive SVG diagnostic (2026-11-04)
+
+Added `research/planar-svg-diagnostic.html`. Open through a local HTTP server at the repository root (for example `python3 -m http.server 8766`, then browse to `http://localhost:8766/research/planar-svg-diagnostic.html`). It loads the **unchanged** `../madweave.js` and calls its real `stripPath`, `trans`, and `maskPath` functions. It defines 27 individually colored strips, reuses the original six `ppn` painter-order permutations, and shows their clipped composition. Controls vary `starMadWeaveCenter`, `alternate`, and `hand`; labels identify direction and strip index. It can export the generated SVG.
+
+This is deliberately **not** the editor UI and not an independent weave algorithm. It is a focused diagnostic of the renderer's geometric construction. Its SVG is a browser-created experiment, and has not yet been visually verified in this session. Color is assigned by unique strip index, so it does not encode the original palette or over-under class. This diagnostic is limited to the planar `numberOfDirections=3`, `coneFraction=1`, `transformInPath=false` case.
+
+**Validation still needed:** open the diagnostic, check for JavaScript errors, inspect the six mask regions, compare crossing order with the original editor, and save representative screenshots/SVGs. In particular, verify strip-label placement and whether all six masks are populated. Do not claim those checks have passed until actually performed.
+
+**Continuity note for future sessions:** We are learning the original planar madweave and hexweave implementation before coneFraction. User explicitly requested that coneFraction not be the starting point. Physical models and strip colors provide context, but the SVG clipping construction is the current investigation. Branch `research/planar-weave-experiments`; master must remain unchanged until findings are verified. Existing files: `research/planar-indexing.test.cjs`, `research/crossing-audit.cjs`, this notebook, and the SVG diagnostic HTML.
+
+## Automated verification infrastructure (2026-11-04)
+
+Added `.github/workflows/planar-research.yml` on this research branch. It invokes both `node research/planar-indexing.test.cjs` and `node research/crossing-audit.cjs` on GitHub Actions, and uploads JSON output when present. This is intended to make the checks reproducible without relying on the chat environment.
+
+**Execution status:** The workflow was committed, but a subsequent query of GitHub Actions runs returned no runs. This is **not evidence of success**. Possible reasons include dispatch delay, workflow permission/configuration, or branch workflow restrictions. Before interpreting results, inspect Actions and the logs. Local direct Git clone from the execution container failed because DNS resolution for github.com was unavailable; this is an environment limitation, not a repository failure.
+
+**Important next work:** Run the tests and fix any assertions or source-extraction issues; open the SVG diagnostic in a browser; compare its crossing order against the editor and save SVG/screenshot evidence. Avoid claims of visual validation until a render has actually been inspected. Keep coneFraction fixed at 1 and do not modify master.
+
+## CI results and browser validation (2026-11-04, later)
+
+The GitHub Actions planar research run [41876867020](https://github.com/rharriszzz/madweave/actions/runs/41876867020) **completed successfully**. This confirms the two Node scripts executed without failed assertions in CI; it does not by itself verify the appearance of the rendered SVG.
+
+Added `research/browser-svg-check.cjs` and `.github/workflows/planar-svg-browser.yml`. This new workflow installs Chromium via Playwright, serves the repository locally, loads the diagnostic, toggles all eight combinations of star center / alternate / hand, verifies six clip paths, six compositing groups, 27 unique strip paths, and 18 SVG use references, and exports eight PNG screenshots and eight SVG files as an Actions artifact. This validates DOM structure and browser execution, but **does not yet prove pixel-level over-under correctness**; visual review of the resulting images is still required.
+
+**Pending:** At the time of this note, the new browser workflow had not yet appeared in the returned GitHub Actions run listing. Inspect [Actions](https://github.com/rharriszzz/madweave/actions) for the browser workflow, diagnose any failure, download/review the artifacts, and then compare rendered crossings with the editor. If GitHub does not register the new workflow on this non-default branch, consider integrating the browser job into the existing working research workflow on this branch. Continue to keep coneFraction=1 and master unchanged.
+
+## Important distinction: color patterns vs weave topology
+
+Source inspection of `colorIndex` identifies five built-in color-assignment schemes (selected by `colorPattern`): direction `d`; residue class `c`; `d+c`; strip group `n`; and `c+n`, all reduced modulo `colorCount`. The `colorIndexArray` can then be edited per strip. **Changing only these colors does not change the crossing-order predicate**.
+
+The over/under predicate `isCoveredBy` depends on `starMadWeaveCenter`, `alternate`, and `hand`, but **does not directly reference `starHexWeaveCenter`**. The latter affects the angular-unit setup and has a source comment about layer b; we must not assume it is a separate planar crossing algorithm. To distinguish hexweave from madweave rigorously, compare the actual crossing relations and visible-strip selections, not merely palette or center names.
+
+At this checkpoint, [GitHub Actions browser run 41877409059](https://github.com/rharriszzz/madweave/actions/runs/41877409059) was **queued**. Do not claim the browser checks have passed. The earlier indexing/crossing CI run 41876867020 passed.
+
+### Concrete next questions for experimental evidence
+
+1. Which combinations of `starMadWeaveCenter`, `alternate`, and `hand` reproduce the familiar hexweave and madweave physical structures?
+2. Do the six clipping masks partition every local crossing correctly, including central crossings?
+3. Does the uniquely colored diagnostic preserve the same over/under pattern as the original editor?
+4. Are the visual changes from the colorPattern menu purely color assignments? The source suggests yes, but confirm with a render.
+
+
+## Checkpoint: GitHub Actions queue and independent execution
+
+On rechecking GitHub Actions, the browser runs 41877379056, 41877409059, and 41877632486 remained queued, as did newer source-test runs. The earlier run 41876867020 was successful. A direct `git clone` from this execution environment failed with `Could not resolve host: github.com`; this is a local DNS/network limitation. **Neither the queued status nor the clone failure is evidence of a code defect.**
+
+Avoid accumulating more queued workflow runs by repeatedly committing trivial notes. Before the next change, prioritize a working local/browser execution route or allow the queue to drain. Once browser screenshots exist, inspect them for actual visual consistency. No browser screenshot has yet been reviewed.
+
+### Architectural observation
+
+The six `pname` values and `ppn` permutations in `madweave.js` encode six local painter-order states. The `maskPath` routine assigns small triangles to those states based on three pairwise `isCoveredBy` tests. This is the primary source-backed explanation of SVG weaving. Color patterns are a separate mapping, and unique per-strip coloring in the diagnostic is meant to reveal path continuity, not to define the weave.
+
+### Restart instructions
+
+Work on `research/planar-weave-experiments`; inspect this notebook first. Verify existing CI and browser results before adding features. The next deliverable is **inspected SVG render evidence** for at least ordinary and star-madweave center modes, with exact crossing annotations. Keep `numberOfDirections=3`, `coneFraction=1`, and `transformInPath=false`. Do not merge into master without checking the generated output.
+
+## First inspection of actual browser renders (2026-11-04)
+
+Downloaded GitHub Actions artifact `planar-svg-diagnostic-renders` (artifact 13348220558) from successful [run 41877822806](https://github.com/rharriszzz/madweave/actions/runs/41877822806). Its eight PNG and eight SVG files were extracted and the PNG images `planar-000.png` (ordinary center) and `planar-100.png` (star center) were inspected directly. The JSON report lists **no JavaScript errors**, six masks, six compositing groups, 27 uniquely identified strip paths and 18 `<use>` elements for each configuration. The screenshots show visibly interlaced colored strips, with a different crossing arrangement between the two center settings. These are actual browser renders, not conceptual illustrations.
+
+**Important caveat:** Inspection of two screenshots establishes that SVG output exists and appears plausibly interlaced, not that every crossing is correct. The automated test checks structure, not exact pixel colors or consistency with the original editor. The remaining six screenshots are available in the same artifact and should be inspected systematically. The diagnostic's strip colors are assigned uniquely by strip index, rather than the editor's original palette.
+
+The next substantive experiment should select a few central crossings, identify the intersecting strip indices from geometry, evaluate `isCoveredBy`, and sample the rendered pixel to verify that the visible top strip matches the predicted color. This should be repeated across all eight configurations. Compare with the original editor only after these crossing assertions pass. Also distinguish `starHexWeaveCenter` from `starMadWeaveCenter` carefully; the present diagnostic toggles the latter only.
+
+A local eight-image comparison montage was generated for review, but is not yet committed to GitHub. The reproducible original PNG/SVG artifacts are retained in the successful Actions run.
+
+## Original SVG editor button experiments (2026-11-04)
+
+The actual user interface is `editor.html` with `madweave.svg` inside an iframe. The original SVG's `buildButtons` creates click targets named `cbutton<name>`; their handlers are embedded in SVG attributes. The research diagnostic does **not** expose this entire control set, so button research must exercise the original iframe.
+
+Added `research/editor-button-experiments.cjs` and `.github/workflows/editor-buttons.yml`. The Playwright test clicks the original SVG's color-pattern (CP), color-count (CC), size (SC), handedness (-), top reversal (X), center (C), class visibility (VH), direction visibility (VD), outline (Lines), spacing (Sep), palette, invisible (I) and visible (V) controls. It records state after each click and saves a screenshot. The script does not yet exercise sliders or actual strip recoloring; those require coordinate-sensitive pointer interactions. **At commit time the workflow had not been observed to complete; do not treat the button outcomes as verified until its JSON artifact is inspected.**
+
+Source-derived control map: CP0–CP4 select colorIndex formulas (d, c, d+c, n, c+n); CC1–CC6 select modulo color count; SC1–SC8 set 3–24 strips per direction; '-' toggles `hand`; X toggles `alternate`; C toggles `starMadWeaveCenter`; VH0–VH2 toggle residue-class visibility; VD0–VD2 toggle direction visibility; Lines toggles strip edge lines; Sep0–Sep3 select spacing; C0–C7 select palette slots; I/V choose invisibility/visibility painting modes; LAST0–LAST3 are recent palette colors; OB/HB/SB/VB are opacity/hue/saturation/value sliders; HideButtons hides controls.
+
+**Next:** Inspect CI status and the JSON artifact, fix any control-dispatch or SVG iframe failures, then add assertions for expected state transitions and pixel/screenshot comparisons. Preserve findings here. Remain planar.
+
+## Button experiment correction: event type (2026-11-04)
+
+The initial button workflow [41884081237](https://github.com/rharriszzz/madweave/actions/runs/41884081237) reported success and produced an observations JSON artifact. **Inspection revealed that every state snapshot was unchanged.** The experiment was invalid: it dispatched synthetic `click` events, while `buildButtons` installs SVG handlers using `onmousedown` on `cbutton*` rectangles. The original program's UI is not implicated.
+
+Updated `research/editor-button-experiments.cjs` to dispatch `mousedown` and added required state-transition assertions for pattern, color count, size, hand, alternate, center, and spacing. A fresh workflow run [41884346850](https://github.com/rharriszzz/madweave/actions/runs/41884346850) was queued at this checkpoint. **Do not claim button behavior has been experimentally verified until the new run succeeds and its observations are inspected.** Note that duplicate labels in the sequential observation list require care when interpreting the final snapshot by name.
+
+## Resolved: false geometry-switch failure (2026-11-04)
+
+Inspected `observations.json` from failed [button workflow run 41884562220](https://github.com/rharriszzz/madweave/actions/runs/41884562220), artifact 13350901304. The original editor's `-`, `X`, and `C` controls **all behaved correctly**: starting `false`, the first press changed the relevant state to `true`, and the second press restored `false`. The test had used `Object.fromEntries(observations.map(o => [o.label,o]))`, which retains the **last** observation for duplicate labels; it incorrectly expected the final restored state to remain true. Fixed the assertions to inspect the first matching observation, just as the center test already did.
+
+Other recorded transitions in this same run show CP0–CP4 color pattern changes, CC2/CC3 color count changes, SC3/SC2 size changes, and spacing button changes. These observations are actual Chromium-executed original SVG button handlers. The workflow failed only on the mistaken geometry assertion. A new CI run is required to verify the corrected script passes. The experiment did not yet test mouse painting or slider interaction.
+
+This is a useful general lesson for the research harness: when a control is intentionally toggled twice, preserve ordered observations rather than reducing to a map keyed only by the control label.
+
+## Pointer and color-control experiment (2026-11-04)
+
+The corrected [button run 41885348489](https://github.com/rharriszzz/madweave/actions/runs/41885348489) passed. Added `research/editor-pointer-experiments.cjs` and `.github/workflows/editor-pointer.yml` to test palette selection and genuine pointer clicks on the four slider hit targets (OB opacity, HB hue, SB saturation, VB value). The test also calls the **original** `setStripColorToCurrentDefault` function on a known strip after selecting palette / invisible / visible modes, avoiding hover-timing ambiguity. This verifies the actual strip-editing logic, **not** the full user hover-to-selection mechanism; that remains a separate test.
+
+The test records the original SVG window's state and saves an image. It asserts expected normalized slider positions and the visibility toggle effects. **This new workflow is not considered passed until its GitHub Actions run and artifact are inspected.** If the slider test fails, check the SVG coordinate transform and Playwright mouse click mapping before changing the editor.
+
+## Real hover-to-paint interaction (2026-11-04)
+
+The [pointer workflow 41885746928](https://github.com/rharriszzz/madweave/actions/runs/41885746928) passed: the original editor's palette, strip edit/visibility functions, and normalized HSV/opacity slider positions behaved as asserted.
+
+Added `research/editor-hover-paint.cjs` and `.github/workflows/editor-hover.yml` for a more complete browser experiment: select palette swatch C5 with a real mouse click, hover over the SVG `#stripsCover` rectangle, allow the program's 400ms selection hysteresis to elapse, then click the selected strip and verify its color index changed to 5. The source attaches `onmousemove="showMouseLocation(evt)"` and `onmousedown="setCurrentStripColorToCurrentDefault(evt)"` to `#stripsCover`. The test captures JSON and an SVG screenshot. It may require calibration if pointer motion is insufficient to trigger selection or if the chosen strip already uses palette index 5. **Do not claim this test passed until CI and its artifact confirm it.**
+
+Important architectural insight: `indexOfMouseLocation` deliberately waits about 400ms of stable strip tracking before selecting a strip, choosing the oldest stable direction. A test that merely clicks at a coordinate without prior mouse movement is not a valid end-to-end selection test.
+
+## How to isolate hexweave with the original editor buttons (2026-11-04)
+
+The original editor's right-side `a`, `b`, `c` controls are `VH0`, `VH1`, `VH2`, each toggling `showC[c]`. All three start enabled. `isVisible` requires both `showC[getC(...)]` and `showD[getD(...)]`; the `H`, `R`, `L` direction controls must therefore all remain enabled for a full three-direction hexweave.
+
+Starting with all three layers visible, click **b and c** to isolate layer **a**; click **a and c** to isolate **b**; click **a and b** to isolate **c**. This is the intended three-hexweave decomposition described in the editor's built-in button tooltips. The `C` center-shift button changes `starMadWeaveCenter`, but is not necessary simply to isolate a layer. The five `CP` buttons affect color patterns, not which residue-class layers are visible.
+
+These instructions are grounded in source and button handlers. A side-by-side screenshot comparison of all three isolated layers remains useful, and should be made through the actual SVG editor rather than a rewritten renderer.
+
+## Four-way actual-editor comparison (2026-11-04)
+
+Added `research/hexweave-comparison.cjs` and `.github/workflows/hexweave-comparison.yml`. The browser script opens the real `editor.html` and its `madweave.svg` iframe, operates the actual `a/b/c` visibility buttons using their `mousedown` events, and captures four states: full madweave (all classes visible), hexweave-a (only a), hexweave-b (only b), and hexweave-c (only c). Each state exports both PNG and SVG, plus machine-readable `showC`, `showD`, visibility counts, and planar-geometry checks. The test asserts `coneFraction=1` and `transformInPath=false`.
+
+**Execution status:** Files are committed, but at the first Actions check the new workflow was not yet listed. Do not claim screenshots exist until the workflow succeeds and its artifact is inspected. After successful capture, inspect the four PNGs, identify differences in their crossing/center structure, and record verified observations. The script uses the original editor, not the separately developed diagnostic.
+
+## Verified four-way comparison and follow-up (2026-11-04)
+
+GitHub Actions [run 41886830397](https://github.com/rharriszzz/madweave/actions/runs/41886830397) succeeded. Downloaded artifact 13350649401, extracted `full-madweave.png`, `hexweave-a.png`, `hexweave-b.png`, `hexweave-c.png` and corresponding SVGs, and inspected a four-image montage. The JSON records no JavaScript errors. With base size 2, full madweave has 18 visible strip groups and each isolated a/b/c layer has six. All three direction families remain enabled in each case. The visual result confirms that each isolated layer contains strips of all three directions, not just one family.
+
+**Next experiment implemented:** `research/hexweave-comparison.cjs` now asserts that the three isolated layer membership sets are pairwise disjoint and their union is exactly the full set of visible strips. It also presses the original center-shift `C` control and repeats the four SVG/PNG captures and partition assertions for the shifted center. These new assertions and eight-image capture have **not yet been validated**; inspect the new CI run and artifacts before claiming success.
+
+The conceptual point: the three a/b/c layers are three interleaved subweaves, not the three H/R/L direction families. The center-shift comparison will reveal how their strip membership and central arrangement change.
+
+## Expanded hexweave test syntax repair (2026-11-04)
+
+Runs 41887384787, 41887413972, and 41887441040 failed before running comparisons because `research/hexweave-comparison.cjs` contained literal backslash-n sequences in JavaScript statements introduced by automated source editing. Fixed those sequences in commit `bf376ff5bce481e6e97f2e2390a3f1601b50d7e4`. The original four-image comparison had passed previously; these failures do not imply a Madweave rendering defect.
+
+**Still pending:** successful CI of the repaired eight-image script, review of all generated PNGs, and confirmation of both partition assertions. Do not claim the new experiment has passed merely because its syntax was repaired.
+
+
+## VERIFIED: eight-way normal versus C-shifted visual review (2026-11-04)
+
+**This checkpoint supersedes the earlier entries saying the expanded comparison was pending.** The [successful Actions run 41888189144](https://github.com/rharriszzz/madweave/actions/runs/41888189144) generated eight PNGs, eight exported SVGs, and `results.json` in artifact **13352117928**. All eight images were visually reviewed; their SVG path geometry, strip grouping, and mask paths were compared independently.
+
+**Detailed findings, exact class-to-physical-strip mapping, evidence, reproducibility, and remaining questions:** [`research/HEXWEAVE_VISUAL_COMPARISON.md`](HEXWEAVE_VISUAL_COMPARISON.md).
+
+Main results:
+- Full planar madweave has 18 visible strips (6 in each H/R/L family). Each individual hexweave class a, b, c has 6 (2 per direction). The three classes are pairwise disjoint, and their union is the full weave in **both** center configurations.
+- Pressing **C** leaves every strip's underlying SVG path and transform **identical**. The full woven region is unchanged, but the local over/under order differs substantially: the SVG clipping masks are recomputed. Three populated mask paths (`HRL`, `RLH`, `LHR`) change between the normal and C-shifted cases.
+- C also changes **class membership** for R and L strips, not H. At base size 2, ordinary a/b/c classes each use the same index pair across all directions (a: 0,3; b: 1,4; c: 2,5). In C-shifted mode, R shifts class by +2 mod 3 and L by +1 mod 3. This explains the displacement of colored diagonal strips in isolated hexweaves without any geometric displacement of an individual strip.
+- In this experiment the pink/yellow/purple colors mark **H/R/L directions**, not a/b/c classes. Therefore visual color continuity is not evidence that a single hexweave class is being followed.
+- All eight cases remained strictly planar (`coneFraction=1`, `transformInPath=false`). The dormant `starHexWeaveCenter` setting has not been exercised.
+
+The verified results and the remaining crossing-by-crossing validation task are now saved permanently in the repository. The GitHub Actions image artifact is temporary, but the original-editor capture script is reproducible. No files on `master` have been changed.
+
+
+## Crossing-level visual validation (2026-11-04)
+
+A **new independent pixel-level audit of the original editor screenshots** is documented in [`research/CROSSING_PIXEL_AUDIT.md`](CROSSING_PIXEL_AUDIT.md). This supersedes the old open question asking whether any individual crossings had actually been checked.
+
+Using 24 central two-strip intersection coordinates per mode (8 each H/R, H/L, R/L), the screenshot colors agreed with the original `isCoveredBy` top-strip prediction at **24/24 ordinary-center crossings** and **24/24 C-shifted-center crossings**. Of these 24 physical crossing positions, **15 reverse which direction appears on top after pressing C**. The original strip paths and transforms remain fixed. This corroborates the SVG clipping-mask interpretation with independently sampled rendered pixels. It is a sampled validation, not exhaustive mathematical proof.
+
+A reproducible Chromium pixel checker was added as `research/crossing-pixel-check.cjs`, with workflow `.github/workflows/crossing-pixel-check.yml`; it generates JSON plus marked/unmarked screenshots. The first two attempts suffered test-only Playwright argument-passing mistakes, which were fixed. **Check the latest workflow outcome before claiming that the new automated run passed.** The independent results above were computed from the already-successful original-editor archived run 41888189144. Continue to keep the editor and `master` unchanged, and `coneFraction=1`.
+
+## Resolved: mask-boundary detector rejected every candidate (2026-11-04)
+
+The failure was in `research/mask-boundary-check.cjs`. Reproducing the branch
+head produced zero samples in all eight orientations. Three harness defects
+were identified and corrected:
+
+1. The triangle regex contained doubled backslashes in a JavaScript regex
+   literal, so it parsed **zero triangles**. Correct escaping reads 600 triangles
+   and visits 1,800 triangle edges per orientation. The checker now fails at the
+   parser if any populated mask has unparsed triangles, and records these counts.
+2. After the parser fix, valid probes reached different masks but were all
+   rejected by `left.top === right.top`. A change in mask permutation does not
+   require a change in the visible direction: an absent third direction can
+   change order while the two present directions retain their order. The audit
+   now checks both sides against their respective predicted colors, including
+   these continuity cases. Every selected pair in this run had two present
+   directions and the same visible top direction on both sides.
+3. Retaining those pairs exposed false pixel failures. Strip membership used
+   infinite centerlines, including points beyond the finite SVG strip ends.
+   It also treated strips within 0.09 units of their side edges as absent even
+   when they still covered pixels. Membership now respects `stripLength`, and
+   probes near either side of a strip edge or end are excluded. This prevents
+   obscuring strips from being silently omitted from the top-direction choice.
+
+The SVG coordinate transformations did not need changes. Mask-local triangles
+are transformed into root user coordinates, containment probes are transformed
+back into mask-local coordinates, and root points are mapped into screenshot
+pixels. The corrected pixel checks passed using these existing transforms.
+
+The selector now retains up to 12 pairs **for every detected ordered mask
+transition**, removing a global 144-pair cap that truncated some transition
+groups. Results include per-transition candidate and sample counts, rejection
+diagnostics, edge coordinates/offsets, and side/end clearances. Coverage assertions
+require nonempty samples and representation of every detected transition.
+
+### Locally verified results
+
+Executed with Playwright **1.58.2**, its Chrome for Testing **145.0.7632.6**
+build, and pngjs **7.0.0**, using the original editor at base size 3 and the
+default spacing. These are local results, not a claim about a new Actions run.
+
+| C | X | Hand | Candidate pairs | Ordered transition types | Passing sampled pairs |
+|---|---|---|---:|---:|---:|
+| off | off | off | 846 | 6 | 72/72 |
+| on | off | off | 900 | 6 | 72/72 |
+| off | on | off | 846 | 6 | 72/72 |
+| on | on | off | 900 | 6 | 72/72 |
+| off | off | on | 900 | 21 | 216/216 |
+| on | off | on | 870 | 10 | 102/102 |
+| off | on | on | 900 | 21 | 216/216 |
+| on | on | on | 870 | 10 | 102/102 |
+
+Total: **924/924 sampled pairs**, or **1,848/1,848 side samples**, with zero
+page errors. The existing RGB distance/margin thresholds were unchanged.
+As a negative control, repainting the strips black in the browser DOM caused
+**all 924 pairs to fail** and the audit to exit unsuccessfully, confirming that
+retaining unchanged-top pairs still detects incorrect rendered colors.
+The ordinary-center annotated screenshot was also visually inspected; all
+marked probes lie on the weave, with no failed probes. Raw JSON and all eight
+marked/unmarked image pairs are generated under the ignored
+`research/output/mask-boundaries/` directory and remain CI upload artifacts.
+Triangle edges may be visited from both adjacent triangles, so pair counts do
+not imply distinct physical boundaries or exhaustive coverage.
+
+Companion checks also passed: **48/48** two-strip crossings at each of base sizes
+2 and 3, **1,056/1,056** three-strip interior samples across eight orientations,
+the planar indexing and crossing audits, four Node math tests, and four Python
+site tests. This verifies the audit against sampled renderer output; it does
+not establish physical weaving feasibility or cover other spacing/size settings.
+
+### Reproduction
+
+Install `playwright@1.58.2`, `pngjs@7.0.0`, and the matching Chromium build, as
+in `.github/workflows/crossing-pixel-check.yml`. From the repository root, serve
+the checkout with `python3 -m http.server 8766 --bind 127.0.0.1`, then run:
+
+```sh
+node research/mask-boundary-check.cjs
+MADWEAVE_BASE_SIZE=2 node research/crossing-pixel-check.cjs
+MADWEAVE_BASE_SIZE=3 node research/crossing-pixel-check.cjs
+node research/triple-area-check.cjs
+```
+
+All three pixel scripts now accept `MADWEAVE_URL` when the default server port
+is occupied. For example, use
+`MADWEAVE_URL=http://127.0.0.1:49721/editor.html` with a server on port 49721.
+The existing CI boundary step runs the corrected detector without workflow
+changes. The editor source remains unchanged on this research branch.
+
+## Research references and consolidated suite (2026-11-04)
+
+The [research guide](README.md) now links the current [control reference](CONTROLS.md),
+[planar model](PLANAR_MODEL.md), [testing reference](TESTING.md), and
+[cone-readiness checklist](CONE_READINESS.md). These supersede stale pending
+statements in earlier notebook checkpoints without discarding their history.
+
+The new `python3 research/run-tests.py` command serves an isolated local checkout
+and runs the source, browser interaction, partition, and pixel checks with logs
+and a JSON summary. Indexing checks now execute the original engine at all eight
+sizes instead of copied functions. The complete control test enumerates all 52
+targets and verifies their state/geometry effects, including reset behavior,
+same-size preservation, recent color/opacity recall, and hidden-control recovery.
+It also reproduces two existing discrepancies: V recolors while showing a strip,
+and the first swatch press after I/V leaves the old swatch selected. These are
+documented current behaviors; no engine fix is included in this documentation
+and test pass.
+
+The full local research run passed all 22 stages, including 153 recorded control
+observations. The main research workflow now runs that suite; individual browser
+workflows remain manually dispatchable. This records local verification, not a
+new remote CI result. Cone work remains deferred to the explicit readiness
+criteria.
+
+
+## Independent finite-cell and parameter-matrix verification (2026-11-04)
+
+The [geometry matrix report](GEOMETRY_MATRIX_REPORT.md) records a new independent
+slab/rectangle construction, source and browser checks at all 256
+size/spacing/orientation settings, and 4,278 passing central pixel probes across
+128 selected cases. It also verifies 240 color-pattern/count/orientation cases
+without changes to physical strip or mask geometry. The full runner now passes
+25 stages locally.
+
+The independent source checker rejects missing and duplicate mask cells in
+negative controls. Extra-wide spacing has no positive-area triple overlap;
+32 pixel cases explicitly check that empty category while retaining background,
+single-strip, and two-strip probes. An initial zoom level correctly failed the
+narrow-gap pixel-coverage requirement; a closer central view resolved the
+features without changing color thresholds.
+
+The current references and cone-readiness checklist have been updated. The
+remaining priorities are defined symmetry checks, broader finite-end and
+boundary-side pixel coverage, and the dormant angular mapping specification.
+The editor and cone settings have not been changed.
+
+## Preparatory goals completed and Firefox rendering control (2026-11-04)
+
+The [readiness record](CONE_READINESS.md) now maps all four original goals to
+current documentation and executable checks. The 34-stage local `--app` suite
+passed, including the 33-stage research suite and all eleven application tests.
+Those application tests also passed separately in Firefox. Baseline commit
+`61603be` was pushed and passed Actions run `41919725799`; subsequent exact
+revision/run evidence is recorded in the testing reference.
+
+The [symmetry report](SYMMETRY.md) separates finite rectangle geometry,
+pairwise order, class permutations, and fixed colors. Tests cover 768 rotations,
+383,616 pair comparisons, and 5,280 visible-top probes. The broader boundary
+matrix passes 3,608 pairs across 128 settings and 512 patches, including 384
+explicit finite ends in H/R/L directions.
+
+At the user's request, the faint lines were compared in Firefox and Chromium.
+All 21 strip/mask path and transform records were identical. Both showed exact
+seam deviations; neutral unclipped controls removed them. Single-pixel profiles
+revealed narrow effects hidden by the first 3×3 neutral average. The
+[rendering report](BOUNDARY_RENDERING.md) classifies this as a known SVG
+clipping/compositing artifact. Browser-engine source debugging is not a
+precondition for cone work.
+
+The [cone contract](CONE_MAPPING_SPEC.md) specifies the first N=6, U=3 fixture,
+coordinate spaces, unit closure, global identity/seams, inverse picking,
+bounded approximation, and saved-state requirements. It derives the required
+unit count `N*U/3`, identifies the dormant six-unit bookkeeping inconsistency,
+and accounts for the existing endpoint and inverse-selection quirks. The
+angular-helper tests retain f=1 throughout. No nonunit fraction or application
+cone UI was introduced during preparation.
+
+The guide also now states the observed I/V and palette-exit behavior accurately.
+The original engine remains unchanged. Work following this checkpoint is the
+specified cone prototype implementation, rather than an open-ended continuation
+of preparatory investigation.

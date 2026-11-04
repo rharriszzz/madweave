@@ -1,0 +1,29 @@
+name: Original editor pointer experiments
+on:
+  workflow_dispatch:
+jobs:
+  pointer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Serve repository
+        run: |
+          python3 -m http.server 8766 --bind 127.0.0.1 > /tmp/madweave-server.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8766/editor.html >/dev/null && exit 0; sleep 1; done
+          exit 1
+      - name: Exercise palette, strip, and slider controls
+        run: node research/editor-pointer-experiments.cjs
+      - name: Preserve observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: original-editor-pointer-observations
+          path: research/output/pointer/
+          if-no-files-found: ignore

@@ -1,9 +1,11 @@
 import importlib.util
 import hashlib
+import shutil
 from html.parser import HTMLParser
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
 
@@ -74,6 +76,33 @@ class SiteTests(unittest.TestCase):
             (Path(folder)/'private.txt').write_text('do not publish')
             with self.assertRaises(ValueError):
                 site.build(folder)
+
+    def test_stylesheet_url_changes_when_css_content_changes(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / 'source'
+            source.mkdir()
+            for name in site.PUBLIC_FILES:
+                shutil.copyfile(site.ROOT / name, source / name)
+
+            def stylesheet_urls(output):
+                result = {}
+                for name in ('index.html', 'guide.html', 'editor.html'):
+                    page = Links()
+                    page.feed((output / name).read_text())
+                    links = [href for href in page.links if urlsplit(href).path == 'site.css']
+                    self.assertEqual(len(links), 1)
+                    result[name] = links[0]
+                return result
+
+            with patch.object(site, 'ROOT', source):
+                before = stylesheet_urls(site.build(Path(folder) / 'before'))
+                css = source / 'site.css'
+                css.write_text(css.read_text() + '\n/* cache version regression */\n')
+                after = stylesheet_urls(site.build(Path(folder) / 'after'))
+            self.assertEqual(len(set(before.values())), 1)
+            self.assertEqual(len(set(after.values())), 1)
+            for name in before:
+                self.assertNotEqual(before[name], after[name], name)
 
     def test_build_refuses_symlinked_targets(self):
         with tempfile.TemporaryDirectory() as folder:

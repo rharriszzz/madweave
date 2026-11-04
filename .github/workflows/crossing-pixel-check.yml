@@ -1,0 +1,44 @@
+name: Planar SVG crossing pixel verification
+on:
+  workflow_dispatch:
+jobs:
+  pixel-crossings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium and PNG decoder
+        run: |
+          npm install --no-save playwright@1.58.2 pngjs@7.0.0
+          npx playwright install --with-deps chromium
+      - name: Start local server
+        run: |
+          python3 -m http.server 8766 --bind 127.0.0.1 > /tmp/madweave-server.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8766/editor.html >/dev/null && exit 0; sleep 1; done
+          exit 1
+      - name: Check JavaScript syntax
+        run: node --check research/crossing-pixel-check.cjs
+      - name: Verify crossings at base size 2
+        run: MADWEAVE_BASE_SIZE=2 node research/crossing-pixel-check.cjs
+      - name: Verify crossings at base size 3 (original geometry)
+        run: MADWEAVE_BASE_SIZE=3 node research/crossing-pixel-check.cjs
+      - name: Check three-strip area audit syntax
+        run: node --check research/triple-area-check.cjs
+      - name: Verify three-strip area overlap pixels
+        run: node research/triple-area-check.cjs
+      - name: Check mask-boundary audit syntax
+        run: node --check research/mask-boundary-check.cjs
+      - name: Verify pixels on both sides of clipping-mask boundaries
+        run: node research/mask-boundary-check.cjs
+      - name: Upload annotated screenshots and measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: planar-crossing-pixel-evidence
+          path: |
+            research/output/crossing-pixels/
+            research/output/triple-area/
+            research/output/mask-boundaries/
+          if-no-files-found: ignore

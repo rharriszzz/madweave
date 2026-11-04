@@ -125,3 +125,18 @@ Targeted WebDriver checks exercised actual installed Safari and Firefox against
 the published editor, including native downloads, file reopening/resaving,
 project import, and static artwork export. See [MAC_TESTING.md](MAC_TESTING.md)
 for exact versions, the Firefox startup fix, scope, and live portfolio checks.
+
+
+## Main integration regression checks on 2026-11-04
+
+The research integration adds computed-style checks that keep the landing hero
+level at all four responsive widths and a build fixture that changes CSS content
+and requires new stylesheet URLs in every page. These checks fail against the
+historical rotated CSS and unversioned builder, respectively, and pass against
+the current implementation. Static/application discovery now runs 16 tests
+(five site tests and eleven browser tests).
+
+The [research testing reference](../research/TESTING.md) describes the separate
+34-stage suite, independent planar geometry, boundary/end pixels, symmetry,
+and Firefox/Chromium clipping comparison. Research artifacts remain outside
+the published site allowlist.
