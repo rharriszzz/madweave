@@ -191,3 +191,19 @@ The conceptual point: the three a/b/c layers are three interleaved subweaves, no
 Runs 41887384787, 41887413972, and 41887441040 failed before running comparisons because `research/hexweave-comparison.cjs` contained literal backslash-n sequences in JavaScript statements introduced by automated source editing. Fixed those sequences in commit `bf376ff5bce481e6e97f2e2390a3f1601b50d7e4`. The original four-image comparison had passed previously; these failures do not imply a Madweave rendering defect.
 
 **Still pending:** successful CI of the repaired eight-image script, review of all generated PNGs, and confirmation of both partition assertions. Do not claim the new experiment has passed merely because its syntax was repaired.
+
+
+## VERIFIED: eight-way normal versus C-shifted visual review (2026-11-04)
+
+**This checkpoint supersedes the earlier entries saying the expanded comparison was pending.** The [successful Actions run 41888189144](https://github.com/rharriszzz/madweave/actions/runs/41888189144) generated eight PNGs, eight exported SVGs, and `results.json` in artifact **13352117928**. All eight images were visually reviewed; their SVG path geometry, strip grouping, and mask paths were compared independently.
+
+**Detailed findings, exact class-to-physical-strip mapping, evidence, reproducibility, and remaining questions:** [`research/HEXWEAVE_VISUAL_COMPARISON.md`](HEXWEAVE_VISUAL_COMPARISON.md).
+
+Main results:
+- Full planar madweave has 18 visible strips (6 in each H/R/L family). Each individual hexweave class a, b, c has 6 (2 per direction). The three classes are pairwise disjoint, and their union is the full weave in **both** center configurations.
+- Pressing **C** leaves every strip's underlying SVG path and transform **identical**. The full woven region is unchanged, but the local over/under order differs substantially: the SVG clipping masks are recomputed. Three populated mask paths (`HRL`, `RLH`, `LHR`) change between the normal and C-shifted cases.
+- C also changes **class membership** for R and L strips, not H. At base size 2, ordinary a/b/c classes each use the same index pair across all directions (a: 0,3; b: 1,4; c: 2,5). In C-shifted mode, R shifts class by +2 mod 3 and L by +1 mod 3. This explains the displacement of colored diagonal strips in isolated hexweaves without any geometric displacement of an individual strip.
+- In this experiment the pink/yellow/purple colors mark **H/R/L directions**, not a/b/c classes. Therefore visual color continuity is not evidence that a single hexweave class is being followed.
+- All eight cases remained strictly planar (`coneFraction=1`, `transformInPath=false`). The dormant `starHexWeaveCenter` setting has not been exercised.
+
+The verified results and the remaining crossing-by-crossing validation task are now saved permanently in the repository. The GitHub Actions image artifact is temporary, but the original-editor capture script is reproducible. No files on `master` have been changed.
