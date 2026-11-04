@@ -59,3 +59,13 @@ The renderer is **not** simply three globally stacked sets of strips. In `buildS
 The new `research/crossing-audit.cjs` evaluates the **original function bodies extracted from madweave.js** (rather than copied implementations), checks antisymmetry across many strip pairs and eight settings combinations, and records the six mask triangle counts. This is a unit-level SVG-layer audit, **not yet a browser-rendered pixel or path test**. Execute locally with `node research/crossing-audit.cjs`.
 
 The key next step is to capture the actual SVG output for two planar patterns and visually inspect whether the clipped layer ordering agrees with these predicates. Do not use cone geometry yet.
+
+## Interactive SVG diagnostic (2026-11-04)
+
+Added `research/planar-svg-diagnostic.html`. Open through a local HTTP server at the repository root (for example `python3 -m http.server 8766`, then browse to `http://localhost:8766/research/planar-svg-diagnostic.html`). It loads the **unchanged** `../madweave.js` and calls its real `stripPath`, `trans`, and `maskPath` functions. It defines 27 individually colored strips, reuses the original six `ppn` painter-order permutations, and shows their clipped composition. Controls vary `starMadWeaveCenter`, `alternate`, and `hand`; labels identify direction and strip index. It can export the generated SVG.
+
+This is deliberately **not** the editor UI and not an independent weave algorithm. It is a focused diagnostic of the renderer's geometric construction. Its SVG is a browser-created experiment, and has not yet been visually verified in this session. Color is assigned by unique strip index, so it does not encode the original palette or over-under class. This diagnostic is limited to the planar `numberOfDirections=3`, `coneFraction=1`, `transformInPath=false` case.
+
+**Validation still needed:** open the diagnostic, check for JavaScript errors, inspect the six mask regions, compare crossing order with the original editor, and save representative screenshots/SVGs. In particular, verify strip-label placement and whether all six masks are populated. Do not claim those checks have passed until actually performed.
+
+**Continuity note for future sessions:** We are learning the original planar madweave and hexweave implementation before coneFraction. User explicitly requested that coneFraction not be the starting point. Physical models and strip colors provide context, but the SVG clipping construction is the current investigation. Branch `research/planar-weave-experiments`; master must remain unchanged until findings are verified. Existing files: `research/planar-indexing.test.cjs`, `research/crossing-audit.cjs`, this notebook, and the SVG diagnostic HTML.
