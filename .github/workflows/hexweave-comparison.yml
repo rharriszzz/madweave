@@ -1,0 +1,31 @@
+name: Compare madweave and isolated hexweave layers
+on:
+  push:
+    branches: [research/planar-weave-experiments]
+  workflow_dispatch:
+jobs:
+  hexweave:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Serve repository
+        run: |
+          python3 -m http.server 8766 --bind 127.0.0.1 > /tmp/madweave-server.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8766/editor.html >/dev/null && exit 0; sleep 1; done
+          exit 1
+      - name: Capture all four original SVG states
+        run: node research/hexweave-comparison.cjs
+      - name: Preserve SVG and PNG images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madweave-hexweave-four-way-comparison
+          path: research/output/hexweave/
+          if-no-files-found: ignore
