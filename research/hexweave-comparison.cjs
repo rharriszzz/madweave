@@ -16,7 +16,8 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
    {name:'hexweave-b',hidden:[0,2]},
    {name:'hexweave-c',hidden:[0,1]}
   ];
-  const results=[];\n  const membership={};
+  const results=[];
+  const membership={};
   async function read(){return frame.locator('#svg').evaluate(svg=>{
    const w=svg.ownerDocument.defaultView;
    const groups=[...svg.querySelectorAll('defs g[id$="Strips"] g[id^="GP"]')];
@@ -35,9 +36,16 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
    await svg.screenshot({path:dir+'/'+item.name+'.png'});
    const serialized=await svg.evaluate(el=>new XMLSerializer().serializeToString(el));
    fs.writeFileSync(dir+'/'+item.name+'.svg',serialized);
-   const members=await svg.evaluate(el=>[...el.querySelectorAll('defs g[id$="Strips"] g[id^="GP"]')].filter(g=>g.getAttribute('visibility')==='visible').map(g=>g.id).sort());\n   membership[item.name]=members;\n   results.push({name:item.name,...state,memberIds:members});
+   const members=await svg.evaluate(el=>[...el.querySelectorAll('defs g[id$="Strips"] g[id^="GP"]')].filter(g=>g.getAttribute('visibility')==='visible').map(g=>g.id).sort());
+   membership[item.name]=members;
+   results.push({name:item.name,...state,memberIds:members});
   }
-  const full=new Set(membership['full-madweave']);\n  const subsets=['hexweave-a','hexweave-b','hexweave-c'].map(n=>new Set(membership[n]));\n  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert.equal([...subsets[i]].filter(x=>subsets[j].has(x)).length,0,'Hexweave classes overlap');\n  const union=new Set(subsets.flatMap(x=>[...x]));\n  assert.deepEqual([...union].sort(),[...full].sort(),'Three hexweaves must partition all visible strips');\n  // Repeat all four captures after shifting the center with the actual C button.
+  const full=new Set(membership['full-madweave']);
+  const subsets=['hexweave-a','hexweave-b','hexweave-c'].map(n=>new Set(membership[n]));
+  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert.equal([...subsets[i]].filter(x=>subsets[j].has(x)).length,0,'Hexweave classes overlap');
+  const union=new Set(subsets.flatMap(x=>[...x]));
+  assert.deepEqual([...union].sort(),[...full].sort(),'Three hexweaves must partition all visible strips');
+  // Repeat all four captures after shifting the center with the actual C button.
   await frame.locator('#cbuttonC').dispatchEvent('mousedown');
   const starMembership={};
   for(const item of cases){
