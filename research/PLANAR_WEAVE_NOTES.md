@@ -171,3 +171,9 @@ The original editor's right-side `a`, `b`, `c` controls are `VH0`, `VH1`, `VH2`,
 Starting with all three layers visible, click **b and c** to isolate layer **a**; click **a and c** to isolate **b**; click **a and b** to isolate **c**. This is the intended three-hexweave decomposition described in the editor's built-in button tooltips. The `C` center-shift button changes `starMadWeaveCenter`, but is not necessary simply to isolate a layer. The five `CP` buttons affect color patterns, not which residue-class layers are visible.
 
 These instructions are grounded in source and button handlers. A side-by-side screenshot comparison of all three isolated layers remains useful, and should be made through the actual SVG editor rather than a rewritten renderer.
+
+## Four-way actual-editor comparison (2026-11-04)
+
+Added `research/hexweave-comparison.cjs` and `.github/workflows/hexweave-comparison.yml`. The browser script opens the real `editor.html` and its `madweave.svg` iframe, operates the actual `a/b/c` visibility buttons using their `mousedown` events, and captures four states: full madweave (all classes visible), hexweave-a (only a), hexweave-b (only b), and hexweave-c (only c). Each state exports both PNG and SVG, plus machine-readable `showC`, `showD`, visibility counts, and planar-geometry checks. The test asserts `coneFraction=1` and `transformInPath=false`.
+
+**Execution status:** Files are committed, but at the first Actions check the new workflow was not yet listed. Do not claim screenshots exist until the workflow succeeds and its artifact is inspected. After successful capture, inspect the four PNGs, identify differences in their crossing/center structure, and record verified observations. The script uses the original editor, not the separately developed diagnostic.
