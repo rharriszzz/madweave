@@ -14,6 +14,7 @@ with the original planar settings until the readiness checks below are satisfied
 | How the weave works | [Planar model](PLANAR_MODEL.md) | Physical strips, hexweave classes, center changes, geometry, and local layering |
 | Symmetry | [Rotational symmetry](SYMMETRY.md) | Geometry, crossing order, hexweave labels, and palette distinctions |
 | Boundary rendering | [Boundary and Firefox comparison](BOUNDARY_RENDERING.md) | Finite ends, mask sides, and the known clipping artifact |
+| Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
 | Cone prototype contract | [Mapping specification](CONE_MAPPING_SPEC.md) | Coordinates, units, seams, inverse selection, tolerance, and saved state |
 | Evidence and reproduction | [Research testing](TESTING.md) | One suite command, coverage, results, and remaining test work |
 | Independent geometry evidence | [Geometry matrix report](GEOMETRY_MATRIX_REPORT.md) | Finite-strip tiling, 256 structural cases, and 128 pixel cases |

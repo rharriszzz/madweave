@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <defs>
+    <clipPath id="upper"><path d="M 0 0 H 241 L 0 241 Z"/></clipPath>
+    <clipPath id="lower"><path d="M 241 0 V 241 H 0 Z"/></clipPath>
+  </defs>
+  <rect width="240" height="240" fill="white"/>
+  <g clip-path="url(#upper)">
+    <rect width="240" height="240" fill="rgb(140,118,241)"/>
+    <rect width="240" height="240" fill="rgb(252,205,118)"/>
+  </g>
+  <g clip-path="url(#lower)">
+    <rect width="240" height="240" fill="rgb(140,118,241)"/>
+    <rect width="240" height="240" fill="rgb(252,205,118)"/>
+  </g>
+</svg>

@@ -3,8 +3,9 @@
 The faint lines visible in magnified strips are classified as a **known SVG
 clipping/compositing artifact**. Independent geometric checks find no missing
 positive-area cells, and controls isolate pixel deviations to clipped rendering.
-Locating a particular defect in browser source is a separate investigation and
-is not required for the cone-preparation baseline.
+The subsequent [source isolation report](SEAM_ROOT_CAUSE.md) reduces the effect
+to four rectangles, predicts the measured seam color, and identifies relevant
+Firefox/Chromium source paths.
 
 ## Broader boundary and finite-end verification
 
