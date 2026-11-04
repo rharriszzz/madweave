@@ -101,3 +101,17 @@ At this checkpoint, [GitHub Actions browser run 41877409059](https://github.com/
 3. Does the uniquely colored diagnostic preserve the same over/under pattern as the original editor?
 4. Are the visual changes from the colorPattern menu purely color assignments? The source suggests yes, but confirm with a render.
 
+
+## Checkpoint: GitHub Actions queue and independent execution
+
+On rechecking GitHub Actions, the browser runs 41877379056, 41877409059, and 41877632486 remained queued, as did newer source-test runs. The earlier run 41876867020 was successful. A direct `git clone` from this execution environment failed with `Could not resolve host: github.com`; this is a local DNS/network limitation. **Neither the queued status nor the clone failure is evidence of a code defect.**
+
+Avoid accumulating more queued workflow runs by repeatedly committing trivial notes. Before the next change, prioritize a working local/browser execution route or allow the queue to drain. Once browser screenshots exist, inspect them for actual visual consistency. No browser screenshot has yet been reviewed.
+
+### Architectural observation
+
+The six `pname` values and `ppn` permutations in `madweave.js` encode six local painter-order states. The `maskPath` routine assigns small triangles to those states based on three pairwise `isCoveredBy` tests. This is the primary source-backed explanation of SVG weaving. Color patterns are a separate mapping, and unique per-strip coloring in the diagnostic is meant to reveal path continuity, not to define the weave.
+
+### Restart instructions
+
+Work on `research/planar-weave-experiments`; inspect this notebook first. Verify existing CI and browser results before adding features. The next deliverable is **inspected SVG render evidence** for at least ordinary and star-madweave center modes, with exact crossing annotations. Keep `numberOfDirections=3`, `coneFraction=1`, and `transformInPath=false`. Do not merge into master without checking the generated output.
