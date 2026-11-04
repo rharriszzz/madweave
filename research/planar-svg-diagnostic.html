@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Planar weave SVG crossing diagnostic</title>
+<style>body{font:16px system-ui;margin:2rem;max-width:1100px;background:#faf9f4;color:#222}svg{width:100%;max-width:800px;background:white;border:1px solid #aaa}label{margin-right:1rem}pre{white-space:pre-wrap}button{padding:.5rem}small{display:block}</style></head>
+<body><h1>Planar SVG crossing diagnostic</h1>
+<p>Uses the original <code>madweave.js</code> strip paths, masks, and painter's-order permutations. No cone transformation.</p>
+<label><input type="checkbox" id="star"> Star madweave center</label>
+<label><input type="checkbox" id="alternate"> Alternate</label>
+<label><input type="checkbox" id="hand"> Hand</label>
+<label><input type="checkbox" id="labels" checked> Show strip labels</label>
+<button id="save">Save SVG</button>
+<svg id="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="-7 -7 14 14" aria-label="Planar colored strips with SVG crossing masks"></svg>
+<p id="status"></p><pre id="details"></pre>
+<script src="../madweave.js"></script>
+<script>
+'use strict';
+(function(){
+const NS='http://www.w3.org/2000/svg',XL='http://www.w3.org/1999/xlink';
+const svg=document.getElementById('diagram');
+function el(parent,tag,attrs={}){const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));parent.appendChild(n);return n;}
+function render(){
+starMadWeaveCenter=document.getElementById('star').checked;
+alternate=document.getElementById('alternate').checked;
+hand=document.getElementById('hand').checked;
+transformInPath=false;numberOfDirections=3;coneFraction=1;
+stripsPerDirection=9;stripWidth=.55;stripSpacing=.15;stripLength=18;
+svg.replaceChildren();
+const defs=el(svg,'defs'),palette=['#d24c40','#1d80a8','#e4b432'];
+for(let d=0;d<3;d++){
+ const group=el(defs,'g',{id:dname[d]+'DiagStrips'});
+ for(let s=0;s<stripsPerDirection;s++){
+  const index=d*stripsPerDirection+s;
+  const hue=360*index/(3*stripsPerDirection);
+  // Every strip gets a distinct color, independent of its weave class.
+  const color='hsl('+hue+' 73% 55%)';
+  const p=el(group,'path',{id:'strip-'+d+'-'+s,d:stripPath(stripsPerDirection,index),transform:trans(stripsPerDirection,index),fill:color,stroke:'#333','stroke-width':'.014'});
+  p.setAttribute('data-direction',dname[d]);p.setAttribute('data-strip',s);
+ }
+}
+let triangles=0;
+for(let p=0;p<6;p++){
+ const path=maskPath(stripsPerDirection,p);
+ triangles+=(path.match(/\bM\s/g)||[]).length;
+ const clip=el(defs,'clipPath',{id:'diag-clip-'+p,clipPathUnits:'userSpaceOnUse'});
+ el(clip,'path',{d:path,transform:'scale('+(stripWidth+stripSpacing)+') scale('+Math.sqrt(1/3)+' 1)'});
+ const group=el(svg,'g',{'clip-path':'url(#diag-clip-'+p+')','data-order':pname[p]});
+ for(let i=2;i>=0;i--)el(group,'use',{href:'#'+dname[ppn[p][i]]+'DiagStrips'});
+}
+if(document.getElementById('labels').checked){
+ const group=el(svg,'g',{'font-family':'monospace','font-size':'.22','text-anchor':'middle'});
+ for(let d=0;d<3;d++)for(let s=0;s<stripsPerDirection;s++){
+  const index=d*stripsPerDirection+s;
+  const offset=Math.floor(stripsPerDirection/2)-.5;
+  const ty=(s-offset)*(stripWidth+stripSpacing);
+  const theta=d*2*Math.PI/3;
+  // Labels near a strip endpoint, outside the central crossing area.
+  const x=-5*Math.cos(theta)-ty*Math.sin(theta),y=-5*Math.sin(theta)+ty*Math.cos(theta);
+  const label=el(group,'text',{x,y,fill:'#111',stroke:'white','stroke-width':'.07','paint-order':'stroke'});
+  label.textContent=dname[d]+s;
+ }
+}
+document.getElementById('status').textContent='Original maskPath generated '+triangles+' triangular mask regions. SVG has six clipped groups and 27 uniquely colored strips.';
+document.getElementById('details').textContent='Top-to-bottom order per mask:\n'+pname.map((n,i)=>n+': '+ppn[i].map(d=>dname[d]).join(' > ')).join('\n')+'\n\nStrip labels: H, R, L plus strip index. Colors identify strips, not over/under classes.';
+}
+for(const id of ['star','alternate','hand','labels'])document.getElementById(id).addEventListener('change',render);
+document.getElementById('save').addEventListener('click',()=>{
+ const text=new XMLSerializer().serializeToString(svg);
+ const url=URL.createObjectURL(new Blob([text],{type:'image/svg+xml'}));
+ const a=document.createElement('a');a.href=url;a.download='madweave-planar-diagnostic.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+render();
+})();
+</script></body></html>
