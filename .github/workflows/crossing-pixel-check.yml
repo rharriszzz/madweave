@@ -24,8 +24,8 @@ jobs:
         run: node --check research/crossing-pixel-check.cjs
       - name: Verify crossings at base size 2
         run: MADWEAVE_BASE_SIZE=2 node research/crossing-pixel-check.cjs
-      - name: Verify crossings at base size 3
-        run: MADWEAVE_BASE_SIZE=3 node research/crossing-pixel-check.cjs
+      - name: Verify crossings at base size 4 (even strip count)
+        run: MADWEAVE_BASE_SIZE=4 node research/crossing-pixel-check.cjs
       - name: Upload annotated screenshots and measurements
         if: always()
         uses: actions/upload-artifact@v4
