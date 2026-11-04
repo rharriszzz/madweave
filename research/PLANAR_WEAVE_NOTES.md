@@ -185,3 +185,9 @@ GitHub Actions [run 41886830397](https://github.com/rharriszzz/madweave/actions/
 **Next experiment implemented:** `research/hexweave-comparison.cjs` now asserts that the three isolated layer membership sets are pairwise disjoint and their union is exactly the full set of visible strips. It also presses the original center-shift `C` control and repeats the four SVG/PNG captures and partition assertions for the shifted center. These new assertions and eight-image capture have **not yet been validated**; inspect the new CI run and artifacts before claiming success.
 
 The conceptual point: the three a/b/c layers are three interleaved subweaves, not the three H/R/L direction families. The center-shift comparison will reveal how their strip membership and central arrangement change.
+
+## Expanded hexweave test syntax repair (2026-11-04)
+
+Runs 41887384787, 41887413972, and 41887441040 failed before running comparisons because `research/hexweave-comparison.cjs` contained literal backslash-n sequences in JavaScript statements introduced by automated source editing. Fixed those sequences in commit `bf376ff5bce481e6e97f2e2390a3f1601b50d7e4`. The original four-image comparison had passed previously; these failures do not imply a Madweave rendering defect.
+
+**Still pending:** successful CI of the repaired eight-image script, review of all generated PNGs, and confirmation of both partition assertions. Do not claim the new experiment has passed merely because its syntax was repaired.
