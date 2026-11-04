@@ -36,3 +36,9 @@ There can still be regions where **three strips overlap in area**, and local ove
 4. Continue the `C/X/-` orientation matrix after geometric verification.
 
 Keep `coneFraction=1` and `master` unchanged.
+
+## Verified follow-up (2026-11-04)
+
+GitHub Actions run [41898031185](https://github.com/rharriszzz/madweave/actions/runs/41898031185) completed successfully, including both base-size crossing checks and the new three-strip **area-overlap** pixel audit. The latter uses the original SVG mask path hit tests, reads `ppn` painter order, and compares sampled Chromium pixels with the predicted visible direction for both C-center settings. This validates the sampled interior points, not every possible point or every orientation.
+
+**Next:** expand the same audit to the eight combinations of C, X, and handedness, retaining per-configuration screenshots and JSON. Check that all configurations have eligible sample points and report which masks are exercised; a pass with missing masks is not full coverage.
