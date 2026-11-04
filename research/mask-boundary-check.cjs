@@ -37,31 +37,49 @@ function sample(p,x,y){const xi=Math.round(x),yi=Math.round(y),v=[0,0,0];if(xi<2
     const pitch=w.stripWidth+w.stripSpacing,offset=Math.floor(w.stripsPerDirection/2)-.5;
     const normals=[0,1,2].map(d=>[-Math.sin(d*2*Math.PI/3),Math.cos(d*2*Math.PI/3)]);
     const bounds=root.getBoundingClientRect(),ctm=root.getScreenCTM();
-    const step=.045,grid=new Map(),rows=[];
-    function inspect(ix,iy){
-     const x=ix*step+.013,y=iy*step+.021,key=ix+','+iy;
-     if(grid.has(key))return grid.get(key);
+    const rows=[],counts={edges:0,invalid:0,unchanged:0};
+    function inspect(x,y){
      const strips=normals.map(([nx,ny])=>{const v=(nx*x+ny*y)/pitch+offset,s=Math.round(v);return {s,clearance:w.stripWidth/2-Math.abs(v-s)*pitch};});
-     if(strips.some(q=>q.s<0||q.s>=9||q.clearance<.19)){grid.set(key,null);return null;}
+     const present=strips.map((q,i)=>q.s>=0&&q.s<9&&q.clearance>.09?i:-1).filter(i=>i>=0);
+     if(present.length<2)return null;
      const active=[];
      for(const m of masks){const matrix=m.path.getCTM().inverse().multiply(root.getCTM());const q=new DOMPoint(x,y).matrixTransform(matrix);if(m.path.isPointInFill(q))active.push(m);}
-     if(active.length!==1){grid.set(key,null);return null;}
-     const m=active[0],q=new DOMPoint(x,y).matrixTransform(ctm),px=q.x-bounds.left,py=q.y-bounds.top;
-     if(px<8||py<8||px>bounds.width-8||py>bounds.height-8){grid.set(key,null);return null;}
-     const v={x,y,px,py,mask:m.name,top:'HRL'[w.ppn[m.i][0]],strips:strips.map(q=>q.s)};
-     grid.set(key,v);return v;
+     if(active.length!==1)return null;
+     const m=active[0],topDirection=w.ppn[m.i].find(d=>present.includes(d));
+     const q=new DOMPoint(x,y).matrixTransform(ctm),px=q.x-bounds.left,py=q.y-bounds.top;
+     if(px<8||py<8||px>bounds.width-8||py>bounds.height-8)return null;
+     return {x,y,px,py,mask:m.name,top:'HRL'[topDirection],strips:strips.map(q=>q.s),present};
     }
-    // Identify neighboring mask cells; retain pairs with different predicted top colors.
-    for(let iy=-90;iy<=90;iy++)for(let ix=-90;ix<=90;ix++){
-     const a=inspect(ix,iy);if(!a)continue;
-     for(const [dx,dy] of [[1,0],[0,1]]){
-      const b=inspect(ix+dx,iy+dy);
-      if(!b||a.mask===b.mask||a.top===b.top)continue;
-      // Probe 3 cells further inside each region, away from the shared mask boundary.
-      const left=inspect(ix-3*dx,iy-3*dy),right=inspect(ix+4*dx,iy+4*dy);
-      if(!left||!right||left.mask!==a.mask||right.mask!==b.mask)continue;
-      if(left.top===right.top)continue;
-      rows.push({left,right,edgeA:a,edgeB:b,transition:a.mask+'>'+b.mask,axis:dx?'x':'y'});
+    // Parse the actual triangular SVG clip-path geometry rather than searching a grid.
+    // Each path contains repeated M/L/L/Z triangles in local coordinates.
+    for(const m of masks){
+     const tokens=m.path.getAttribute('d').match(/[MLZ]|-?\\d+(?:\\.\\d+)?/g)||[];
+     let pos=0,poly=[];
+     const matrix=root.getCTM().inverse().multiply(m.path.getCTM());
+     for(const token of tokens){
+      if(token==='Z'){poly=[];continue;}
+      if(token==='M'||token==='L')continue;
+      const x=Number(token),y=Number(tokens[++pos]);
+      const q=new DOMPoint(x,y).matrixTransform(matrix);poly.push(q);pos++;
+      if(poly.length!==3)continue;
+      for(let k=0;k<3;k++){
+       const a=poly[k],b=poly[(k+1)%3],len=Math.hypot(b.x-a.x,b.y-a.y);
+       if(len<.01)continue;
+       counts.edges++;
+       const nx=-(b.y-a.y)/len,ny=(b.x-a.x)/len;
+       for(const t of [.25,.5,.75]){
+        const x=a.x+(b.x-a.x)*t,y=a.y+(b.y-a.y)*t;
+        // Search offsets on both sides; samples must be safely inside distinct masks.
+        for(const delta of [.07,.11,.16,.23]){
+         const left=inspect(x-nx*delta,y-ny*delta),right=inspect(x+nx*delta,y+ny*delta);
+         if(!left||!right||left.mask===right.mask){counts.invalid++;continue;}
+         if(left.top===right.top){counts.unchanged++;continue;}
+         rows.push({left,right,transition:left.mask+'>'+right.mask,axis:'edge',edge:{x,y,delta}});
+         break;
+        }
+       }
+      }
+      poly=[];
      }
     }
     // Balanced selection by transition type, avoiding one mask boundary dominating.
