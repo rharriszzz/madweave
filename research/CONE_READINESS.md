@@ -1,5 +1,11 @@
 # Readiness for the first cone experiment
 
+This readiness record concerns the planar baseline. The newer
+[single-corner project prompt](SINGLE_CORNER_PROJECT_PROMPT.md) adds user
+requirements and outstanding decisions; it must be completed before that
+project starts. The proposed implementation sequence below is not a current
+authorization to proceed.
+
 **Preparation for the current planar app is complete.** Every exposed control is
 mapped and characterized; the planar model, independent geometry, parameter
 matrix, symmetry, boundary rendering, and dormant angular helpers have documented
