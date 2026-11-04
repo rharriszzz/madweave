@@ -85,3 +85,19 @@ The GitHub Actions planar research run [41876867020](https://github.com/rharrisz
 Added `research/browser-svg-check.cjs` and `.github/workflows/planar-svg-browser.yml`. This new workflow installs Chromium via Playwright, serves the repository locally, loads the diagnostic, toggles all eight combinations of star center / alternate / hand, verifies six clip paths, six compositing groups, 27 unique strip paths, and 18 SVG use references, and exports eight PNG screenshots and eight SVG files as an Actions artifact. This validates DOM structure and browser execution, but **does not yet prove pixel-level over-under correctness**; visual review of the resulting images is still required.
 
 **Pending:** At the time of this note, the new browser workflow had not yet appeared in the returned GitHub Actions run listing. Inspect [Actions](https://github.com/rharriszzz/madweave/actions) for the browser workflow, diagnose any failure, download/review the artifacts, and then compare rendered crossings with the editor. If GitHub does not register the new workflow on this non-default branch, consider integrating the browser job into the existing working research workflow on this branch. Continue to keep coneFraction=1 and master unchanged.
+
+## Important distinction: color patterns vs weave topology
+
+Source inspection of `colorIndex` identifies five built-in color-assignment schemes (selected by `colorPattern`): direction `d`; residue class `c`; `d+c`; strip group `n`; and `c+n`, all reduced modulo `colorCount`. The `colorIndexArray` can then be edited per strip. **Changing only these colors does not change the crossing-order predicate**.
+
+The over/under predicate `isCoveredBy` depends on `starMadWeaveCenter`, `alternate`, and `hand`, but **does not directly reference `starHexWeaveCenter`**. The latter affects the angular-unit setup and has a source comment about layer b; we must not assume it is a separate planar crossing algorithm. To distinguish hexweave from madweave rigorously, compare the actual crossing relations and visible-strip selections, not merely palette or center names.
+
+At this checkpoint, [GitHub Actions browser run 41877409059](https://github.com/rharriszzz/madweave/actions/runs/41877409059) was **queued**. Do not claim the browser checks have passed. The earlier indexing/crossing CI run 41876867020 passed.
+
+### Concrete next questions for experimental evidence
+
+1. Which combinations of `starMadWeaveCenter`, `alternate`, and `hand` reproduce the familiar hexweave and madweave physical structures?
+2. Do the six clipping masks partition every local crossing correctly, including central crossings?
+3. Does the uniquely colored diagnostic preserve the same over/under pattern as the original editor?
+4. Are the visual changes from the colorPattern menu purely color assignments? The source suggests yes, but confirm with a render.
+
