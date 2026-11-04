@@ -37,7 +37,28 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
    fs.writeFileSync(dir+'/'+item.name+'.svg',serialized);
    const members=await svg.evaluate(el=>[...el.querySelectorAll('defs g[id$="Strips"] g[id^="GP"]')].filter(g=>g.getAttribute('visibility')==='visible').map(g=>g.id).sort());\n   membership[item.name]=members;\n   results.push({name:item.name,...state,memberIds:members});
   }
-  const full=new Set(membership['full-madweave']);\n  const subsets=['hexweave-a','hexweave-b','hexweave-c'].map(n=>new Set(membership[n]));\n  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert.equal([...subsets[i]].filter(x=>subsets[j].has(x)).length,0,'Hexweave classes overlap');\n  const union=new Set(subsets.flatMap(x=>[...x]));\n  assert.deepEqual([...union].sort(),[...full].sort(),'Three hexweaves must partition all visible strips');\n  assert.deepEqual(errors,[]);
+  const full=new Set(membership['full-madweave']);\n  const subsets=['hexweave-a','hexweave-b','hexweave-c'].map(n=>new Set(membership[n]));\n  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert.equal([...subsets[i]].filter(x=>subsets[j].has(x)).length,0,'Hexweave classes overlap');\n  const union=new Set(subsets.flatMap(x=>[...x]));\n  assert.deepEqual([...union].sort(),[...full].sort(),'Three hexweaves must partition all visible strips');\n  // Repeat all four captures after shifting the center with the actual C button.
+  await frame.locator('#cbuttonC').dispatchEvent('mousedown');
+  const starMembership={};
+  for(const item of cases){
+   const before=await read();
+   for(let c=0;c<3;c++)if(before.showC[c]===item.hidden.includes(c))await toggle(c);
+   const state=await read();
+   assert.equal(state.starMadWeaveCenter,true);
+   assert.equal(state.coneFraction,1);
+   const svg=frame.locator('#svg');
+   const name='star-'+item.name;
+   await svg.screenshot({path:dir+'/'+name+'.png'});
+   fs.writeFileSync(dir+'/'+name+'.svg',await svg.evaluate(el=>new XMLSerializer().serializeToString(el)));
+   const members=await svg.evaluate(el=>[...el.querySelectorAll('defs g[id$="Strips"] g[id^="GP"]')].filter(g=>g.getAttribute('visibility')==='visible').map(g=>g.id).sort());
+   starMembership[item.name]=members;
+   results.push({name,...state,memberIds:members});
+  }
+  const starFull=new Set(starMembership['full-madweave']);
+  const starSubsets=['hexweave-a','hexweave-b','hexweave-c'].map(n=>new Set(starMembership[n]));
+  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert.equal([...starSubsets[i]].filter(x=>starSubsets[j].has(x)).length,0);
+  assert.deepEqual([...new Set(starSubsets.flatMap(x=>[...x]))].sort(),[...starFull].sort());
+  assert.deepEqual(errors,[]);
   fs.writeFileSync(dir+'/results.json',JSON.stringify({errors,results},null,2));
   console.log(JSON.stringify(results,null,2));
  }finally{await browser.close();}
