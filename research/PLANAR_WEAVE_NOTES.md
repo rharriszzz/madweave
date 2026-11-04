@@ -207,3 +207,12 @@ Main results:
 - All eight cases remained strictly planar (`coneFraction=1`, `transformInPath=false`). The dormant `starHexWeaveCenter` setting has not been exercised.
 
 The verified results and the remaining crossing-by-crossing validation task are now saved permanently in the repository. The GitHub Actions image artifact is temporary, but the original-editor capture script is reproducible. No files on `master` have been changed.
+
+
+## Crossing-level visual validation (2026-11-04)
+
+A **new independent pixel-level audit of the original editor screenshots** is documented in [`research/CROSSING_PIXEL_AUDIT.md`](CROSSING_PIXEL_AUDIT.md). This supersedes the old open question asking whether any individual crossings had actually been checked.
+
+Using 24 central two-strip intersection coordinates per mode (8 each H/R, H/L, R/L), the screenshot colors agreed with the original `isCoveredBy` top-strip prediction at **24/24 ordinary-center crossings** and **24/24 C-shifted-center crossings**. Of these 24 physical crossing positions, **15 reverse which direction appears on top after pressing C**. The original strip paths and transforms remain fixed. This corroborates the SVG clipping-mask interpretation with independently sampled rendered pixels. It is a sampled validation, not exhaustive mathematical proof.
+
+A reproducible Chromium pixel checker was added as `research/crossing-pixel-check.cjs`, with workflow `.github/workflows/crossing-pixel-check.yml`; it generates JSON plus marked/unmarked screenshots. The first two attempts suffered test-only Playwright argument-passing mistakes, which were fixed. **Check the latest workflow outcome before claiming that the new automated run passed.** The independent results above were computed from the already-successful original-editor archived run 41888189144. Continue to keep the editor and `master` unchanged, and `coneFraction=1`.
