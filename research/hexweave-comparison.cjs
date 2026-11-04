@@ -16,7 +16,7 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
    {name:'hexweave-b',hidden:[0,2]},
    {name:'hexweave-c',hidden:[0,1]}
   ];
-  const results=[];
+  const results=[];\n  const membership={};
   async function read(){return frame.locator('#svg').evaluate(svg=>{
    const w=svg.ownerDocument.defaultView;
    const groups=[...svg.querySelectorAll('defs g[id$="Strips"] g[id^="GP"]')];
@@ -35,9 +35,9 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
    await svg.screenshot({path:dir+'/'+item.name+'.png'});
    const serialized=await svg.evaluate(el=>new XMLSerializer().serializeToString(el));
    fs.writeFileSync(dir+'/'+item.name+'.svg',serialized);
-   results.push({name:item.name,...state});
+   const members=await svg.evaluate(el=>[...el.querySelectorAll('defs g[id$="Strips"] g[id^="GP"]')].filter(g=>g.getAttribute('visibility')==='visible').map(g=>g.id).sort());\n   membership[item.name]=members;\n   results.push({name:item.name,...state,memberIds:members});
   }
-  assert.deepEqual(errors,[]);
+  const full=new Set(membership['full-madweave']);\n  const subsets=['hexweave-a','hexweave-b','hexweave-c'].map(n=>new Set(membership[n]));\n  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert.equal([...subsets[i]].filter(x=>subsets[j].has(x)).length,0,'Hexweave classes overlap');\n  const union=new Set(subsets.flatMap(x=>[...x]));\n  assert.deepEqual([...union].sort(),[...full].sort(),'Three hexweaves must partition all visible strips');\n  assert.deepEqual(errors,[]);
   fs.writeFileSync(dir+'/results.json',JSON.stringify({errors,results},null,2));
   console.log(JSON.stringify(results,null,2));
  }finally{await browser.close();}
