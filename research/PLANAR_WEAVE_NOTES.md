@@ -163,3 +163,11 @@ The [pointer workflow 41885746928](https://github.com/rharriszzz/madweave/action
 Added `research/editor-hover-paint.cjs` and `.github/workflows/editor-hover.yml` for a more complete browser experiment: select palette swatch C5 with a real mouse click, hover over the SVG `#stripsCover` rectangle, allow the program's 400ms selection hysteresis to elapse, then click the selected strip and verify its color index changed to 5. The source attaches `onmousemove="showMouseLocation(evt)"` and `onmousedown="setCurrentStripColorToCurrentDefault(evt)"` to `#stripsCover`. The test captures JSON and an SVG screenshot. It may require calibration if pointer motion is insufficient to trigger selection or if the chosen strip already uses palette index 5. **Do not claim this test passed until CI and its artifact confirm it.**
 
 Important architectural insight: `indexOfMouseLocation` deliberately waits about 400ms of stable strip tracking before selecting a strip, choosing the oldest stable direction. A test that merely clicks at a coordinate without prior mouse movement is not a valid end-to-end selection test.
+
+## How to isolate hexweave with the original editor buttons (2026-11-04)
+
+The original editor's right-side `a`, `b`, `c` controls are `VH0`, `VH1`, `VH2`, each toggling `showC[c]`. All three start enabled. `isVisible` requires both `showC[getC(...)]` and `showD[getD(...)]`; the `H`, `R`, `L` direction controls must therefore all remain enabled for a full three-direction hexweave.
+
+Starting with all three layers visible, click **b and c** to isolate layer **a**; click **a and c** to isolate **b**; click **a and b** to isolate **c**. This is the intended three-hexweave decomposition described in the editor's built-in button tooltips. The `C` center-shift button changes `starMadWeaveCenter`, but is not necessary simply to isolate a layer. The five `CP` buttons affect color patterns, not which residue-class layers are visible.
+
+These instructions are grounded in source and button handlers. A side-by-side screenshot comparison of all three isolated layers remains useful, and should be made through the actual SVG editor rather than a rewritten renderer.
