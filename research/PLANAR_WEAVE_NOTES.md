@@ -125,3 +125,13 @@ Downloaded GitHub Actions artifact `planar-svg-diagnostic-renders` (artifact 133
 The next substantive experiment should select a few central crossings, identify the intersecting strip indices from geometry, evaluate `isCoveredBy`, and sample the rendered pixel to verify that the visible top strip matches the predicted color. This should be repeated across all eight configurations. Compare with the original editor only after these crossing assertions pass. Also distinguish `starHexWeaveCenter` from `starMadWeaveCenter` carefully; the present diagnostic toggles the latter only.
 
 A local eight-image comparison montage was generated for review, but is not yet committed to GitHub. The reproducible original PNG/SVG artifacts are retained in the successful Actions run.
+
+## Original SVG editor button experiments (2026-11-04)
+
+The actual user interface is `editor.html` with `madweave.svg` inside an iframe. The original SVG's `buildButtons` creates click targets named `cbutton<name>`; their handlers are embedded in SVG attributes. The research diagnostic does **not** expose this entire control set, so button research must exercise the original iframe.
+
+Added `research/editor-button-experiments.cjs` and `.github/workflows/editor-buttons.yml`. The Playwright test clicks the original SVG's color-pattern (CP), color-count (CC), size (SC), handedness (-), top reversal (X), center (C), class visibility (VH), direction visibility (VD), outline (Lines), spacing (Sep), palette, invisible (I) and visible (V) controls. It records state after each click and saves a screenshot. The script does not yet exercise sliders or actual strip recoloring; those require coordinate-sensitive pointer interactions. **At commit time the workflow had not been observed to complete; do not treat the button outcomes as verified until its JSON artifact is inspected.**
+
+Source-derived control map: CP0–CP4 select colorIndex formulas (d, c, d+c, n, c+n); CC1–CC6 select modulo color count; SC1–SC8 set 3–24 strips per direction; '-' toggles `hand`; X toggles `alternate`; C toggles `starMadWeaveCenter`; VH0–VH2 toggle residue-class visibility; VD0–VD2 toggle direction visibility; Lines toggles strip edge lines; Sep0–Sep3 select spacing; C0–C7 select palette slots; I/V choose invisibility/visibility painting modes; LAST0–LAST3 are recent palette colors; OB/HB/SB/VB are opacity/hue/saturation/value sliders; HideButtons hides controls.
+
+**Next:** Inspect CI status and the JSON artifact, fix any control-dispatch or SVG iframe failures, then add assertions for expected state transitions and pixel/screenshot comparisons. Preserve findings here. Remain planar.
