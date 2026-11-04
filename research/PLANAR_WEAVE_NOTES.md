@@ -1,0 +1,51 @@
+# Planar madweave / hexweave: research notebook
+
+Status: **source inspection and indexing tests only**. This branch does not alter the editor or enable cone transformations.
+
+## Scope and method
+
+Start with planar weaving. Keep `numberOfDirections = 3`, `transformInPath = false`, hence `coneFraction = 1`. Study strip identity, strip color, crossings, and the two center variants before attempting nonplanar configurations.
+
+The test script `research/planar-indexing.test.cjs` transcribes a small, explicitly identified subset of pure indexing functions from `madweave.js`. It is **not** yet an end-to-end execution of the browser renderer; that is a future task.
+
+## Confirmed by source inspection
+
+- Three direction families are represented by `dx = [0, -sqrt(3)/2, +sqrt(3)/2]` and `dy = [1, -1/2, -1/2]`, to numerical precision. These are 120-degree-separated normals used for strip indexing.
+- `setupNewBaseSize` sets `stripsPerDirection = 3 * baseSize` and `totalNumber = 3 * stripsPerDirection`.
+- A strip index is decomposed into `d = floor(index / stripsPerDirection)` and `s = index % stripsPerDirection`.
+- `getSOffset(starMadWeaveCenter,d)` is zero in the ordinary case and `3-d` in star-madweave mode. Consequently the class `getC` is `(s + offset) % 3` and the group `getN` is `floor((s + offset)/3)`.
+- `starHexWeaveCenter` and `starMadWeaveCenter` both select six units per full circle in the setup logic; otherwise three units. The star-hex flag also has a separate comment concerning layer b. This alone does **not** establish all of their rendered differences.
+- `getColor(colorIndexArray,index)` selects `colorArray[colorIndexArray[index]]`. This allows per-strip color assignment in principle, subject to the editor's array initialization and palette behavior.
+- `transformInPath` defaults to false. No cone transformations are required for these planar experiments.
+
+## Testable consequences
+
+For any integer `baseSize > 0`, each direction has `3*baseSize` strips, and the three residue classes of `getC` occur equally often in each direction. Star-madweave mode shifts the residue class by direction, without changing the class totals.
+
+Run:
+
+```sh
+node research/planar-indexing.test.cjs > /tmp/madweave-planar-indexing.json
+```
+
+The script checks index round trips, class bounds, period-three behavior within each direction, and equal class counts. **The script has been committed but not executed in the current environment**; do not record these as observed passes until run.
+
+## Not yet established
+
+1. Which rendered crossing is above/below for each pair of strip identities, including the exact SVG layering order.
+2. How madweave and hexweave differ combinatorially rather than merely in the colors or chosen center.
+3. Whether each strip can be assigned a unique, persistent visible color without altering rendering logic.
+4. Whether the center modes produce the expected threefold or sixfold rotational symmetry in the *complete colored and layered image*.
+5. Whether crossings remain consistent after changing strip colors and canvas size.
+
+## Next experiments
+
+- Build a headless browser or SVG DOM harness around the actual editor, rather than replacing its rendering implementation.
+- Generate one small ordinary madweave and one hexweave example, with every strip distinctly labeled and colored; include a neutral-color baseline.
+- Export SVG plus machine-readable strip/crossing records and test whether each crossing's visible upper strip matches the rendered SVG.
+- Inspect the central neighborhood at several base sizes and document observed center symmetries.
+- Only after these pass, consider changing `coneFraction`.
+
+## Geometric caution
+
+The number of direction families (three) is not the same thing as rotational symmetry at the center (threefold or sixfold). Strip color is not itself proof of crossing order. A pattern may have geometric symmetry that an arbitrary per-strip coloring breaks.
