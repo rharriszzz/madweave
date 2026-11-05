@@ -18,7 +18,7 @@ the production application's `coneFraction` remains 1.
 | Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
 | Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
 | Single-corner project prompt | [Draft for later work](SINGLE_CORNER_PROJECT_PROMPT.md) | Physical angle versus coneFraction, hole centers, exact strip/color continuation, recovered tree flattening, stages, and unresolved decisions; implementation is on hold |
-| Independent prompt review | [Review-only handoff](SINGLE_CORNER_REVIEW_PROMPT.md) | Focused questions for an independent mathematical review before implementation |
+| Independent prompt improvement | [Astra documentation task](SINGLE_CORNER_REVIEW_PROMPT.md) | Review the mathematics, improve the actual work prompt, record findings, and commit/push documentation; implementation stays on hold |
 | Tree reference evidence | [Recovered center and multiplier](TREE_REFERENCE_ANALYSIS.md) | Single-edge inverse fit, upper-half count, and historical renderer replay establish code f=3/4 versus paper ratio 4/3 |
 | Cone prototype contract | [Mapping specification](CONE_MAPPING_SPEC.md) | Coordinates, units, seams, inverse selection, tolerance, and saved state |
 | Evidence and reproduction | [Research testing](TESTING.md) | One suite command, coverage, results, and remaining test work |

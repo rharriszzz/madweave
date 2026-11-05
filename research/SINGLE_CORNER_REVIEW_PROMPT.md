@@ -1,18 +1,23 @@
-# Independent review request: single-corner project prompt
+# Astra task: review and improve the actual single-corner work prompt
 
 Use this request with GPT-6 Astra or another independent mathematical/code
-reviewer. **This is a review task; do not start implementing the project.**
+reviewer. **This is a documentation task: improve the prompt for the actual
+work. Do not start implementing the single-corner project.**
 
 ## Request to the reviewer
 
-Review the single-corner project specification in this repository. Find
+Review and improve `research/SINGLE_CORNER_PROJECT_PROMPT.md` in this repository. Find
 mathematical errors, ambiguous requirements, unsupported conclusions, missing
 physical constraints, and acceptance tests that could falsely pass. Be willing
-to challenge the existing analysis. Return concrete findings and minimal
-corrections, with evidence; general approval or stylistic rewriting is not
-sufficient for this task.
+to challenge the existing analysis. Apply supported corrections and useful
+clarifications to the actual work prompt. Preserve a separate review record
+explaining what changed and why. General approval or stylistic rewriting is not
+sufficient for this task. Simplify repetition where possible without losing
+requirements, mathematical distinctions, acceptance criteria, or the staged plan.
 
 Use branch `docs/single-corner-prompt` and record the commit you reviewed.
+The repository is `/home/rharris/git/madweave`. Inspect the working tree first,
+preserve unrelated changes, and do not switch to or merge into `master`.
 If you do not have repository access, request the listed files/images and state
 what you could not inspect. Do not claim to verify unavailable source or images.
 
@@ -98,11 +103,24 @@ reading every historical notebook entry before forming findings.
     partners, color conflicts, twists, incorrect local order, missing finite
     material, and errors hidden by monochrome rendering or screenshot metrics.
 
-## Output format
+## Required deliverables
 
-Return a Markdown review containing:
+1. **Improve the actual work prompt in place:**
+   `research/SINGLE_CORNER_PROJECT_PROMPT.md`. Keep the angle-convention outline
+   near the beginning, preserve confirmed user requirements, and keep proposed
+   defaults and unresolved research clearly labeled. Do not invent user approval
+   or remove the implementation hold.
+2. **Write a review record:** `research/SINGLE_CORNER_PROMPT_REVIEW.md`, containing
+   the items below. Separate corrections actually applied from concerns still
+   awaiting evidence or a user decision.
+3. **Commit and push the documentation changes** on
+   `docs/single-corner-prompt`. Report the commit, principal improvements, and
+   the few remaining decisions that need the user. Do not merge the branch.
 
-- **Verdict:** ready to start the specified first stage, or not ready, with reasons.
+The review record must contain:
+
+- **Readiness recommendation:** ready for user approval of the specified first
+  stage, or not ready, with reasons. This is not permission to start work.
 - **Findings by severity:** each with the exact claim/section, evidence or
   counterexample, consequence, and a minimal suggested correction. Mark
   unverified concerns as such.
@@ -111,11 +129,21 @@ Return a Markdown review containing:
 - **Agent research tasks:** unknown results with explicit deliverables; do not
   turn these into requests for the user to solve the geometry.
 - **Minimum acceptance fixtures** and any scope that should be deferred.
-- **Proposed prompt amendments:** concise replacements/additions, preserving
-  confirmed requirements and identifying changes to proposed defaults.
+- **Applied prompt amendments:** concise descriptions of corrections and their
+  evidence, preserving confirmed requirements and identifying changes to
+  proposed defaults. List unapplied proposals separately.
 
-Do not start the application implementation, change repository settings, merge
-branches, or silently rewrite the prompt. Existing forensic scripts may be
-reproduced in disposable contexts with outputs under ignored `research/output/`;
-that is not authorization to build a new cone feature. Return findings in the
-conversation for the user to bring back for verification and integration.
+## Scope and verification
+
+Edit only the actual work prompt, the new review record, and `research/README.md`
+if its links or status need updating. Do not change application code, tests,
+forensic scripts, project-state formats, repository settings, or deployment.
+Existing forensic scripts may be reproduced in disposable contexts with outputs
+under ignored `research/output/`; that is not authorization to build a new cone
+feature. Verify local Markdown links and the final diff before committing only
+the intended documentation files.
+
+Preserve the following distinction: this task authorizes improving the prompt,
+not the implementation described by that prompt. The user will bring the revised
+prompt and review back for discussion. End with a short, self-contained handoff;
+do not continue into the actual project after committing the documentation.

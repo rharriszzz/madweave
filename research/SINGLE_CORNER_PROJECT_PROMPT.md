@@ -602,7 +602,8 @@ record accepted/rejected defaults, and ensure every remaining research item has
 a deliverable and acceptance test. Do not silently convert a proposal into a
 confirmed user requirement. A second mathematical review is recommended; its
 findings must be checked against source/evidence before integration. The
-[review-only handoff](SINGLE_CORNER_REVIEW_PROMPT.md) is prepared for that purpose.
+[documentation-only review and improvement handoff](SINGLE_CORNER_REVIEW_PROMPT.md)
+is prepared for that purpose.
 
 ## Read alongside this prompt
 
