@@ -19,6 +19,7 @@ jobs:
         browser: [chromium, firefox, webkit]
     env:
       MADWEAVE_BROWSER: ${{ matrix.browser }}
+      MADWEAVE_STAGE2_BROWSERS: ${{ matrix.browser }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -30,11 +31,19 @@ jobs:
         with:
           python-version: '3.13'
       - run: pip install -r requirements-dev.txt
+      - run: npm ci
       - run: python -m playwright install --with-deps ${{ matrix.browser }}
-      - run: node --check madweave.js && node --check project.js && node --check editor.js
+      - run: node --check madweave.js && node --check project.js && node --check editor.js && node --check corner-editor.js && node --check corner-model.mjs && node --check corner-runtime.js
+      - name: Verify generated corner assets
+        run: |
+          python scripts/build_corner_runtime.py
+          python research/build-corner-package.py
+          git diff --exit-code -- corner-runtime.js research/corner-prototype/bundle.mjs
       - run: node --test tests/math.test.cjs
+      - run: npm run test:corner
       - run: python -m unittest discover -s tests -v
       - run: python scripts/build_site.py
+      - run: npm run test:corner:browser
       - uses: actions/upload-pages-artifact@v5
         if: matrix.browser == 'chromium'
         with:

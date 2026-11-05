@@ -1,5 +1,63 @@
 # Testing record
 
+## Integrated editor release on 2026-11-05
+
+The release keeps the complete Stage 1–3C branch history and the reviewed
+formula-intent correction. The original planar engine and state module remain
+unchanged. The following checks were rerun for the README/CI release changes:
+
+| Check | Result |
+| --- | --- |
+| Syntax: engine, project, editor, corner adapter/model/runtime and capture script | Passed |
+| Math | 4 tests passed |
+| Static build/link/boundary checks | 5 tests passed; 24 public files |
+| Regenerate integrated runtime and research offline bundle | Byte-for-byte identical to committed assets; all 84 certificates checked |
+| Integrated corner semantics | 3,024 round trips over 84 constructions; 3,028 independent color cases; 5 negative controls passed |
+| Original application browser suite | 11 tests per engine passed in Chromium 145.0.7632.6, Firefox 155.0 and Playwright WebKit 26.6 |
+| Integrated corner browser suite against built `/madweave/` site | Passed in all three engines, 8 rendering representatives per engine |
+| CI-matched Chromium 153.0.8010.12 | Additional run passed all 16 application/static tests and the full integrated corner browser suite |
+| README screenshots | 5 real built-editor captures, reviewed at full size and 830-pixel README width; relative documentation links checked |
+| Dependency and whitespace checks | `npm ci` and `git diff --check` passed |
+
+The corner browser suite includes retained planar/corner sessions, real strip
+painting, palette opacity and seam warnings, import failures/races, legacy file
+imports, native Save/Open, offline reopen/edit/resave, and standalone plain and
+annotated SVG export. Formula transactions compare complete saved designs for
+CP1/CC1, mode round trips, construction controls moved away/back, immediate
+redraw failures, staged failure/retry, and reopening/resaving the corrected
+worked HTML. Pixel audits retain their original 4/255 channel tolerance.
+
+Node v24.16.0 and Python 3.14.4 were used locally, with Playwright 1.63.0 for
+both clients and pngjs 7.0.0. The established local WebKit setup required
+`LD_LIBRARY_PATH=/tmp/madweave-webkit-libs/usr/lib/x86_64-linux-gnu` and
+`PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=1` after its libraries were supplied.
+An initial launch without these settings failed before tests ran. These local
+workarounds are not CI configuration; CI installs system dependencies normally.
+
+The Pages workflow now locks Node test dependencies with `npm ci`, verifies
+generated-asset consistency, and runs both corner suites in the existing
+Chromium/Firefox/WebKit matrix. Each matrix job selects its browser with
+`MADWEAVE_STAGE2_BROWSERS`. The screenshot files stay outside the static-site
+allowlist. Reproduction:
+
+```sh
+npm ci
+python3 scripts/build_corner_runtime.py
+python3 research/build-corner-package.py
+git diff --exit-code -- corner-runtime.js research/corner-prototype/bundle.mjs
+npm run test:corner
+npm run test:corner:browser
+npm run screenshots
+```
+
+See [browser setup](BROWSER_TEST_SETUP.md) for the Python environment and browser
+installation, and [screenshot settings](SCREENSHOTS.md) for capture details.
+The broader historical research/browser suites were not rerun for this release.
+Automated WebKit is not installed Safari, responsive emulation is not physical
+touch-device testing, and physical constructibility remains unverified.
+
+## Earlier application verification
+
 Reviewed on 2026-11-01. These checks run against the actual JavaScript/SVG engine
 and the generated static site, rather than a reimplementation of the editor.
 

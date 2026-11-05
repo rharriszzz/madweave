@@ -4,7 +4,9 @@ const p=require('playwright'),{PNG}=require('pngjs'),{seamSamples}=require('./co
 const ROOT=path.resolve(__dirname,'..'),OUT=path.join(__dirname,'output/corner-integration');fs.mkdirSync(OUT,{recursive:true});
 const entries=JSON.parse(fs.readFileSync(path.join(__dirname,'corner-prototype/family.json'))),certs=Object.fromEntries(entries.map(e=>[e.id,JSON.parse(fs.readFileSync(path.join(__dirname,'corner-prototype',e.url)))]));
 const oracles=JSON.parse(fs.readFileSync(path.join(__dirname,'evidence/corner-family-oracles.json')));
-const server=http.createServer((req,res)=>{let file=path.resolve(ROOT,'.'+new URL(req.url,'http://local').pathname);if(!file.startsWith(ROOT+path.sep))return res.writeHead(403).end();if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');fs.readFile(file,(e,b)=>{if(e)return res.writeHead(404).end();res.setHeader('Content-Type',({'.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png'})[path.extname(file)]||'text/html');res.end(b);});});
+const build=spawnSync('python3',['scripts/build_site.py'],{cwd:ROOT,encoding:'utf8'});assert.equal(build.status,0,build.stdout+build.stderr);
+const SITE=path.join(ROOT,'dist');
+const server=http.createServer((req,res)=>{const url=new URL(req.url,'http://local');if(!url.pathname.startsWith('/madweave/'))return res.writeHead(404).end();let file=path.resolve(SITE,'.'+url.pathname.slice('/madweave'.length));if(!file.startsWith(SITE+path.sep))return res.writeHead(403).end();if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');fs.readFile(file,(e,b)=>{if(e)return res.writeHead(404).end();res.setHeader('Content-Type',({'.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png'})[path.extname(file)]||'text/html');res.end(b);});});
 const state=page=>page.evaluate(()=>MadWeaveEditor.capture());
 const frame=page=>page.frames().find(f=>f.parentFrame()&&f.name()==='')||page.frames()[1];
 async function cornerFrame(page){return page.frames().find(f=>f!==page.mainFrame()&&f===page.frames().find(f=>f.url()==='about:srcdoc'&&f!==page.mainFrame()))||page.frames()[1];}
@@ -108,7 +110,7 @@ async function inspect(page,file=null){const v=(await state(page)).design,c=cert
  if(file){target=file;locator=file.locator('svg').first();}
  const record=await target.evaluate(audit,{certificate:c,value:v,samples}),check=independent(record,path.join(OUT,'actual-'+page.context().browser().browserType().name()+'-'+(file?'static-':'live-')+v.construction.id+'.json'));const error=await pixels(locator,record,v.construction.id);return {record,check,error};}
 
-(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/editor.html`,results=[];
+(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/madweave/editor.html`,results=[];
 try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,webkit').split(',')){
  console.log(name,'starting');const browser=await p[name].launch({headless:true,...(name==='chromium'?{executablePath:process.env.MADWEAVE_CHROMIUM_EXECUTABLE}:{})});
  try{

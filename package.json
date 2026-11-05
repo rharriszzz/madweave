@@ -1,0 +1,14 @@
+{
+  "name": "madweave-tests",
+  "private": true,
+  "description": "Development-only browser checks and README captures",
+  "scripts": {
+    "test:corner": "node research/corner-integration.test.mjs",
+    "test:corner:browser": "node research/corner-integration-browser.test.cjs",
+    "screenshots": "node scripts/capture_readme.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0",
+    "pngjs": "7.0.0"
+  }
+}

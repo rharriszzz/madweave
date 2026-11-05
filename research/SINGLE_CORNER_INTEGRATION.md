@@ -1,5 +1,12 @@
 # Stage 3C: one editor with planar and corner modes
 
+Current release note: the later release request authorizes merging this bounded
+integration to `master` and its normal Pages deployment. The review gates below
+record the original delivery checkpoint; they remain historical. See
+[release validation](../docs/TESTING.md#integrated-editor-release-on-2026-11-05)
+and the [current user README](../README.md). Broader geometry and physical
+validation remain outside this release.
+
 Implementation follows [the Stage 3C instruction](SINGLE_CORNER_STAGE3C_PROMPT.md),
 starting at `7ae5c06`. The planning edits to the accepted prompt are preserved.
 This is branch integration, not deployment or a master merge. Physical

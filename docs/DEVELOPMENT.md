@@ -188,4 +188,8 @@ copies the integrated runtime/adapter only, without publishing the research UI.
 See [the integration report](../research/SINGLE_CORNER_INTEGRATION.md) and
 [versioned formats](../research/CORNER_PROJECT_FORMAT.md) for exact save authority,
 migration, color-warning semantics, compositing evidence, limits and test commands.
-Neither runtime integration nor publication-list updates authorize deployment.
+The Pages workflow checks both generated assets for drift, runs the integrated
+corner semantic suite, and runs its browser suite alongside the original
+application tests in the Chromium/Firefox/WebKit matrix. Node development
+dependencies are locked in `package-lock.json`; use `npm ci` to install them.
+The integrated browser suite exercises the allowlisted build at `/madweave/`.
