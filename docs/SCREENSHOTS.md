@@ -46,3 +46,9 @@ width as well as full size. Check full drawing bounds, selected controls, strip
 edges and inspection markings, caption accuracy and absence of hover text. PNGs total about 0.5 MiB.
 They are repository documentation and deliberately remain outside the site's
 public-file allowlist.
+
+The same capture also writes `images/homepage-card.png`: just the colored corner
+diagram from the fourth picture, without the surrounding controls. This small
+preview is hosted from this repository for the MadWeave card on
+<https://rharriszzz.github.io/>. Regenerate it with the same screenshot command
+and publish the source image before changing the directory's image metadata.
