@@ -68,33 +68,44 @@
    if(Object.keys(this.state.value.material.overrides).length)for(const id of ['CP'+this.w.colorPattern,'CC'+this.w.colorCount])this.doc.getElementById('button'+id).setAttribute('stroke-width',this.w.buttonRectSize*this.w.buttonStrokeWidth);
   }
   layout(){
-   const width=Math.max(280,this.frame.clientWidth||900);this.width=width;const cell=Math.min(48,(width-16)/8),margin=(width-8*cell)/2;
-   const rows=[Array.from({length:8},(_,i)=>'C'+i),['LAST0','LAST1','LAST2','LAST3','CC1','CC3','Lines','HideButtons'],['CP0','CP1','CP2','CP3','CP4','VH0','VH1','VH2']];
-   const enabled=new Set(rows.flat().concat(['OB','HB','SB','VB']));
-   for(const g of this.doc.querySelectorAll('#buttons > g[id^="gbutton"]'))if(!enabled.has(g.id.slice(7)))g.setAttribute('display','none');
-   const place=(name,x,y,w,h)=>{
-    const g=this.doc.getElementById('gbutton'+name);let wrapper=this.doc.getElementById('layout-'+name);
-    if(!wrapper){wrapper=this.doc.createElementNS(NS,'svg');wrapper.id='layout-'+name;this.doc.getElementById('buttons').append(wrapper);wrapper.append(g);}
-    const r=this.doc.getElementById('button'+name),box={x:+r.getAttribute('x'),y:+r.getAttribute('y'),width:+r.getAttribute('width'),height:+r.getAttribute('height')},pad=box.height*.08;
-    for(const [k,v]of Object.entries({x,y,width:w,height:h,viewBox:`${box.x-pad} ${box.y-pad} ${box.width+2*pad} ${box.height+2*pad}`}))wrapper.setAttribute(k,v);
-    wrapper.style.display=this.state.value.controlsHidden&&name!=='HideButtons'?'none':'';
-    const target=this.doc.getElementById('cbutton'+name);target.setAttribute('tabindex','0');target.setAttribute('role','button');
-    const text=this.doc.getElementById('doc'+name+'_1')?.textContent||name;const label=name.startsWith('VH')?'Stage certified hexweave class '+name.slice(2):text;target.setAttribute('aria-label',label);
-    if(!g.querySelector('title')){const title=this.doc.createElementNS(NS,'title');title.textContent=label;g.prepend(title);}
+   this.width=this.frame.clientWidth;
+   const w=this.w;
+   // Use the original SVG coordinates for every shared control.
+   const enabled=new Set([
+    ...Array.from({length:8},(_,i)=>'C'+i),
+    ...Array.from({length:4},(_,i)=>'LAST'+i),
+    ...Array.from({length:5},(_,i)=>'CP'+i),
+    'CC1','CC3','VH0','VH1','VH2','Lines','HideButtons','OB','HB','SB','VB'
+   ]);
+   for(const g of this.doc.querySelectorAll('#buttons > g[id^="gbutton"]')){
+    const name=g.id.slice(7),available=enabled.has(name);
+    g.style.opacity=available?'':'0.3';
+    g.setAttribute('visibility',this.state.value.controlsHidden&&name!=='HideButtons'?'hidden':'visible');
+    const target=this.doc.getElementById('cbutton'+name);
+    target.setAttribute('tabindex',available?'0':'-1');target.setAttribute('role','button');
+    target.setAttribute('aria-disabled',String(!available));
+    const text=this.doc.getElementById('doc'+name+'_1')?.textContent||name;
+    const label=!available?'Unavailable in corner mode: '+text:name.startsWith('VH')?'Select hexweave class '+name.slice(2):text;
+    target.setAttribute('aria-label',label);
+    let title=g.querySelector('title');if(!title){title=this.doc.createElementNS(NS,'title');g.prepend(title);}title.textContent=label;
     target.onkeydown=e=>{
-     const slider=['OB','HB','SB','VB'].includes(name);if(!['Enter',' ','ArrowLeft','ArrowRight'].includes(e.key)||(!slider&&e.key.startsWith('Arrow')))return;e.preventDefault();
-     let p;if(slider){const value=Number({OB:this.w.currentOpacity,HB:this.w.currentHue/360,SB:this.w.currentSat,VB:this.w.currentValue}[name]),x=Math.max(0,Math.min(1,value+(e.key==='ArrowLeft'?-.02:e.key==='ArrowRight'?.02:0)));p=new this.w.DOMPoint(x,.5).matrixTransform(target.getScreenCTM());}else{const b=target.getBoundingClientRect();p={x:b.x+b.width/2,y:b.y+b.height/2};}
-     const event=new this.w.MouseEvent('mousedown',{bubbles:true,clientX:p.x,clientY:p.y});Object.defineProperties(event,{clientX:{value:p.x},clientY:{value:p.y}});target.dispatchEvent(event);
+     const slider=['OB','HB','SB','VB'].includes(name);
+     if(!available||!['Enter',' ','ArrowLeft','ArrowRight'].includes(e.key)||(!slider&&e.key.startsWith('Arrow')))return;
+     e.preventDefault();let p;
+     if(slider){
+      const value=Number({OB:w.currentOpacity,HB:w.currentHue/360,SB:w.currentSat,VB:w.currentValue}[name]);
+      const x=Math.max(0,Math.min(1,value+(e.key==='ArrowLeft'?-.02:e.key==='ArrowRight'?.02:0)));
+      p=new w.DOMPoint(x,.5).matrixTransform(target.getScreenCTM());
+     }else{const b=target.getBoundingClientRect();p={x:b.x+b.width/2,y:b.y+b.height/2};}
+     const event=new w.MouseEvent('mousedown',{bubbles:true,clientX:p.x,clientY:p.y});
+     Object.defineProperties(event,{clientX:{value:p.x},clientY:{value:p.y}});target.dispatchEvent(event);
     };
-   };
-   rows.forEach((r,j)=>r.forEach((name,i)=>place(name,margin+i*cell,this.state.value.controlsHidden&&name==='HideButtons'?4:4+j*cell,cell,cell)));
-   let bottom=4+3*cell;
-   const columns=width>700?4:2,sliderWidth=(width-16)/columns;
-   ['OB','HB','SB','VB'].forEach((name,i)=>place(name,8+(i%columns)*sliderWidth,bottom+Math.floor(i/columns)*42,sliderWidth-4,40));bottom+=Math.ceil(4/columns)*42;
-   if(this.state.value.controlsHidden)bottom=cell+8;
-   const size=Math.min(width-16,650),height=bottom+size+16;
-   this.root.setAttribute('viewBox',`0 0 ${width} ${height}`);this.root.style.cssText='display:block;width:100%;height:100%';this.frame.style.height=height+'px';
-   for(const [k,v]of Object.entries({x:(width-size)/2,y:bottom+8,width:size,height:size}))this.host.setAttribute(k,v);
+   }
+   w.buildViewButtons(this.doc,'corner',this.state.entry.config.beta);
+   this.doc.getElementById('viewButtons').setAttribute('visibility',this.state.value.controlsHidden?'hidden':'visible');
+   this.root.style.cssText='display:block;width:100%;height:100vh';
+   this.frame.style.height='';
+   for(const [key,value]of Object.entries({x:-w.viewWidth*.32,y:-w.viewHeight*.35,width:w.viewWidth*.64,height:w.viewHeight*.70}))this.host.setAttribute(key,value);
    this.doc.getElementById('documentations').setAttribute('display','none');
   }
   point(event){return new this.w.DOMPoint(event.clientX,event.clientY).matrixTransform(this.host.querySelector('.material-cells').getScreenCTM().inverse());}

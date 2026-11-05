@@ -4,10 +4,24 @@
  const project=window.MadWeaveProject,core=window.MadWeaveCornerCore,$=s=>document.querySelector(s);
  let planar=$('#weave'),cornerFrame=null,corner=null,mode='planar',revision=0,assetsPromise,draft=null;
  const status=$('#export-status');
+ const compact=new URLSearchParams(location.search).get('view')==='svg'||document.body.dataset.view==='svg';
+ if(compact){
+  document.body.dataset.view='svg';
+  $('#close-settings').hidden=false;
+  $('#construction-controls').append($('.editor-toolbar'),status);
+ }
+ function openControls(angle){
+  $('#construction-controls').dataset.open='true';
+  if(angle)$('#corner-beta').focus();
+  else if(!compact)$('#construction-controls').scrollIntoView({block:'start',behavior:'instant'});
+ }
+ $('#close-settings').onclick=()=>{delete $('#construction-controls').dataset.open;};
  function message(text){status.textContent=text;}
  function activeFrame(){return mode==='corner'?cornerFrame:planar;}
  function ready(){try{return mode==='corner'?Boolean(corner):Boolean(planar.contentDocument?.getElementById('strips'));}catch(_){return false;}}
- function buttons(){$('#save-project').disabled=$('#export').disabled=!ready();$('#open-project').disabled=false;$('#design-mode').value=mode;}
+ function buttons(){$('#save-project').disabled=$('#export').disabled=!ready();$('#open-project').disabled=false;$('#design-mode').value=mode;$('#corner-apply').disabled=mode!=='corner';
+  if(mode==='planar'){$('#corner-beta').value='360';planar.contentWindow?.buildViewButtons?.(planar.contentDocument,'planar');}
+ }
  function begin(){revision++;buttons();return revision;}
  function failure(operation,error,ticket=revision){if(ticket===revision){buttons();message(`${operation}: ${error.message}. Active and inactive designs retained.`);}}
  function download(text,type,name){const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);}
@@ -63,7 +77,9 @@
   if(mode==='corner'){corner.layout();if(!draft)draft={...corner.state.entry.config,pattern:corner.state.value.material.pattern};syncCorner();message('Corner mode. Planar work retained; this supported setup is not a conversion. Physical constructibility unverified.');}
   else message('Planar design restored, including unsaved colors and selection.');
  }
- async function changeMode(next){const ticket=begin();try{if(next==='corner'&&!corner){const bundle=await assets();if(ticket!==revision)return;const f=await makeFrame(bundle);if(ticket!==revision){f.remove();return;}let adapter;try{adapter=new window.MadWeaveCornerEditor(f,core,core.CornerProject.initial(core.catalogue),callbacks());}catch(e){f.remove();throw e;}cornerFrame=f;corner=adapter;}
+ async function changeMode(next){const ticket=begin();try{if(next==='corner'&&!corner){const bundle=await assets();if(ticket!==revision)return;const f=await makeFrame(bundle);if(ticket!==revision){f.remove();return;}let adapter;try{const value=core.CornerProject.initial(core.catalogue),flat=project.capture(planar.contentWindow);
+   value.palette=flat.palette;value.opacity=flat.opacity;value.recent=flat.recentColors;value.recentOpacity=flat.recentOpacity;value.selectedColor=flat.selectedColor;
+   adapter=new window.MadWeaveCornerEditor(f,core,value,callbacks());}catch(e){f.remove();throw e;}cornerFrame=f;corner=adapter;}
   if(next==='planar'&&!planar.contentDocument?.getElementById('strips')){const b=await assets();const f=await makeFrame(b);if(ticket!==revision){f.remove();return;}planar.remove();planar=f;observePlanar(f);}
   if(ticket===revision)activate(next);
  }catch(e){failure('Mode was not changed',e,ticket);} }
@@ -116,11 +132,11 @@
   draft={...config,pattern:applied?pattern:corner.state.value.material.pattern};syncProposal();
  }
  for(const p of core.catalogue.matrix.domain.phases)$('#corner-phase').append(new Option(p.label,p.id));
- for(const b of core.catalogue.matrix.domain.angles)$('#corner-beta').append(new Option(b+'°',String(b)));
+ for(const b of core.catalogue.matrix.domain.angles)$('#corner-beta').append(new Option(b+'° ('+(b/60)+' × 60°)',String(b)));
  for(const c of core.catalogue.matrix.domain.crops)$('#corner-crop').append(new Option(c.label,c.id));
  // Saved HTML may already contain option nodes: reconstruct deterministic lists.
- for(const [id,rows]of [['phase',core.catalogue.matrix.domain.phases.map(p=>[p.label,p.id])],['beta',core.catalogue.matrix.domain.angles.map(b=>[b+'°',String(b)])],['crop',core.catalogue.matrix.domain.crops.map(c=>[c.label,c.id])]])$('#corner-'+id).replaceChildren(...rows.map(([label,value])=>new Option(label,value)));
- for(const key of ['phase','beta','crop'])$('#corner-'+key).onchange=()=>{const v=$('#corner-'+key).value;begin();draft={...draft,[key]:key==='beta'?Number(v):v};syncProposal();};
+ for(const [id,rows]of [['phase',core.catalogue.matrix.domain.phases.map(p=>[p.label,p.id])],['beta',core.catalogue.matrix.domain.angles.map(b=>[b+'° ('+(b/60)+' × 60°)',String(b)])],['crop',core.catalogue.matrix.domain.crops.map(c=>[c.label,c.id])]])$('#corner-'+id).replaceChildren(...rows.map(([label,value])=>new Option(label,value)));
+ for(const key of ['phase','beta','crop'])$('#corner-'+key).onchange=async()=>{const v=$('#corner-'+key).value;if(!corner||mode!=='corner'){await changeMode('corner');if(mode!=='corner')return;}begin();draft={...draft,[key]:key==='beta'?Number(v):v};syncProposal();};
  $('#corner-apply').onclick=()=>{const ticket=begin();try{
   const row=core.catalogue.matrix.rows.find(r=>r.phase===draft.phase&&r.beta===draft.beta&&r.crop===draft.crop);if(row?.status!=='Validated')throw Error(`${row?.status||'Unvalidated'}: ${row?.witness||'Unsupported configuration'}`);
   const old=corner.capture(),changed=row.id!==old.construction.id;
@@ -134,10 +150,22 @@
  $('#save-project').onclick=async()=>{if(!ready())return;const ticket=begin();try{const state=capture(),bundle=await assets();if(ticket!==revision)return;download(projectHtml(state,bundle),'text/html;charset=utf-8','madweave-project.html');message('Editable project saved. Active design and selection included; inactive design is session-only. Reopen offline and save again after edits.');}catch(e){failure('Project was not saved',e,ticket);}finally{buttons();}};
  $('#open-project').onclick=()=>$('#project-file').click();$('#project-file').onchange=async()=>{const file=$('#project-file').files[0];$('#project-file').value='';if(!file)return;const ticket=begin();try{if(file.size>10*1024*1024)throw Error('Project exceeds the 10 MiB corner file limit');const text=await file.text();if(ticket!==revision)return;const env=parse(text);if(await loadEnvelope(env,ticket))message('Opened '+file.name+'. You can edit this design and save it again. Inactive work retained.');}catch(e){failure('Project was not opened',e,ticket);}};
  $('#export').onclick=()=>{const ticket=begin();try{if(mode==='corner'){download(corner.exportSVG(),'image/svg+xml;charset=utf-8','madweave-corner-artwork.svg');message('Corner diagram SVG exported; physical constructibility unverified. Artwork is not an editable project or fabrication template.');return;}
-  const source=planar.contentDocument.getElementById('svg'),svg=source.cloneNode(true);svg.querySelectorAll('script,#buttons,#documentations,#tools,#pattern').forEach(n=>n.remove());for(const e of [svg,...svg.querySelectorAll('*')])for(const a of [...e.attributes])if(/^on/i.test(a.name))e.removeAttribute(a.name);download(new XMLSerializer().serializeToString(svg),'image/svg+xml;charset=utf-8','madweave-artwork.svg');message('Artwork exported as a static SVG image. Use Save Project to keep an editable copy.');
+  const source=planar.contentDocument.getElementById('svg'),svg=source.cloneNode(true);svg.querySelectorAll('script,#buttons,#viewButtons,#documentations,#tools,#pattern').forEach(n=>n.remove());for(const e of [svg,...svg.querySelectorAll('*')])for(const a of [...e.attributes])if(/^on/i.test(a.name))e.removeAttribute(a.name);download(new XMLSerializer().serializeToString(svg),'image/svg+xml;charset=utf-8','madweave-artwork.svg');message('Artwork exported as a static SVG image. Use Save Project to keep an editable copy.');
  }catch(e){failure('Artwork was not exported',e,ticket);}};
  function observePlanar(f){const hook=()=>{const d=f.contentDocument;if(!d)return;for(const name of ['mousedown','keydown'])d.addEventListener(name,()=>{if(mode==='planar'&&f===planar)begin();},true);};f.addEventListener('load',hook);hook();}
  observePlanar(planar);planar.addEventListener('load',buttons);buttons();
- window.MadWeaveEditor={get mode(){return mode;},get corner(){return corner;},get planar(){return planar;},capture,parse,validate,changeMode,get revision(){return revision;}};
+ window.MadWeaveEditor={get mode(){return mode;},get corner(){return corner;},get planar(){return planar;},capture,parse,validate,changeMode,openControls,get revision(){return revision;}};
+ const startView=new URLSearchParams(location.search);
+ async function openInitialView(){
+  const ticket=begin();
+  try{
+   const handoff=sessionStorage.getItem('madweave-planar-handoff');
+   if(handoff){if(!await loadEnvelope(parse(handoff),ticket))return;sessionStorage.removeItem('madweave-planar-handoff');}
+   if(startView.get('mode')==='corner')await changeMode('corner');
+   if(startView.get('angle')==='choose'&&mode==='corner')openControls(true);
+   else if(startView.get('panel')==='controls')openControls(false);
+  }catch(error){failure('View was not opened',error,ticket);}
+ }
  const saved=$('#madweave-project');if(saved){const ticket=begin();Promise.resolve().then(()=>loadEnvelope(validate(JSON.parse(saved.textContent)),ticket)).then(ok=>{if(ok)message('Saved project opened. Editing and saving work offline. Only the active saved design was persisted.');}).catch(e=>failure('Could not open this project',e,ticket));}
+ else if(startView.get('mode')==='corner'||compact)openInitialView();
 })();

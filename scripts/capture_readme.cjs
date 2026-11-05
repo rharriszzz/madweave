@@ -78,9 +78,13 @@ const server = http.createServer((req, res) => {
     await button('SC4');await button('CC3');await button('CP0');await button('Sep1');
     await button('CP4');await button('Sep2');await button('VH1');
     await capture('planar-open');
+    await page.evaluate(value => MadWeaveProject.apply(MadWeaveEditor.planar.contentWindow,value), expected);
     await page.selectOption('#design-mode','corner');
     await page.waitForFunction(() => MadWeaveEditor.mode==='corner');
-    await capture('corner-construction',true);
+    await button('Lines');
+    assert.equal(await page.evaluate(() => MadWeaveEditor.capture().design.view.edges), true);
+    await capture('corner-construction');
+    await button('Lines');
     await page.locator('#corner-inspector').evaluate(e=>e.open=true);
     await page.selectOption('#corner-crossing',{index:1});
     await page.click('#corner-next');

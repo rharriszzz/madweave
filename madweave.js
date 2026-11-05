@@ -1211,6 +1211,68 @@ function showOrHideButtons(g) {
         }
         child = nextChild;
     }
+    var viewButtons = document.getElementById("viewButtons");
+    if (viewButtons) viewButtons.setAttribute("visibility", hidingButtons?"hidden":"visible");
+}
+// Additional view controls use the empty space along the bottom edge.
+function changeDesignView(g, mode, chooseAngle, showControls) {
+    var document = g.ownerDocument;
+    var w = document.defaultView;
+    var editor;
+    try { editor = w.parent.MadWeaveEditor; } catch (_) {}
+    if (editor) {
+        editor.changeMode(mode).then(function () {
+            if (chooseAngle && editor.mode === "corner") {
+                editor.openControls(true);
+            } else if (showControls) {
+                editor.openControls(false);
+            }
+        });
+        return;
+    }
+    if (mode === "planar" && !showControls) return;
+    try {
+        w.sessionStorage.setItem("madweave-planar-handoff", new XMLSerializer().serializeToString(document.documentElement));
+        var destination = new URL("editor.html", document.baseURI);
+        destination.searchParams.set("mode", mode);
+        destination.searchParams.set("view", "svg");
+        if (showControls) destination.searchParams.set("panel", "controls");
+        if (chooseAngle) destination.searchParams.set("angle", "choose");
+        w.location.href = destination.href;
+    } catch (error) {
+        w.alert("Could not open the shared editor: " + error.message);
+    }
+}
+function buildViewButtons(document, mode, angle) {
+    var svg = document.getElementById("svg");
+    var group = createSVGElementWithId(document, "g", "viewButtons");
+    if (!group.parentNode) svg.appendChild(group);
+    var choices = [
+        [-4.8, "Flat", "ViewFlat", "planar", false, "Show the flat design"],
+        [-2.4, "Corner", "ViewCorner", "corner", false, "Show the one-corner design"],
+        [3.5, mode === "corner" && angle ? angle + "°" : "Angle", "ViewAngle", "corner", true, "Choose the angle in multiples of 60 degrees"],
+        [5.9, "More", "ViewMore", mode || "planar", false, "Construction settings, inspection, save, open and export"]
+    ];
+    for (var i = 0; i < choices.length; i++) {
+        var choice = choices[i];
+        var rect = addButton(group, 0, 1, 1, 0, 0, choice[0], choice[1], choice[2],
+            "changeDesignView(evt.target,'" + choice[3] + "'," + choice[4] + "," + (choice[2] === "ViewMore") + ")", choice[5]);
+        var text = document.getElementById("text" + choice[2]);
+        text.textContent = choice[1];
+        var selected = choice[2] === (mode === "corner" ? "ViewCorner" : "ViewFlat");
+        rect.setAttribute("stroke-width", buttonRectSize * buttonStrokeWidth * (selected ? 2.5 : 1));
+        var target = document.getElementById("cbutton" + choice[2]);
+        target.setAttribute("tabindex", "0");
+        target.setAttribute("role", "button");
+        target.setAttribute("aria-label", choice[5]);
+        target.onkeydown = function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                this.dispatchEvent(new MouseEvent("mousedown", {bubbles:true}));
+            }
+        };
+    }
+    group.setAttribute("visibility", hidingButtons ? "hidden" : "visible");
 }
 function setButtonDocumentationVisibility(cbutton, visibility) {
     var document = cbutton.ownerDocument;
@@ -1299,7 +1361,7 @@ function addButton(g, locX, locY, dirX, dirY, indexOffset, index, label, name, a
     // viewWidth * 0.06 * (-2.7 to 2.9)
     var rectCenterX = viewWidth  * (locX * (0.5-margin-d/2) + dirX * (d+sep)*(index+indexOffset));
     var rectCenterY = viewHeight * (locY * (0.5-margin-d/2) + dirY * (d+sep)*(index+indexOffset));
-    var widthExpand = 1.0;
+    var widthExpand = /^View/.test(name) ? 2.0 : 1.0;
     var heightExpand = 1.0;
     if (name == "OB" || name == "HB" || name == "SB" || name == "VB") widthExpand = 2.5;
     var rectX = rectCenterX-(buttonRectSize/2*widthExpand);
@@ -1358,7 +1420,7 @@ function addButton(g, locX, locY, dirX, dirY, indexOffset, index, label, name, a
             if (gptr.parentNode == null) rg.appendChild(gptr);
         }
         var text = createSVGElementWithId(document, "text", "text"+name);
-        var text_font_size = (buttonRectSize*0.7)/(label.length==0?1:label.length);
+        var text_font_size = (buttonRectSize*0.7*(/^View/.test(name)?widthExpand:1))/(label.length==0?1:label.length);
         text.setAttribute("x", rectCenterX);
         text.setAttribute("y", rectCenterY + text_font_size/2.4);
         text.setAttribute("font-family", "Verdana");
@@ -1520,6 +1582,7 @@ function buildButtons(document) {
     addButton(buttons,  1,    1,   0,   -1,    0,           1, "W", "Sep2", "setSeparation(evt.target,2)", "Set the strip separation to Wide");
     addButton(buttons,  1,    1,   0,   -1,    0,           0, "E", "Sep3", "setSeparation(evt.target,3)", "Set the strip separation to Extra wide");
 
+    buildViewButtons(document);
     setPointer(document, "OB", currentOpacity);
     setPointer(document, "HB", currentHue/360);
     setPointer(document, "SB", currentSat);
@@ -1602,6 +1665,7 @@ function setSavedContent(g) {
     var defaultColorButton = document.getElementById("buttonC"+defaultColorIndex);
     hidingButtons = document.getElementById("gbuttonLines").getAttribute("visibility") == "hidden";
     setColorChooserColor(document, defaultColorButton.getAttribute("fill"), defaultColorButton.getAttribute("fill-opacity"));
+    buildViewButtons(document);
 
   processing = false;
 }

@@ -1,5 +1,32 @@
 # Testing record
 
+## Original control positions and bottom view buttons
+
+Local checks on 2026-11-05 cover the SVG entry point and the restored corner
+layout. All 52 original controls retain the same screen coordinates in flat and
+corner views, verified at 1280- and 390-pixel widths. Flat, Corner, Angle and More
+occupy a separate bottom row group. Unsupported corner controls are dimmed.
+
+The new application regression starts from `madweave.svg` with unsaved painting,
+opens the SVG-style shared editor, checks retained flat work and the inherited
+palette, verifies all twelve 60° angle choices, applies 240°, toggles L, and
+saves/reopens the SVG-style editor offline. It also checks that static SVG export
+omits the new controls. All 17 application/static tests passed in Chromium
+153.0.8010.12, Firefox 155.0 and Playwright WebKit 26.6. The new regression also
+passed in Chrome for Testing 145.0.7632.6.
+
+The integrated corner browser suite passed all eight rendering representatives
+and its online/offline transactions in each engine. Its desktop viewport is now
+1280 × 1300 so the restored layout provides at least the former 650-pixel weave
+resolution for the pixel audits. Their 4/255 channel tolerance, exact-ray checks,
+independent material checks and negative controls are retained. Four math tests,
+five static build/link tests, syntax and whitespace checks also passed.
+
+The five README screenshots were regenerated from the built editor. The third
+uses the original palette and positions with L enabled. These are local results;
+this work has not been pushed or deployed. WebKit used the established local
+extracted-library setup described below, and is not installed Safari testing.
+
 ## Integrated editor release on 2026-11-05
 
 The release keeps the complete Stage 1–3C branch history and the reviewed

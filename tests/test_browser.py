@@ -206,7 +206,7 @@ class BrowserTests(unittest.TestCase):
         for name in ('index.html','guide.html'):
             page.goto(self.base+name)
             self.assertTrue(page.locator('h1').is_visible())
-            self.assertGreater(page.locator('a[href="editor.html"]').count(),0)
+            self.assertGreater(page.locator('a[href="editor.html"],a[href="madweave.svg"]').count(),0)
         context.close()
 
     def open_editor(self):
@@ -324,6 +324,85 @@ class BrowserTests(unittest.TestCase):
         self.page.locator('#project-file').set_input_files(path)
         self.page.wait_for_function('document.getElementById("export-status").textContent.startsWith("Project was not opened:")')
         self.assertEqual(self.state(), state)
+
+    def test_original_layout_and_bottom_view_controls(self):
+        # Start at the original SVG entry point, including an unsaved edit.
+        self.page.goto(self.base+'madweave.svg')
+        self.page.wait_for_selector('#cbuttonViewCorner')
+        self.page.evaluate('setDefaultColor(document.documentElement,7);setStripColorToCurrentDefault(document.documentElement,0)')
+        self.page.locator('#cbuttonViewCorner').click()
+        self.page.wait_for_function('window.MadWeaveEditor?.mode === "corner"')
+        self.assertEqual(self.page.evaluate('document.body.dataset.view'), 'svg')
+        self.assertFalse(self.page.locator('#construction-controls').is_visible())
+        self.assertTrue(self.page.frame_locator('#weave').locator('#cbuttonLines').is_visible())
+        self.assertEqual(self.page.evaluate('MadWeaveEditor.capture().design.palette'),
+                         self.page.evaluate('MadWeaveProject.capture(MadWeaveEditor.planar.contentWindow).palette'))
+
+        def press(name):
+            self.page.frame_locator('#weave').locator('#cbutton'+name).click()
+
+        def positions():
+            return self.page.evaluate('''() => {
+                const d=document.querySelector('#weave').contentDocument;
+                const origin=d.documentElement.getBoundingClientRect();
+                return Object.fromEntries([...d.querySelectorAll('#buttons [id^="cbutton"]')].map(e=>{
+                    const b=e.getBoundingClientRect();return [e.id,[b.x-origin.x,b.y-origin.y,b.width,b.height]];
+                }));
+            }''')
+
+        for width in (1280,390):
+            self.page.set_viewport_size({'width':width,'height':950})
+            press('ViewFlat')
+            self.page.wait_for_function('MadWeaveEditor.mode === "planar"')
+            self.assertEqual(self.page.evaluate('MadWeaveEditor.capture().design.stripColors[0]'),7)
+            before=positions()
+            press('ViewCorner')
+            self.page.wait_for_function('MadWeaveEditor.mode === "corner"')
+            after=positions()
+            self.assertEqual(set(before),set(after))
+            self.assertEqual(len(before),52)
+            for name in before:
+                for flat,corner in zip(before[name],after[name]):
+                    self.assertAlmostEqual(flat,corner,places=4,msg=name)
+
+        self.page.set_viewport_size({'width':1280,'height':950})
+        press('Lines')
+        self.assertTrue(self.page.evaluate('MadWeaveEditor.capture().design.view.edges'))
+        self.assertGreater(self.page.frame_locator('#weave').locator('[data-material-edge]').count(),0)
+        press('ViewAngle')
+        self.assertTrue(self.page.locator('#construction-controls').is_visible())
+        self.assertEqual(self.page.locator('#corner-beta option').evaluate_all('options => options.map(option => Number(option.value))'),[60*i for i in range(1,13)])
+        self.page.select_option('#corner-beta','240')
+        self.page.locator('#corner-apply').click()
+        self.assertEqual(self.page.evaluate('MadWeaveEditor.capture().design.construction.parameters.beta'),240)
+        self.assertTrue(self.page.evaluate('MadWeaveEditor.capture().design.view.edges'))
+        self.page.locator('#close-settings').click()
+        self.assertEqual(self.page.frame_locator('#weave').locator('#textViewAngle').text_content(),'240°')
+
+        # More exposes file actions; the compact editor must remain editable offline.
+        press('ViewMore')
+        with self.page.expect_download() as event:
+            self.page.locator('#save-project').click()
+        saved=Path(self.folder.name)/'bottom-controls.html'
+        event.value.save_as(saved)
+        before=self.page.evaluate('MadWeaveEditor.capture()')
+        context=self.browser.new_context(accept_downloads=True)
+        context.route('http://**/*',lambda route:route.abort())
+        context.route('https://**/*',lambda route:route.abort())
+        offline=context.new_page()
+        offline.goto(saved.as_uri())
+        offline.wait_for_function('window.MadWeaveEditor?.mode === "corner"')
+        self.assertEqual(offline.evaluate('MadWeaveEditor.capture()'),before)
+        offline.locator('#close-settings').click()
+        offline.frame_locator('#weave').locator('#cbuttonViewFlat').click()
+        offline.wait_for_function('MadWeaveEditor.mode === "planar"')
+        offline.frame_locator('#weave').locator('#cbuttonViewMore').click()
+        with offline.expect_download() as event:
+            offline.locator('#export').click()
+        artwork=Path(self.folder.name)/'bottom-controls.svg'
+        event.value.save_as(artwork)
+        self.assertNotIn('viewButtons',artwork.read_text())
+        context.close()
 
     def test_invalid_project_keeps_current_design(self):
         self.open_editor()

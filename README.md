@@ -5,7 +5,7 @@ It draws three families of interlacing strips in SVG and supports editing their
 colors, spacing, visibility, handedness, and over-and-under structure.
 
 [Project website](https://rharriszzz.github.io/madweave/) ·
-[Open the editor](https://rharriszzz.github.io/madweave/editor.html) ·
+[Open the editor](https://rharriszzz.github.io/madweave/madweave.svg) ·
 [User guide](https://rharriszzz.github.io/madweave/guide.html)
 
 Switch between planar patterns and a bounded corner-diagram editor. Both use
@@ -21,8 +21,8 @@ Screenshots below come from the built editor. Click an image for full size.
 ![Open planar weave with grouped colors, wider spacing and one hexweave class hidden](docs/images/planar-open.png)
 *A different formula, wider spacing, and a hidden b class reveal the layered structure.*
 
-![Corner diagram with hole phase, 480 degree reference angle, circular crop and Apply together controls](docs/images/corner-construction.png)
-*A 480° reference-angle corner diagram with class coloring and a full fringe crop.*
+![Corner diagram with the original palette and control positions, a 480 degree angle, bottom view buttons, and strip-edge lines](docs/images/corner-construction.png)
+*A 480° corner diagram with the original controls and palette. L is enabled to draw lines at the strip edges.*
 
 ![Orange joined-strip outline crossing sector seams, with dashed hidden material and seam partners](docs/images/corner-inspection.png)
 *Inspection follows one joined strip through visible and hidden positions; orange marks its material identity.*
@@ -43,12 +43,12 @@ python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
 Open <http://127.0.0.1:8000/> for the website or
-<http://127.0.0.1:8000/editor.html> for the editor. Opening HTML directly with
+<http://127.0.0.1:8000/madweave.svg> for the editor. Opening HTML directly with
 `file://` can prevent the wrapper from accessing the embedded SVG.
 
 ## Planar mode
 
-Choose **Design mode → Planar**. The five previews select pattern formulas;
+Click **Flat** along the bottom of the SVG editor. The five previews select pattern formulas;
 **1–6** sets the formula's color count. Choose one of eight top palette swatches
 and click a strip to paint it. The sliders change opacity, hue, saturation, and
 value; recent colors sit beside the palette.
@@ -61,8 +61,9 @@ strip edits; changing the strip count resets them too.
 
 ## Corner mode
 
-Choose **Design mode → Corner**, select a hole/weave phase, reference angle and
-circular crop, then choose **Apply together**. Pending settings do not change the
+Click **Corner** along the bottom. The angle button selects multiples of 60°.
+**More** opens hole/weave phase, crop, inspection and file actions. Select the
+construction settings, then choose **Apply together**. Pending settings do not change the
 active drawing or saved file. Construction changes replace custom painting and
 selection, as described in the proposal.
 
@@ -95,6 +96,8 @@ checks, unsupported cases and remaining research scope.
 
 ## Save, reopen and export
 
+Click **More** along the bottom to open the file actions.
+
 - **Mode switching retains both designs in the current session. Saving persists
   only the active design.** Save each mode separately before closing the tab.
 - **Save Project** downloads a self-contained editable HTML file. Open that
@@ -116,9 +119,9 @@ formula or construction changes if you want to retain the previous design.
 A mouse or trackpad works best. Corner palette buttons support Enter/Space,
 sliders support arrow keys, and inspection has keyboard controls. Complete
 planar keyboard and physical touch-device operation remain unimplemented or
-unverified. Planar controls scroll horizontally on narrow screens; corner
-controls rearrange. Automated checks cover Chromium, Firefox and Playwright
-WebKit; WebKit automation is not installed Safari verification. See the
+unverified. Both views keep the original control positions; unavailable corner
+controls appear dimmed. The direct SVG view scales with the browser window.
+Automated checks cover Chromium, Firefox and Playwright WebKit; WebKit automation is not installed Safari verification. See the
 [testing record](docs/TESTING.md) and [Mac testing results](docs/MAC_TESTING.md).
 
 ## Documentation

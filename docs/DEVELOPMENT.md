@@ -193,3 +193,24 @@ corner semantic suite, and runs its browser suite alongside the original
 application tests in the Chromium/Firefox/WebKit matrix. Node development
 dependencies are locked in `package-lock.json`; use `npm ci` to install them.
 The integrated browser suite exercises the allowlisted build at `/madweave/`.
+
+## Original SVG entry and bottom view controls
+
+`madweave.svg` remains the initial editor page. `madweave.js` adds Flat, Corner,
+Angle and More in a separate `viewButtons` group along the bottom. The original
+52 controls keep their original coordinates. Corner mode uses those coordinates
+too, with unsupported controls dimmed; its diagram occupies the central drawing
+area. L sets the corner model's visible-edge option.
+
+From the standalone SVG, Corner/Angle/More transfers the current flat design
+through a temporary, same-origin sessionStorage entry to `editor.html?view=svg`.
+The entry is removed after a successful import. The shared editor presents just
+the SVG canvas in this view. More opens construction, inspection and file
+actions; Angle opens the same panel with the angle selector focused. Both mode
+designs remain in their separate frames. The first corner design inherits the
+flat palette; later mode switches retain each design's palette and painting.
+This is a view handoff, not autosave or arbitrary conversion of planar geometry.
+
+Editable HTML retains this SVG-style view offline. Static planar export removes
+`viewButtons` along with the original controls. The full wrapper at `editor.html`
+remains available for development and compatibility with existing links.
