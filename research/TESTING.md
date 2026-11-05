@@ -1,5 +1,13 @@
 # Planar research testing
 
+The separate [single-corner Stage 1 research](SINGLE_CORNER_STAGE1.md) can be
+reproduced with `python3 research/single-corner-stage1.py` (Python 3 and Node).
+It writes reference geometry/identity evidence under ignored
+`research/output/single-corner-stage1/`, including a compact summary matching
+the [tracked snapshot](evidence/single-corner-stage1.json). It is not a corner
+feature implementation, browser acceptance run or physical validation. Its
+finite parameter bounds and crop-fringe limitation are documented in the report.
+
 The research suite connects control behavior and the planar model to executable
 checks against the original engine. It complements the application suite in
 [`tests/`](../tests) and the historical [application testing record](../docs/TESTING.md).

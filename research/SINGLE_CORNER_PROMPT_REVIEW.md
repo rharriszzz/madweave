@@ -281,3 +281,13 @@ The forensic Python comment and report key were corrected from an independent/
 observed count to a model-assisted `replayEndpointOccurrences` count. Its
 computation is unchanged. These subsequent instructions supersede the earlier
 pending-decision and preparation-only status statements in this historical review.
+
+## Stage 1 handoff — 2026-11-04
+
+The authorized [Stage 1 research deliverable](SINGLE_CORNER_STAGE1.md) now
+contains the scoped model, hole/phase catalogue, finite seam and continuation
+certificates, color conflicts, and acceptance-fixture plan. It separates newly
+established reference-model results from remaining crop, implementation and
+physical uncertainties. This supersedes the earlier absence of finite corner
+evidence only within those explicit scopes. Work stops at the deliverable for
+review; implementation and merging remain unauthorized.

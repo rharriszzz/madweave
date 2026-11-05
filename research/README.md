@@ -3,8 +3,9 @@
 The project has four connected goals: explain every control, explain the planar
 hexweave and madweave construction, make those explanations testable, and finish
 the preparation for `coneFraction`. The planar preparation and SVG seam fix
-have been merged into `master`. The single-corner prompt is still being prepared;
-the production application's `coneFraction` remains 1.
+have been merged into `master`. Single-corner Stage 1 mathematical research is
+delivered for review; implementation remains on hold and the production
+application's `coneFraction` remains 1.
 
 ## Reading paths
 
@@ -18,6 +19,7 @@ the production application's `coneFraction` remains 1.
 | Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
 | Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
 | Single-corner project prompt | [Authorized Stage 1 scope](SINGLE_CORNER_PROJECT_PROMPT.md) | Accepted product defaults and separate diagram/physical gates; mathematical research authorized, implementation on hold |
+| Single-corner Stage 1 results | [Model, catalogue and certificates](SINGLE_CORNER_STAGE1.md) | Required hole families, finite excess/deficit ledgers, color witnesses, open-strip proof, crop-fringe limit and future acceptance plan; stop for review |
 | Independent prompt improvement | [Astra documentation task](SINGLE_CORNER_REVIEW_PROMPT.md) | Review the mathematics, improve the actual work prompt, record findings, and commit/push documentation; implementation stays on hold |
 | Prompt review findings | [Independent review](SINGLE_CORNER_PROMPT_REVIEW.md) | Applied corrections, acceptance fixtures and subsequent user acceptance/Stage 1 authorization; implementation still on hold |
 | Tree reference evidence | [Recovered center and multiplier](TREE_REFERENCE_ANALYSIS.md) | Single-edge inverse fit, upper-half count, and historical renderer replay establish code f=3/4 versus paper ratio 4/3 |
@@ -55,8 +57,9 @@ records the latest pixel-audit repair.
   behavior and limitations are tested, and the [mapping contract](CONE_MAPPING_SPEC.md)
   records the earlier bounded prototype. The production app remains planar;
   separately authorized historical forensics have recovered the tree reference
-  at f=3/4. Stage 1 single-corner mathematical research is authorized; its
-  deliverable must stop for review before any feature implementation.
+  at f=3/4. The [Stage 1 deliverable](SINGLE_CORNER_STAGE1.md) supplies scoped
+  mathematical certificates and explicit limits; work stops for review before
+  any feature implementation. Physical constructibility remains unverified.
   [Cone readiness](CONE_READINESS.md) maps the original goals to their evidence.
 
 ## Working cycle

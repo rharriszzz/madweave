@@ -1,7 +1,8 @@
 # Single-corner project: prompt for later work
 
-**Status (2026-11-04): Stage 1 mathematical research authorized; implementation
-remains on hold.** The user accepted the product defaults below and authorized
+**Status (2026-11-04): Stage 1 research delivered for review; implementation
+remains on hold.** See the [scoped model and evidence](SINGLE_CORNER_STAGE1.md).
+The user accepted the product defaults below and authorized
 only the scoped model, hole/phase catalogue, seam and continuation evidence,
 compatibility results, and acceptance-fixture plan. Stop at that deliverable for
 review. Do not enable nonunit cone mode, change production application code,
@@ -647,7 +648,7 @@ Physical cutting/printing tolerance is a separate later parameter.
 defaults and separate diagram/physical gates on 2026-11-04. This establishes
 research readiness, not whole-project readiness or implementation authorization.
 
-**Stage 1 — mathematical model and compatibility catalogue (authorized).**
+**Stage 1 — mathematical model and compatibility catalogue (delivered for review).**
 Derive hole coordinates, the chosen flattening, boundary
 registration, strip continuation, color constraints, and allowed angle classes.
 Deliver a short model specification, a compatibility table with explicit scope,
@@ -667,6 +668,10 @@ Unvalidated with explicit mathematical/search/numerical limits. A successful
 replacement is not required. A valid partial result must not be presented as a
 completed assembly. Deliver all requested research categories and stop for review;
 negative or unresolved results block dependent implementation, not honest reporting.
+
+The [Stage 1 deliverable](SINGLE_CORNER_STAGE1.md) records constructive finite
+certificates, phase/angle families, color witnesses and explicit limits. Its
+research completion does not authorize Stage 2 or certify an application release.
 
 **Stage 2 — one small, independently checked construction (not authorized).**
 Only after review and explicit implementation authorization, implement a **completed** tree-style f=3/4 example if Stage 1 validates it (or
