@@ -2,11 +2,22 @@
 
 **Status: preparation only; not yet an implementation authorization.**
 The user wants this prompt to contain the necessary details before the project
-starts. Do not enable nonunit `coneFraction`, modify the renderer, build the new
-UI, or run cone experiments merely because this document exists. Resolve the
-remaining questions, update this prompt, and wait for an explicit instruction
-to start the agreed stage. Reading code, studying the supplied reference, and
-clarifying the mathematical model are part of preparing this prompt.
+starts. Do not enable nonunit cone mode in the production application, modify
+its renderer, or build the new UI merely because this document exists. Resolve
+the remaining decisions and wait for an explicit instruction to start the
+agreed stage. The user separately authorized image measurements and disposable
+historical-renderer trials to understand `tree.png`; those forensic checks are
+preparation, not the start of the corner feature.
+
+**Recovered reference:** `tree.png` uses the radius-preserving angular map with
+**code multiplier `coneFraction=3/4`**, corresponding to **paper/reference-angle
+fraction 4/3**, or 480 degrees with 120 degrees of excess. Its center is the
+small white opening near **pixel (218,228)**, directly above the central gap
+between the gray and teal trunk strips. A long-edge inverse fit gives 0.74986;
+the upper-half track count gives 18/24=3/4; and the historical replay matches
+99.59% of occupied/empty pixels. See the [forensic report](TREE_REFERENCE_ANALYSIS.md).
+This identifies the first flattening method; it does not certify the missing
+lower tracks or complete colored seam assembly.
 
 ## First understand what `coneFraction` means
 
@@ -124,11 +135,14 @@ the continuous-sheet model, not a claim that a woven network must behave like
 a solid sheet. Weave holes, adjustable crossings, curved strip shapes, and
 material bending must be accounted for in the intended construction.
 
-For a nonradial/tree-style display, do not infer beta from its apparent angle
-on screen. Preserve beta, delta, and the reference seam identification as model
-parameters, then define the display map separately. The relationship above is
-the derivation for a full-turn uniform angular chart; the project's selected
-flattening must state whether it uses that chart or a different map.
+The tree reference is now identified as this uniform, radius-preserving angular
+chart with f=3/4. Its curved bands do not imply a different nonradial map.
+Preserve beta, delta, and the seam identification as model parameters; future
+alternative displays must not silently redefine them. Name the two reciprocals
+explicitly: `paperAngleFraction=q` and `angularMultiplier=f`; the current legacy
+variable `coneFraction` means f. A future UI should show, for this example,
+"reference angle 480 degrees (4/3 turn), excess 120 degrees, angular multiplier
+3/4". Do not show an unlabeled fraction and expect users to guess which one.
 
 ## Project goal and confirmed requirements
 
@@ -159,26 +173,48 @@ The user's requirements are:
 
 ![User-supplied reference for the easiest flattening](../tree.png)
 
-The image shows interlaced colored bands with curved portions and changing
-orientations/openings, including a trunk-like lower region and a broader upper
-region. It is the reference for the first flattening method. Its generating
-parameters and map have not been recovered from the repository. It was already
-present in the initial historical import; its appearance alone does not identify
-an exact transformation, corner location, or physical fabrication method.
+The [reference analysis](TREE_REFERENCE_ANALYSIS.md) recovers the center and
+multiplier by three checks: inverse geometry of a single long gray edge, an
+upper-half count of 24 strip ends versus the planar reference's 18, and replay
+of the oldest renderer at eight different multipliers. Its original palette
+matches the PNG exactly. The close replay uses f=3/4, radius unchanged, and a
+-90-degree display rotation. Historical `directionsPerCircle=6` gives N=8;
+today's value 3 gives N=4 for the same multiplier. Do not confuse those counts.
 
-**Pending clarification:** locate the intended corner/hole in the image and
-confirm how its flat curved bands relate to actual paper strips. Do not replace
-this reference with an assumed uniform angular rescaling or an unrelated folded
-model. Once clarified, put the precise tree construction first in this table.
+The user warned that some strips are missing. Use the tree as a reference for
+the flattening, not as an already completed corner. The long vertical gap below
+the center and the incomplete lower tracks must not be mistaken for a finished
+seam or a different kind of hole. Resolve the full construction through explicit
+sector assembly and strip identity, not by copying the PNG's omissions.
+
+The bands are curved **in the angular chart**. This does not by itself mean
+that actual paper must be cut into those curved shapes. Keep the diagram and
+any physical/net interpretation separate.
 
 | Method to evaluate | What is flat | Important distinction | Planned priority |
 |---|---|---|---|
-| Tree-style layout: curved/rearranged bands and changed openings, if confirmed | The displayed strip layout; possibly the actual strip shapes | Must establish the intended construction, strip widths, and identity/seam map | First, following the user's reference |
-| Uniform angular rescaling with unwrapped sectors | A complete 2D angular chart | Simplest existing code idea, but changes the reference metric; not automatically the tree method or a cut template | Comparison after the tree method |
+| **Tree method: radius-preserving angular map** `(r,theta) -> (r,f*theta)` | A 2D angular chart; reference example f=3/4 | Reproduces the tree; changes the reference metric, so it is not automatically a 1:1 cutting template | **First: the easiest method requested by the user** |
 | Conformal power map, e.g. w=z^f on the unwrapped domain | A 2D chart, locally angle-preserving away from the center | Radius also changes as r^f; scale must be made dimensionally explicit; widths/lengths change | Optional later comparison |
 | Cut/open development or separate flat sector panels | Individual reference pieces | Can preserve reference dimensions; excess sectors may overlap in a common view and need separate panel IDs; the corner may be unjoined in this view | Useful fabrication/reference output |
 | Flat-folded or layered construction | Paper pieces in overlapping planar layers, if a valid fold exists | Requires an actual fold/layer plan, front/back handling, and seam validation; not a single nonoverlapping drawing | Later, only if requested |
 | Project a chosen 3D excess-angle surface onto the page | Its projection | Requires an additional 3D shape choice; projected widths/overlaps differ from physical ones | Last; not needed for the initial flat approach |
+
+For the first completed excess-angle fixture, the proposed unit bookkeeping is
+four ordinary 120-degree reference sectors, each mapped to 90 degrees:
+
+```text
+reference beta = 4 * 120 = 480 degrees
+paperAngleFraction = 4/3
+angularMultiplier / legacy coneFraction = 3/4
+output closure = 4 * 90 = 360 degrees
+```
+
+This is a proposed **future complete fixture**, distinct from the partial
+historical replay. Every strip edge, local-order mask, outline, and picking
+coordinate must use the same sector/branch map. Include exact endpoints and
+bounded curve approximation as required by the earlier mapping contract. Do
+not carry over its unvalidated six-direction inverse-picking shortcut or rely
+on one mutable angular branch shared by unrelated paths.
 
 Do not present these methods as physically interchangeable. A continuous
 unstrained sheet cannot simply acquire excess intrinsic angle and simultaneously
@@ -194,6 +230,10 @@ physical hole. Keep physical weave membership separate from display visibility.
 Classify the hole kind in the reference weave; a flattening can change its
 drawn shape without changing that identity. The chosen center must still remain
 uncovered in the proposed constructed layout.
+Inserting/removing sectors can also change the number of incident strip pieces
+and the central opening's boundary, beyond merely curving its edges. Record that
+defect opening separately; do not silently require it to remain a regular
+six-sided hole just because the reference center was a small hexagon.
 
 Record the selected hole kind, its location/phase, the relevant hexweave class,
 and its orientation where these matter. Determine whether upward/downward
@@ -261,6 +301,15 @@ break different seam symmetries. Derive and show that classification for the
 selected hole, phase, hand, and orientation. Do not guess a universal list of
 fractions from color count alone.
 
+A useful first color comparison is now concrete. For the ordinary reference
+center, the 480-degree identification is a 120-degree rotation modulo a turn.
+The verified planar symmetry cycles H/R/L directions but preserves ordinary
+a/b/c classes. Three distinct direction colors therefore conflict with that
+rotation, while class coloring is a compatible-symmetry candidate. Confirm
+both outcomes on the actual global continuation graph; this deduction is not a
+completed seam test. The three colors visible in the incomplete tree are not
+proof that its direction coloring closes in a completed model.
+
 Distinguish material colors from palette slots, direction names, and a/b/c
 classes. Two slots can have the same color; three available colors do not prove
 three distinct colors are used. In particular, class coloring on one isolated
@@ -307,9 +356,11 @@ unless the selected construction actually calls for those curved shapes.
 ## Recommended sequence: several stages, with an initial hold
 
 **Stage 0 — finish and approve this prompt.** Resolve the outstanding decisions
-below, especially the tree construction. Set the status to ready only when the
-user agrees the specification is sufficiently complete. No project implementation
-or nonunit renderer experiment during this stage.
+below; the tree's center and angular mapping have now been recovered. Set the
+status to ready only when the user agrees the specification is sufficiently
+complete. No project implementation during this stage. The explicitly authorized
+historical/image forensics are recorded separately and do not enable cone mode
+in the production app.
 
 **Stage 1 — mathematical model and compatibility catalogue.** After explicit
 authorization, derive hole coordinates, the chosen flattening, boundary
@@ -318,8 +369,8 @@ Deliver examples and rejection witnesses. Reconcile the old cone contract with
 this model; do not begin by enabling its N=6 fixture.
 
 **Stage 2 — one small, independently checked construction.** After the model is
-reviewed, implement the simplest agreed tree-style example and a wedge-removal
-example. Include a valid single-color case and a three-color conflict using the
+reviewed, implement a **completed** tree-style f=3/4 example with the bookkeeping above,
+and a wedge-removal example. Include a valid single-color case and a three-color conflict using the
 same geometric seam, plus a valid three-color arrangement when one exists.
 Check all identified edges, exact endpoints, widths and local order, and f=1
 regression. Use an independent geometric/identity oracle, not only screenshots.
@@ -344,8 +395,8 @@ artifacts exist; follow the user's explicit project-start and staging instructio
 
 | Priority | Decision / suggested addition | Proposed handling |
 |---|---|---|
-| Blocking | Exact interpretation of `tree.png`, corner location, and intended flat strip construction | Ask the user; then specify the first flattening map and its physical meaning |
-| Blocking | Whether strips must be straight constant-width stock, may be cut as curved constant-width shapes, or are only represented by distorted shapes | Clarify; this determines whether the flat output is a fabrication guide or a diagram |
+| Resolved during preparation | Tree center and flattening map | Center near (218,228); radius-preserving code multiplier 3/4, paper fraction 4/3; inverse-edge, upper-track-count, and historical replay evidence recorded |
+| Before fabrication output | Physical interpretation of stock strips versus cut shapes | The first tree output is an angular chart. Agree the material and reference/net construction separately before claiming that its displayed curved bands are physical cutting patterns |
 | Blocking | Scope of angles and whether compatibility is required for an infinite periodic weave or the chosen finite model | Derive admissible families; agree a bounded first UI range and label the certificate's scope |
 | Before implementation | Geometric center of a hole versus any point in a hole | Recommend discrete valid symmetry centers first; obtain agreement |
 | Before implementation | Exactly three distinct used material colors versus an available three-slot palette | Expose the distinction; agree which presets are required |
@@ -359,6 +410,7 @@ artifacts exist; follow the user's explicit project-start and staging instructio
 
 ## Read alongside this prompt
 
+- [Tree reference analysis](TREE_REFERENCE_ANALYSIS.md): recovered center, inverse-edge fit, upper-half count, historical replay, and limits.
 - [Planar model](PLANAR_MODEL.md): identities, colors, classes, and local order.
 - [Symmetry](SYMMETRY.md): verified origin-centered cases; not a complete catalogue
   for all of the new hole centers.

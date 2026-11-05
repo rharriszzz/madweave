@@ -2,8 +2,9 @@
 
 The project has four connected goals: explain every control, explain the planar
 hexweave and madweave construction, make those explanations testable, and finish
-the preparation for `coneFraction`. The planar preparation was merged into `master`; the SVG seam investigation
-and fix are on `research/svg-seam-rendering`. `coneFraction` remains 1.
+the preparation for `coneFraction`. The planar preparation and SVG seam fix
+have been merged into `master`. The single-corner prompt is still being prepared;
+the production application's `coneFraction` remains 1.
 
 ## Reading paths
 
@@ -16,7 +17,8 @@ and fix are on `research/svg-seam-rendering`. `coneFraction` remains 1.
 | Boundary rendering | [Boundary and Firefox comparison](BOUNDARY_RENDERING.md) | Finite ends, mask sides, and the known clipping artifact |
 | Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
 | Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
-| Single-corner project prompt | [Draft for later work](SINGLE_CORNER_PROJECT_PROMPT.md) | Physical angle versus coneFraction, hole centers, exact strip/color continuation, tree flattening, stages, and unresolved decisions; implementation is on hold |
+| Single-corner project prompt | [Draft for later work](SINGLE_CORNER_PROJECT_PROMPT.md) | Physical angle versus coneFraction, hole centers, exact strip/color continuation, recovered tree flattening, stages, and unresolved decisions; implementation is on hold |
+| Tree reference evidence | [Recovered center and multiplier](TREE_REFERENCE_ANALYSIS.md) | Single-edge inverse fit, upper-half count, and historical renderer replay establish code f=3/4 versus paper ratio 4/3 |
 | Cone prototype contract | [Mapping specification](CONE_MAPPING_SPEC.md) | Coordinates, units, seams, inverse selection, tolerance, and saved state |
 | Evidence and reproduction | [Research testing](TESTING.md) | One suite command, coverage, results, and remaining test work |
 | Independent geometry evidence | [Geometry matrix report](GEOMETRY_MATRIX_REPORT.md) | Finite-strip tiling, 256 structural cases, and 128 pixel cases |
