@@ -23,6 +23,7 @@ async function snapshot(page){return page.evaluate(()=>{const a=MadWeaveEditor,c
 async function watchFiles(page){await page.evaluate(()=>{const input=document.querySelector('#project-file'),original=input.onchange;window.__files=[];input.onchange=function(e){const result=original.call(this,e);window.__files.push(Promise.resolve(result));return result;};});}
 async function openTracked(page,payload){const i=await page.evaluate(()=>__files.length);const chooser=page.waitForEvent('filechooser');await page.click('#open-project');await(await chooser).setFiles(payload);await page.evaluate(i=>__files[i],i);}
 const payload=(name,text)=>({name,mimeType:'application/json',buffer:Buffer.from(text)});
+async function legacy(page){const value=await page.evaluate(()=>MadWeaveCornerCore.CornerProject.initial(MadWeaveCornerCore.catalogue));await open(page,payload('legacy-excess.json',JSON.stringify(value)));assert.equal((await state(page)).design.construction.id,'excess');}
 
 // Regression for 2029873: an immediate formula must not queue a replacement
 // that erases paint added later. Compare the complete saved design, not flags.
@@ -110,6 +111,42 @@ async function inspect(page,file=null){const v=(await state(page)).design,c=cert
  if(file){target=file;locator=file.locator('svg').first();}
  const record=await target.evaluate(audit,{certificate:c,value:v,samples}),check=independent(record,path.join(OUT,'actual-'+page.context().browser().browserType().name()+'-'+(file?'static-':'live-')+v.construction.id+'.json'));const error=await pixels(locator,record,v.construction.id);return {record,check,error};}
 
+async function stripEndPixels(page){
+ await svgButton(page,'CC1');
+ await page.evaluate(()=>MadWeaveEditor.corner.edit('End pixels',v=>{v.palette[0]='rgb(20,80,160)';v.opacity[0]=.55;v.view.edges=v.view.seams=v.view.outlines=false;}));
+ const results=[];
+ for(const [size,beta,spacing]of [[1,300,0],[2,360,1],[2,420,1],[2,480,3],[3,360,0],[3,480,1]]){
+  await svgButton(page,'SC'+size);await svgButton(page,'Sep'+spacing);
+  await page.selectOption('#corner-beta',String(beta));await page.click('#corner-apply');
+  const record=await (await activeFrame(page)).evaluate(()=>{
+   const c=parent.MadWeaveEditor.corner,s=c.state,cert=s.model.certificate,p=cert.parameters;
+   const n=x=>String(x).split('/').map(Number).reduce((a,b)=>a/b),ids=new Set(cert.pieces.map(a=>a.id.join(':')));
+   const matrix=c.host.querySelector('.material-cells').getScreenCTM(),rect=c.root.getBoundingClientRect();
+   const sigma=Math.min(Math.hypot(matrix.a,matrix.b),Math.hypot(matrix.c,matrix.d)),pixel=[];
+   let tails=0,bodies=0;
+   for(let j=0;j<p.sectors;j++)for(const cell of cert.render_cells){
+    const members=cell.members.filter(a=>ids.has([j,...a].join(':')));if(!members.length)continue;
+    const poly=cell.vertices.map(([x,y])=>[n(x)/Math.sqrt(3),n(y)]),point=[0,1].map(i=>poly.reduce((sum,a)=>sum+a[i],0)/poly.length);
+    const r=Math.hypot(...point),tail=r>n(p.R_over_P)+.01;
+    if(tail?tails>=50:bodies>=50)continue;
+    const clearance=Math.min(...poly.map((a,i)=>{const b=poly[(i+1)%poly.length],dx=b[0]-a[0],dy=b[1]-a[1];return Math.abs(dx*(point[1]-a[1])-dy*(point[0]-a[0]))/Math.hypot(dx,dy);}));
+    const f=n(p.f);if(clearance*Math.min(1,f)*sigma<3)continue;
+    const phi=s.view.rotation*Math.PI/180+f*(j*p.alpha*Math.PI/180+Math.atan2(point[1],point[0]));
+    const screen=new DOMPoint(s.model.center[0]+r*Math.cos(phi),s.model.center[1]+r*Math.sin(phi)).matrixTransform(matrix);
+    if(screen.x<rect.left+2||screen.x>rect.right-2||screen.y<rect.top+2||screen.y>rect.bottom-2)continue;
+    const alpha=1-Math.pow(.45,members.length),want=[20,80,160].map(x=>Math.round(x*alpha+255*(1-alpha)));
+    pixel.push({x:screen.x-rect.left,y:screen.y-rect.top,want});if(tail)tails++;else bodies++;
+   }
+   return {pixel,tails,bodies,size:p.size,beta:p.beta,strips:cert.components.length};
+  });
+  assert.equal(record.size,size);assert.equal(record.beta,beta);assert.equal(record.strips,Math.floor(9*size*beta/360+.5));
+  assert(record.tails>0,'Check visible material outside the working circle');assert(record.bodies>0);
+  record.maxError=await pixels(page.frameLocator('#weave').locator('#svg'),record,'strip ends');
+  delete record.pixel;results.push(record);
+ }
+ return results;
+}
+
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/madweave/editor.html`,results=[];
 try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,webkit').split(',')){
  console.log(name,'starting');const browser=await p[name].launch({headless:true,...(name==='chromium'?{executablePath:process.env.MADWEAVE_CHROMIUM_EXECUTABLE}:{})});
@@ -119,8 +156,8 @@ try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,w
   await page.evaluate(()=>{const w=MadWeaveEditor.planar.contentWindow,r=w.document.getElementById('svg');w.setDefaultColor(r,5);w.setStripColorToCurrentDefault(r,0);w.opacityArray[5]=.37;w.buildStrips(w.document);w.selectedMouseIndex=0;w.showMouseStrip(r,0);});const planar=await state(page);
   // A failed first mode setup leaves the original planar frame untouched.
   await page.route('**/corner-runtime.js',r=>r.fulfill({status:503,body:'injected asset failure'}));await page.selectOption('#design-mode','corner');await page.waitForFunction(()=>document.querySelector('#export-status').textContent.startsWith('Mode was not changed:'));assert.deepEqual(await state(page),planar);await page.unroute('**/corner-runtime.js');
-  const transactionPage=await context.newPage();await transactionPage.goto(url);await transactionPage.waitForFunction(()=>!document.querySelector('#save-project').disabled);await mode(transactionPage,'corner');const formulaCases=await formulaTransactions(transactionPage);await transactionPage.close();
-  await mode(page,'corner');const originalGeometry=JSON.stringify(certs.excess);await svgButton(page,'C7');
+  const transactionPage=await context.newPage();await transactionPage.goto(url);await transactionPage.waitForFunction(()=>!document.querySelector('#save-project').disabled);await mode(transactionPage,'corner');await legacy(transactionPage);const formulaCases=await formulaTransactions(transactionPage);await transactionPage.close();
+  await mode(page,'corner');const endPixels=await stripEndPixels(page);await legacy(page);const originalGeometry=JSON.stringify(certs.excess);await svgButton(page,'C7');
   // Real pointer paints directly; no mandatory list-select/paint flow.
   const f=await activeFrame(page),row=oracles.excess.find(row=>{const x=row.XY[0]/Math.sqrt(3),y=row.XY[1],r=Math.hypot(x,y),theta=Math.atan2(y,x),normals=[[0,1],[-Math.sqrt(3)/2,-.5],[Math.sqrt(3)/2,-.5]];return row.positions.length&&r>1&&r<4&&theta>.15&&theta<certs.excess.parameters.alpha*Math.PI/180-.15&&!certs.excess.pieces.some(b=>b.id[0]===row.sector&&Math.abs(Math.abs(normals[b.id[1]][0]*x+normals[b.id[1]][1]*y-(b.id[2]-2.5))-.375)<.12);}),local=await f.evaluate(row=>{const m=parent.MadWeaveEditor.corner.state.model,p=m.map([row.XY[0]/Math.sqrt(3),row.XY[1]],row.sector),q=new DOMPoint(...p).matrixTransform(document.querySelector('#diagram .material-cells').getScreenCTM());return {x:q.x,y:q.y};},row);await page.frameLocator('#weave').locator('#diagram').scrollIntoViewIfNeeded();
   const newLocal=await f.evaluate(row=>{const m=parent.MadWeaveEditor.corner.state.model,p=m.map([row.XY[0]/Math.sqrt(3),row.XY[1]],row.sector),q=new DOMPoint(...p).matrixTransform(document.querySelector('#diagram .material-cells').getScreenCTM());return {x:q.x,y:q.y};},row),box=await page.locator('#weave').boundingBox();await page.mouse.click(box.x+newLocal.x,box.y+newLocal.y);
@@ -170,23 +207,23 @@ try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,w
   await openTracked(page,path.join(__dirname,'evidence/corner-stage3a-worked/01-self-23.corner.html'));assert.equal((await state(page)).design.construction.id,'self');assert.equal((await state(page)).design.selection.local.active,'0:0:3');
   await svgButton(page,'C7');await slider(page,'OB',.4);await page.click('#corner-paint');
   const savedState=await state(page),saved=path.join(OUT,name+'-worked.html');await download(page,'#save-project',saved);assert(fs.statSync(saved).size<10*1024*1024);
-  const offline=await browser.newContext({acceptDownloads:true,viewport:{width:1280,height:1300}}),requests=[];await offline.route(/^https?:/,r=>r.abort());if(name!=='webkit')await offline.setOffline(true);offline.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});const localPage=await offline.newPage();localPage.on('pageerror',e=>errors.push(e.message));await localPage.goto(pathToFileURL(saved).href);await localPage.waitForFunction(()=>MadWeaveEditor?.mode==='corner'&&!document.querySelector('#save-project').disabled);assert.deepEqual(await state(localPage),savedState);
+  const offline=await browser.newContext({acceptDownloads:true,viewport:{width:1280,height:1300}}),requests=[];await offline.route(/^https?:/,r=>r.abort());if(name!=='webkit')await offline.setOffline(true);offline.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});const localPage=await offline.newPage();localPage.on('pageerror',e=>errors.push(e.message));await localPage.goto(pathToFileURL(saved).href);await localPage.waitForFunction(()=>window.MadWeaveEditor?.mode==='corner'&&!document.querySelector('#save-project').disabled);assert.deepEqual(await state(localPage),savedState);
   // Exercise the committed worked artifact, not just freshly generated files.
-  const artifactPage=await offline.newPage();artifactPage.on('pageerror',e=>errors.push(e.message));await artifactPage.goto(pathToFileURL(path.join(__dirname,'evidence/corner-integration-worked/editable.html')).href);await artifactPage.waitForFunction(()=>MadWeaveEditor?.mode==='corner'&&!document.querySelector('#save-project').disabled);
-  const offlineFormulaCases=await formulaTransactions(artifactPage),artifactState=await state(artifactPage),artifactSave=path.join(OUT,name+'-formula-resaved.html');await download(artifactPage,'#save-project',artifactSave);await artifactPage.goto(pathToFileURL(artifactSave).href);await artifactPage.waitForFunction(()=>MadWeaveEditor?.mode==='corner');assert.deepEqual(await state(artifactPage),artifactState);
+  const artifactPage=await offline.newPage();artifactPage.on('pageerror',e=>errors.push(e.message));await artifactPage.goto(pathToFileURL(path.join(__dirname,'evidence/corner-integration-worked/editable.html')).href);await artifactPage.waitForFunction(()=>window.MadWeaveEditor?.mode==='corner'&&!document.querySelector('#save-project').disabled);
+  const offlineFormulaCases=await formulaTransactions(artifactPage),artifactState=await state(artifactPage),artifactSave=path.join(OUT,name+'-formula-resaved.html');await download(artifactPage,'#save-project',artifactSave);await artifactPage.goto(pathToFileURL(artifactSave).href);await artifactPage.waitForFunction(()=>window.MadWeaveEditor?.mode==='corner');assert.deepEqual(await state(artifactPage),artifactState);
   await artifactPage.locator('#corner-inspector').evaluate(e=>e.open=true);await svgButton(artifactPage,'CP1');const artifactStrip=await artifactPage.locator('#corner-strip option').nth(1).getAttribute('value');await artifactPage.selectOption('#corner-strip',artifactStrip);await svgButton(artifactPage,'C7');await artifactPage.click('#corner-paint');const artifactPaint=await state(artifactPage);await artifactPage.click('#corner-apply');assert.deepEqual(await state(artifactPage),artifactPaint,'Reopened offline formula/paint/Apply retains paint');await artifactPage.close();
   await mode(localPage,'planar');
   // A default planar frame first created offline must join the shared revision
   // guard too: a real palette edit cancels an older pending corner import.
   await watchFiles(localPage);await localPage.evaluate(()=>{window.__text=File.prototype.text;File.prototype.text=function(){return new Promise(resolve=>window.__resolve=resolve);};});await localPage.locator('#project-file').setInputFiles(payload('old-corner.json',JSON.stringify(savedState)));await svgButton(localPage,'C3');const offlinePlanar=await state(localPage);await localPage.evaluate(text=>{File.prototype.text=window.__text;window.__resolve(text);},JSON.stringify(savedState));await localPage.evaluate(()=>__files[0]);assert.deepEqual(await state(localPage),offlinePlanar);
-  await mode(localPage,'corner');assert.deepEqual(await state(localPage),savedState);await page.locator('#corner-inspector').evaluate(e=>e.open=true);await localPage.locator('#corner-inspector').evaluate(e=>e.open=true);await localPage.click('#corner-next');await localPage.click('#corner-paint');const edited=await state(localPage);await download(localPage,'#save-project',path.join(OUT,name+'-resaved.html'));await localPage.goto(pathToFileURL(path.join(OUT,name+'-resaved.html')).href);await localPage.waitForFunction(()=>MadWeaveEditor?.mode==='corner');assert.deepEqual(await state(localPage),edited);
+  await mode(localPage,'corner');assert.deepEqual(await state(localPage),savedState);await page.locator('#corner-inspector').evaluate(e=>e.open=true);await localPage.locator('#corner-inspector').evaluate(e=>e.open=true);await localPage.click('#corner-next');await localPage.click('#corner-paint');const edited=await state(localPage);await download(localPage,'#save-project',path.join(OUT,name+'-resaved.html'));await localPage.goto(pathToFileURL(path.join(OUT,name+'-resaved.html')).href);await localPage.waitForFunction(()=>window.MadWeaveEditor?.mode==='corner');assert.deepEqual(await state(localPage),edited);
   const art=path.join(OUT,name+'-plain.svg');await download(localPage,'#export',art);const svg=await offline.newPage();await svg.goto(pathToFileURL(art).href);await inspect(localPage,svg);assert.equal(await svg.locator('script,image,foreignObject').count(),0);
   await localPage.locator('#corner-inspector').evaluate(e=>e.open=true);await localPage.locator('#corner-annotations').check();await localPage.locator('#corner-hidden').check();await localPage.locator('#corner-seams').check();await download(localPage,'#export',path.join(OUT,name+'-annotated.svg'));await svg.goto(pathToFileURL(path.join(OUT,name+'-annotated.svg')).href);await inspect(localPage,svg);
   // Planar save/open/offline semantics remain unchanged through the shared UI.
-  await mode(page,'planar');await download(page,'#save-project',path.join(OUT,name+'-planar.html'));assert(fs.statSync(path.join(OUT,name+'-planar.html')).size<5*1024*1024);const planarState=await state(page);await localPage.goto(pathToFileURL(path.join(OUT,name+'-planar.html')).href);await localPage.waitForFunction(()=>MadWeaveEditor?.mode==='planar'&&!document.querySelector('#save-project').disabled);assert.deepEqual(await state(localPage),planarState);
+  await mode(page,'planar');await download(page,'#save-project',path.join(OUT,name+'-planar.html'));assert(fs.statSync(path.join(OUT,name+'-planar.html')).size<5*1024*1024);const planarState=await state(page);await localPage.goto(pathToFileURL(path.join(OUT,name+'-planar.html')).href);await localPage.waitForFunction(()=>window.MadWeaveEditor?.mode==='planar'&&!document.querySelector('#save-project').disabled);assert.deepEqual(await state(localPage),planarState);
   await openTracked(page,legacyPlanarPayload(planar.design));assert.deepEqual((await state(page)).design,planar.design);
   await mode(page,'corner');await page.locator('#corner-inspector').evaluate(e=>e.open=false);await page.screenshot({fullPage:true,path:path.join(OUT,name+'-desktop.png')});await page.setViewportSize({width:390,height:900});await page.waitForTimeout(200);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({fullPage:true,path:path.join(OUT,name+'-narrow.png')});
-  assert.deepEqual(requests,[]);assert.deepEqual(errors,[]);results.push({browser:name,version:browser.version(),rows,races,formulaTransactions:{online:formulaCases,offline:offlineFormulaCases,offlineResave:true},modeRetention:true,offlinePlanarEditsCancelPendingImports:true,failedPaletteAndViewRollback:true,invalidAndUnvalidatedProposals:true,fringeAndHiddenPainting:true,paletteAliasesAndTransparency:true,zeroOpacityPreservesAllMaterial:true,wrongVisiblePaintRejectedByGeometryAndPixels:true,continuousTranslucentSeamPixels:monoSeams.record.pixel.filter(q=>q.seam).length,exactRayPixels:monoSeams.record.pixel.filter(q=>q.exactRay).length,continuousTranslucentMaxError:monoSeams.error,zeroOpacityMaxError:invisible.error,legacyImports:true,offlineRequests:requests,projectBytes:fs.statSync(saved).size,errors});await offline.close();await context.close();
+  assert.deepEqual(requests,[]);assert.deepEqual(errors,[]);results.push({browser:name,version:browser.version(),rows,races,endPixels,formulaTransactions:{online:formulaCases,offline:offlineFormulaCases,offlineResave:true},modeRetention:true,offlinePlanarEditsCancelPendingImports:true,failedPaletteAndViewRollback:true,invalidAndUnvalidatedProposals:true,fringeAndHiddenPainting:true,paletteAliasesAndTransparency:true,zeroOpacityPreservesAllMaterial:true,wrongVisiblePaintRejectedByGeometryAndPixels:true,continuousTranslucentSeamPixels:monoSeams.record.pixel.filter(q=>q.seam).length,exactRayPixels:monoSeams.record.pixel.filter(q=>q.exactRay).length,continuousTranslucentMaxError:monoSeams.error,zeroOpacityMaxError:invisible.error,legacyImports:true,offlineRequests:requests,projectBytes:fs.statSync(saved).size,errors});await offline.close();await context.close();
  }finally{await browser.close();}
 }}finally{server.close();}fs.writeFileSync(path.join(OUT,process.env.MADWEAVE_STAGE2_BROWSERS?'browser-'+process.env.MADWEAVE_STAGE2_BROWSERS+'.json':'browser.json'),JSON.stringify(results,null,2)+'\n');console.log('Integrated editor checks passed');
 })().catch(e=>{console.error(e);server.close();process.exitCode=1;});

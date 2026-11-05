@@ -63,11 +63,10 @@ export const Project=(()=>{
       if(!Number.isInteger(local.sector)||local.sector<0||local.sector>=model.m||!Array.isArray(local.point)||local.point.length!==2||!local.point.every(Number.isFinite))reject('Invalid local reference coordinates');
       if(!Array.isArray(local.positions)||!local.positions.every(a=>typeof a==='string')||typeof local.active!=='string')reject('Malformed local position identities');
       const radius=Math.hypot(...local.point),angle=Math.atan2(local.point[1],local.point[0]);
-      if(radius>model.R+1e-12||angle< -1e-12||angle>=model.alpha)reject('Local position outside the owned finite reference sector');
+      if(radius>model.extent+1e-12||angle< -1e-12||angle>=model.alpha)reject('Local position outside the owned finite reference sector');
       // Reconstruct in reference coordinates, independently of display rotation
       // and rendered curves. Sector ownership is stored explicitly, half-open.
-      const normals=[[0,1],[-Math.sqrt(3)/2,-.5],[Math.sqrt(3)/2,-.5]];
-      const ids=certificate.pieces.filter(a=>a.id[0]===local.sector&&Math.abs(normals[a.id[1]][0]*local.point[0]+normals[a.id[1]][1]*local.point[1]-(a.id[2]-2.5))<=model.W/2+1e-12).map(a=>id(a.id));
+      const ids=model.positions(local.point,local.sector);
       next.hits=model.ranked(ids).map(position=>({position,strip:model.owner.get(position)}));
       if(!next.hits.length||!same(local.positions,next.hits.map(a=>a.position))||new Set(local.positions).size!==local.positions.length)reject('Invalid local material positions or order');
       next.hitIndex=next.hits.findIndex(a=>a.position===local.active);

@@ -44,12 +44,17 @@ def phase_check(p):
 
 PARTITIONS={}
 def partition(p):
-    key=signature({k:v for k,v in p.items() if k not in ['sectors','beta','f']})
-    if key in PARTITIONS:return PARTITIONS[key]
     bands,_,_,_=check['reference'](signature(p));R=F(p['R_over_P']);w=F(p['W_over_P']);g=producer['g']
-    cells=[[(-2*R,-R),(2*R,-R),(2*R,R),(-2*R,R)]]
+    square=p.get('end_style')=='strip'
+    key=signature([p['alpha'],str(R),str(w),square,sorted(bands)])
+    if key in PARTITIONS:return PARTITIONS[key]
+    extent=R+2 if square else R
+    cells=[[(-2*extent,-extent),(2*extent,-extent),(2*extent,extent),(-2*extent,extent)]]
     for normal,bound in g['wedge'](p['alpha']):cells=[g['clip'](c,normal,bound) for c in cells]
     cuts={(check['N'][d],F(s)-F(5,2)+sign*w/2) for d,s in bands for sign in (-1,1)}
+    if square:
+        _,_,_,tangent,length=producer['strip_ends'](R,w)
+        cuts.update((tuple(sign*x for x in tangent(d)),length(s)) for d,s in bands for sign in (-1,1))
     for normal,bound in sorted(cuts):
         children=[]
         for cell in cells:
@@ -60,8 +65,8 @@ def partition(p):
     inside=[];outside=[]
     for cell in cells:
         mean=tuple(sum(a[i] for a in cell)/len(cell) for i in range(2))
-        members=[a for a in bands if abs(check['dot'](check['N'][a[0]],mean)-(F(a[1])-F(5,2)))<w/2]
-        if members:(inside if check['inside'](cell,R) else outside).append(dict(vertices=cell,members=members))
+        members=[a for a in bands if abs(check['dot'](check['N'][a[0]],mean)-(F(a[1])-F(5,2)))<w/2 and (not square or abs(check['dot'](tangent(a[0]),mean))<length(a[1]))]
+        if members:(inside if square or check['inside'](cell,R) else outside).append(dict(vertices=cell,members=members))
     PARTITIONS[key]=encode((inside,outside));return PARTITIONS[key]
 
 def colored(c,pattern):

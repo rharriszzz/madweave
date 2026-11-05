@@ -165,11 +165,29 @@ Stage 3C adds an explicit Planar/Corner selector in the existing editor. Each mo
 keeps its own live frame, authoritative model, palette and selection. Corner
 reuses the actual base SVG buttons and palette/HSV/opacity handlers through
 `corner-editor.js`; only supported geometry/formula choices are mapped. It does
-not embed the research page. `madweave.js` and planar `project.js` are unchanged.
+not embed the research page. The planar drawing functions and `project.js` retain
+their existing behavior; the bottom controls use the original `addButton` helper.
 The frame provides isolation for their original global state.
 
-`corner-model.mjs` validates a version-3 corner state against the unchanged
-84-certificate catalogue. The shared renderer is
+`corner-model.mjs` validates a version-3 corner state against trusted certificates.
+The original 84 certificates remain unchanged for saved-project compatibility.
+The runtime builder reuses `build-corner-family.py` and its producer to add the
+four original spacing ratios (100/107, 100/133, 5/9, 1/3) and sizes 1–8.
+New constructions extend the material to individual transverse end cuts outside
+a circular working area. Size n selects round(9*n*beta/360) complete strips
+(round(3*n*beta/360) for one hexweave class), with ties rounded up. At 360° the
+selected signed band indices exactly match the original 3*n strips per direction.
+Selection always retains entire joined components. The checker reconstructs all
+end polygons, seams, added overlaps and render partitions, then verifies the
+declared whole-strip selection, two ends per component and the 360° calibration.
+Original circular certificates and their digests remain valid. Size,
+spacing and grouped Apply share the construction-change path; no additional
+browser geometry algorithm is used. Identical JSON subtrees share one runtime
+table, so sector data is stored once across angles. The table is gzip compressed
+inside the runtime; `editor.js` awaits `MadWeaveCornerReady` before initialization.
+Saved HTML disables Save/Export until initialization completes. This keeps the
+larger catalogue and both offline modes within the existing file size limits.
+The shared renderer is
 `research/corner-prototype/render.mjs`; the research app retains its original
 opaque path, while integrated RGBA stacks composite complete ordered SVG groups
 before a single region clip. Candidate drawings are prepared detached. A shared

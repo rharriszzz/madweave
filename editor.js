@@ -1,6 +1,7 @@
 /* Shared editor workspace: retained per-mode frames, one palette/file workflow. */
-(function(){
+(async function(){
  'use strict';
+ await window.MadWeaveCornerReady;
  const project=window.MadWeaveProject,core=window.MadWeaveCornerCore,$=s=>document.querySelector(s);
  let planar=$('#weave'),cornerFrame=null,corner=null,mode='planar',revision=0,assetsPromise,draft=null;
  const status=$('#export-status');
@@ -19,9 +20,7 @@
  function message(text){status.textContent=text;}
  function activeFrame(){return mode==='corner'?cornerFrame:planar;}
  function ready(){try{return mode==='corner'?Boolean(corner):Boolean(planar.contentDocument?.getElementById('strips'));}catch(_){return false;}}
- function buttons(){$('#save-project').disabled=$('#export').disabled=!ready();$('#open-project').disabled=false;$('#design-mode').value=mode;$('#corner-apply').disabled=mode!=='corner';
-  if(mode==='planar'){$('#corner-beta').value='360';planar.contentWindow?.buildViewButtons?.(planar.contentDocument,'planar');}
- }
+ function buttons(){$('#save-project').disabled=$('#export').disabled=!ready();$('#open-project').disabled=false;$('#design-mode').value=mode;$('#corner-apply').disabled=mode!=='corner';}
  function begin(){revision++;buttons();return revision;}
  function failure(operation,error,ticket=revision){if(ticket===revision){buttons();message(`${operation}: ${error.message}. Active and inactive designs retained.`);}}
  function download(text,type,name){const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);}
@@ -70,14 +69,24 @@
   if(env.active==='planar'&&size>5*1024*1024)throw Error('Project exceeds the 5 MiB planar file limit');return env;
  }
 
- function callbacks(){return {intent:begin,error:(op,e)=>{if(mode==='corner'){syncCorner();failure(op,e);}},change:adapter=>{if(adapter===corner&&mode==='corner')syncCorner();},formula, weave(member){const phase=core.catalogue.matrix.domain.phases.find(p=>p.weave==='hexweave'&&p.member===member);draft={...draft,phase:phase.id,weave:'hexweave'};begin();syncProposal();}};}
+ function callbacks(){return {intent:begin,error:(op,e)=>{if(mode==='corner'){syncCorner();failure(op,e);}},change:adapter=>{if(adapter===corner&&mode==='corner')syncCorner();},formula,
+  resize(size,spacing){
+   const p=corner.state.model.p,equivalent=corner.state.keys.length*360/((p.member===null?9:3)*p.beta);
+   const config={...corner.state.entry.config,crop:'s'+(size||p.size||Math.max(1,Math.min(8,Math.round(equivalent))))};
+   const index=spacing===null?(p.W_over_P==='3/4'?1:core.catalogue.widths.indexOf(p.W_over_P)):spacing;
+   return applyConstruction(config,core.catalogue.widths[index],corner.state.value.material.pattern,true);
+  },
+  weave(member){const phase=core.catalogue.matrix.domain.phases.find(p=>p.weave==='hexweave'&&p.member===member);draft={...draft,phase:phase.id,weave:'hexweave'};begin();syncProposal();}};}
  function activate(next){
   mode=next;const active=activeFrame();for(const f of [planar,cornerFrame])if(f){f.hidden=f!==active;f.id=f===active?'weave':f===planar?'weave-planar':'weave-corner';}
   active.style.visibility='';active.style.position='';active.style.width='';if(next==='planar')active.style.height='';$('#main').dataset.mode=mode;$('#corner-settings').hidden=mode!=='corner';buttons();
   if(mode==='corner'){corner.layout();if(!draft)draft={...corner.state.entry.config,pattern:corner.state.value.material.pattern};syncCorner();message('Corner mode. Planar work retained; this supported setup is not a conversion. Physical constructibility unverified.');}
-  else message('Planar design restored, including unsaved colors and selection.');
+  else{$('#corner-beta').value='360';message('Planar design restored, including unsaved colors and selection.');}
  }
- async function changeMode(next){const ticket=begin();try{if(next==='corner'&&!corner){const bundle=await assets();if(ticket!==revision)return;const f=await makeFrame(bundle);if(ticket!==revision){f.remove();return;}let adapter;try{const value=core.CornerProject.initial(core.catalogue),flat=project.capture(planar.contentWindow);
+ async function changeMode(next){const ticket=begin();try{if(next==='corner'&&!corner){const bundle=await assets();if(ticket!==revision)return;const f=await makeFrame(bundle);if(ticket!==revision){f.remove();return;}let adapter;try{const flat=project.capture(planar.contentWindow),config={phase:'mad-sixfold',beta:480,crop:'s'+flat.baseSize};
+   const row=core.CornerProject.construction(core.catalogue,config,core.catalogue.widths[flat.separation]);
+   const value=core.CornerProject.initial(core.catalogue,row.id);
+   value.material.pattern=2; // Continuous colors for this 480° sixfold phase.
    value.palette=flat.palette;value.opacity=flat.opacity;value.recent=flat.recentColors;value.recentOpacity=flat.recentOpacity;value.selectedColor=flat.selectedColor;
    adapter=new window.MadWeaveCornerEditor(f,core,value,callbacks());}catch(e){f.remove();throw e;}cornerFrame=f;corner=adapter;}
   if(next==='planar'&&!planar.contentDocument?.getElementById('strips')){const b=await assets();const f=await makeFrame(b);if(ticket!==revision){f.remove();return;}planar.remove();planar=f;observePlanar(f);}
@@ -98,6 +107,7 @@
  }
  function projectHtml(state,bundle){
   const html=document.documentElement.cloneNode(true);html.querySelectorAll('script,style,link[rel="stylesheet"],.canvas iframe,.canvas object').forEach(n=>n.remove());
+  for(const id of ['save-project','export'])html.querySelector('#'+id).disabled=true;
   const frame=document.createElement('iframe');frame.id='weave';frame.title='MadWeaver interactive weaving editor';html.querySelector('.canvas').append(frame);
   const css=document.createElement('style');css.textContent=bundle.css;html.querySelector('head').append(css);html.querySelector('title').textContent='MadWeave — Saved editable project';
   html.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href');if(h&&!h.startsWith('#')&&!/^[a-z]+:/i.test(h))a.href=new URL(h,'https://rharriszzz.github.io/madweave/').href;});
@@ -106,13 +116,16 @@
   const result='<!doctype html>\n'+html.outerHTML;if(new TextEncoder().encode(result).byteLength>(state.active==='corner'?10:5)*1024*1024)throw Error('Generated project exceeds its mode import limit');return result;
  }
  function syncProposal(){
-  if(!draft||!corner)return;for(const k of ['phase','beta','crop'])$('#corner-'+k).value=String(draft[k]);
-  const row=core.catalogue.matrix.rows.find(r=>r.phase===draft.phase&&r.beta===draft.beta&&r.crop===draft.crop),phase=core.catalogue.matrix.domain.phases.find(p=>p.id===draft.phase);
+  if(!draft||!corner)return;
+  for(const option of $('#corner-crop').options)option.hidden=option.disabled=option.value.startsWith('s')!==(corner.state.model.p.end_style==='strip');
+  for(const k of ['phase','beta','crop'])$('#corner-'+k).value=String(draft[k]);
+  const row=core.CornerProject.construction(core.catalogue,draft,corner.state.model.p.W_over_P),phase=core.catalogue.matrix.domain.phases.find(p=>p.id===draft.phase);
   draft.weave=phase.weave;
   const loss=Object.keys(corner.state.value.material.overrides).length&&row?.id!==corner.state.entry.id?' Applying replaces custom colors; no strip correspondence is assumed.':'';
   let colors='';if(row?.status==='Validated'){const v=core.CornerProject.initial(core.catalogue,row.id);v.palette=[...corner.state.value.palette];v.opacity=[...corner.state.value.opacity];v.material.pattern=draft.pattern;const s=core.CornerProject.restore(v,core.catalogue);colors=s.conflicts.length?`${s.conflicts.length} seam color changes will show warnings.`:`${s.distinctColors} material color(s); continuity checked.`;}
   const formulaName=draft.pattern===null?'Monochrome':['Direction','Class','Direction + class','Group','Class + group'][draft.pattern];
-  $('#corner-proposal').dataset.status=row?.status||'Unvalidated';$('#corner-proposal').textContent=`Proposed ${phase.label}, ${draft.beta}° (${draft.beta>360?'excess':draft.beta<360?'deficit':'planar'} ${Math.abs(360-draft.beta)}°), R/P=${draft.crop.slice(1)}. Replacement coloring: ${formulaName}. ${row?.status||'Unvalidated'}: ${row?.witness||colors}${loss} CP previews / CC1 stage replacement coloring when construction settings are pending.`;
+  const outline=draft.crop.startsWith('s')?'Size '+draft.crop.slice(1):'R/P='+draft.crop.slice(1);
+  $('#corner-proposal').dataset.status=row?.status||'Unvalidated';$('#corner-proposal').textContent=`Proposed ${phase.label}, ${draft.beta}° (${draft.beta>360?'excess':draft.beta<360?'deficit':'planar'} ${Math.abs(360-draft.beta)}°), ${outline}. Replacement coloring: ${formulaName}. ${row?.status||'Unvalidated'}: ${row?.witness||colors}${loss} CP previews / CC1 stage replacement coloring when construction settings are pending.`;
  }
  function syncCorner(){
   const s=corner.state,keys=s.keys;$('#corner-warning').textContent=s.conflicts.length?`⚠ ${s.conflicts.length} seam color changes. Vivid pink markers identify them; hover or focus for strip details. Coloring continuity is not Validated. Material geometry remains certified.`:'';
@@ -131,19 +144,17 @@
   // the retained active formula. Only a deliberately staged edit stays queued.
   draft={...config,pattern:applied?pattern:corner.state.value.material.pattern};syncProposal();
  }
- for(const p of core.catalogue.matrix.domain.phases)$('#corner-phase').append(new Option(p.label,p.id));
- for(const b of core.catalogue.matrix.domain.angles)$('#corner-beta').append(new Option(b+'° ('+(b/60)+' × 60°)',String(b)));
- for(const c of core.catalogue.matrix.domain.crops)$('#corner-crop').append(new Option(c.label,c.id));
  // Saved HTML may already contain option nodes: reconstruct deterministic lists.
  for(const [id,rows]of [['phase',core.catalogue.matrix.domain.phases.map(p=>[p.label,p.id])],['beta',core.catalogue.matrix.domain.angles.map(b=>[b+'° ('+(b/60)+' × 60°)',String(b)])],['crop',core.catalogue.matrix.domain.crops.map(c=>[c.label,c.id])]])$('#corner-'+id).replaceChildren(...rows.map(([label,value])=>new Option(label,value)));
  for(const key of ['phase','beta','crop'])$('#corner-'+key).onchange=async()=>{const v=$('#corner-'+key).value;if(!corner||mode!=='corner'){await changeMode('corner');if(mode!=='corner')return;}begin();draft={...draft,[key]:key==='beta'?Number(v):v};syncProposal();};
- $('#corner-apply').onclick=()=>{const ticket=begin();try{
-  const row=core.catalogue.matrix.rows.find(r=>r.phase===draft.phase&&r.beta===draft.beta&&r.crop===draft.crop);if(row?.status!=='Validated')throw Error(`${row?.status||'Unvalidated'}: ${row?.witness||'Unsupported configuration'}`);
+ function applyConstruction(config,width,pattern,keepPaint=false){const ticket=begin();try{
+   const row=core.CornerProject.construction(core.catalogue,config,width);if(row?.status!=='Validated')throw Error(`${row?.status||'Unvalidated'}: ${row?.witness||'Unsupported configuration'}`);
   const old=corner.capture(),changed=row.id!==old.construction.id;
-  const v=changed?core.CornerProject.initial(core.catalogue,row.id):old;
-  for(const k of ['palette','opacity','recent','recentOpacity','selectedColor','controlsHidden'])v[k]=structuredClone(old[k]);v.view=structuredClone(old.view);v.material={pattern:draft.pattern,overrides:changed||draft.replaceColors?{}:old.material.overrides};
-  corner.replace(v);draft={...corner.state.entry.config,pattern:v.material.pattern};syncCorner();if(changed)message('Construction applied. Selection and custom colors replaced as proposed; no strip correspondence assumed. Physical constructibility unverified.');return true;
- }catch(e){failure('Construction was not applied',e,ticket);return false;}};
+   const v=changed?core.CornerProject.rebuild(old,row.id,core.catalogue,keepPaint):old;
+   v.material={pattern,overrides:!keepPaint&&(changed||draft.replaceColors)?{}:v.material.overrides};
+   corner.replace(v);draft={...corner.state.entry.config,pattern:v.material.pattern};syncCorner();if(changed)message(keepPaint?'Size or spacing changed. Colors retained on surviving strips.':'Construction applied. Selection and custom colors replaced as proposed; no strip correspondence assumed. Physical constructibility unverified.');return true;
+ }catch(e){failure('Construction was not applied',e,ticket);return false;}}
+ $('#corner-apply').onclick=()=>applyConstruction(draft,corner.state.model.p.W_over_P,draft.pattern);
  $('#corner-strip').onchange=()=>corner.inspectStrip($('#corner-strip').value);$('#corner-crossing').onchange=()=>{if($('#corner-crossing').value!=='')corner.inspectCrossing($('#corner-crossing').value);};$('#corner-next').onclick=()=>corner.next();$('#corner-paint').onclick=()=>corner.paintSelected();
  $('#corner-rotation').onchange=()=>{const v=Number($('#corner-rotation').value);corner.edit('Rotation',s=>{s.view.rotation=v;});};for(const [id,key]of [['seams','seams'],['hidden','outlines'],['annotations','annotations']])$('#corner-'+id).onchange=()=>{const v=$('#corner-'+id).checked;corner.edit('Inspection',s=>{s.view[key]=v;});};
  $('#design-mode').onchange=()=>changeMode($('#design-mode').value);

@@ -50,5 +50,23 @@ export const CornerProject=(()=>{
  }
  function capture(s,catalogue){const v=Project.capture(s,catalogue);return {...structuredClone(s.value),...v,version:3,material:structuredClone(s.value.material),selectedColor:s.value.selectedColor,controlsHidden:s.value.controlsHidden};}
  function paint(s,slot,catalogue){if(s.selected===null)fail('Select material to paint');const v=capture(s,catalogue);v.material.overrides[s.keys[s.selected]]=slot;return restore(v,catalogue);}
- return {defaults,rgb,rgba,initial,migrate,restore,capture,paint,stripKeys};
+ function construction(catalogue,config,width){return catalogue.matrix.rows.find(r=>r.phase===config.phase&&r.beta===config.beta&&r.crop===config.crop&&(r.width||'3/4')===width);}
+ function rebuild(value,key,catalogue,keepPaint=false){
+  const v=initial(catalogue,key);
+  for(const k of ['palette','opacity','recent','recentOpacity','selectedColor','controlsHidden','view'])v[k]=structuredClone(value[k]);
+  v.material.pattern=value.material.pattern;
+  if(keepPaint){
+   const before=restore(value,catalogue),after=restore(v,catalogue);
+   for(const [key,slot]of Object.entries(value.material.overrides)){
+    const pieces=before.model.certificate.components[before.keys.indexOf(key)].pieces;
+    for(const target of new Set(pieces.map(p=>after.model.owner.get(id(p))).filter(i=>i!==undefined))){
+     const nextKey=after.keys[target];
+     if(v.material.overrides[nextKey]!==undefined&&v.material.overrides[nextKey]!==slot)fail('Resizing would combine differently painted strips');
+     v.material.overrides[nextKey]=slot;
+    }
+   }
+  }
+  return v;
+ }
+ return {defaults,rgb,rgba,initial,migrate,restore,capture,paint,stripKeys,construction,rebuild};
 })();

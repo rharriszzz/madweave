@@ -1,4 +1,4 @@
-import {number,id,boundary,pathFor,TAU} from './kernel.mjs';
+import {number,id,pathFor,TAU} from './kernel.mjs';
 // One bounded renderer shared by the research prototype and integrated editor.
 export function createRenderer(svg,colors,inspection,compositing=null){
  const document=svg.ownerDocument,NS=svg.namespaceURI;
@@ -6,7 +6,7 @@ export function createRenderer(svg,colors,inspection,compositing=null){
  const openPath=mesh=>pathFor(mesh).replace(/ Z$/,'');
  return function prepare(s,exportSigma=null){
   const {model,entry,selected,view}=s;model.rotation=view.rotation*Math.PI/180;
-  const pad=model.R+.3,viewBox=`${model.center[0]-pad} ${model.center[1]-pad} ${2*pad} ${2*pad}`;
+  const pad=model.extent+.3,viewBox=`${model.center[0]-pad} ${model.center[1]-pad} ${2*pad} ${2*pad}`;
   // Firefox's nested SVG viewport reports identity; its graphics child carries
   // the actual viewport transform. Root prototype/export SVGs use the same path.
   const matrix=(svg.querySelector('.material-cells')||svg).getScreenCTM(),oldWidth=svg.viewBox.baseVal.width;
@@ -35,7 +35,7 @@ export function createRenderer(svg,colors,inspection,compositing=null){
     node('path',{...(compositing?{}:{id:pieceId}),d:pathFor(mesh),'data-occurrence':position,
       fill:colors[model.color(position)],'data-strip':model.owner.get(position),'data-vertices':JSON.stringify(part.vertices)},defs);
     if(compositing){container.append(defs.lastChild);if(view.edges){
-      for(const edge of boundary(model.polygons.get(position),model.R)){
+      for(const edge of model.boundary(model.polygons.get(position))){
         if(edge.kind==='line'&&[0,model.alpha].some(t=>[edge.a,edge.b].every(p=>Math.abs(p[0]*Math.sin(t)-p[1]*Math.cos(t))<1e-10)))continue;
         const line=model.mesh([edge],part.id[0],epsilon);node('path',{d:openPath(line),fill:'none',stroke:'#182d2c','stroke-width':1.8/sigma,'data-material-edge':position},paintPiece);
         model.meshAudit.push({kind:'material-edge',position,j:part.id[0],...line});
@@ -79,7 +79,7 @@ export function createRenderer(svg,colors,inspection,compositing=null){
       const maskId=`visible-${position.replaceAll(':','_')}`,clip=node('clipPath',{id:maskId,clipPathUnits:'userSpaceOnUse'},defs);
       node('path',{d:paths.join(' ')},clip);
       const part=model.parts.get(position),j=part.id[0];
-      for(const edge of boundary(model.polygons.get(position),model.R)){
+      for(const edge of model.boundary(model.polygons.get(position))){
         // Conceptual sector cuts are not visible material edges.
         if(edge.kind==='line'&&[0,model.alpha].some(t=>[edge.a,edge.b].every(p=>Math.abs(p[0]*Math.sin(t)-p[1]*Math.cos(t))<1e-10)))continue;
         const mesh=model.mesh([edge],j,epsilon);
@@ -108,6 +108,6 @@ export function createRenderer(svg,colors,inspection,compositing=null){
   let maxBound=0;for(const mesh of model.meshAudit)for(const segment of mesh.segments)maxBound=Math.max(maxBound,segment.bound);
   return {root,viewBox,inspection:inspection(s),
     summary:`ACTIVE: ${entry.label}. Reference ${model.p.beta}° · signed deficit ${360-model.p.beta}° · ${model.p.beta<360?'deficit':model.p.beta>360?'excess':'planar'} ${Math.abs(360-model.p.beta)}° · multiplier ${model.p.f} · R/P ${model.p.R_over_P} · ${entry.counts.open_strips} open strips. Open-strips-only: Validated.`,
-    certificate:JSON.stringify({certificate:entry.id,counts:entry.counts,worldTolerance:epsilon,maxBound,pixelBound:maxBound*sigma,analyticDisk:true,referenceCenter:[-(2*model.p.k[1]+model.p.k[0])/Math.sqrt(3),model.p.k[0]],displayCenter:model.center,displayRotation:model.rotation},null,2)};
+    certificate:JSON.stringify({certificate:entry.id,counts:entry.counts,worldTolerance:epsilon,maxBound,pixelBound:maxBound*sigma,analyticDisk:model.p.end_style!=='strip',referenceCenter:[-(2*model.p.k[1]+model.p.k[0])/Math.sqrt(3),model.p.k[0]],displayCenter:model.center,displayRotation:model.rotation},null,2)};
 };
 }

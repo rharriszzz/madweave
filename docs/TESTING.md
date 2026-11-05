@@ -254,3 +254,31 @@ controls. The [integration report](../research/SINGLE_CORNER_INTEGRATION.md) and
 Browser samples are not exhaustive rendering of all palette/view combinations.
 WebKit automation is not installed Safari or physical-device verification.
 Physical constructibility remains unverified and requires its separate gate.
+
+## Individual strip ends and size controls
+
+The runtime builder checks 1,728 new size/angle/spacing constructions, alongside
+the original 84 circular constructions. Original certificate files and digests
+are unchanged. `npm run test:corner` includes `corner-size.test.mjs`, covering
+all 1,728 new source/runtime round trips, the original strip counts at 360°,
+36 saved selections on extended ends, 36 independently checked RGBA assignments,
+and four rejected boundary/coverage/selection mutations. The original 3,024
+semantic round trips and five negative controls still pass.
+
+The application suite passes all 17 tests in Chromium 153.0.8010.12, Firefox
+155.0 and WebKit 26.6. Native controls retain their original screen coordinates
+at desktop and narrow widths. Size 1–8, all four spacings, painting beyond the
+working circle, L, angle changes, offline reopening/resaving and static export
+are exercised. A saved-file initialization race found in Firefox was corrected
+by serializing Save/Export as disabled until the editor is ready.
+
+The integrated browser suite also checks six new end/angle/spacing examples per
+engine, with 576 pixel probes including 276 beyond the working circle. The
+maximum RGB error was 1/255 in each engine, within the unchanged 4/255 limit.
+All eight legacy rendering representatives, transaction/race regressions and
+online/offline file workflows still pass in all three engines.
+
+The shared runtime packs to 2,798,480 bytes. Representative editable HTML files
+are about 3.2 MB, within the existing 5 MiB planar and 10 MiB corner limits.
+The README captures were regenerated; the first image still passes exact checks
+against all 18 original strip paths and three clip paths.

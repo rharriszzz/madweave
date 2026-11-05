@@ -335,6 +335,7 @@ class BrowserTests(unittest.TestCase):
         self.assertEqual(self.page.evaluate('document.body.dataset.view'), 'svg')
         self.assertFalse(self.page.locator('#construction-controls').is_visible())
         self.assertTrue(self.page.frame_locator('#weave').locator('#cbuttonLines').is_visible())
+        self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.conflicts.length'),0)
         self.assertEqual(self.page.evaluate('MadWeaveEditor.capture().design.palette'),
                          self.page.evaluate('MadWeaveProject.capture(MadWeaveEditor.planar.contentWindow).palette'))
 
@@ -349,6 +350,25 @@ class BrowserTests(unittest.TestCase):
                     const b=e.getBoundingClientRect();return [e.id,[b.x-origin.x,b.y-origin.y,b.width,b.height]];
                 }));
             }''')
+
+        # A real click on material outside the circular working area paints
+        # the extended end, using the same joined-strip selection as the body.
+        press('C7')
+        tail=self.page.evaluate('''() => {
+            const c=MadWeaveEditor.corner,m=c.state.model;
+            for(const [position,poly] of m.polygons){
+                const mean=[0,1].map(i=>poly.reduce((s,p)=>s+p[i],0)/poly.length);
+                const local=poly.map(p=>p.map((x,i)=>x*.97+mean[i]*.03)).find(p=>Math.hypot(...p)>m.R+.01);
+                if(!local)continue;
+                const world=m.map(local,m.parts.get(position).id[0]),hits=m.pick(world);
+                const p=new DOMPoint(...world).matrixTransform(c.host.querySelector('.material-cells').getScreenCTM());
+                const frame=c.frame.getBoundingClientRect();
+                return {x:p.x+frame.x,y:p.y+frame.y,key:c.state.keys[hits[0].strip]};
+            }
+        }''')
+        self.assertIsNotNone(tail)
+        self.page.mouse.click(tail['x'],tail['y'])
+        self.assertEqual(self.page.evaluate('MadWeaveEditor.capture().design.material.overrides').get(tail['key']),7)
 
         for width in (1280,390):
             self.page.set_viewport_size({'width':width,'height':950})
@@ -366,6 +386,29 @@ class BrowserTests(unittest.TestCase):
                     self.assertAlmostEqual(flat,corner,places=4,msg=name)
 
         self.page.set_viewport_size({'width':1280,'height':950})
+        # Native size/spacing controls must change certified geometry, retain
+        # painting on surviving strips, and survive angle changes and saving.
+        self.page.evaluate('''() => {
+            const c=MadWeaveEditor.corner,v=c.capture();
+            v.material.overrides[c.state.keys[0]]=7;c.replace(v);
+        }''')
+        for spacing,width in enumerate(('100/107','100/133','5/9','1/3')):
+            target=self.page.frame_locator('#weave').locator('#cbuttonSep'+str(spacing))
+            self.assertEqual(target.get_attribute('aria-disabled'),'false')
+            target.click()
+            self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.model.p.W_over_P'),width)
+            self.assertIn(7,self.page.evaluate('Object.values(MadWeaveEditor.capture().design.material.overrides)'))
+        old_count=0
+        for size in range(1,9):
+            target=self.page.frame_locator('#weave').locator('#cbuttonSC'+str(size))
+            self.assertEqual(target.get_attribute('aria-disabled'),'false')
+            target.click()
+            self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.model.p.size'),size)
+            self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.keys.length'),12*size)
+            count=self.page.evaluate('MadWeaveEditor.corner.state.model.parts.size')
+            self.assertGreater(count,old_count)
+            old_count=count
+        press('SC6')
         press('Lines')
         self.assertTrue(self.page.evaluate('MadWeaveEditor.capture().design.view.edges'))
         self.assertGreater(self.page.frame_locator('#weave').locator('[data-material-edge]').count(),0)
@@ -375,6 +418,8 @@ class BrowserTests(unittest.TestCase):
         self.page.select_option('#corner-beta','240')
         self.page.locator('#corner-apply').click()
         self.assertEqual(self.page.evaluate('MadWeaveEditor.capture().design.construction.parameters.beta'),240)
+        self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.model.p.W_over_P'),'1/3')
+        self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.model.p.size'),6)
         self.assertTrue(self.page.evaluate('MadWeaveEditor.capture().design.view.edges'))
         self.page.locator('#close-settings').click()
         self.assertEqual(self.page.frame_locator('#weave').locator('#textViewAngle').text_content(),'240°')

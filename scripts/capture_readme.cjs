@@ -94,7 +94,7 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#corner-strip','');
     await page.selectOption('#corner-phase','mad-sixfold');
     await page.selectOption('#corner-beta','420');
-    await page.selectOption('#corner-crop','r6');
+    await page.selectOption('#corner-crop','s2');
     await button('CP0');await page.click('#corner-apply');
     await page.evaluate(() => MadWeaveEditor.corner.edit('Gallery palette',v=>{
       v.palette[0]='rgb(30,111,140)';v.palette[1]='rgb(204,99,66)';v.palette[2]='rgb(124,85,163)';

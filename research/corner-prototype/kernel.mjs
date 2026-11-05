@@ -26,6 +26,7 @@ function clean(poly){return poly.filter((p,i)=>!poly.slice(0,i).some(q=>distance
 // Exact analytic boundary types, evaluated in double precision with a 1e-10
 // world-coordinate reserve. The disk is never replaced by a clipping polygon.
 export function boundary(poly,R){
+  if(R===null)return poly.map((a,i)=>({kind:'line',a,b:poly[(i+1)%poly.length]}));
   const lines=[];
   for(let i=0;i<poly.length;i++){
     const a=poly[i],b=poly[(i+1)%poly.length],v=b.map((x,k)=>x-a[k]);
@@ -59,6 +60,7 @@ export class Diagram {
     this.order=new Map(certificate.orders.map(a=>[a.pair.map(id).sort().join('|'),id(a.top)]));
     this.center=[1.25,-.75];this.rotation=.4014257279586958;this.pattern=null;
     this.polygons=new Map(certificate.pieces.map(a=>[id(a.id),a.vertices.map(([x,y])=>[number(x)/SQRT3,number(y)])]));
+    this.extent=this.p.end_style==='strip'?Math.max(this.R,...[...this.polygons.values()].flat().map(p=>Math.hypot(...p))):this.R;
     this.cells=this.arrangement();
   }
   map(point,j){
@@ -89,14 +91,22 @@ export class Diagram {
       return top===a?-1:1;
     });
   }
-  pick(point){
-    const {r,j,local}=this.inverse(point);
-    if(r>this.R+1e-12||r<(1-this.W)/2-1e-12)return [];
+  boundary(poly){return boundary(poly,this.p.end_style==='strip'?null:this.R);}
+  positions(local,j){
+    const r=Math.hypot(...local);
+    if(r>this.extent+1e-12||r<(1-this.W)/2-1e-12)return [];
     const ids=[];
     for(const a of this.certificate.pieces){
       if(a.id[0]!==j)continue;
-      if(Math.abs(dot(normals[a.id[1]],local)-(a.id[2]-2.5))<=this.W/2+1e-12)ids.push(id(a.id));
+      if(Math.abs(dot(normals[a.id[1]],local)-(a.id[2]-2.5))>this.W/2+1e-12)continue;
+      const poly=this.polygons.get(id(a.id));
+      if(this.p.end_style==='strip'&&!poly.every((p,i)=>{const q=poly[(i+1)%poly.length];return (q[0]-p[0])*(local[1]-p[1])-(q[1]-p[1])*(local[0]-p[0])>=-1e-12;}))continue;
+      ids.push(id(a.id));
     }
+    return ids;
+  }
+  pick(point){
+    const {j,local}=this.inverse(point),ids=this.positions(local,j);
     return this.ranked(ids).map(position=>({position,strip:this.owner.get(position)}));
   }
   color(position,pattern=this.pattern){
@@ -117,8 +127,11 @@ export class Diagram {
     const out=[];
     for(const cell of this.certificate.render_cells){
       const poly=cell.vertices.map(([x,y])=>[number(x)/SQRT3,number(y)]),members=cell.members;
-      const edges=boundary(clean(poly),this.R);if(!edges.length)throw Error('Unvalidated: missing populated cell');
-      for(let j=0;j<this.m;j++)out.push({poly,edges,j,reference:cell,stack:this.ranked(members.map(a=>id([j,...a])))});
+      const edges=this.boundary(clean(poly));if(!edges.length)throw Error('Unvalidated: missing populated cell');
+      for(let j=0;j<this.m;j++){
+        const ids=members.map(a=>id([j,...a])).filter(a=>this.parts.has(a));
+        if(ids.length)out.push({poly,edges,j,reference:cell,stack:this.ranked(ids)});
+      }
     }
     return out;
   }
@@ -153,7 +166,7 @@ export class Diagram {
     return {points,segments};
   }
   pieceMesh(position,epsilon,maxDepth){
-    return this.mesh(boundary(this.polygons.get(position),this.R),this.parts.get(position).id[0],epsilon,maxDepth);
+    return this.mesh(this.boundary(this.polygons.get(position)),this.parts.get(position).id[0],epsilon,maxDepth);
   }
 }
 export const pathFor=mesh=>mesh.points.map((p,i)=>`${i?'L':'M'}${p[0].toPrecision(15)},${p[1].toPrecision(15)}`).join(' ')+' Z';

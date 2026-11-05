@@ -3,7 +3,7 @@
   "private": true,
   "description": "Development-only browser checks and README captures",
   "scripts": {
-    "test:corner": "node research/corner-integration.test.mjs",
+    "test:corner": "node research/corner-integration.test.mjs && node research/corner-size.test.mjs",
     "test:corner:browser": "node research/corner-integration-browser.test.cjs",
     "screenshots": "node scripts/capture_readme.cjs"
   },

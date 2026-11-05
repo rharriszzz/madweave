@@ -22,7 +22,7 @@ Screenshots below come from the built editor. Click an image for full size.
 *A different formula, wider spacing, and a hidden b class reveal the layered structure.*
 
 ![Corner diagram with the original palette and control positions, a 480 degree angle, bottom view buttons, and strip-edge lines](docs/images/corner-construction.png)
-*A 480° corner diagram with the original controls and palette. L is enabled to draw lines at the strip edges.*
+*Size 2 at 480° has 24 strips with individual ends. The original controls and palette remain; L draws lines at the strip edges.*
 
 ![Orange joined-strip outline crossing sector seams, with dashed hidden material and seam partners](docs/images/corner-inspection.png)
 *Inspection follows one joined strip through visible and hidden positions; orange marks its material identity.*
@@ -74,6 +74,13 @@ selects a formula. Formula choices intentionally replace custom painting.
 An unchanged **Apply together** preserves painting added after the last formula
 choice. With construction changes pending, formula choices are staged for Apply.
 
+The original **N/M/W/E** buttons set strip spacing in either view. Lower-left
+**1–8** keeps the original size scale: at 360°, size 2 has 18 strips; at 240°
+it has 12, and at 480° it has 24. Other sizes follow the same angle proportion,
+rounded to a whole strip. Each strip ends individually near the circular outline.
+Size and spacing changes retain painting on surviving strips. The strip count
+appears above the bottom buttons. Hexweave counts include only its selected class.
+
 Open **Strip and seam inspection** to choose joined strips or crossings, cycle
 through local positions (including hidden positions at a self-crossing), and
 show dashed hidden pieces or seam partners. **Paint selected strip** supports
@@ -81,10 +88,10 @@ painting from that selection. Pink markers mean colors or opacity differ across
 a seam: your colors remain, but color continuity is not validated. Transparent
 material remains present in the model.
 
-Corner mode uses a **finite catalogue of 84 constructions**, with reference
+Corner mode uses a **finite checked catalogue**, with reference
 angles from 60° to 720°. It is not a complete list of possible constructions.
 Unsupported configurations remain Unvalidated; rejected construction choices
-retain the active design. Independent planar size, spacing, handedness/order,
+retain the active design. Independent planar handedness/order,
 center, direction filtering, and material hide/show controls are unavailable.
 The **a/b/c** buttons instead stage supported hexweave phases.
 

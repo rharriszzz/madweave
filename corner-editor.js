@@ -19,10 +19,12 @@
    w.changeColorPattern=(_,pattern)=>this.callbacks.formula(pattern);
    w.changeColorCount=(_,count)=>{if(count===1)this.callbacks.formula(null);else if(count===3)this.callbacks.formula(this.state.value.material.pattern??0);else this.unavailable('Only monochrome and the five three-label formulas are certified.');};
    w.toggleVisibilityH=(_,member)=>this.callbacks.weave(member);
-   for(const name of ['setContent','setSeparation','changeHand','changeTop','changeCenter','toggleVisibilityD','setVisibleOrHidden'])w[name]=()=>this.unavailable('Use a certified corner phase/crop. Planar size, spacing, order and material visibility controls are unavailable here.');
+   w.setContent=(_,size)=>this.callbacks.resize(size,null);
+   w.setSeparation=(_,spacing)=>this.callbacks.resize(null,spacing);
+   for(const name of ['changeHand','changeTop','changeCenter','toggleVisibilityD','setVisibleOrHidden'])w[name]=()=>this.unavailable('Use a certified corner phase. Planar order and material visibility controls are unavailable here.');
    w.showOrHideLines=()=>this.edit('Outlines',v=>{v.view.edges=!v.view.edges;});
    w.showOrHideButtons=()=>this.edit('Controls',v=>{v.controlsHidden=!v.controlsHidden;});
-   this.syncPalette();this.layout();this.commit(this.state,this.draw(this.state));
+   this.setGlobals(this.state);this.layout();this.commit(this.state,this.draw(this.state));
    // Observe now, write on the next frame: changing iframe height inside a
    // ResizeObserver delivery causes WebKit's undelivered-notification error.
    this.observer=new ResizeObserver(()=>{if(this.resizeFrame)return;this.resizeFrame=requestAnimationFrame(()=>{this.resizeFrame=null;if(frame.isConnected&&!frame.hidden&&Math.abs(frame.clientWidth-(this.width||0))>1){try{this.layout();this.commit(this.state,this.draw(this.state),false);}catch(e){this.callbacks.error('Resize',e);}}});});this.observer.observe(frame);
@@ -30,7 +32,7 @@
   capture(){return this.core.CornerProject.capture(this.state,this.core.catalogue);}
   unavailable(message){this.callbacks.intent();this.callbacks.error('Control',Error(message));return false;}
   draw(s,annotations=true,exporting=false){
-   const drawing=this.core.createRenderer(this.host,s.value.palette,()=>'',{opacity:s.value.opacity})(s,exporting?1024/(2*(s.model.R+.3)):null);
+   const drawing=this.core.createRenderer(this.host,s.value.palette,()=>'',{opacity:s.value.opacity})(s,exporting?1024/(2*(s.model.extent+.3)):null);
    const css=this.doc.createElementNS(NS,'style');css.textContent=style;drawing.root.prepend(css);
    if(annotations)for(const e of s.conflicts){
     const radius=(this.core.number(e.interval[0])/Math.sqrt(3)+(Array.isArray(e.interval[1])?s.model.R:this.core.number(e.interval[1])/Math.sqrt(3)))/2;
@@ -62,9 +64,9 @@
     this.root.replaceChildren(...old.childNodes);this.host=this.doc.getElementById('diagram');this.setGlobals(this.state);[w.currentHue,w.currentSat,w.currentValue,w.currentOpacity]=hsv;this.layout();this.hookPointer();this.callbacks.error('Palette edit',e);return false;
    }
   }
-  setGlobals(s){const w=this.w,v=s.value;w.colorArray=[...v.palette];w.opacityArray=[...v.opacity];w.lastColor=[...v.recent];w.lastOpacity=[...v.recentOpacity];w.defaultColorIndex=v.selectedColor;w.colorPattern=v.material.pattern??0;w.colorCount=v.material.pattern===null?1:3;w.showingLines=s.view.edges;w.hideStrips=w.showStrips=false;w.hidingButtons=false;w.showC=[0,1,2].map(x=>s.model.p.member===null||s.model.p.member===x);}
+  setGlobals(s){const w=this.w,v=s.value;w.colorArray=[...v.palette];w.opacityArray=[...v.opacity];w.lastColor=[...v.recent];w.lastOpacity=[...v.recentOpacity];w.defaultColorIndex=v.selectedColor;w.colorPattern=v.material.pattern??0;w.colorCount=v.material.pattern===null?1:3;w.showingLines=s.view.edges;w.hideStrips=w.showStrips=false;w.hidingButtons=false;w.showC=[0,1,2].map(x=>s.model.p.member===null||s.model.p.member===x);w.separationIndex=s.model.p.W_over_P==='3/4'?1:this.core.catalogue.widths.indexOf(s.model.p.W_over_P);w.baseSize=s.model.p.size||0;w.cornerStripCount=s.model.certificate.components.length;}
   syncPalette(){
-   this.setGlobals(this.state);this.original.buildButtons.call(this.w,this.doc);
+   this.setGlobals(this.state);this.original.buildButtons.call(this.w,this.doc,'corner',this.state.entry.config.beta);
    if(Object.keys(this.state.value.material.overrides).length)for(const id of ['CP'+this.w.colorPattern,'CC'+this.w.colorCount])this.doc.getElementById('button'+id).setAttribute('stroke-width',this.w.buttonRectSize*this.w.buttonStrokeWidth);
   }
   layout(){
@@ -75,6 +77,8 @@
     ...Array.from({length:8},(_,i)=>'C'+i),
     ...Array.from({length:4},(_,i)=>'LAST'+i),
     ...Array.from({length:5},(_,i)=>'CP'+i),
+    ...Array.from({length:8},(_,i)=>'SC'+(i+1)),
+    ...Array.from({length:4},(_,i)=>'Sep'+i),
     'CC1','CC3','VH0','VH1','VH2','Lines','HideButtons','OB','HB','SB','VB'
    ]);
    for(const g of this.doc.querySelectorAll('#buttons > g[id^="gbutton"]')){
@@ -84,7 +88,7 @@
     const target=this.doc.getElementById('cbutton'+name);
     target.setAttribute('tabindex',available?'0':'-1');target.setAttribute('role','button');
     target.setAttribute('aria-disabled',String(!available));
-    const text=this.doc.getElementById('doc'+name+'_1')?.textContent||name;
+    const text=name.startsWith('SC')?'Size '+name.slice(2)+' (matches the original strip count at 360°)':this.doc.getElementById('doc'+name+'_1')?.textContent||name;
     const label=!available?'Unavailable in corner mode: '+text:name.startsWith('VH')?'Select hexweave class '+name.slice(2):text;
     target.setAttribute('aria-label',label);
     let title=g.querySelector('title');if(!title){title=this.doc.createElementNS(NS,'title');g.prepend(title);}title.textContent=label;
@@ -101,7 +105,6 @@
      Object.defineProperties(event,{clientX:{value:p.x},clientY:{value:p.y}});target.dispatchEvent(event);
     };
    }
-   w.buildViewButtons(this.doc,'corner',this.state.entry.config.beta);
    this.doc.getElementById('viewButtons').setAttribute('visibility',this.state.value.controlsHidden?'hidden':'visible');
    this.root.style.cssText='display:block;width:100%;height:100vh';
    this.frame.style.height='';
@@ -130,7 +133,7 @@
   exportSVG(){
    const s=this.core.CornerProject.restore(this.capture(),this.core.catalogue),include=s.view.annotations;
    if(!include){s.view={...s.view,edges:false,outlines:false,seams:false};s.selected=null;}
-   const drawing=this.draw(s,include,true),root=drawing.root,span=2*(s.model.R+.3),x=s.model.center[0]-span/2,y=s.model.center[1]-span/2;
+   const drawing=this.draw(s,include,true),root=drawing.root,span=2*(s.model.extent+.3),x=s.model.center[0]-span/2,y=s.model.center[1]-span/2;
    for(const [k,v]of Object.entries({width:1024,height:1101,viewBox:`${x} ${y} ${span} ${span*1.075}`}))root.setAttribute(k,v);
    const element=(tag,attrs,text)=>{const e=this.doc.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text)e.textContent=text;root.append(e);return e;};
    const bg=element('rect',{x,y,width:span,height:span*1.075,fill:'white'});root.prepend(bg);
