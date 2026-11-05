@@ -2,6 +2,9 @@
 
 **Status (2026-11-04): Stage 1 research delivered for review; implementation
 remains on hold.** See the [scoped model and evidence](SINGLE_CORNER_STAGE1.md).
+The authorized [bounded crop/checker follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md)
+is also delivered for review, with full fringe regions and a separate supplied-
+certificate checker; general radius and physical limits remain explicit.
 The user accepted the product defaults below and authorized
 only the scoped model, hole/phase catalogue, seam and continuation evidence,
 compatibility results, and acceptance-fixture plan. Stop at that deliverable for

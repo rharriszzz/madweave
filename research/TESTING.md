@@ -1,5 +1,13 @@
 # Planar research testing
 
+The [bounded crop follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md) adds
+`python3 research/corner-crop-followup.py` after the Stage 1 reproduction below,
+and `python3 research/corner-coordinate-check.py` for rotated inverse/circle
+bound examples. Check a supplied region certificate independently with
+`python3 research/check-corner-certificate.py PATH.json`. The checker exits zero
+only for Validated; Invalid and Unvalidated results include a witness and exit one.
+No producer import is needed by that standalone checker.
+
 The separate [single-corner Stage 1 research](SINGLE_CORNER_STAGE1.md) can be
 reproduced with `python3 research/single-corner-stage1.py` (Python 3 and Node).
 It writes reference geometry/identity evidence under ignored

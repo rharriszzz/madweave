@@ -1,0 +1,58 @@
+{
+  "inverse_cases": 378,
+  "maximum_reference_coordinate_error": 1.2434497875801753e-14,
+  "nonzero_reference_center": [
+    2.75,
+    -4.25
+  ],
+  "nonzero_display_center": [
+    -1.5,
+    3.25
+  ],
+  "display_rotations": [
+    -2.4,
+    0.73,
+    6.4
+  ],
+  "screen_matrix": [
+    [
+      1.2,
+      0.3
+    ],
+    [
+      -0.2,
+      1.7
+    ]
+  ],
+  "circle_examples": [
+    {
+      "R": 6,
+      "f": 0.75,
+      "reference_angle_step": 0.04216370213557839,
+      "error_bound": 0.00075,
+      "sagitta": 0.000749984375130186
+    },
+    {
+      "R": 6,
+      "f": 1.5,
+      "reference_angle_step": 0.021081851067789197,
+      "error_bound": 0.00075,
+      "sagitta": 0.000749984375130186
+    },
+    {
+      "R": 6,
+      "f": 3,
+      "reference_angle_step": 0.010540925533894598,
+      "error_bound": 0.00075,
+      "sagitta": 0.000749984375130186
+    },
+    {
+      "R": 6,
+      "f": 6,
+      "reference_angle_step": 0.005270462766947299,
+      "error_bound": 0.00075,
+      "sagitta": 0.000749984375130186
+    }
+  ],
+  "boundary_policy": "Analytic half-open ownership; these round trips test interiors near rays, not floating-point snapping on exact rays."
+}

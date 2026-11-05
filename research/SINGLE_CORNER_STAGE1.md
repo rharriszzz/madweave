@@ -1,5 +1,10 @@
 # Single-corner Stage 1: reference model and compatibility results
 
+**Follow-up:** [complete circular crops and independent certificate checks](SINGLE_CORNER_CROP_FOLLOWUP.md)
+now cover the R/P=6 sector fringes and neighboring radii. The limitations and
+absence of a supplied-certificate checker described below are historical to
+this initial pass; the follow-up states precisely what has been resolved.
+
 Research completed on 2026-11-04, following preparatory commit `2fe226c` on
 `docs/single-corner-prompt`. This is the requested Stage 1 deliverable for review.
 **Implementation remains on hold. Physical constructibility is Unvalidated.**

@@ -1,0 +1,118 @@
+[
+  {
+    "file": "corner-crop-R6.json",
+    "exit_code": 0,
+    "status": "Validated",
+    "counts": {
+      "occurrences": 96,
+      "joins": 48,
+      "open_strips": 48,
+      "outer_ends": 96,
+      "centerline_crossings": 384,
+      "self_crossings": 0
+    }
+  },
+  {
+    "file": "corner-self-crossing.json",
+    "exit_code": 0,
+    "status": "Validated",
+    "counts": {
+      "occurrences": 12,
+      "joins": 6,
+      "open_strips": 6,
+      "outer_ends": 12,
+      "centerline_crossings": 24,
+      "self_crossings": 2
+    }
+  },
+  {
+    "file": "invalid-bad-interval.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Full-width seam interval: (0, 2, 0)"
+  },
+  {
+    "file": "invalid-changed-boundary.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Band boundary geometry: (0, 0, 3)"
+  },
+  {
+    "file": "invalid-collapsed-self-crossing.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Missing/incorrect crossing positions"
+  },
+  {
+    "file": "invalid-color-conflict.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Color conflict at join: (0, 0, 3), (1, 2, 3)"
+  },
+  {
+    "file": "invalid-duplicate-material.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Duplicated or merged occurrence identity"
+  },
+  {
+    "file": "invalid-local-order.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Missing/incorrect local order or overlap material: ((0, 0, 3), (0, 1, 0))"
+  },
+  {
+    "file": "invalid-merged-components.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Merged/split material components"
+  },
+  {
+    "file": "invalid-merged-occurrences.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Duplicated or merged occurrence identity"
+  },
+  {
+    "file": "invalid-missing-fringe.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Material coverage mismatch: missing={(0, 2, -3)}, extra=set()"
+  },
+  {
+    "file": "invalid-missing-material.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Material coverage mismatch: missing={(3, 2, 5)}, extra=set()"
+  },
+  {
+    "file": "invalid-missing-overlap.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Missing/incorrect local order or overlap material: ((3, 1, 2), (3, 2, 3))"
+  },
+  {
+    "file": "invalid-side-reversal.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Ribbon face/side transport"
+  },
+  {
+    "file": "invalid-simultaneous-cycle.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Missing/incorrect local order or overlap material: ((0, 0, 3), (0, 2, 4))"
+  },
+  {
+    "file": "invalid-wrong-partners.json",
+    "exit_code": 1,
+    "status": "Invalid",
+    "witness": "Wrong, missing or duplicate registered partner"
+  },
+  {
+    "file": "cap-R63_10.json",
+    "exit_code": 1,
+    "status": "Unvalidated",
+    "witness": "Unvalidated: crop is not a regular two-ended ribbon"
+  }
+]

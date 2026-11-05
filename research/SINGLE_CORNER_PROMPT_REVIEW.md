@@ -1,5 +1,10 @@
 # Independent single-corner prompt review
 
+Subsequent authorized research: the [bounded crop/checker follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md)
+supplies full-region fringe handling and independent supplied-certificate mutation
+checks at the stated finite parameters. The original findings below remain the
+historical review; resolved items and remaining limits are identified in that report.
+
 Reviewed on 2026-11-04 at commit
 `1243c858e3684c29cd1351a529eed486b57c553c`, on
 `docs/single-corner-prompt`. The tracked working tree was clean. This review

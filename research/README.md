@@ -20,6 +20,7 @@ application's `coneFraction` remains 1.
 | Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
 | Single-corner project prompt | [Authorized Stage 1 scope](SINGLE_CORNER_PROJECT_PROMPT.md) | Accepted product defaults and separate diagram/physical gates; mathematical research authorized, implementation on hold |
 | Single-corner Stage 1 results | [Model, catalogue and certificates](SINGLE_CORNER_STAGE1.md) | Required hole families, finite excess/deficit ledgers, color witnesses, open-strip proof, crop-fringe limit and future acceptance plan; stop for review |
+| Stage 1 crop/checker follow-up | [Full regions and independent checker](SINGLE_CORNER_CROP_FOLLOWUP.md) | R/P=6 and neighboring crops, supplied-certificate mutations, rotated inverse coordinates and circle error bounds; stop for review |
 | Independent prompt improvement | [Astra documentation task](SINGLE_CORNER_REVIEW_PROMPT.md) | Review the mathematics, improve the actual work prompt, record findings, and commit/push documentation; implementation stays on hold |
 | Prompt review findings | [Independent review](SINGLE_CORNER_PROMPT_REVIEW.md) | Applied corrections, acceptance fixtures and subsequent user acceptance/Stage 1 authorization; implementation still on hold |
 | Tree reference evidence | [Recovered center and multiplier](TREE_REFERENCE_ANALYSIS.md) | Single-edge inverse fit, upper-half count, and historical renderer replay establish code f=3/4 versus paper ratio 4/3 |
