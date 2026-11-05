@@ -29,8 +29,10 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - name: Trust the mounted checkout in the container
+      - name: Prepare mounted directories for the container user
         run: |
+          # Firefox requires the current user to own its home directory.
+          chown "$(id -u):$(id -g)" "$HOME"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git rev-parse --show-toplevel
       - uses: actions/setup-node@v7
