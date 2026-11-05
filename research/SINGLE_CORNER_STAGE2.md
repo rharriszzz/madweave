@@ -1,5 +1,10 @@
 # Stage 2: separate single-corner diagram prototype
 
+**Correction pass from `951bc4c`:** [coherent transactions and visible-paint
+validation](SINGLE_CORNER_STAGE2_CORRECTIONS.md) records reproduced failures,
+the completed fixes, the actual visible-paint mutation, and optional monochrome
+crossing inspection with desktop/mobile examples. Stage 3 remains on hold.
+
 Work starts from `1bcb2ea` on `docs/single-corner-prompt`. The user authorized
 Stage 2 only: a separate inspectable visual prototype using the certified
 reference constructions. This deliverable stops for review before Stage 3.
@@ -196,8 +201,10 @@ checks each of the nine examples, including:
   retention on witnessed conflicts. Compatible three-color examples use three
   actual material colors; the C-on and all required hole families are exercised.
 - World/pixel error bounds, circular-arc segments, a resized mobile view, and
-  forced depth/reserve failures. Unmapped bands, unmapped masks and swapped
-  painter order are negative controls.
+  forced depth/reserve failures. Unmapped band/order-region definitions are
+  geometry controls. The original swapped `.face` position was only an unpainted
+  order-metadata control; it did not change visible paint. The correction pass
+  adds a real visible-top mutation rejected by the normal audit and screenshots.
 - Actual screenshot pixels against reference material colors and gaps, including
   safe seam samples. Flat-color assertions require three-pixel clearance from
   real strip/circle edges; subpixel antialiasing at those physical edges is not

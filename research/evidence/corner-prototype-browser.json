@@ -21,7 +21,7 @@
         "circularSegments": 1188,
         "maxMeasured": 9.11907406309217e-05,
         "maxBound": 9.119130261972968e-05,
-        "pixelBound": 0.012214107981919568,
+        "pixelBound": 0.01221410780543046,
         "boundaryChecks": 216,
         "colorResults": [
           {
@@ -50,6 +50,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -70,7 +71,7 @@
         "circularSegments": 1174,
         "maxMeasured": 9.320213423874204e-05,
         "maxBound": 9.374247342326456e-05,
-        "pixelBound": 0.012555810258118371,
+        "pixelBound": 0.0125558100766918,
         "boundaryChecks": 144,
         "colorResults": [
           {
@@ -99,6 +100,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -119,7 +121,7 @@
         "circularSegments": 1828,
         "maxMeasured": 9.347991739725883e-05,
         "maxBound": 9.370921913171397e-05,
-        "pixelBound": 0.006574519619401187,
+        "pixelBound": 0.006574519818447234,
         "boundaryChecks": 576,
         "colorResults": [
           {
@@ -150,9 +152,40 @@
         "negativeControls": {
           "bandMismatch": true,
           "maskMismatch": true,
-          "painterMismatch": true,
+          "orderMetadataMismatch": true,
           "depthExhaustionUnvalidated": true,
           "numericReserveUnvalidated": true
+        },
+        "visiblePaintNegative": {
+          "positions": [
+            [
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "referenceXY": [
+            -3.5,
+            4.5
+          ],
+          "sector": 0,
+          "correctColor": 1,
+          "wrongTopColor": 2,
+          "x": 624.4020654185517,
+          "y": 1038.0777786936385,
+          "actualRGB": [
+            139,
+            109,
+            165
+          ],
+          "normalAuditRejected": true,
+          "witness": "page.evaluate: Error: Actual opaque paint union disagrees with reference order",
+          "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
         },
         "fringeSelection": {
           "position": "0:2:-3",
@@ -179,7 +212,7 @@
         "circularSegments": 1170,
         "maxMeasured": 9.232609566541066e-05,
         "maxBound": 9.367843878686293e-05,
-        "pixelBound": 0.012547233497603677,
+        "pixelBound": 0.012547233316301035,
         "boundaryChecks": 360,
         "colorResults": [
           {
@@ -208,6 +241,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -228,7 +262,7 @@
         "circularSegments": 1216,
         "maxMeasured": 9.160529919466801e-05,
         "maxBound": 9.336717917405488e-05,
-        "pixelBound": 0.012505543573103952,
+        "pixelBound": 0.012505543392403715,
         "boundaryChecks": 288,
         "colorResults": [
           {
@@ -257,6 +291,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -277,7 +312,7 @@
         "circularSegments": 1145,
         "maxMeasured": 9.342568897305777e-05,
         "maxBound": 9.372820497363538e-05,
-        "pixelBound": 0.012553899150594969,
+        "pixelBound": 0.01255389896919601,
         "boundaryChecks": 72,
         "colorResults": [
           {
@@ -306,6 +341,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -326,7 +362,7 @@
         "circularSegments": 608,
         "maxMeasured": 9.263809941968013e-05,
         "maxBound": 9.310467508222404e-05,
-        "pixelBound": 0.005637296617960826,
+        "pixelBound": 0.005637296765252469,
         "boundaryChecks": 384,
         "colorResults": [
           {
@@ -355,6 +391,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -375,7 +412,7 @@
         "circularSegments": 852,
         "maxMeasured": 9.351426327569966e-05,
         "maxBound": 9.374414442797464e-05,
-        "pixelBound": 0.005676015171856275,
+        "pixelBound": 0.005676015320159561,
         "boundaryChecks": 192,
         "colorResults": [
           {
@@ -404,6 +441,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -424,7 +462,7 @@
         "circularSegments": 864,
         "maxMeasured": 9.351426327512467e-05,
         "maxBound": 9.374414442797436e-05,
-        "pixelBound": 0.005676015171856259,
+        "pixelBound": 0.005676015320159543,
         "boundaryChecks": 192,
         "colorResults": [
           {
@@ -453,10 +491,83 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       }
     ],
     "errors": [],
+    "transactionResults": [
+      {
+        "name": "failed-color-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-view-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-outline-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-seam-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-strip-inspection",
+        "passed": true
+      },
+      {
+        "name": "failed-visible-boundaries",
+        "passed": true
+      },
+      {
+        "name": "failed-keyboard-crossing-selection",
+        "passed": true
+      },
+      {
+        "name": "failed-next-local-position",
+        "passed": true
+      },
+      {
+        "name": "failed-clear-selection",
+        "passed": true
+      },
+      {
+        "name": "failed-certificate-fetch",
+        "passed": true
+      },
+      {
+        "name": "failed-example-render",
+        "passed": true
+      },
+      {
+        "name": "stale-success-after-new-success",
+        "passed": true
+      },
+      {
+        "name": "stale-error-after-new-success",
+        "passed": true
+      },
+      {
+        "name": "stale-success-after-new-failure",
+        "passed": true
+      },
+      {
+        "name": "new-view-invalidates-pending-example",
+        "passed": true
+      },
+      {
+        "name": "new-color-invalidates-pending-example",
+        "passed": true
+      },
+      {
+        "name": "new-inspection-invalidates-pending-example",
+        "passed": true
+      }
+    ],
+    "keyboardInspectionPassed": true,
+    "monochromeMaterialUnchanged": true,
     "mobileBoundPassed": true
   },
   {
@@ -481,7 +592,7 @@
         "circularSegments": 1188,
         "maxMeasured": 9.119074063061294e-05,
         "maxBound": 9.119130261972968e-05,
-        "pixelBound": 0.01221410763676757,
+        "pixelBound": 0.012214107460278466,
         "boundaryChecks": 216,
         "colorResults": [
           {
@@ -510,6 +621,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -530,7 +642,7 @@
         "circularSegments": 1174,
         "maxMeasured": 9.320213423866163e-05,
         "maxBound": 9.374247342326455e-05,
-        "pixelBound": 0.012555809903310388,
+        "pixelBound": 0.012555809721883821,
         "boundaryChecks": 144,
         "colorResults": [
           {
@@ -559,6 +671,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -579,7 +692,7 @@
         "circularSegments": 1828,
         "maxMeasured": 9.347991739680223e-05,
         "maxBound": 9.370921913171397e-05,
-        "pixelBound": 0.006574519761705599,
+        "pixelBound": 0.006574519960751652,
         "boundaryChecks": 576,
         "colorResults": [
           {
@@ -610,9 +723,40 @@
         "negativeControls": {
           "bandMismatch": true,
           "maskMismatch": true,
-          "painterMismatch": true,
+          "orderMetadataMismatch": true,
           "depthExhaustionUnvalidated": true,
           "numericReserveUnvalidated": true
+        },
+        "visiblePaintNegative": {
+          "positions": [
+            [
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "referenceXY": [
+            -3.5,
+            4.5
+          ],
+          "sector": 0,
+          "correctColor": 1,
+          "wrongTopColor": 2,
+          "x": 624.4021107083931,
+          "y": 1045.1372054237431,
+          "actualRGB": [
+            139,
+            109,
+            165
+          ],
+          "normalAuditRejected": true,
+          "witness": "page.evaluate: Actual opaque paint union disagrees with reference order",
+          "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
         },
         "fringeSelection": {
           "position": "0:2:-3",
@@ -639,7 +783,7 @@
         "circularSegments": 1170,
         "maxMeasured": 9.232609566555788e-05,
         "maxBound": 9.367843878686293e-05,
-        "pixelBound": 0.01254723314303806,
+        "pixelBound": 0.012547232961735424,
         "boundaryChecks": 360,
         "colorResults": [
           {
@@ -668,6 +812,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -688,7 +833,7 @@
         "circularSegments": 1216,
         "maxMeasured": 9.160529919439395e-05,
         "maxBound": 9.336717917405484e-05,
-        "pixelBound": 0.012505543219716425,
+        "pixelBound": 0.012505543039016192,
         "boundaryChecks": 288,
         "colorResults": [
           {
@@ -717,6 +862,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -737,7 +883,7 @@
         "circularSegments": 1145,
         "maxMeasured": 9.342568897294736e-05,
         "maxBound": 9.372820497363538e-05,
-        "pixelBound": 0.012553898795840991,
+        "pixelBound": 0.01255389861444204,
         "boundaryChecks": 72,
         "colorResults": [
           {
@@ -766,6 +912,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -786,7 +933,7 @@
         "circularSegments": 608,
         "maxMeasured": 9.263809941887975e-05,
         "maxBound": 9.310467508222398e-05,
-        "pixelBound": 0.0056372965706408765,
+        "pixelBound": 0.005637296717932519,
         "boundaryChecks": 384,
         "colorResults": [
           {
@@ -815,6 +962,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -835,7 +983,7 @@
         "circularSegments": 852,
         "maxMeasured": 9.351426327569968e-05,
         "maxBound": 9.37441444279746e-05,
-        "pixelBound": 0.005676015124211321,
+        "pixelBound": 0.005676015272514605,
         "boundaryChecks": 192,
         "colorResults": [
           {
@@ -864,6 +1012,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -884,7 +1033,7 @@
         "circularSegments": 864,
         "maxMeasured": 9.351426327551215e-05,
         "maxBound": 9.374414442797436e-05,
-        "pixelBound": 0.005676015124211307,
+        "pixelBound": 0.00567601527251459,
         "boundaryChecks": 192,
         "colorResults": [
           {
@@ -913,10 +1062,83 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       }
     ],
     "errors": [],
+    "transactionResults": [
+      {
+        "name": "failed-color-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-view-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-outline-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-seam-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-strip-inspection",
+        "passed": true
+      },
+      {
+        "name": "failed-visible-boundaries",
+        "passed": true
+      },
+      {
+        "name": "failed-keyboard-crossing-selection",
+        "passed": true
+      },
+      {
+        "name": "failed-next-local-position",
+        "passed": true
+      },
+      {
+        "name": "failed-clear-selection",
+        "passed": true
+      },
+      {
+        "name": "failed-certificate-fetch",
+        "passed": true
+      },
+      {
+        "name": "failed-example-render",
+        "passed": true
+      },
+      {
+        "name": "stale-success-after-new-success",
+        "passed": true
+      },
+      {
+        "name": "stale-error-after-new-success",
+        "passed": true
+      },
+      {
+        "name": "stale-success-after-new-failure",
+        "passed": true
+      },
+      {
+        "name": "new-view-invalidates-pending-example",
+        "passed": true
+      },
+      {
+        "name": "new-color-invalidates-pending-example",
+        "passed": true
+      },
+      {
+        "name": "new-inspection-invalidates-pending-example",
+        "passed": true
+      }
+    ],
+    "keyboardInspectionPassed": true,
+    "monochromeMaterialUnchanged": true,
     "mobileBoundPassed": true
   },
   {
@@ -941,7 +1163,7 @@
         "circularSegments": 1188,
         "maxMeasured": 9.119074063085813e-05,
         "maxBound": 9.119130261972968e-05,
-        "pixelBound": 0.012214107981919568,
+        "pixelBound": 0.01221410780543046,
         "boundaryChecks": 216,
         "colorResults": [
           {
@@ -970,6 +1192,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -990,7 +1213,7 @@
         "circularSegments": 1174,
         "maxMeasured": 9.320213423853528e-05,
         "maxBound": 9.374247342326455e-05,
-        "pixelBound": 0.01255581025811837,
+        "pixelBound": 0.012555810076691798,
         "boundaryChecks": 144,
         "colorResults": [
           {
@@ -1019,6 +1242,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -1039,7 +1263,7 @@
         "circularSegments": 1828,
         "maxMeasured": 9.347991739682695e-05,
         "maxBound": 9.370921913171397e-05,
-        "pixelBound": 0.006574519619401187,
+        "pixelBound": 0.006574519818447234,
         "boundaryChecks": 576,
         "colorResults": [
           {
@@ -1070,9 +1294,40 @@
         "negativeControls": {
           "bandMismatch": true,
           "maskMismatch": true,
-          "painterMismatch": true,
+          "orderMetadataMismatch": true,
           "depthExhaustionUnvalidated": true,
           "numericReserveUnvalidated": true
+        },
+        "visiblePaintNegative": {
+          "positions": [
+            [
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "referenceXY": [
+            -3.5,
+            4.5
+          ],
+          "sector": 0,
+          "correctColor": 1,
+          "wrongTopColor": 2,
+          "x": 624.4020654185517,
+          "y": 1058.0777786936385,
+          "actualRGB": [
+            139,
+            109,
+            165
+          ],
+          "normalAuditRejected": true,
+          "witness": "page.evaluate: Error: Actual opaque paint union disagrees with reference order",
+          "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
         },
         "fringeSelection": {
           "position": "0:2:-3",
@@ -1099,7 +1354,7 @@
         "circularSegments": 1170,
         "maxMeasured": 9.232609566535212e-05,
         "maxBound": 9.367843878686293e-05,
-        "pixelBound": 0.012547233497603677,
+        "pixelBound": 0.012547233316301035,
         "boundaryChecks": 360,
         "colorResults": [
           {
@@ -1128,6 +1383,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -1148,7 +1404,7 @@
         "circularSegments": 1216,
         "maxMeasured": 9.160529919418198e-05,
         "maxBound": 9.336717917405488e-05,
-        "pixelBound": 0.012505543573103952,
+        "pixelBound": 0.012505543392403715,
         "boundaryChecks": 288,
         "colorResults": [
           {
@@ -1177,6 +1433,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -1197,7 +1454,7 @@
         "circularSegments": 1145,
         "maxMeasured": 9.342568897294736e-05,
         "maxBound": 9.372820497363543e-05,
-        "pixelBound": 0.012553899150594976,
+        "pixelBound": 0.012553898969196018,
         "boundaryChecks": 72,
         "colorResults": [
           {
@@ -1226,6 +1483,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -1246,7 +1504,7 @@
         "circularSegments": 608,
         "maxMeasured": 9.263809941921565e-05,
         "maxBound": 9.310467508222404e-05,
-        "pixelBound": 0.005637296617960826,
+        "pixelBound": 0.005637296765252469,
         "boundaryChecks": 384,
         "colorResults": [
           {
@@ -1275,6 +1533,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -1295,7 +1554,7 @@
         "circularSegments": 852,
         "maxMeasured": 9.351426327453406e-05,
         "maxBound": 9.37441444279746e-05,
-        "pixelBound": 0.0056760151718562735,
+        "pixelBound": 0.005676015320159558,
         "boundaryChecks": 192,
         "colorResults": [
           {
@@ -1324,6 +1583,7 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       },
       {
@@ -1344,7 +1604,7 @@
         "circularSegments": 864,
         "maxMeasured": 9.351426327526678e-05,
         "maxBound": 9.374414442797436e-05,
-        "pixelBound": 0.005676015171856259,
+        "pixelBound": 0.005676015320159543,
         "boundaryChecks": 192,
         "colorResults": [
           {
@@ -1373,10 +1633,83 @@
           }
         ],
         "negativeControls": null,
+        "visiblePaintNegative": null,
         "fringeSelection": null
       }
     ],
     "errors": [],
+    "transactionResults": [
+      {
+        "name": "failed-color-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-view-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-outline-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-seam-redraw",
+        "passed": true
+      },
+      {
+        "name": "failed-strip-inspection",
+        "passed": true
+      },
+      {
+        "name": "failed-visible-boundaries",
+        "passed": true
+      },
+      {
+        "name": "failed-keyboard-crossing-selection",
+        "passed": true
+      },
+      {
+        "name": "failed-next-local-position",
+        "passed": true
+      },
+      {
+        "name": "failed-clear-selection",
+        "passed": true
+      },
+      {
+        "name": "failed-certificate-fetch",
+        "passed": true
+      },
+      {
+        "name": "failed-example-render",
+        "passed": true
+      },
+      {
+        "name": "stale-success-after-new-success",
+        "passed": true
+      },
+      {
+        "name": "stale-error-after-new-success",
+        "passed": true
+      },
+      {
+        "name": "stale-success-after-new-failure",
+        "passed": true
+      },
+      {
+        "name": "new-view-invalidates-pending-example",
+        "passed": true
+      },
+      {
+        "name": "new-color-invalidates-pending-example",
+        "passed": true
+      },
+      {
+        "name": "new-inspection-invalidates-pending-example",
+        "passed": true
+      }
+    ],
+    "keyboardInspectionPassed": true,
+    "monochromeMaterialUnchanged": true,
     "mobileBoundPassed": true
   }
 ]

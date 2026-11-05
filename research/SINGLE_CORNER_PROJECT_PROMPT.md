@@ -2,6 +2,9 @@
 
 **Status: Stage 2 separate visual prototype authorized and delivered for review.**
 See the [prototype report and viewing instructions](SINGLE_CORNER_STAGE2.md).
+The subsequent authorized [bounded correction pass](SINGLE_CORNER_STAGE2_CORRECTIONS.md)
+adds coherent transactions, stale-request guards, visible-paint validation and
+optional crossing inspection. It also stops for review before Stage 3.
 The [Stage 1 model](SINGLE_CORNER_STAGE1.md) and
 [bounded crop/checker follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md) supply the
 reference constructions. The user authorized a separate inspectable drawing,

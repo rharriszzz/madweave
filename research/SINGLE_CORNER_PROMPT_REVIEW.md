@@ -1,5 +1,10 @@
 # Independent single-corner prompt review
 
+The later [Stage 2 correction handoff](SINGLE_CORNER_STAGE2_CORRECTIONS.md)
+records transactional control/request fixes and corrects the earlier visible-
+paint test description. Its new negative control changes the actual compound
+paint paths while preserving the reference oracle. This remains Stage 2 only.
+
 The later [Stage 2 prototype handoff](SINGLE_CORNER_STAGE2.md) records the user's
 authorization for a separate visual prototype and its delivered checks. Stage 3,
 production integration and merging remain on hold. Earlier readiness statements

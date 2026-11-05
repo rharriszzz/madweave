@@ -1,0 +1,65 @@
+[
+  {
+    "name": "failed-color-redraw",
+    "passed": false,
+    "reproducedDefect": "failed-color-redraw must retain the complete committed state\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n      '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n      '    \"occurrences\": 96,\\n' +\n...\n        ],\n+       value: '4'\n-       value: '1'\n      },\n      example: {\n        checked: null,\n        options: [\n          [\n...\n      },\n+     pattern: 4,\n-     pattern: 1,\n      rotation: 0.40142572795869574\n    },\n    selection: {\n      hitIndex: 0,\n      hits"
+  },
+  {
+    "name": "failed-view-redraw",
+    "passed": true
+  },
+  {
+    "name": "failed-outline-redraw",
+    "passed": false,
+    "reproducedDefect": "failed-outline-redraw must retain the complete committed state\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n      '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n      '    \"occurrences\": 96,\\n' +\n...\n      outlines: {\n+       checked: true,\n-       checked: false,\n        options: null,\n        value: 'on'\n      },\n      rotation: {\n        checked: null,\n"
+  },
+  {
+    "name": "failed-seam-redraw",
+    "passed": false,
+    "reproducedDefect": "failed-seam-redraw must retain the complete committed state\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n      '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n      '    \"occurrences\": 96,\\n' +\n...\n      seams: {\n+       checked: false,\n-       checked: true,\n        options: null,\n        value: 'on'\n      },\n      strip: {\n        checked: null,\n"
+  },
+  {
+    "name": "failed-strip-inspection",
+    "passed": false,
+    "reproducedDefect": "failed-strip-inspection must retain the complete committed state\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n      '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n      '    \"occurrences\": 96,\\n' +\n...\n        ],\n+       value: '1'\n-       value: '0'\n      }\n    },\n    entry: 'excess',\n    href: 'certificates/excess.json',\n    inspection: 'Joined strip 0\\n' +\n...\n      hits: [],\n+     selected: 1\n-     selected: 0\n    },\n    summary: 'Reference 480° · excess 12"
+  },
+  {
+    "name": "failed-next-local-position",
+    "passed": false,
+    "reproducedDefect": "Failed local-position cycle changed selection/control\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n      '  \"certificate\": \"self\",\\n' +\n      '  \"counts\": {\\n' +\n      '    \"occurrences\": 12,\\n' +\n...\n    selection: {\n+     hitIndex: 1,\n-     hitIndex: 0,\n      hits: [\n        {\n          position: '0:2:3',\n          strip: 0\n        },\n"
+  },
+  {
+    "name": "failed-clear-selection",
+    "passed": false,
+    "reproducedDefect": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n      '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n      '    \"occurrences\": 96,\\n' +\n...\n        ],\n+       value: ''\n-       value: '0'\n      }\n    },\n    entry: 'excess',\n    href: 'certificates/excess.json',\n    inspection: 'Joined strip 0\\n' +\n...\n      hits: [],\n+     selected: null\n-     selected: 0\n    },\n    summary: 'Reference 480° · excess 120° · multiplier 3/4 "
+  },
+  {
+    "name": "failed-certificate-fetch",
+    "passed": false,
+    "reproducedDefect": "Failed fetch left a misleading active example\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n      '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n      '    \"occurrences\": 96,\\n' +\n...\n        ],\n+       value: 'planar'\n-       value: 'excess'\n      },\n      outlines: {\n        checked: false,\n        options: null,\n        value: 'on'\n"
+  },
+  {
+    "name": "failed-example-render",
+    "passed": true
+  },
+  {
+    "name": "stale-success-after-new-success",
+    "passed": false,
+    "reproducedDefect": "Older completion overwrote newer design\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n+     '  \"certificate\": \"planar\",\\n' +\n-     '  \"certificate\": \"deficit\",\\n' +\n      '  \"counts\": {\\n' +\n+     '    \"occurrences\": 36,\\n' +\n+     '    \"joins\": 18,\\n' +\n+     '    \"open_strips\": 18,\\n' +\n+     '    \"outer_ends\": 36,\\n' +\n+     '    \"centerline_crossings\": 72,\\n' +\n-     '    \"occurrences\": 24,\\n' +\n-     '    \"joins\": 12,\\n' +\n-     '    \"open_strips\": 12,\\n' +\n-     '    "
+  },
+  {
+    "name": "stale-error-after-new-success",
+    "passed": false,
+    "reproducedDefect": "Stale completion overwrote current status\n+ actual - expected\n\n+ 'Unvalidated: Unvalidated: certificate unavailable'\n- 'Validated: 1 distinct material color(s); reference geometry and continuation checked. Physical constructibility unverified.'\n"
+  },
+  {
+    "name": "stale-success-after-new-failure",
+    "passed": false,
+    "reproducedDefect": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n+     '  \"certificate\": \"planar\",\\n' +\n-     '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n+     '    \"occurrences\": 36,\\n' +\n+     '    \"joins\": 18,\\n' +\n+     '    \"open_strips\": 18,\\n' +\n+     '    \"outer_ends\": 36,\\n' +\n+     '    \"centerline_crossings\": 72,\\n' +\n-     '    \"occurrences\": 96,\\n' +\n-     '    \"joins\": 48,\\n' +\n-     '    \"open_strips\": 48,\\n' +\n-     '  "
+  },
+  {
+    "name": "new-view-invalidates-pending-example",
+    "passed": false,
+    "reproducedDefect": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    certificate: '{\\n' +\n+     '  \"certificate\": \"planar\",\\n' +\n-     '  \"certificate\": \"excess\",\\n' +\n      '  \"counts\": {\\n' +\n+     '    \"occurrences\": 36,\\n' +\n+     '    \"joins\": 18,\\n' +\n+     '    \"open_strips\": 18,\\n' +\n+     '    \"outer_ends\": 36,\\n' +\n+     '    \"centerline_crossings\": 72,\\n' +\n-     '    \"occurrences\": 96,\\n' +\n-     '    \"joins\": 48,\\n' +\n-     '    \"open_strips\": 48,\\n' +\n-     '  "
+  }
+]

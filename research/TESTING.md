@@ -1,5 +1,12 @@
 # Planar research testing
 
+The [Stage 2 correction pass](SINGLE_CORNER_STAGE2_CORRECTIONS.md) adds
+`research/corner-prototype-transactions.test.cjs`. The normal prototype browser
+runner calls its 17 actual-control failure/race tests in every engine. A focused
+Chromium run is `node research/corner-prototype-transactions.test.cjs`.
+The shared normal paint audit now rejects an actual wrong visible material,
+while the old unpainted order-label mutation is explicitly metadata-only.
+
 For the separate [Stage 2 prototype](SINGLE_CORNER_STAGE2.md), rebuild the fixed
 catalogue/oracles with `python3 research/build-corner-prototype.py` and run
 `node research/corner-prototype-browser.test.cjs` with Playwright and pngjs

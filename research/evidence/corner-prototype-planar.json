@@ -1,6 +1,6 @@
 {
   "unit_suite": {
-    "startedAt": "2026-11-05T02:05:58.476143+00:00",
+    "startedAt": "2026-11-05T03:21:41.085688+00:00",
     "unitOnly": true,
     "applicationSuite": false,
     "stages": [
@@ -13,7 +13,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.033,
+        "seconds": 0.034,
         "log": "research/output/suite/syntax-browser-svg-check.log"
       },
       {
@@ -49,7 +49,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.033,
+        "seconds": 0.032,
         "log": "research/output/suite/syntax-editor-hover-paint.log"
       },
       {
@@ -73,7 +73,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.033,
+        "seconds": 0.032,
         "log": "research/output/suite/syntax-crossing-pixel-check.log"
       },
       {
@@ -121,7 +121,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.017,
+        "seconds": 0.032,
         "log": "research/output/suite/syntax-boundary-matrix-check.log"
       },
       {
@@ -133,7 +133,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.032,
+        "seconds": 0.018,
         "log": "research/output/suite/syntax-compare-seams.log"
       },
       {
@@ -156,7 +156,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.033,
+        "seconds": 0.032,
         "log": "research/output/suite/indexing.log"
       },
       {
@@ -167,7 +167,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.067,
+        "seconds": 0.064,
         "log": "research/output/suite/crossing-model.log"
       },
       {
@@ -189,7 +189,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.516,
+        "seconds": 0.566,
         "log": "research/output/suite/symmetry.log"
       },
       {
@@ -218,7 +218,7 @@
         ],
         "overrides": {},
         "returncode": 0,
-        "seconds": 0.165,
+        "seconds": 0.164,
         "log": "research/output/suite/site.log"
       }
     ],
