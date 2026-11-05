@@ -64,6 +64,9 @@ const server = http.createServer((req, res) => {
     }, original);
     assert.equal(paths, 21, 'Check all 18 strip paths and 3 clipping paths');
     await capture('planar-original');
+    // The personal homepage uses this same verified original design.
+    fs.mkdirSync(path.join(root,'images'),{recursive:true});
+    fs.copyFileSync(path.join(output,'planar-original.png'),path.join(root,'images/homepage-original.png'));
     // Repeat the original colors across parallel strips in the b hexweave class.
     await button('SC4');await button('CC3');await button('CP3');await button('Sep0');
     await button('VH0');await button('VH2');await button('Lines');
@@ -107,17 +110,6 @@ const server = http.createServer((req, res) => {
     assert.deepEqual(await page.evaluate(() => Object.values(MadWeaveEditor.capture().design.material.overrides).sort()),[3,4]);
     await page.locator('#corner-inspector').evaluate(e=>e.open=false);
     await capture('corner-colors');
-    // A small pattern-only preview for the personal project directory.
-    fs.mkdirSync(path.join(root,'images'),{recursive:true});
-    await page.evaluate(() => window.scrollTo({top:0,behavior:'instant'}));
-    const clip = await page.evaluate(() => {
-      const frame=document.getElementById('weave'),svg=frame.contentDocument.getElementById('diagram');
-      const matrix=svg.ownerSVGElement.getScreenCTM(),origin=frame.getBoundingClientRect();
-      const a=new DOMPoint(svg.x.baseVal.value,svg.y.baseVal.value).matrixTransform(matrix);
-      const b=new DOMPoint(svg.x.baseVal.value+svg.width.baseVal.value,svg.y.baseVal.value+svg.height.baseVal.value).matrixTransform(matrix);
-      return {x:origin.x+a.x,y:origin.y+a.y,width:b.x-a.x,height:b.y-a.y};
-    });
-    await page.screenshot({path:path.join(root,'images/homepage-card.png'),fullPage:true,clip});
     assert.deepEqual(errors,[]);
     console.log('Captured in Chromium',browser.version());
   } finally {await browser.close();server.close();}
