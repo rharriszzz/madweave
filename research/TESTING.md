@@ -223,11 +223,11 @@ the next phase and have not been executed during preparation.
 
 The research branch already contained main revision `7034dda`, including all
 five main commits after local revision `aa3f3ca`. Their implementation changes
-concerned the hero CSS, content-versioned stylesheet build, and Mac Firefox test
+concerned the editor preview CSS, content-versioned stylesheet build, and Mac Firefox test
 isolation; none changed the weaving engine.
 
 Before merging, the older site changes received stronger regression coverage:
-computed browser styles require an unrotated hero at 1280, 768, 390, and 320 CSS
+computed browser styles require an unrotated editor preview at 1280, 768, 390, and 320 CSS
 pixels, and a temporary source fixture verifies that changing CSS content changes
 the stylesheet URL in all three built pages. The original rotated CSS from
 `aa3f3ca` fails the computed-style assertion; the pre-versioning builder from

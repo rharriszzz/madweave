@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore the geometry of triaxial weaving with MadWeaver, Richard Harris's interactive SVG pattern editor.">
+  <meta name="description" content="Edit planar triaxial weaving patterns and supported corner diagrams with MadWeaver, by Richard Harris.">
   <meta name="theme-color" content="#244b43">
-  <title>MadWeave — Three directions. Endless patterns.</title>
+  <title>MadWeave — Triaxial weaving editor</title>
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header"><a class="wordmark" href="index.html">Mad<span>Weave</span></a><nav aria-label="Main"><a href="#explore">Explore</a><a href="guide.html">User guide</a><a href="https://github.com/rharriszzz/madweave">Source ↗</a></nav></header>
+  <header class="site-header"><a class="site-name" href="index.html">Mad<span>Weave</span></a><nav aria-label="Main"><a href="#patterns">Color patterns</a><a href="guide.html">User guide</a><a href="https://github.com/rharriszzz/madweave">Source</a></nav></header>
   <main id="main">
-    <section class="hero">
-      <div><p class="eyebrow">A study in triaxial weaving</p><h1>Three directions.<br><em>Endless patterns.</em></h1><p class="intro">Discover what happens when color meets structure. Arrange three families of interlacing strips, reveal their layers, and make a weave of your own.</p><div class="actions"><a class="primary" href="editor.html">Open MadWeaver <span aria-hidden="true">↗</span></a><a href="guide.html">Learn the controls →</a></div><p class="fine">Runs in your browser · No account or installation</p></div>
-      <figure class="hero-image"><img src="madweave_small.png" width="480" height="384" alt="MadWeaver's pink, gold and violet strips interlacing in three directions, surrounded by its original SVG controls."><figcaption>MadWeaver / the original interactive SVG editor</figcaption></figure>
+    <section class="introduction">
+      <div><p class="section-label">Triaxial weaving editor</p><h1>MadWeaver</h1><p class="intro">Edit patterns formed by three families of interlacing strips. Use planar mode to change colors, spacing, orientation, and visibility, or corner mode to edit a supported corner diagram.</p><div class="actions"><a class="primary" href="editor.html">Open editor</a><a href="guide.html">User guide</a></div><p class="fine">Runs in your browser · No account or installation</p></div>
+      <figure class="editor-preview"><img src="madweave_small.png" width="480" height="384" alt="MadWeaver's pink, gold and violet strips interlacing in three directions, surrounded by its original SVG controls."><figcaption>Planar weave with the original SVG controls</figcaption></figure>
     </section>
-    <section id="explore" class="explore"><div class="section-heading"><p class="eyebrow">Color × geometry</p><h2>One structure.<br>Many ways to see it.</h2><p>Mad weave combines three directions of strips. Change the palette, spacing, or visible layers to explore how the same structure produces different rhythms.</p></div><div class="pattern-grid">
-      <figure><img src="cp1.png" width="300" height="300" loading="lazy" alt="Built-in pattern preview with a separate color for each strip direction."><figcaption><span>01 / Direction</span>Give each direction a color.</figcaption></figure>
-      <figure><img src="cp2.png" width="300" height="300" loading="lazy" alt="Built-in pattern preview with colors assigned by hex weave layer."><figcaption><span>02 / Layer</span>Find the hex weaves within.</figcaption></figure>
-      <figure><img src="cp5.png" width="300" height="300" loading="lazy" alt="The fifth built-in color pattern, combining layer and strip grouping."><figcaption><span>05 / Variation</span>Discover a different repeat.</figcaption></figure>
+    <section id="patterns" class="patterns"><div class="section-heading"><p class="section-label">Patterns</p><h2>Color formulas</h2><p>The editor has five color formulas. These previews show three of them. Planar mode also supports changes to strip spacing and the visibility of hexweave classes and strip directions.</p></div><div class="pattern-grid">
+      <figure><img src="cp1.png" width="300" height="300" loading="lazy" alt="Built-in pattern preview with a separate color for each strip direction."><figcaption><span>1. Direction</span>A separate color for each strip direction.</figcaption></figure>
+      <figure><img src="cp2.png" width="300" height="300" loading="lazy" alt="Built-in pattern preview with colors assigned by hex weave layer."><figcaption><span>2. Hexweave class</span>A separate color for each hexweave class.</figcaption></figure>
+      <figure><img src="cp5.png" width="300" height="300" loading="lazy" alt="The fifth built-in color pattern, combining layer and strip grouping."><figcaption><span>5. Class and group</span>Colors determined by hexweave class and strip group.</figcaption></figure>
     </div></section>
-    <section class="start"><p class="eyebrow">Your first weave</p><h2>A little curiosity is all you need.</h2><ol><li><strong>Choose a pattern.</strong> Start with one of five previews on the left of the editor.</li><li><strong>Make it yours.</strong> Select a color at the top, then click a strip to recolor it.</li><li><strong>Look closer.</strong> Hide a direction or layer to see how the interlacing works.</li></ol><a class="primary" href="editor.html">Start exploring →</a><p class="fine">Use a mouse or trackpad for the original editor. Save Project keeps an editable copy you can reopen offline. Save before leaving; there is no autosave.</p></section>
-    <section class="about"><div><p class="eyebrow">The project</p><h2>Craft, made interactive.</h2></div><div><p>Created by Richard Harris, MadWeaver is a JavaScript and SVG exploration of mad weave. Eight palette colors, five built-in patterns, four strip spacings, and up to 24 strips per direction offer a starting point for your own experiments.</p><p>The repository also preserves historical material about <cite>Handbook of Triaxial Weaves: A Guide to HexWeave and MadWeave</cite>, by Elizabeth Harris and Charlene St. John.</p><a href="MadWeaver.html">Read the original project notes →</a></div></section>
+    <section class="start"><p class="section-label">Editing</p><h2>Planar controls</h2><ol><li><strong>Choose a pattern.</strong> Start with one of five previews on the left of the editor.</li><li><strong>Paint a strip.</strong> Select a color at the top, then click a strip to recolor it.</li><li><strong>Set visibility.</strong> Show or hide a strip direction or hexweave class.</li></ol><a class="primary" href="editor.html">Open editor</a><p class="fine">Use a mouse or trackpad for the original editor. Save Project keeps an editable copy you can reopen offline. Save before leaving; there is no autosave.</p></section>
+    <section class="about"><div><p class="section-label">Background</p><h2>About MadWeaver</h2></div><div><p>MadWeaver is a JavaScript and SVG editor by Richard Harris. Planar mode supports eight palette colors, five color formulas, four strip spacings, and up to 24 strips per direction. Corner mode provides a finite catalogue of supported constructions, with strip painting and seam inspection. Physical constructibility of the corner diagrams remains unverified.</p><p>The repository also preserves historical material about <cite>Handbook of Triaxial Weaves: A Guide to HexWeave and MadWeave</cite>, by Elizabeth Harris and Charlene St. John.</p><a href="MadWeaver.html">Original project notes</a></div></section>
   </main>
-  <footer><p>MadWeave · Richard Harris</p><div><a href="https://rharriszzz.github.io/">More projects ↗</a><a href="https://github.com/rharriszzz/madweave">GitHub ↗</a></div></footer>
+  <footer><p>MadWeave · Richard Harris</p><div><a href="https://rharriszzz.github.io/">More projects</a><a href="https://github.com/rharriszzz/madweave">GitHub</a></div></footer>
 </body>
 </html>

@@ -189,11 +189,16 @@ class BrowserTests(unittest.TestCase):
                 self.page.goto(self.base+name)
                 self.assertTrue(self.page.evaluate('document.documentElement.scrollWidth <= innerWidth'))
                 self.assertTrue(self.page.locator('h1').is_visible())
+                # Scroll to previews so images loaded on demand are checked too.
+                for image in self.page.locator('img').all():
+                    image.scroll_into_view_if_needed()
+                    image.evaluate('image => image.decode()')
                 self.assertTrue(self.page.evaluate('Array.from(document.images).every(i => i.complete && i.naturalWidth > 0)'))
+                self.page.evaluate("window.scrollTo({top:0,behavior:'instant'})")
                 if name == 'index.html':
-                    self.assertEqual(self.page.locator('.hero-image').evaluate(
+                    self.assertEqual(self.page.locator('.editor-preview').evaluate(
                         'element => getComputedStyle(element).transform'), 'none',
-                        f'Hero should remain level at width {width}')
+                        f'Editor preview should remain level at width {width}')
                 if width in (1280,390) and name == 'index.html':
                     self.page.screenshot(path=str(screenshots/f'home-{width}.png'), full_page=True)
         context = self.browser.new_context(java_script_enabled=False)

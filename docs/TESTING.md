@@ -187,7 +187,7 @@ for exact versions, the Firefox startup fix, scope, and live portfolio checks.
 
 ## Main integration regression checks on 2026-11-04
 
-The research integration adds computed-style checks that keep the landing hero
+The research integration adds computed-style checks that keep the introductory editor preview
 level at all four responsive widths and a build fixture that changes CSS content
 and requires new stylesheet URLs in every page. These checks fail against the
 historical rotated CSS and unversioned builder, respectively, and pass against

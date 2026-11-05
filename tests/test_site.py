@@ -56,13 +56,13 @@ class SiteTests(unittest.TestCase):
                     if href and not href.startswith('#'):
                         self.assertTrue((output/href).is_file(), href)
 
-    def test_published_stylesheet_is_versioned_and_hero_is_level(self):
+    def test_published_stylesheet_is_versioned_and_editor_preview_is_level(self):
         with tempfile.TemporaryDirectory() as folder:
             output = site.build(folder)
             css = (output / 'site.css').read_bytes()
             version = hashlib.sha256(css).hexdigest()[:12]
             self.assertNotIn(b'transform:rotate(2deg)', css)
-            self.assertNotIn(b'.hero-image{transform:rotate(', css)
+            self.assertNotIn(b'.editor-preview{transform:rotate(', css)
             for name in ('index.html', 'guide.html', 'editor.html'):
                 with self.subTest(page=name):
                     html = (output / name).read_text(encoding='utf-8')

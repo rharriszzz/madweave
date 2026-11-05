@@ -1,8 +1,8 @@
 # MadWeave
 
 **MadWeaver is an interactive triaxial weaving pattern editor by Richard Harris.**
-It draws three families of interlacing strips in SVG and lets you explore their
-colors, spacing, layers, handedness, and over-and-under structure.
+It draws three families of interlacing strips in SVG and supports editing their
+colors, spacing, visibility, handedness, and over-and-under structure.
 
 [Project website](https://rharriszzz.github.io/madweave/) ·
 [Open the editor](https://rharriszzz.github.io/madweave/editor.html) ·
@@ -11,7 +11,7 @@ colors, spacing, layers, handedness, and over-and-under structure.
 Switch between planar patterns and a bounded corner-diagram editor. Both use
 editable SVG, an eight-color palette, strip painting, and portable project files.
 
-## A few things you can make
+## Editor screenshots
 
 Screenshots below come from the built editor. Click an image for full size.
 
@@ -46,7 +46,7 @@ Open <http://127.0.0.1:8000/> for the website or
 <http://127.0.0.1:8000/editor.html> for the editor. Opening HTML directly with
 `file://` can prevent the wrapper from accessing the embedded SVG.
 
-## Make a planar weave
+## Planar mode
 
 Choose **Design mode → Planar**. The five previews select pattern formulas;
 **1–6** sets the formula's color count. Choose one of eight top palette swatches
@@ -59,7 +59,7 @@ individual hide/show modes. Lower-left **1–8** selects 3–24 strips per direc
 Hover over controls for descriptions. Pattern/color-count changes replace manual
 strip edits; changing the strip count resets them too.
 
-## Explore a corner diagram
+## Corner mode
 
 Choose **Design mode → Corner**, select a hole/weave phase, reference angle and
 circular crop, then choose **Apply together**. Pending settings do not change the
