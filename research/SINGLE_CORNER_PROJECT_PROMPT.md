@@ -1,11 +1,14 @@
 # Single-corner project: prompt for later work
 
-**Status: bounded Stage 3B construction controls authorized; delivered for review.**
-The [Stage 3B instruction](SINGLE_CORNER_STAGE3B_PROMPT.md) authorizes the finite
-60°–720° family, explicit hole phases/crops, grouped changes and compatible
-offline files/diagram SVG. See the [handoff](SINGLE_CORNER_STAGE3B.md) and
-[machine-readable matrix](corner-prototype/family-matrix.json). The production
-planar application remains unchanged; the rest of Stage 3 remains on hold.
+**Status: bounded Stage 3C integration authorized; delivered for review.**
+The [Stage 3C instruction](SINGLE_CORNER_STAGE3C_PROMPT.md) authorizes integrating
+the certified family into the existing editor, with shared palette, painting,
+save/open and export. See [integration behavior and evidence](SINGLE_CORNER_INTEGRATION.md).
+This supersedes the earlier application-change hold for this bounded task.
+The [Stage 3B handoff](SINGLE_CORNER_STAGE3B.md) and
+[matrix](corner-prototype/family-matrix.json) still define the 84 constructions.
+There is no authorization to merge into master, deploy, expand geometry or
+claim physical validation. Stop after this branch delivery for review.
 The [Stage 3A instruction](SINGLE_CORNER_STAGE3A_PROMPT.md) authorizes editable
 save/open, offline reopening and static SVG only for the nine certified
 constructions. See the [handoff and viewing instructions](SINGLE_CORNER_STAGE3A.md)
@@ -17,11 +20,39 @@ The [Stage 1 model](SINGLE_CORNER_STAGE1.md) and
 [bounded crop/checker follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md) supply the
 reference constructions. The user authorized a separate inspectable drawing,
 simple example/color/identity controls, and bounded geometry/browser checks.
-Production application code remains unchanged. Do not merge into master or
-expand Stage 3 beyond the explicitly bounded family, or add fabrication,
-production integration or deployment. Stop at Stage 3B for review.
+Those completed research stages preserved production application code. Stage 3C
+now authorizes bounded application integration, while retaining the planar engine
+and its file meaning. Do not merge into master, deploy, expand geometry or add
+fabrication outputs.
 The accepted requirements and separate diagram/physical gates below
 remain in force. Earlier historical/image forensics remain preparation evidence.
+
+## Updated product direction — 2026-11-05
+
+The user wants the corner capability integrated into the existing base editor,
+with a small set of new controls. Reuse the base palette, strip painting,
+selection, save/open and export workflows, adapting their behavior to global
+corner-strip identity. The standalone research page is a development and
+validation artifact, not the intended second product interface.
+
+The [revised Stage 3C prompt](SINGLE_CORNER_STAGE3C_PROMPT.md) defines the authorized
+bounded integration task on `docs/single-corner-prompt`. It replaces the earlier
+proposal to add a separate prototype painting interface. Its final steps are
+validation, staging intended changes, committing and pushing the branch, then
+stopping for review. It does not authorize a master merge or deployment.
+Application integration is in scope when the user instructs the agent to follow
+that prompt, as the user has now done; earlier application-change restrictions
+record the completed Stage 3B boundary. Physical-validation and diagram-release gates are unchanged.
+
+**Subsequent user decisions:** color changes at seams are accepted diagram states
+with vivid warning markers and hover/focus text. They retain their chosen colors
+and are explicitly reported as conflicting / color continuity not Validated;
+geometry, material identity and order requirements are unchanged. This overrides
+Stage 3C's proposed blocking of color conflicts and palette-alias separation.
+Existing palette opacity is retained in corner mode, overriding the proposed
+opaque-only limit. Complete ordered stacks are composited in native SVG and
+clipped once; cross-browser transparency/seam evidence is part of acceptance.
+No color warning or translucent render establishes physical constructibility.
 
 **Recovered reference (strong reconstruction evidence):** `tree.png` is closely
 reproduced by the radius-preserving angular map with
@@ -724,8 +755,19 @@ to 60°–720° in 60° steps, fixed W/P=3/4, explicit representative phases and
 crop presets. The [handoff](SINGLE_CORNER_STAGE3B.md) records the complete finite
 matrix, grouped transactions, v1-compatible v2 files, exhaustive reference/state
 checks and separately disclosed browser sampling. This is not an exhaustive
-classification or the eventual allowed-angle list. Broader editing and production
-integration remain on hold, and physical validation remains a separate gate.
+classification or the eventual allowed-angle list. At that stage broader editing and production integration remained on hold.
+The later Stage 3C authorization below supersedes only the integration hold;
+physical validation remains a separate gate.
+
+**Stage 3C — bounded integration (authorized; delivered for review).**
+Use the existing editor entry point and controls for the same 84 constructions.
+Keep unsaved planar and corner designs separately in the session; Save persists
+only the active design. Versioned custom component coloring, opacity and local
+selection must reopen offline through the shared file controls. Legacy planar
+and Stage 3A/3B corner data are explicitly migrated. The
+[integration report](SINGLE_CORNER_INTEGRATION.md) records the control map,
+independent checking, browser sampling, native compositing, worked file and
+remaining limits. Stop before a master merge, deployment or scope expansion.
 
 Diagram release requires the applicable acceptance evidence above, user
 documentation, and a worked diagram example. It does not depend on Stage 4,
@@ -748,7 +790,9 @@ stage, stop at its stated deliverable. Pause dependent work only for an actual
 unresolved user decision or a specifically requested review gate. The initial
 implementation hold remains in effect until the user explicitly authorizes
 implementation. Later explicit instructions authorized the bounded Stage 2 and
-Stage 3A and bounded Stage 3B prototypes only; they do not authorize full product integration.
+Stage 3A and bounded Stage 3B prototypes, followed by bounded Stage 3C integration.
+Only those defined scopes are authorized; whole-project readiness and physical
+validation are not implied.
 
 ## Decisions, ownership, and readiness
 
@@ -771,7 +815,7 @@ Keep unresolved research explicit, with a required deliverable and owner.
 | Extent and finite ends | Accepted modeling default | Circular crop with adequate underlying periodic material; record R and free ends explicitly | End of Stage 1 |
 | Strip stock, physical dimensions and printable outputs | User decision for fabrication | Agree straight versus custom-cut stock, units, page size, scale checks, tolerances and optional tape allowances before output is called a construction template | Fabrication output / physical claims |
 | Front/back, thickness, creases and layered flattening | Deferred mode-specific decisions | Define only if a folded/layered physical mode is selected; do not block the initial angular chart on an unrequested mode | That mode |
-| Separate mode/page | Accepted product default | Preserve the planar editor; expose the corner tool as a separate mode/page | UI design |
+| Integrated corner mode | Updated user direction, 2026-11-05 | One base editor with Planar / Corner mode, shared palette/painting/save/open/export, and a compact set of corner-specific controls; preserve planar functionality | Stage 3C branch review |
 | Additional flattenings and 3D relaxation | Deferred additions | List alternatives; implement the tree method first | Explicit later scope |
 
 **Stage 1 readiness is approved. Whole-project readiness is not.** Stage 1 ends

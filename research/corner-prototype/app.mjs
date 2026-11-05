@@ -1,3 +1,4 @@
+import {createRenderer} from './render.mjs';
 import {Diagram,number,id,boundary,pathFor,TAU} from './kernel.mjs';
 import {Project} from './project.mjs';
 import {makePackage} from './offline.mjs';
@@ -85,77 +86,7 @@ function inspection(s){
 }
 // This routine touches only a candidate model and a detached SVG. It does not
 // change active controls, active geometry, selection or the committed model.
-function prepare(s,exportSigma=null){
-  const {model,entry,selected,view}=s;model.rotation=view.rotation*Math.PI/180;
-  const pad=model.R+.3,viewBox=`${model.center[0]-pad} ${model.center[1]-pad} ${2*pad} ${2*pad}`;
-  const matrix=svg.getScreenCTM(),oldWidth=svg.viewBox.baseVal.width;
-  const factor=oldWidth>0?oldWidth/(2*pad):null;
-  let sigma;
-  if(factor!==null){
-    const a=matrix.a*factor,b=matrix.b*factor,c=matrix.c*factor,d=matrix.d*factor;
-    const tr=a*a+b*b+c*c+d*d,det=a*d-b*c;
-    sigma=Math.sqrt((tr+Math.sqrt(Math.max(0,tr*tr-4*det*det)))/2);
-  }else{const box=svg.getBoundingClientRect();sigma=Math.min(box.width,box.height)/(2*pad);}
-  if(exportSigma!==null)sigma=exportSigma;
-  const epsilon=Math.min(model.W/1000,.25/sigma)/8;
-  const meshes=new Map([...model.parts.keys()].map(position=>[position,model.pieceMesh(position,epsilon)]));
-  const cellMeshes=model.cells.map(cell=>model.mesh(cell.edges,cell.j,epsilon));
-  const root=node('svg',{viewBox}),defs=node('defs',{},root),paint=node('g',{class:'material-cells'},root);
-  model.meshAudit=[];model.epsilon=epsilon;model.sigma=sigma;
-  for(const [position,part]of model.parts){
-    const mesh=meshes.get(position);
-    node('path',{id:`piece-${position.replaceAll(':','_')}`,d:pathFor(mesh),'data-occurrence':position,
-      fill:colors[model.color(position)],'data-strip':model.owner.get(position),'data-vertices':JSON.stringify(part.vertices)},defs);
-    model.meshAudit.push({kind:'band',position,j:part.id[0],...mesh});
-  }
-  const opaqueFaces=[[],[],[]],visibleParts=new Map();
-  model.cells.forEach((cell,index)=>{
-    const mesh=cellMeshes[index],path=pathFor(mesh);
-    const clip=node('clipPath',{id:`cell-${index}`,clipPathUnits:'userSpaceOnUse','data-sector':cell.j,'data-reference-cell':JSON.stringify(cell.reference)},defs);node('path',{d:path},clip);
-    const group=node('g',{class:'cell','data-region':`cell-${index}`,'data-stack':JSON.stringify(cell.stack),'data-sector':cell.j},defs);
-    node('path',{d:path,fill:colors[model.color(cell.stack[0])],'data-position':cell.stack[0],class:'face'},group);
-    opaqueFaces[model.color(cell.stack[0])].push(path);
-    const top=cell.stack[0];if(!visibleParts.has(top))visibleParts.set(top,[]);visibleParts.get(top).push(path);
-    model.meshAudit.push({kind:'cell',index,j:cell.j,...mesh});
-  });
-  opaqueFaces.forEach((paths,color)=>{if(paths.length)node('path',{d:paths.join(' '),fill:colors[color],'data-material-color':color},paint);});
-  if(view.edges){
-    const visible=node('g',{'data-layer':'visible-boundaries','aria-label':'Visible material boundaries'},root);
-    for(const [position,paths]of visibleParts){
-      const maskId=`visible-${position.replaceAll(':','_')}`,clip=node('clipPath',{id:maskId,clipPathUnits:'userSpaceOnUse'},defs);
-      node('path',{d:paths.join(' ')},clip);
-      const part=model.parts.get(position),j=part.id[0];
-      for(const edge of boundary(model.polygons.get(position),model.R)){
-        // Conceptual sector cuts are not visible material edges.
-        if(edge.kind==='line'&&[0,model.alpha].some(t=>[edge.a,edge.b].every(p=>Math.abs(p[0]*Math.sin(t)-p[1]*Math.cos(t))<1e-10)))continue;
-        const mesh=model.mesh([edge],j,epsilon);
-        node('path',{d:openPath(mesh),class:'visible-boundary','stroke-width':1.8/sigma,
-          'clip-path':`url(#${maskId})`,'data-visible-position':position},visible);
-        model.meshAudit.push({kind:'visible-boundary',position,j,...mesh});
-      }
-    }
-  }
-  const outline=node('g',{'data-layer':'hidden-inspection'},root);
-  if(view.outlines)for(const [position,mesh]of meshes)node('path',{d:pathFor(mesh),class:'outline','data-inspection-position':position},outline);
-  if(view.seams)for(let j=0;j<model.m;j++){
-    const angle=model.rotation+j*TAU/model.m;
-    node('line',{x1:model.center[0],y1:model.center[1],x2:model.center[0]+model.R*Math.cos(angle),y2:model.center[1]+model.R*Math.sin(angle),class:'seam'},root);
-  }
-  const selection=node('g',{'data-layer':'selection'},root);
-  if(selected!==null){
-    for(const a of model.certificate.components[selected].pieces)node('path',{d:pathFor(meshes.get(id(a))),class:'selection','data-selected-position':id(a)},selection);
-    if(view.seams)for(const e of model.certificate.joins){
-      if(model.owner.get(id(e.left))!==selected)continue;
-      const j=e.right[0],angle=model.rotation+j*TAU/model.m;
-      const lo=number(e.interval[0])/Math.sqrt(3),hi=Array.isArray(e.interval[1])?model.R:number(e.interval[1])/Math.sqrt(3);
-      node('line',{x1:model.center[0]+lo*Math.cos(angle),y1:model.center[1]+lo*Math.sin(angle),x2:model.center[0]+hi*Math.cos(angle),y2:model.center[1]+hi*Math.sin(angle),class:'partner','data-left':id(e.left),'data-right':id(e.right)},root);
-    }
-  }
-  let maxBound=0;for(const mesh of model.meshAudit)for(const segment of mesh.segments)maxBound=Math.max(maxBound,segment.bound);
-  return {root,viewBox,inspection:inspection(s),
-    summary:`ACTIVE: ${entry.label}. Reference ${model.p.beta}° · signed deficit ${360-model.p.beta}° · ${model.p.beta<360?'deficit':model.p.beta>360?'excess':'planar'} ${Math.abs(360-model.p.beta)}° · multiplier ${model.p.f} · R/P ${model.p.R_over_P} · ${entry.counts.open_strips} open strips. Open-strips-only: Validated.`,
-    certificate:JSON.stringify({certificate:entry.id,counts:entry.counts,worldTolerance:epsilon,maxBound,pixelBound:maxBound*sigma,analyticDisk:true,referenceCenter:[-(2*model.p.k[1]+model.p.k[0])/Math.sqrt(3),model.p.k[0]],displayCenter:model.center,displayRotation:model.rotation},null,2)};
-}
+const prepare=createRenderer(svg,colors,inspection);
 function commit(candidate,drawing,{quiet=false,resetDraft=false}={}){
   // Preparation, including inspector text and all bounded paths, is complete.
   // This synchronous commit has no network or other user-code await points.

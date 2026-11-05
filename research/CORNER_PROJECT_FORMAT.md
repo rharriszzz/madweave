@@ -1,9 +1,11 @@
-# Corner project formats, versions 1 and 2
+# Corner project formats, versions 1, 2 and 3
 
 Version 2 is the editable state for the separate [Stage 3B prototype](SINGLE_CORNER_STAGE3B.md).
 It retains version-1 imports from [Stage 3A](SINGLE_CORNER_STAGE3A.md).
 It is distinct from the production planar editor's `madweave-project` version 1.
-Neither importer translates the other format. No production file or schema changes.
+Those Stage 3A/3B importers remain unchanged. The integrated Stage 3C editor now
+dispatches both families through shared Open; planar v1 meaning is unchanged.
+See the integrated v3 section below.
 
 ## Authority and construction version
 
@@ -168,3 +170,59 @@ Unvalidated. Diagram acceptance and physical validation remain separate gates.
 Reference ribbons are ideal straight, constant-width, zero-thickness material
 with the previously certified seam transport. No custom-cut stock substitution,
 physical validation or fabrication output is implied.
+
+## Integrated corner v3 and shared editor envelope
+
+The [Stage 3C editor](SINGLE_CORNER_INTEGRATION.md) uses
+`madweave-editor` version 1 with exact fields `format`, `version`, `active`,
+`design`, `selection`. `active` is `planar` or `corner`. `design` contains the
+unchanged planar v1 model or corner v3 model. Envelope `selection` is a bounded
+planar strip index or null; corner local identity belongs inside `design`.
+Only the active design is saved. Both designs and their palettes/selections are
+retained in the running session, but the inactive design and pending proposals
+are not persisted. There is no implied planar-to-corner conversion.
+
+Corner v3 retains the v2 construction, catalogue, view and selection contracts.
+It adds required fields `palette` (eight normalized integer-channel RGB strings),
+`opacity` (eight finite numbers in [0,1]), `recent` / `recentOpacity` (four each),
+`selectedColor` (0–7), `controlsHidden` (boolean). `material` now contains
+`pattern` (null or 0–4) and `overrides` (sparse map from stable component key to
+slot 0–7). An override colors the entire component. Unoverridden occurrences
+keep their formula assignment; this preserves a user's warned/discontinuous
+base assignment when painting a different strip. Overrides do not join crossings.
+Changing construction clears custom assignments and selection after disclosure;
+view changes retain them. Formula changes explicitly replace custom assignments.
+
+Canonical RGBA equality uses normalized RGB and alpha rounded to 1e−12;
+colors whose rounded alpha is zero are equivalent irrespective of hidden RGB. Equal colors
+in different slots satisfy continuity. Every actual material occurrence must
+still reference its assigned slot. User-authorized color conflicts are retained
+and diagnosed at each join, never represented as Validated color continuity.
+Other malformed or inconsistent state is rejected atomically.
+
+Import of v1/v2 first checks their construction/digest/parameter and identity
+contracts against the unchanged trusted catalogue. It preserves each original
+pattern and maps the fixed three colors to the first three opaque slots; five
+additional slots and recent colors receive documented defaults from
+[corner-model.mjs](../corner-model.mjs). No material identity is renamed. A
+neutral-color pass is used only to validate legacy geometry/selection; the real
+assignment is restored and every real seam conflict recomputed. Ordinary planar
+v1 JSON/HTML and original editable planar SVG are accepted without schema changes.
+Raw JSON import does not itself provide the offline runtime.
+
+Shared Save writes `madweave-project.html`: one inert `madweave-project` state
+block plus `madweave-assets` with trusted planar engine, corner runtime/adapter,
+wrapper, CSS and five embedded preview images. Import reads only inert model
+text; file scripts, SVG and saved validation claims are never authorities.
+The shared importer and generated files preserve the existing 5 MiB planar
+and 10 MiB corner limits; the research importer also retains its 10 MiB limit. Offline files contain the full 84-construction runtime
+and both modes, and can reopen/resave/export without HTTP requests. Reopening a
+single-mode file starts the other mode at its supported default, not at any
+unsaved session design from the original tab.
+
+Static corner artwork metadata is `madweave-corner-artwork` v2. It documents
+palette/opacity, sparse material assignment, construction, components, joins,
+crossings, view, approximation bounds, annotation policy and warning count.
+Actual native SVG stacks carry local order and use only local definitions.
+Artwork remains separate from editable projects and fabrication templates;
+physical constructibility remains unverified.

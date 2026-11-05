@@ -4,7 +4,7 @@ The project has four connected goals: explain every control, explain the planar
 hexweave and madweave construction, make those explanations testable, and finish
 the preparation for `coneFraction`. The planar preparation and SVG seam fix
 have been merged into `master`. A separate single-corner Stage 2 visual prototype
-and its bounded Stage 3B construction controls/offline files are delivered for review.
+and bounded Stage 3C integration into the existing editor is delivered for review.
 The rest of Stage 3 remains on hold and the production application's
 `coneFraction` remains 1.
 
@@ -19,13 +19,14 @@ The rest of Stage 3 remains on hold and the production application's
 | Boundary rendering | [Boundary and Firefox comparison](BOUNDARY_RENDERING.md) | Finite ends, mask sides, and the known clipping artifact |
 | Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
 | Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
-| Single-corner project prompt | [Accepted scope and stage gates](SINGLE_CORNER_PROJECT_PROMPT.md) | Stage 3B bounded construction controls delivered; full product and physical gates remain |
+| Single-corner project prompt | [Accepted scope and stage gates](SINGLE_CORNER_PROJECT_PROMPT.md) | Stage 3C bounded editor integration delivered; review, broader product and physical gates remain |
 | Single-corner Stage 1 results | [Model, catalogue and certificates](SINGLE_CORNER_STAGE1.md) | Required hole families, finite excess/deficit ledgers, color witnesses, open-strip proof, crop-fringe limit and future acceptance plan; stop for review |
 | Stage 1 crop/checker follow-up | [Full regions and independent checker](SINGLE_CORNER_CROP_FOLLOWUP.md) | R/P=6 and neighboring crops, supplied-certificate mutations, rotated inverse coordinates and circle error bounds; stop for review |
 | Stage 2 visual prototype | [View prototype](corner-prototype/index.html) · [Report and instructions](SINGLE_CORNER_STAGE2.md) | Certified examples, bounded angular drawing, joined-strip/seam inspection, color witnesses and browser evidence |
 | Stage 2 corrections | [Transactions, visible paint and inspection](SINGLE_CORNER_STAGE2_CORRECTIONS.md) | Reproduced failures, coherent control/request commits, real visible-paint negative control and monochrome desktop/mobile inspection; stop for review |
 | Stage 3A portable diagrams | [Handoff and offline example](SINGLE_CORNER_STAGE3A.md) · [State format](CORNER_PROJECT_FORMAT.md) | Self-contained editable files, atomic imports, static SVG, three-engine round trips and planar isolation; stop for review |
 | Stage 3B construction choices | [Bounded family and worked example](SINGLE_CORNER_STAGE3B.md) · [Matrix](corner-prototype/family-matrix.json) | Explicit angle/phase/crop/color controls, grouped Apply, 84 constructions and 268 compatible assignments, exhaustive reference/state checks, v1 compatibility and sampled three-engine rendering; stop for review |
+| Stage 3C shared editor | [Integration report](SINGLE_CORNER_INTEGRATION.md) · [Instruction](SINGLE_CORNER_STAGE3C_PROMPT.md) | Same palette/painting/file actions, retained planar/corner session designs, v3 RGBA/custom state and explicit legacy migration, independent checking and browser evidence; stop for review |
 | Independent prompt improvement | [Historical Astra documentation task](SINGLE_CORNER_REVIEW_PROMPT.md) | Earlier review instructions and implementation hold at that checkpoint |
 | Prompt review findings | [Independent review](SINGLE_CORNER_PROMPT_REVIEW.md) | Applied corrections, acceptance fixtures and historical authorization records |
 | Tree reference evidence | [Recovered center and multiplier](TREE_REFERENCE_ANALYSIS.md) | Single-edge inverse fit, upper-half count, and historical renderer replay establish code f=3/4 versus paper ratio 4/3 |
@@ -66,7 +67,7 @@ records the latest pixel-audit repair.
   at f=3/4. The [Stage 1 deliverable](SINGLE_CORNER_STAGE1.md) supplies scoped
   mathematical certificates and explicit limits. The separate
   [Stage 2 visual prototype](SINGLE_CORNER_STAGE2.md) and
-  [bounded Stage 3B choices and portability](SINGLE_CORNER_STAGE3B.md) are delivered for review;
+  [bounded Stage 3B choices and portability](SINGLE_CORNER_STAGE3B.md) and [shared Stage 3C editor integration](SINGLE_CORNER_INTEGRATION.md) are delivered for review;
   the rest of Stage 3 remains on hold. Physical constructibility remains unverified.
   [Cone readiness](CONE_READINESS.md) maps the original goals to their evidence.
 

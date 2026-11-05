@@ -14,7 +14,7 @@ for entry in examples:
     assert check['validate'](c)==entry['counts']
     certificates[entry['id']]=c;digests[entry['id']]=hashlib.sha256(raw).hexdigest()
 sources={}
-for key in ['kernel','project','offline','app']:
+for key in ['kernel','project','render','offline','app']:
     text=(FOLDER/(key+'.mjs')).read_text()
     text=re.sub(r'^import .*?;\s*\n','',text,flags=re.M)
     sources[key]=re.sub(r'\bexport (?=(const|function|class|async function)\b)','',text)

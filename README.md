@@ -59,6 +59,25 @@ editor scroll horizontally. See [the testing record](docs/TESTING.md) for the
 exact browser coverage, and [Mac testing results](docs/MAC_TESTING.md) for
 installed Safari, Chrome, and Firefox checks.
 
+## Corner mode on this branch
+
+Use **Design mode → Corner** in the same editor. Choose a supported hole phase,
+reference angle and circular crop, then **Apply together**. The same eight-slot
+palette, opacity sliders, strip painting and file actions work in both modes.
+Clicking paints a complete joined strip; optional inspection exposes hidden
+positions and seam partners. Pink markers warn about color changes at seams
+without rejecting the edit.
+
+The finite catalogue has 84 certified constructions (60°–720°); it is not the
+final allowed-angle list. Unsupported geometry stays explicitly Unvalidated.
+Both designs survive mode switching in the session; **Save includes only the
+active design**. Saved files reopen, edit, resave and export offline. Existing
+planar files and Stage 3A/3B corner files open through the shared action.
+Corner SVG is diagram artwork: **physical constructibility remains unverified**.
+See [the integration report](research/SINGLE_CORNER_INTEGRATION.md) for evidence,
+worked files, keyboard operations, unsupported controls and reproduction.
+This branch is awaiting review; no master merge or deployment is included.
+
 ## Documentation
 
 - [Planar weaving research](research/README.md): complete control reference,

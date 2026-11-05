@@ -1,0 +1,266 @@
+{
+  "initial": {
+    "format": "madweave-editor",
+    "version": 1,
+    "active": "corner",
+    "design": {
+      "format": "madweave-corner-project",
+      "version": 3,
+      "catalogue": "corner-family-v2",
+      "construction": {
+        "id": "self",
+        "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        }
+      },
+      "material": {
+        "pattern": null,
+        "overrides": {
+          "0:0:3": 7
+        }
+      },
+      "view": {
+        "rotation": 23,
+        "outlines": false,
+        "seams": false,
+        "edges": false,
+        "annotations": false,
+        "center": [
+          1.25,
+          -0.75
+        ]
+      },
+      "selection": {
+        "strip": "0:0:3",
+        "local": {
+          "sector": 0,
+          "point": [
+            0.8660254037844386,
+            0.4999999999999999
+          ],
+          "positions": [
+            "0:2:3",
+            "0:0:3"
+          ],
+          "active": "0:0:3",
+          "crossing": {
+            "pair": [
+              [
+                0,
+                0,
+                3
+              ],
+              [
+                0,
+                2,
+                3
+              ]
+            ],
+            "XY": [
+              "3/2",
+              "1/2"
+            ]
+          }
+        }
+      },
+      "palette": [
+        "rgb(71,127,121)",
+        "rgb(189,113,61)",
+        "rgb(139,109,165)",
+        "rgb(230,195,70)",
+        "rgb(50,90,180)",
+        "rgb(205,70,100)",
+        "rgb(235,235,225)",
+        "rgb(40,40,40)"
+      ],
+      "opacity": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.39849990606307983
+      ],
+      "recent": [
+        "rgb(40,40,40)",
+        "rgb(71,127,121)",
+        "rgb(189,113,61)",
+        "rgb(139,109,165)"
+      ],
+      "recentOpacity": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "selectedColor": 7,
+      "controlsHidden": false
+    },
+    "selection": null
+  },
+  "offlineResaved": {
+    "format": "madweave-editor",
+    "version": 1,
+    "active": "corner",
+    "design": {
+      "format": "madweave-corner-project",
+      "version": 3,
+      "catalogue": "corner-family-v2",
+      "construction": {
+        "id": "self",
+        "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        }
+      },
+      "material": {
+        "pattern": null,
+        "overrides": {
+          "0:0:3": 7
+        }
+      },
+      "view": {
+        "rotation": 23,
+        "outlines": false,
+        "seams": false,
+        "edges": false,
+        "annotations": false,
+        "center": [
+          1.25,
+          -0.75
+        ]
+      },
+      "selection": {
+        "strip": "0:0:3",
+        "local": {
+          "sector": 0,
+          "point": [
+            0.8660254037844386,
+            0.4999999999999999
+          ],
+          "positions": [
+            "0:2:3",
+            "0:0:3"
+          ],
+          "active": "0:2:3",
+          "crossing": {
+            "pair": [
+              [
+                0,
+                0,
+                3
+              ],
+              [
+                0,
+                2,
+                3
+              ]
+            ],
+            "XY": [
+              "3/2",
+              "1/2"
+            ]
+          }
+        }
+      },
+      "palette": [
+        "rgb(71,127,121)",
+        "rgb(189,113,61)",
+        "rgb(139,109,165)",
+        "rgb(230,195,70)",
+        "rgb(50,90,180)",
+        "rgb(205,70,100)",
+        "rgb(235,235,225)",
+        "rgb(40,40,40)"
+      ],
+      "opacity": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.39849990606307983
+      ],
+      "recent": [
+        "rgb(40,40,40)",
+        "rgb(71,127,121)",
+        "rgb(189,113,61)",
+        "rgb(139,109,165)"
+      ],
+      "recentOpacity": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "selectedColor": 7,
+      "controlsHidden": false
+    },
+    "selection": null
+  },
+  "networkRequests": [],
+  "selectionChange": "Next local position after offline reopening; same global joined strip and complete material",
+  "files": {
+    "desktop.png": {
+      "bytes": 192360,
+      "sha256": "6ee60dc29074cd6cfdfd0c57e6ac9866c76e4c967bde8f7ec132fc0c29b28816"
+    },
+    "editable.html": {
+      "bytes": 5004628,
+      "sha256": "aaf4b1dc3a6b31549c7bfa81c0ae4a9f60769249962b6597351a33c23600fbe3"
+    },
+    "inspection.svg": {
+      "bytes": 1365519,
+      "sha256": "19a9af1c4503687f391129074c04be6a9c2d5a887b520ee2e3319019a15c0a86"
+    },
+    "narrow.png": {
+      "bytes": 147753,
+      "sha256": "32738ac7ededa9b593d6dd28c9f12d6253dd3fc79e22d7d4ce3f6c1952745c50"
+    },
+    "plain.svg": {
+      "bytes": 1161935,
+      "sha256": "c0e501172af7ccddd77e528904a87e769e5d8b043058b28c243c946ac133a003"
+    },
+    "warnings-desktop.png": {
+      "bytes": 328122,
+      "sha256": "4def7e189ecff590aee01dd070964602702b884e905e38b47afe83cf58c4bf4a"
+    },
+    "warnings-narrow.png": {
+      "bytes": 216678,
+      "sha256": "b3aca8e5423b0ae794539effb2562a096812961eb1487f02f191dd92eedca845"
+    }
+  }
+}

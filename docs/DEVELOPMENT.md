@@ -5,7 +5,9 @@
 | File | Purpose |
 | --- | --- |
 | `index.html`, `site.css` | Buildless project landing page and shared website styles |
-| `editor.html`, `editor.js` | SVG iframe, offline project save/open, and static artwork export |
+| `editor.html`, `editor.js` | Shared planar/corner workspace, retained per-mode frames, offline projects and SVG export |
+| `corner-editor.js`, `corner-model.mjs` | Shared SVG control adapter and authoritative corner v3 custom RGBA state |
+| `corner-runtime.js`, `scripts/build_corner_runtime.py` | Generated, independently checked finite corner catalogue/kernel/renderer; deterministic builder |
 | `guide.html` | Current user guide and control reference |
 | `project.js` | Versioned state capture, validation, application, and legacy SVG import |
 | `madweave.js` | Original global-scope SVG engine and event handlers |
@@ -18,7 +20,9 @@
 | `scripts/build_site.py` | Explicit static publication list; output in ignored `dist/` |
 | `tests/` | Node color/indexing tests, Python site tests, and Chromium integration tests |
 
-There is no bundler, backend, database, telemetry, external font, or runtime CDN.
+The planar engine is buildless. A deterministic Python script packages the
+finite corner runtime; there is no package dependency, backend, database, telemetry,
+external font, or runtime CDN.
 The web app uses only its own static files. `madweave.js` is loaded inside the SVG
 document, so its `document` and global state belong to that document rather than
 the surrounding HTML page.
@@ -70,7 +74,7 @@ outlines, and control visibility. Validation checks types, supported versions,
 lengths, bounds, and RGB values and produces a fresh object with known fields.
 
 **Save Project** downloads a standalone HTML document with two inert JSON script
-blocks: `madweave-project` (validated state) and `madweave-assets` (the engine,
+blocks: `madweave-project` (active mode envelope and validated model state) and `madweave-assets` (the engine,
 wrapper scripts, CSS, and five pattern images as data URLs). A small bootstrap
 loads the bundled editor and reconstructs a fresh SVG inside an iframe. Saving
 again reuses the bundle; no external resource is required for editing or saving
@@ -82,7 +86,8 @@ scripts or trust its bundled application code. For a legacy SVG it extracts
 known color, strip, and button attributes without inserting the document into
 the page. Both paths validate state and rebuild it with the current editor code
 and assets. Invalid input leaves the current editor in place. A valid import
-replaces it, so users must save their current design first.
+replaces that mode's design and retains the other mode. Save both designs
+separately before closing the tab.
 
 The saved HTML format avoids dependence on browser-specific Save As behavior,
 relative script/image paths, or native file-system picker APIs. Saving downloads
@@ -153,3 +158,34 @@ and the Mac Chrome/Firefox builds should receive the acceptance check in
 Batik helpers are not used in the site build or browser tests. Modernizing those
 scripts, licensing the project, and extending the editable format need
 separate work; see [IMPROVEMENTS.md](../IMPROVEMENTS.md).
+
+## Bounded corner integration
+
+Stage 3C adds an explicit Planar/Corner selector in the existing editor. Each mode
+keeps its own live frame, authoritative model, palette and selection. Corner
+reuses the actual base SVG buttons and palette/HSV/opacity handlers through
+`corner-editor.js`; only supported geometry/formula choices are mapped. It does
+not embed the research page. `madweave.js` and planar `project.js` are unchanged.
+The frame provides isolation for their original global state.
+
+`corner-model.mjs` validates a version-3 corner state against the unchanged
+84-certificate catalogue. The shared renderer is
+`research/corner-prototype/render.mjs`; the research app retains its original
+opaque path, while integrated RGBA stacks composite complete ordered SVG groups
+before a single region clip. Candidate drawings are prepared detached. A shared
+revision guard covers mode changes, imports and edits; stale success/error
+completions cannot overwrite newer user choices. Palette failures additionally
+restore the existing SVG button DOM and legacy palette globals.
+
+Build `corner-runtime.js` with `python3 scripts/build_corner_runtime.py` after
+changing model/kernel/renderer sources. The builder independently checks every
+reference certificate, strips module exports/imports, and packages the catalogue
+with the shared core in one locally served classic script. Rebuild the separate
+research offline bundle with `python3 research/build-corner-package.py` when
+shared sources change. Both generated assets are committed; site publication
+copies the integrated runtime/adapter only, without publishing the research UI.
+
+See [the integration report](../research/SINGLE_CORNER_INTEGRATION.md) and
+[versioned formats](../research/CORNER_PROJECT_FORMAT.md) for exact save authority,
+migration, color-warning semantics, compositing evidence, limits and test commands.
+Neither runtime integration nor publication-list updates authorize deployment.

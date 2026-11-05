@@ -140,3 +140,32 @@ The [research testing reference](../research/TESTING.md) describes the separate
 34-stage suite, independent planar geometry, boundary/end pixels, symmetry,
 and Firefox/Chromium clipping comparison. Research artifacts remain outside
 the published site allowlist.
+
+## Bounded corner integration on 2026-11-05
+
+Stage 3C is tested through the existing `editor.html` and shared SVG palette/file
+controls. The [integration report](../research/SINGLE_CORNER_INTEGRATION.md) and
+[machine-readable evidence](../research/evidence/corner-integration.json) record:
+
+- All 84 unchanged geometry certificates and 3,024 integrated RGBA/custom-color
+  semantic round trips checked by a separate Python checker; original 268
+  compatible fixed-palette assignments and their 236 color witnesses retained.
+- Eight integrated browser representatives per engine in Chromium 145.0.7632.6,
+  Firefox 155 and Playwright WebKit 26.6, plus all nine original prototype
+  examples and nineteen Stage 3B family representatives in all three engines.
+- Native pointer/keyboard painting, full joined-strip/fringe/self-crossing
+  identity, opacity including zero, palette aliases and seam warnings, failed
+  palette/view/import/mode operations, deliberately stale reads, both retained
+  session designs, and an actual wrong-paint negative control.
+- Native Open of actual legacy files, offline save/open/edit/resave in each
+  mode with HTTP blocked, and independent rendering/auditing of plain/annotated
+  SVG exports. Flat interior/near-ray/exact-ray pixels retain 4/255 limits;
+  representative final errors are below 1.31/255.
+- All eleven planar application tests per engine; unchanged planar seam checks
+  cover 163 configurations and 90,350 pixels per engine, including transparency.
+  All eighteen unit-only research stages pass; the allowlisted site build now
+  has 24 public files. No deployment or master merge is part of these checks.
+
+Browser samples are not exhaustive rendering of all palette/view combinations.
+WebKit automation is not installed Safari or physical-device verification.
+Physical constructibility remains unverified and requires its separate gate.

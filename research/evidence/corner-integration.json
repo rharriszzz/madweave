@@ -1,0 +1,6348 @@
+{
+  "baseline": "7ae5c06",
+  "scope": "Bounded Stage 3C shared-editor integration; no deployment/master merge/physical validation",
+  "semantic": {
+    "constructions": 84,
+    "roundTrips": 3024,
+    "independentCases": 3028,
+    "precisionCases": [
+      {
+        "opacity": 4.999999999999999e-13,
+        "colorStatus": "Validated",
+        "distinctColors": 1
+      },
+      {
+        "opacity": 5e-13,
+        "colorStatus": "Invalid",
+        "distinctColors": 3
+      },
+      {
+        "opacity": 5.000000000000001e-13,
+        "colorStatus": "Invalid",
+        "distinctColors": 3
+      },
+      {
+        "opacity": 0.9999999999999,
+        "colorStatus": "Invalid",
+        "distinctColors": 3
+      }
+    ],
+    "variants": [
+      "formula",
+      "alias",
+      "transparent-alias",
+      "subquantum-alias",
+      "custom",
+      "custom-three"
+    ],
+    "warnings": 239,
+    "mutations": [
+      {
+        "name": "wrong-color",
+        "result": {
+          "status": "Invalid",
+          "witness": "Wrong material color at (0, 0, 3)"
+        }
+      },
+      {
+        "name": "missing",
+        "result": {
+          "status": "Invalid",
+          "witness": "Missing/duplicated material color coverage"
+        }
+      },
+      {
+        "name": "duplicate",
+        "result": {
+          "status": "Invalid",
+          "witness": "Missing/duplicated material color coverage"
+        }
+      },
+      {
+        "name": "unknown-component",
+        "result": {
+          "status": "Invalid",
+          "witness": "Unknown custom component"
+        }
+      },
+      {
+        "name": "hidden-rgb",
+        "result": {
+          "status": "Invalid",
+          "witness": "Wrong material color at (0, 0, 3)"
+        }
+      }
+    ]
+  },
+  "originalFamilySemantic": {
+    "catalogue": "corner-family-v2",
+    "constructions": 84,
+    "assignments": 268,
+    "rejectedColors": 236,
+    "boundaryChecks": 6192,
+    "totalSegments": 1796083,
+    "maxBound": 9.37476464458452e-05,
+    "largestHTMLBytes": 3974383,
+    "bundleBytes": 3966291,
+    "legacyWorkedFiles": true,
+    "rows": [
+      {
+        "id": "self",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974359,
+        "meshSegments": 13014,
+        "circularSegments": 1145,
+        "totalMilliseconds": 116.89801700000001
+      },
+      {
+        "id": "deficit",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 2,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974364,
+        "meshSegments": 10532,
+        "circularSegments": 1174,
+        "totalMilliseconds": 108.65420899999998
+      },
+      {
+        "id": "planar",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 3,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974361,
+        "meshSegments": 2391,
+        "circularSegments": 1188,
+        "totalMilliseconds": 143.435653
+      },
+      {
+        "id": "mad-ordinary-480-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 4,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974378,
+        "meshSegments": 12756,
+        "circularSegments": 1216,
+        "totalMilliseconds": 101.53061999999994
+      },
+      {
+        "id": "mad-ordinary-600-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 5,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 17650,
+        "circularSegments": 1215,
+        "totalMilliseconds": 99.407464
+      },
+      {
+        "id": "mad-ordinary-720-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 6,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974376,
+        "meshSegments": 22074,
+        "circularSegments": 1272,
+        "totalMilliseconds": 159.785621
+      },
+      {
+        "id": "mad-ordinary-120-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 35522,
+        "circularSegments": 1698,
+        "totalMilliseconds": 132.3206110000001
+      },
+      {
+        "id": "mad-ordinary-240-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 2,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974383,
+        "meshSegments": 28440,
+        "circularSegments": 1740,
+        "totalMilliseconds": 114.290707
+      },
+      {
+        "id": "mad-ordinary-360-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 3,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974378,
+        "meshSegments": 6216,
+        "circularSegments": 1782,
+        "totalMilliseconds": 156.53377499999988
+      },
+      {
+        "id": "excess",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 4,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974368,
+        "meshSegments": 34012,
+        "circularSegments": 1828,
+        "totalMilliseconds": 138.798133
+      },
+      {
+        "id": "mad-ordinary-600-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 5,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974381,
+        "meshSegments": 50555,
+        "circularSegments": 1885,
+        "totalMilliseconds": 144.40055000000007
+      },
+      {
+        "id": "mad-ordinary-720-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 6,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974383,
+        "meshSegments": 64116,
+        "circularSegments": 1908,
+        "totalMilliseconds": 200.93328100000008
+      },
+      {
+        "id": "mad-sixfold-60-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 1,
+          "beta": 60,
+          "f": "6",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974371,
+        "meshSegments": 13436,
+        "circularSegments": 1134,
+        "totalMilliseconds": 29.38986
+      },
+      {
+        "id": "mad-sixfold-120-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 2,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 13130,
+        "circularSegments": 1146,
+        "totalMilliseconds": 57.71129300000007
+      },
+      {
+        "id": "mad-sixfold-180-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 3,
+          "beta": 180,
+          "f": "2",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974373,
+        "meshSegments": 11340,
+        "circularSegments": 1158,
+        "totalMilliseconds": 49.06196799999998
+      },
+      {
+        "id": "mad-sixfold-240-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 4,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974377,
+        "meshSegments": 10524,
+        "circularSegments": 1172,
+        "totalMilliseconds": 53.345943000000034
+      },
+      {
+        "id": "sixty",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 5,
+          "beta": 300,
+          "f": "6/5",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974361,
+        "meshSegments": 8540,
+        "circularSegments": 1170,
+        "totalMilliseconds": 32.88276700000006
+      },
+      {
+        "id": "mad-sixfold-360-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 6,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974373,
+        "meshSegments": 2466,
+        "circularSegments": 1188,
+        "totalMilliseconds": 136.79158399999983
+      },
+      {
+        "id": "mad-sixfold-420-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 7,
+          "beta": 420,
+          "f": "6/7",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 8848,
+        "circularSegments": 1190,
+        "totalMilliseconds": 27.97268299999996
+      },
+      {
+        "id": "mad-sixfold-480-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 8,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974377,
+        "meshSegments": 12960,
+        "circularSegments": 1216,
+        "totalMilliseconds": 52.96816600000011
+      },
+      {
+        "id": "mad-sixfold-540-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 9,
+          "beta": 540,
+          "f": "2/3",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 15606,
+        "circularSegments": 1206,
+        "totalMilliseconds": 57.065751999999975
+      },
+      {
+        "id": "mad-sixfold-600-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 10,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974376,
+        "meshSegments": 17670,
+        "circularSegments": 1210,
+        "totalMilliseconds": 53.457958999999846
+      },
+      {
+        "id": "mad-sixfold-660-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 11,
+          "beta": 660,
+          "f": "6/11",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974377,
+        "meshSegments": 19778,
+        "circularSegments": 1232,
+        "totalMilliseconds": 36.41414600000007
+      },
+      {
+        "id": "mad-sixfold-720-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 12,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974378,
+        "meshSegments": 22020,
+        "circularSegments": 1284,
+        "totalMilliseconds": 150.85840999999982
+      },
+      {
+        "id": "mad-sixfold-60-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 1,
+          "beta": 60,
+          "f": "6",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974371,
+        "meshSegments": 36584,
+        "circularSegments": 1686,
+        "totalMilliseconds": 44.543564999999944
+      },
+      {
+        "id": "mad-sixfold-120-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 2,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 35228,
+        "circularSegments": 1700,
+        "totalMilliseconds": 67.378694
+      },
+      {
+        "id": "mad-sixfold-180-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 3,
+          "beta": 180,
+          "f": "2",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974378,
+        "meshSegments": 32628,
+        "circularSegments": 1734,
+        "totalMilliseconds": 62.094960999999785
+      },
+      {
+        "id": "mad-sixfold-240-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 4,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974382,
+        "meshSegments": 28568,
+        "circularSegments": 1744,
+        "totalMilliseconds": 63.87496999999985
+      },
+      {
+        "id": "mad-sixfold-300-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 5,
+          "beta": 300,
+          "f": "6/5",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974379,
+        "meshSegments": 21730,
+        "circularSegments": 1770,
+        "totalMilliseconds": 48.259051
+      },
+      {
+        "id": "mad-sixfold-360-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 6,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974378,
+        "meshSegments": 6396,
+        "circularSegments": 1788,
+        "totalMilliseconds": 154.3774330000001
+      },
+      {
+        "id": "mad-sixfold-420-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 7,
+          "beta": 420,
+          "f": "6/7",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974380,
+        "meshSegments": 24318,
+        "circularSegments": 1792,
+        "totalMilliseconds": 46.06759600000032
+      },
+      {
+        "id": "mad-sixfold-480-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 8,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974382,
+        "meshSegments": 33712,
+        "circularSegments": 1840,
+        "totalMilliseconds": 68.55061499999965
+      },
+      {
+        "id": "mad-sixfold-540-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 9,
+          "beta": 540,
+          "f": "2/3",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974379,
+        "meshSegments": 42822,
+        "circularSegments": 1872,
+        "totalMilliseconds": 76.35976699999992
+      },
+      {
+        "id": "mad-sixfold-600-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 10,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974381,
+        "meshSegments": 50740,
+        "circularSegments": 1900,
+        "totalMilliseconds": 78.49314400000003
+      },
+      {
+        "id": "mad-sixfold-660-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 11,
+          "beta": 660,
+          "f": "6/11",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974382,
+        "meshSegments": 57970,
+        "circularSegments": 1914,
+        "totalMilliseconds": 63.39054900000019
+      },
+      {
+        "id": "mad-sixfold-720-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 12,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            2,
+            -2
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974383,
+        "meshSegments": 64728,
+        "circularSegments": 1920,
+        "totalMilliseconds": 182.4967959999999
+      },
+      {
+        "id": "mad-c-on-60-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 1,
+          "beta": 60,
+          "f": "6",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974367,
+        "meshSegments": 13436,
+        "circularSegments": 1134,
+        "totalMilliseconds": 27.957022999999936
+      },
+      {
+        "id": "mad-c-on-120-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974371,
+        "meshSegments": 13014,
+        "circularSegments": 1145,
+        "totalMilliseconds": 50.14448300000004
+      },
+      {
+        "id": "mad-c-on-180-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 3,
+          "beta": 180,
+          "f": "2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974369,
+        "meshSegments": 11340,
+        "circularSegments": 1158,
+        "totalMilliseconds": 49.20878100000027
+      },
+      {
+        "id": "mad-c-on-240-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 2,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 10532,
+        "circularSegments": 1174,
+        "totalMilliseconds": 63.96475099999998
+      },
+      {
+        "id": "mad-c-on-300-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 5,
+          "beta": 300,
+          "f": "6/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974370,
+        "meshSegments": 8540,
+        "circularSegments": 1170,
+        "totalMilliseconds": 25.864398000000165
+      },
+      {
+        "id": "mad-c-on-360-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 3,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974370,
+        "meshSegments": 2391,
+        "circularSegments": 1188,
+        "totalMilliseconds": 132.12244499999997
+      },
+      {
+        "id": "mad-c-on-420-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 7,
+          "beta": 420,
+          "f": "6/7",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974371,
+        "meshSegments": 8848,
+        "circularSegments": 1190,
+        "totalMilliseconds": 29.399578999999903
+      },
+      {
+        "id": "c-on",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 4,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974363,
+        "meshSegments": 12756,
+        "circularSegments": 1216,
+        "totalMilliseconds": 53.52978299999995
+      },
+      {
+        "id": "mad-c-on-540-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 9,
+          "beta": 540,
+          "f": "2/3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974370,
+        "meshSegments": 15606,
+        "circularSegments": 1206,
+        "totalMilliseconds": 52.76662299999998
+      },
+      {
+        "id": "mad-c-on-600-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 5,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974372,
+        "meshSegments": 17650,
+        "circularSegments": 1215,
+        "totalMilliseconds": 55.54572899999994
+      },
+      {
+        "id": "mad-c-on-660-r3",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 11,
+          "beta": 660,
+          "f": "6/11",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974373,
+        "meshSegments": 19778,
+        "circularSegments": 1232,
+        "totalMilliseconds": 37.38119200000028
+      },
+      {
+        "id": "mad-c-on-720-r3",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 6,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "3"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 22074,
+        "circularSegments": 1272,
+        "totalMilliseconds": 146.9274400000004
+      },
+      {
+        "id": "mad-c-on-60-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 1,
+          "beta": 60,
+          "f": "6",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974367,
+        "meshSegments": 36584,
+        "circularSegments": 1686,
+        "totalMilliseconds": 41.51808700000038
+      },
+      {
+        "id": "mad-c-on-120-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974371,
+        "meshSegments": 35522,
+        "circularSegments": 1698,
+        "totalMilliseconds": 69.95783000000029
+      },
+      {
+        "id": "mad-c-on-180-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 3,
+          "beta": 180,
+          "f": "2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 32628,
+        "circularSegments": 1734,
+        "totalMilliseconds": 59.78904700000021
+      },
+      {
+        "id": "mad-c-on-240-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 2,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974379,
+        "meshSegments": 28440,
+        "circularSegments": 1740,
+        "totalMilliseconds": 65.65744300000006
+      },
+      {
+        "id": "mad-c-on-300-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 5,
+          "beta": 300,
+          "f": "6/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 21730,
+        "circularSegments": 1770,
+        "totalMilliseconds": 40.82040099999995
+      },
+      {
+        "id": "mad-c-on-360-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 3,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 6216,
+        "circularSegments": 1782,
+        "totalMilliseconds": 147.63870099999986
+      },
+      {
+        "id": "mad-c-on-420-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 7,
+          "beta": 420,
+          "f": "6/7",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974376,
+        "meshSegments": 24318,
+        "circularSegments": 1792,
+        "totalMilliseconds": 41.36126100000001
+      },
+      {
+        "id": "mad-c-on-480-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 4,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974379,
+        "meshSegments": 34012,
+        "circularSegments": 1828,
+        "totalMilliseconds": 72.72721000000001
+      },
+      {
+        "id": "mad-c-on-540-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 9,
+          "beta": 540,
+          "f": "2/3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 42822,
+        "circularSegments": 1872,
+        "totalMilliseconds": 74.42919999999958
+      },
+      {
+        "id": "mad-c-on-600-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 5,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974377,
+        "meshSegments": 50555,
+        "circularSegments": 1885,
+        "totalMilliseconds": 90.1602670000002
+      },
+      {
+        "id": "mad-c-on-660-r6",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 11,
+          "beta": 660,
+          "f": "6/11",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 1,
+        "maxHTMLBytes": 3974378,
+        "meshSegments": 57970,
+        "circularSegments": 1914,
+        "totalMilliseconds": 62.018489000000045
+      },
+      {
+        "id": "mad-c-on-720-r6",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 6,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 1,
+          "hand": 0,
+          "X": 0,
+          "member": null,
+          "W_over_P": "3/4",
+          "R_over_P": "6"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974379,
+        "meshSegments": 64116,
+        "circularSegments": 1908,
+        "totalMilliseconds": 184.7853610000002
+      },
+      {
+        "id": "hex-large-60-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 1,
+          "beta": 60,
+          "f": "6",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974364,
+        "meshSegments": 13096,
+        "circularSegments": 584,
+        "totalMilliseconds": 48.425890000000436
+      },
+      {
+        "id": "hex-large-120-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 2,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974367,
+        "meshSegments": 12272,
+        "circularSegments": 584,
+        "totalMilliseconds": 98.7163529999998
+      },
+      {
+        "id": "hex-large-180-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 3,
+          "beta": 180,
+          "f": "2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974372,
+        "meshSegments": 12252,
+        "circularSegments": 600,
+        "totalMilliseconds": 91.27671399999963
+      },
+      {
+        "id": "hex-large-240-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 4,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974376,
+        "meshSegments": 9928,
+        "circularSegments": 592,
+        "totalMilliseconds": 92.60366800000065
+      },
+      {
+        "id": "hex-large-300-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 5,
+          "beta": 300,
+          "f": "6/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974373,
+        "meshSegments": 7470,
+        "circularSegments": 600,
+        "totalMilliseconds": 47.142785
+      },
+      {
+        "id": "hex-large-360-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 6,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974372,
+        "meshSegments": 1272,
+        "circularSegments": 600,
+        "totalMilliseconds": 134.16998800000056
+      },
+      {
+        "id": "hex-large-420-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 7,
+          "beta": 420,
+          "f": "6/7",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 8358,
+        "circularSegments": 616,
+        "totalMilliseconds": 49.10131300000012
+      },
+      {
+        "id": "hex-1",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 8,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974365,
+        "meshSegments": 11600,
+        "circularSegments": 608,
+        "totalMilliseconds": 93.89649000000009
+      },
+      {
+        "id": "hex-large-540-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 9,
+          "beta": 540,
+          "f": "2/3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974373,
+        "meshSegments": 15264,
+        "circularSegments": 648,
+        "totalMilliseconds": 96.02047000000039
+      },
+      {
+        "id": "hex-large-600-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 10,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 18660,
+        "circularSegments": 640,
+        "totalMilliseconds": 96.1609269999999
+      },
+      {
+        "id": "hex-large-660-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 11,
+          "beta": 660,
+          "f": "6/11",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 2,
+        "maxHTMLBytes": 3974376,
+        "meshSegments": 21494,
+        "circularSegments": 616,
+        "totalMilliseconds": 56.92894499999966
+      },
+      {
+        "id": "hex-large-720-r7",
+        "parameters": {
+          "alpha": 60,
+          "sectors": 12,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 1,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974377,
+        "meshSegments": 24168,
+        "circularSegments": 624,
+        "totalMilliseconds": 140.27402299999994
+      },
+      {
+        "id": "hex-minus-120-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 0,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974368,
+        "meshSegments": 13161,
+        "circularSegments": 830,
+        "totalMilliseconds": 92.30961600000046
+      },
+      {
+        "id": "hex-minus-240-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 2,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 0,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 10404,
+        "circularSegments": 836,
+        "totalMilliseconds": 102.15222599999925
+      },
+      {
+        "id": "hex-minus-360-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 3,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 0,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974373,
+        "meshSegments": 1554,
+        "circularSegments": 852,
+        "totalMilliseconds": 135.32913999999982
+      },
+      {
+        "id": "hex-0",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 4,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 0,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974366,
+        "meshSegments": 12636,
+        "circularSegments": 852,
+        "totalMilliseconds": 110.31001100000049
+      },
+      {
+        "id": "hex-minus-600-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 5,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 0,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 18725,
+        "circularSegments": 900,
+        "totalMilliseconds": 110.54661399999986
+      },
+      {
+        "id": "hex-minus-720-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 6,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 0,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974375,
+        "meshSegments": 23646,
+        "circularSegments": 900,
+        "totalMilliseconds": 140.90464100000008
+      },
+      {
+        "id": "hex-plus-120-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 1,
+          "beta": 120,
+          "f": "3",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 2,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974368,
+        "meshSegments": 13166,
+        "circularSegments": 832,
+        "totalMilliseconds": 92.8738140000005
+      },
+      {
+        "id": "hex-plus-240-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 2,
+          "beta": 240,
+          "f": "3/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 2,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974376,
+        "meshSegments": 10414,
+        "circularSegments": 840,
+        "totalMilliseconds": 99.95969500000047
+      },
+      {
+        "id": "hex-plus-360-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 3,
+          "beta": 360,
+          "f": "1",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 2,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974371,
+        "meshSegments": 1569,
+        "circularSegments": 858,
+        "totalMilliseconds": 135.89347100000032
+      },
+      {
+        "id": "hex-2",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 4,
+          "beta": 480,
+          "f": "3/4",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 2,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974364,
+        "meshSegments": 12660,
+        "circularSegments": 864,
+        "totalMilliseconds": 100.40292899999986
+      },
+      {
+        "id": "hex-plus-600-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 5,
+          "beta": 600,
+          "f": "3/5",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 2,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 4,
+        "maxHTMLBytes": 3974374,
+        "meshSegments": 18740,
+        "circularSegments": 900,
+        "totalMilliseconds": 93.84761400000025
+      },
+      {
+        "id": "hex-plus-720-r7",
+        "parameters": {
+          "alpha": 120,
+          "sectors": 6,
+          "beta": 720,
+          "f": "1/2",
+          "k": [
+            0,
+            0,
+            0
+          ],
+          "C": 0,
+          "hand": 0,
+          "X": 0,
+          "member": 2,
+          "W_over_P": "3/4",
+          "R_over_P": "7"
+        },
+        "acceptedPatterns": 6,
+        "maxHTMLBytes": 3974376,
+        "meshSegments": 23676,
+        "circularSegments": 912,
+        "totalMilliseconds": 151.39666600000055
+      }
+    ]
+  },
+  "integratedBrowsers": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "rows": [
+        {
+          "id": "excess",
+          "probes": 1549,
+          "pixels": 150,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 0,
+          "referenceCells": 1520,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "self",
+          "probes": 255,
+          "pixels": 131,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 101,
+          "paintAssemblies": 28
+        },
+        {
+          "id": "mad-sixfold-60-r3",
+          "probes": 157,
+          "pixels": 69,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 52,
+          "paintAssemblies": 21
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "probes": 2965,
+          "pixels": 46,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Validated",
+          "seamPixels": 0,
+          "referenceCells": 2316,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "hex-large-720-r7",
+          "probes": 2425,
+          "pixels": 310,
+          "maxChannelError": 1.0860100148680374,
+          "colorStatus": "Validated",
+          "seamPixels": 160,
+          "referenceCells": 300,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "probes": 1471,
+          "pixels": 159,
+          "maxChannelError": 1.0860100148680374,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "probes": 1501,
+          "pixels": 159,
+          "maxChannelError": 1.0860100148680374,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "c-on",
+          "probes": 1017,
+          "pixels": 157,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 7,
+          "referenceCells": 404,
+          "paintAssemblies": 20
+        }
+      ],
+      "races": [
+        "late-success-after-mode",
+        "late-error-after-mode",
+        "older-success-after-newer-rejection"
+      ],
+      "modeRetention": true,
+      "offlinePlanarEditsCancelPendingImports": true,
+      "failedPaletteAndViewRollback": true,
+      "invalidAndUnvalidatedProposals": true,
+      "fringeAndHiddenPainting": true,
+      "paletteAliasesAndTransparency": true,
+      "zeroOpacityPreservesAllMaterial": true,
+      "wrongVisiblePaintRejectedByGeometryAndPixels": true,
+      "continuousTranslucentSeamPixels": 100,
+      "exactRayPixels": 28,
+      "continuousTranslucentMaxError": 0.9157973314708556,
+      "zeroOpacityMaxError": 0,
+      "legacyImports": true,
+      "offlineRequests": [],
+      "projectBytes": 5004610,
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "rows": [
+        {
+          "id": "excess",
+          "probes": 1549,
+          "pixels": 150,
+          "maxChannelError": 1.3021067353378442,
+          "colorStatus": "Invalid",
+          "seamPixels": 0,
+          "referenceCells": 1520,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "self",
+          "probes": 255,
+          "pixels": 131,
+          "maxChannelError": 1.3021067353378442,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 101,
+          "paintAssemblies": 28
+        },
+        {
+          "id": "mad-sixfold-60-r3",
+          "probes": 157,
+          "pixels": 69,
+          "maxChannelError": 1.2917376714532907,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 52,
+          "paintAssemblies": 21
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "probes": 2965,
+          "pixels": 46,
+          "maxChannelError": 0.6685666697957942,
+          "colorStatus": "Validated",
+          "seamPixels": 0,
+          "referenceCells": 2316,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "hex-large-720-r7",
+          "probes": 2425,
+          "pixels": 310,
+          "maxChannelError": 1.0614836144295623,
+          "colorStatus": "Validated",
+          "seamPixels": 160,
+          "referenceCells": 300,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "probes": 1471,
+          "pixels": 159,
+          "maxChannelError": 1.0614836144295623,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "probes": 1501,
+          "pixels": 159,
+          "maxChannelError": 1.0614836144295623,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "c-on",
+          "probes": 1017,
+          "pixels": 157,
+          "maxChannelError": 1.3021067353378442,
+          "colorStatus": "Invalid",
+          "seamPixels": 7,
+          "referenceCells": 404,
+          "paintAssemblies": 20
+        }
+      ],
+      "races": [
+        "late-success-after-mode",
+        "late-error-after-mode",
+        "older-success-after-newer-rejection"
+      ],
+      "modeRetention": true,
+      "offlinePlanarEditsCancelPendingImports": true,
+      "failedPaletteAndViewRollback": true,
+      "invalidAndUnvalidatedProposals": true,
+      "fringeAndHiddenPainting": true,
+      "paletteAliasesAndTransparency": true,
+      "zeroOpacityPreservesAllMaterial": true,
+      "wrongVisiblePaintRejectedByGeometryAndPixels": true,
+      "continuousTranslucentSeamPixels": 100,
+      "exactRayPixels": 28,
+      "continuousTranslucentMaxError": 0.9158494181083938,
+      "zeroOpacityMaxError": 0,
+      "legacyImports": true,
+      "offlineRequests": [],
+      "projectBytes": 5004627,
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "rows": [
+        {
+          "id": "excess",
+          "probes": 1549,
+          "pixels": 150,
+          "maxChannelError": 1.3020591114870683,
+          "colorStatus": "Invalid",
+          "seamPixels": 0,
+          "referenceCells": 1520,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "self",
+          "probes": 255,
+          "pixels": 131,
+          "maxChannelError": 1.3020591114870683,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 101,
+          "paintAssemblies": 28
+        },
+        {
+          "id": "mad-sixfold-60-r3",
+          "probes": 157,
+          "pixels": 69,
+          "maxChannelError": 1.2917427582905816,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 52,
+          "paintAssemblies": 21
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "probes": 2965,
+          "pixels": 46,
+          "maxChannelError": 0.6685858240550715,
+          "colorStatus": "Validated",
+          "seamPixels": 0,
+          "referenceCells": 2316,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "hex-large-720-r7",
+          "probes": 2425,
+          "pixels": 310,
+          "maxChannelError": 1.0614066475413892,
+          "colorStatus": "Validated",
+          "seamPixels": 160,
+          "referenceCells": 300,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "probes": 1471,
+          "pixels": 159,
+          "maxChannelError": 1.0614066475413892,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "probes": 1501,
+          "pixels": 159,
+          "maxChannelError": 1.0614066475413892,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "c-on",
+          "probes": 1017,
+          "pixels": 157,
+          "maxChannelError": 1.3020591114870683,
+          "colorStatus": "Invalid",
+          "seamPixels": 7,
+          "referenceCells": 404,
+          "paintAssemblies": 20
+        }
+      ],
+      "races": [
+        "late-success-after-mode",
+        "late-error-after-mode",
+        "older-success-after-newer-rejection"
+      ],
+      "modeRetention": true,
+      "offlinePlanarEditsCancelPendingImports": true,
+      "failedPaletteAndViewRollback": true,
+      "invalidAndUnvalidatedProposals": true,
+      "fringeAndHiddenPainting": true,
+      "paletteAliasesAndTransparency": true,
+      "zeroOpacityPreservesAllMaterial": true,
+      "wrongVisiblePaintRejectedByGeometryAndPixels": true,
+      "continuousTranslucentSeamPixels": 100,
+      "exactRayPixels": 28,
+      "continuousTranslucentMaxError": 0.9157973314708556,
+      "zeroOpacityMaxError": 0,
+      "legacyImports": true,
+      "offlineRequests": [],
+      "projectBytes": 5004628,
+      "errors": []
+    }
+  ],
+  "originalPrototypeBrowsers": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "rows": [
+        {
+          "id": "planar",
+          "probes": 663,
+          "occupied": 498,
+          "empty": 165,
+          "pixels": 178,
+          "counts": {
+            "occurrences": 36,
+            "joins": 18,
+            "open_strips": 18,
+            "outer_ends": 36,
+            "centerline_crossings": 72,
+            "self_crossings": 0
+          },
+          "segments": 2391,
+          "circularSegments": 1188,
+          "maxMeasured": 9.11907406309217e-05,
+          "maxBound": 9.119130261972968e-05,
+          "pixelBound": 0.01221410780543046,
+          "boundaryChecks": 216,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": true
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": true
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "deficit",
+          "probes": 442,
+          "occupied": 332,
+          "empty": 110,
+          "pixels": 172,
+          "counts": {
+            "occurrences": 24,
+            "joins": 12,
+            "open_strips": 12,
+            "outer_ends": 24,
+            "centerline_crossings": 48,
+            "self_crossings": 0
+          },
+          "segments": 10532,
+          "circularSegments": 1174,
+          "maxMeasured": 9.320213423874204e-05,
+          "maxBound": 9.374247342326456e-05,
+          "pixelBound": 0.0125558100766918,
+          "boundaryChecks": 144,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "excess",
+          "probes": 1264,
+          "occupied": 1004,
+          "empty": 260,
+          "pixels": 200,
+          "counts": {
+            "occurrences": 96,
+            "joins": 48,
+            "open_strips": 48,
+            "outer_ends": 96,
+            "centerline_crossings": 384,
+            "self_crossings": 0
+          },
+          "segments": 34012,
+          "circularSegments": 1828,
+          "maxMeasured": 9.347991739725883e-05,
+          "maxBound": 9.370921913171397e-05,
+          "pixelBound": 0.006574519818447234,
+          "boundaryChecks": 576,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": {
+            "bandMismatch": true,
+            "maskMismatch": true,
+            "orderMetadataMismatch": true,
+            "depthExhaustionUnvalidated": true,
+            "numericReserveUnvalidated": true
+          },
+          "visiblePaintNegative": {
+            "positions": [
+              [
+                0,
+                0,
+                7
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "referenceXY": [
+              -3.5,
+              4.5
+            ],
+            "sector": 0,
+            "correctColor": 1,
+            "wrongTopColor": 2,
+            "x": 624.4020654185517,
+            "y": 997.5309036936385,
+            "actualRGB": [
+              139,
+              109,
+              165
+            ],
+            "normalAuditRejected": true,
+            "witness": "page.evaluate: Error: Actual opaque paint union disagrees with reference order",
+            "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
+          },
+          "fringeSelection": {
+            "position": "0:2:-3",
+            "strip": 12,
+            "pieces": 2,
+            "partners": 1
+          }
+        },
+        {
+          "id": "sixty",
+          "probes": 615,
+          "occupied": 440,
+          "empty": 175,
+          "pixels": 190,
+          "counts": {
+            "occurrences": 45,
+            "joins": 30,
+            "open_strips": 15,
+            "outer_ends": 30,
+            "centerline_crossings": 60,
+            "self_crossings": 0
+          },
+          "segments": 8540,
+          "circularSegments": 1170,
+          "maxMeasured": 9.232609566541066e-05,
+          "maxBound": 9.367843878686293e-05,
+          "pixelBound": 0.012547233316301035,
+          "boundaryChecks": 360,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": false
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": false
+            },
+            {
+              "pattern": 4,
+              "valid": false
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "c-on",
+          "probes": 884,
+          "occupied": 664,
+          "empty": 220,
+          "pixels": 184,
+          "counts": {
+            "occurrences": 48,
+            "joins": 24,
+            "open_strips": 24,
+            "outer_ends": 48,
+            "centerline_crossings": 96,
+            "self_crossings": 0
+          },
+          "segments": 12756,
+          "circularSegments": 1216,
+          "maxMeasured": 9.160529919466801e-05,
+          "maxBound": 9.336717917405488e-05,
+          "pixelBound": 0.012505543392403715,
+          "boundaryChecks": 288,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": false
+            },
+            {
+              "pattern": 2,
+              "valid": true
+            },
+            {
+              "pattern": 3,
+              "valid": false
+            },
+            {
+              "pattern": 4,
+              "valid": false
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "self",
+          "probes": 221,
+          "occupied": 166,
+          "empty": 55,
+          "pixels": 166,
+          "counts": {
+            "occurrences": 12,
+            "joins": 6,
+            "open_strips": 6,
+            "outer_ends": 12,
+            "centerline_crossings": 24,
+            "self_crossings": 2
+          },
+          "segments": 13014,
+          "circularSegments": 1145,
+          "maxMeasured": 9.342568897305777e-05,
+          "maxBound": 9.372820497363538e-05,
+          "pixelBound": 0.01255389896919601,
+          "boundaryChecks": 72,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-1",
+          "probes": 912,
+          "occupied": 424,
+          "empty": 488,
+          "pixels": 192,
+          "counts": {
+            "occurrences": 48,
+            "joins": 32,
+            "open_strips": 16,
+            "outer_ends": 32,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 11600,
+          "circularSegments": 608,
+          "maxMeasured": 9.263809941968013e-05,
+          "maxBound": 9.310467508222404e-05,
+          "pixelBound": 0.005637296765252469,
+          "boundaryChecks": 384,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-0",
+          "probes": 820,
+          "occupied": 360,
+          "empty": 460,
+          "pixels": 176,
+          "counts": {
+            "occurrences": 36,
+            "joins": 16,
+            "open_strips": 20,
+            "outer_ends": 40,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 12636,
+          "circularSegments": 852,
+          "maxMeasured": 9.351426327569966e-05,
+          "maxBound": 9.374414442797464e-05,
+          "pixelBound": 0.005676015320159561,
+          "boundaryChecks": 192,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-2",
+          "probes": 844,
+          "occupied": 408,
+          "empty": 436,
+          "pixels": 176,
+          "counts": {
+            "occurrences": 36,
+            "joins": 16,
+            "open_strips": 20,
+            "outer_ends": 40,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 12660,
+          "circularSegments": 864,
+          "maxMeasured": 9.351426327512467e-05,
+          "maxBound": 9.374414442797436e-05,
+          "pixelBound": 0.005676015320159543,
+          "boundaryChecks": 192,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        }
+      ],
+      "errors": [],
+      "transactionResults": [
+        {
+          "name": "failed-color-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-view-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-outline-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-seam-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-strip-inspection",
+          "passed": true
+        },
+        {
+          "name": "failed-visible-boundaries",
+          "passed": true
+        },
+        {
+          "name": "failed-keyboard-crossing-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-next-local-position",
+          "passed": true
+        },
+        {
+          "name": "failed-clear-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-certificate-fetch",
+          "passed": true
+        },
+        {
+          "name": "failed-example-render",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-error-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-failure",
+          "passed": true
+        },
+        {
+          "name": "new-view-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-color-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-inspection-invalidates-pending-example",
+          "passed": true
+        }
+      ],
+      "keyboardInspectionPassed": true,
+      "monochromeMaterialUnchanged": true,
+      "mobileBoundPassed": true
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "rows": [
+        {
+          "id": "planar",
+          "probes": 663,
+          "occupied": 498,
+          "empty": 165,
+          "pixels": 178,
+          "counts": {
+            "occurrences": 36,
+            "joins": 18,
+            "open_strips": 18,
+            "outer_ends": 36,
+            "centerline_crossings": 72,
+            "self_crossings": 0
+          },
+          "segments": 2391,
+          "circularSegments": 1188,
+          "maxMeasured": 9.119074063061294e-05,
+          "maxBound": 9.119130261972968e-05,
+          "pixelBound": 0.012214107460278466,
+          "boundaryChecks": 216,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": true
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": true
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "deficit",
+          "probes": 442,
+          "occupied": 332,
+          "empty": 110,
+          "pixels": 172,
+          "counts": {
+            "occurrences": 24,
+            "joins": 12,
+            "open_strips": 12,
+            "outer_ends": 24,
+            "centerline_crossings": 48,
+            "self_crossings": 0
+          },
+          "segments": 10532,
+          "circularSegments": 1174,
+          "maxMeasured": 9.320213423866163e-05,
+          "maxBound": 9.374247342326455e-05,
+          "pixelBound": 0.012555809721883821,
+          "boundaryChecks": 144,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "excess",
+          "probes": 1264,
+          "occupied": 1004,
+          "empty": 260,
+          "pixels": 200,
+          "counts": {
+            "occurrences": 96,
+            "joins": 48,
+            "open_strips": 48,
+            "outer_ends": 96,
+            "centerline_crossings": 384,
+            "self_crossings": 0
+          },
+          "segments": 34012,
+          "circularSegments": 1828,
+          "maxMeasured": 9.347991739680223e-05,
+          "maxBound": 9.370921913171397e-05,
+          "pixelBound": 0.006574519960751652,
+          "boundaryChecks": 576,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": {
+            "bandMismatch": true,
+            "maskMismatch": true,
+            "orderMetadataMismatch": true,
+            "depthExhaustionUnvalidated": true,
+            "numericReserveUnvalidated": true
+          },
+          "visiblePaintNegative": {
+            "positions": [
+              [
+                0,
+                0,
+                7
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "referenceXY": [
+              -3.5,
+              4.5
+            ],
+            "sector": 0,
+            "correctColor": 1,
+            "wrongTopColor": 2,
+            "x": 624.4021107083931,
+            "y": 998.5371688026493,
+            "actualRGB": [
+              139,
+              109,
+              165
+            ],
+            "normalAuditRejected": true,
+            "witness": "page.evaluate: Actual opaque paint union disagrees with reference order",
+            "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
+          },
+          "fringeSelection": {
+            "position": "0:2:-3",
+            "strip": 12,
+            "pieces": 2,
+            "partners": 1
+          }
+        },
+        {
+          "id": "sixty",
+          "probes": 615,
+          "occupied": 440,
+          "empty": 175,
+          "pixels": 190,
+          "counts": {
+            "occurrences": 45,
+            "joins": 30,
+            "open_strips": 15,
+            "outer_ends": 30,
+            "centerline_crossings": 60,
+            "self_crossings": 0
+          },
+          "segments": 8540,
+          "circularSegments": 1170,
+          "maxMeasured": 9.232609566555788e-05,
+          "maxBound": 9.367843878686293e-05,
+          "pixelBound": 0.012547232961735424,
+          "boundaryChecks": 360,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": false
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": false
+            },
+            {
+              "pattern": 4,
+              "valid": false
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "c-on",
+          "probes": 884,
+          "occupied": 664,
+          "empty": 220,
+          "pixels": 184,
+          "counts": {
+            "occurrences": 48,
+            "joins": 24,
+            "open_strips": 24,
+            "outer_ends": 48,
+            "centerline_crossings": 96,
+            "self_crossings": 0
+          },
+          "segments": 12756,
+          "circularSegments": 1216,
+          "maxMeasured": 9.160529919439395e-05,
+          "maxBound": 9.336717917405484e-05,
+          "pixelBound": 0.012505543039016192,
+          "boundaryChecks": 288,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": false
+            },
+            {
+              "pattern": 2,
+              "valid": true
+            },
+            {
+              "pattern": 3,
+              "valid": false
+            },
+            {
+              "pattern": 4,
+              "valid": false
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "self",
+          "probes": 221,
+          "occupied": 166,
+          "empty": 55,
+          "pixels": 166,
+          "counts": {
+            "occurrences": 12,
+            "joins": 6,
+            "open_strips": 6,
+            "outer_ends": 12,
+            "centerline_crossings": 24,
+            "self_crossings": 2
+          },
+          "segments": 13014,
+          "circularSegments": 1145,
+          "maxMeasured": 9.342568897294736e-05,
+          "maxBound": 9.372820497363538e-05,
+          "pixelBound": 0.01255389861444204,
+          "boundaryChecks": 72,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-1",
+          "probes": 912,
+          "occupied": 424,
+          "empty": 488,
+          "pixels": 192,
+          "counts": {
+            "occurrences": 48,
+            "joins": 32,
+            "open_strips": 16,
+            "outer_ends": 32,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 11600,
+          "circularSegments": 608,
+          "maxMeasured": 9.263809941887975e-05,
+          "maxBound": 9.310467508222398e-05,
+          "pixelBound": 0.005637296717932519,
+          "boundaryChecks": 384,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-0",
+          "probes": 820,
+          "occupied": 360,
+          "empty": 460,
+          "pixels": 176,
+          "counts": {
+            "occurrences": 36,
+            "joins": 16,
+            "open_strips": 20,
+            "outer_ends": 40,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 12636,
+          "circularSegments": 852,
+          "maxMeasured": 9.351426327569968e-05,
+          "maxBound": 9.37441444279746e-05,
+          "pixelBound": 0.005676015272514605,
+          "boundaryChecks": 192,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-2",
+          "probes": 844,
+          "occupied": 408,
+          "empty": 436,
+          "pixels": 176,
+          "counts": {
+            "occurrences": 36,
+            "joins": 16,
+            "open_strips": 20,
+            "outer_ends": 40,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 12660,
+          "circularSegments": 864,
+          "maxMeasured": 9.351426327551215e-05,
+          "maxBound": 9.374414442797436e-05,
+          "pixelBound": 0.00567601527251459,
+          "boundaryChecks": 192,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        }
+      ],
+      "errors": [],
+      "transactionResults": [
+        {
+          "name": "failed-color-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-view-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-outline-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-seam-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-strip-inspection",
+          "passed": true
+        },
+        {
+          "name": "failed-visible-boundaries",
+          "passed": true
+        },
+        {
+          "name": "failed-keyboard-crossing-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-next-local-position",
+          "passed": true
+        },
+        {
+          "name": "failed-clear-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-certificate-fetch",
+          "passed": true
+        },
+        {
+          "name": "failed-example-render",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-error-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-failure",
+          "passed": true
+        },
+        {
+          "name": "new-view-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-color-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-inspection-invalidates-pending-example",
+          "passed": true
+        }
+      ],
+      "keyboardInspectionPassed": true,
+      "monochromeMaterialUnchanged": true,
+      "mobileBoundPassed": true
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "rows": [
+        {
+          "id": "planar",
+          "probes": 663,
+          "occupied": 498,
+          "empty": 165,
+          "pixels": 178,
+          "counts": {
+            "occurrences": 36,
+            "joins": 18,
+            "open_strips": 18,
+            "outer_ends": 36,
+            "centerline_crossings": 72,
+            "self_crossings": 0
+          },
+          "segments": 2391,
+          "circularSegments": 1188,
+          "maxMeasured": 9.119074063085813e-05,
+          "maxBound": 9.119130261972968e-05,
+          "pixelBound": 0.01221410780543046,
+          "boundaryChecks": 216,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": true
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": true
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "deficit",
+          "probes": 442,
+          "occupied": 332,
+          "empty": 110,
+          "pixels": 172,
+          "counts": {
+            "occurrences": 24,
+            "joins": 12,
+            "open_strips": 12,
+            "outer_ends": 24,
+            "centerline_crossings": 48,
+            "self_crossings": 0
+          },
+          "segments": 10532,
+          "circularSegments": 1174,
+          "maxMeasured": 9.320213423853528e-05,
+          "maxBound": 9.374247342326455e-05,
+          "pixelBound": 0.012555810076691798,
+          "boundaryChecks": 144,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "excess",
+          "probes": 1264,
+          "occupied": 1004,
+          "empty": 260,
+          "pixels": 200,
+          "counts": {
+            "occurrences": 96,
+            "joins": 48,
+            "open_strips": 48,
+            "outer_ends": 96,
+            "centerline_crossings": 384,
+            "self_crossings": 0
+          },
+          "segments": 34012,
+          "circularSegments": 1828,
+          "maxMeasured": 9.347991739682695e-05,
+          "maxBound": 9.370921913171397e-05,
+          "pixelBound": 0.006574519818447234,
+          "boundaryChecks": 576,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": {
+            "bandMismatch": true,
+            "maskMismatch": true,
+            "orderMetadataMismatch": true,
+            "depthExhaustionUnvalidated": true,
+            "numericReserveUnvalidated": true
+          },
+          "visiblePaintNegative": {
+            "positions": [
+              [
+                0,
+                0,
+                7
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "referenceXY": [
+              -3.5,
+              4.5
+            ],
+            "sector": 0,
+            "correctColor": 1,
+            "wrongTopColor": 2,
+            "x": 624.4020654185517,
+            "y": 997.5309036936385,
+            "actualRGB": [
+              139,
+              109,
+              165
+            ],
+            "normalAuditRejected": true,
+            "witness": "page.evaluate: Error: Actual opaque paint union disagrees with reference order",
+            "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
+          },
+          "fringeSelection": {
+            "position": "0:2:-3",
+            "strip": 12,
+            "pieces": 2,
+            "partners": 1
+          }
+        },
+        {
+          "id": "sixty",
+          "probes": 615,
+          "occupied": 440,
+          "empty": 175,
+          "pixels": 190,
+          "counts": {
+            "occurrences": 45,
+            "joins": 30,
+            "open_strips": 15,
+            "outer_ends": 30,
+            "centerline_crossings": 60,
+            "self_crossings": 0
+          },
+          "segments": 8540,
+          "circularSegments": 1170,
+          "maxMeasured": 9.232609566535212e-05,
+          "maxBound": 9.367843878686293e-05,
+          "pixelBound": 0.012547233316301035,
+          "boundaryChecks": 360,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": false
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": false
+            },
+            {
+              "pattern": 4,
+              "valid": false
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "c-on",
+          "probes": 884,
+          "occupied": 664,
+          "empty": 220,
+          "pixels": 184,
+          "counts": {
+            "occurrences": 48,
+            "joins": 24,
+            "open_strips": 24,
+            "outer_ends": 48,
+            "centerline_crossings": 96,
+            "self_crossings": 0
+          },
+          "segments": 12756,
+          "circularSegments": 1216,
+          "maxMeasured": 9.160529919418198e-05,
+          "maxBound": 9.336717917405488e-05,
+          "pixelBound": 0.012505543392403715,
+          "boundaryChecks": 288,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": false
+            },
+            {
+              "pattern": 2,
+              "valid": true
+            },
+            {
+              "pattern": 3,
+              "valid": false
+            },
+            {
+              "pattern": 4,
+              "valid": false
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "self",
+          "probes": 221,
+          "occupied": 166,
+          "empty": 55,
+          "pixels": 166,
+          "counts": {
+            "occurrences": 12,
+            "joins": 6,
+            "open_strips": 6,
+            "outer_ends": 12,
+            "centerline_crossings": 24,
+            "self_crossings": 2
+          },
+          "segments": 13014,
+          "circularSegments": 1145,
+          "maxMeasured": 9.342568897294736e-05,
+          "maxBound": 9.372820497363543e-05,
+          "pixelBound": 0.012553898969196018,
+          "boundaryChecks": 72,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-1",
+          "probes": 912,
+          "occupied": 424,
+          "empty": 488,
+          "pixels": 192,
+          "counts": {
+            "occurrences": 48,
+            "joins": 32,
+            "open_strips": 16,
+            "outer_ends": 32,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 11600,
+          "circularSegments": 608,
+          "maxMeasured": 9.263809941921565e-05,
+          "maxBound": 9.310467508222404e-05,
+          "pixelBound": 0.005637296765252469,
+          "boundaryChecks": 384,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-0",
+          "probes": 820,
+          "occupied": 360,
+          "empty": 460,
+          "pixels": 176,
+          "counts": {
+            "occurrences": 36,
+            "joins": 16,
+            "open_strips": 20,
+            "outer_ends": 40,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 12636,
+          "circularSegments": 852,
+          "maxMeasured": 9.351426327453406e-05,
+          "maxBound": 9.37441444279746e-05,
+          "pixelBound": 0.005676015320159558,
+          "boundaryChecks": 192,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        },
+        {
+          "id": "hex-2",
+          "probes": 844,
+          "occupied": 408,
+          "empty": 436,
+          "pixels": 176,
+          "counts": {
+            "occurrences": 36,
+            "joins": 16,
+            "open_strips": 20,
+            "outer_ends": 40,
+            "centerline_crossings": 56,
+            "self_crossings": 0
+          },
+          "segments": 12660,
+          "circularSegments": 864,
+          "maxMeasured": 9.351426327526678e-05,
+          "maxBound": 9.374414442797436e-05,
+          "pixelBound": 0.005676015320159543,
+          "boundaryChecks": 192,
+          "colorResults": [
+            {
+              "pattern": null,
+              "valid": true
+            },
+            {
+              "pattern": 0,
+              "valid": false
+            },
+            {
+              "pattern": 1,
+              "valid": true
+            },
+            {
+              "pattern": 2,
+              "valid": false
+            },
+            {
+              "pattern": 3,
+              "valid": true
+            },
+            {
+              "pattern": 4,
+              "valid": true
+            }
+          ],
+          "negativeControls": null,
+          "visiblePaintNegative": null,
+          "fringeSelection": null
+        }
+      ],
+      "errors": [],
+      "transactionResults": [
+        {
+          "name": "failed-color-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-view-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-outline-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-seam-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-strip-inspection",
+          "passed": true
+        },
+        {
+          "name": "failed-visible-boundaries",
+          "passed": true
+        },
+        {
+          "name": "failed-keyboard-crossing-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-next-local-position",
+          "passed": true
+        },
+        {
+          "name": "failed-clear-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-certificate-fetch",
+          "passed": true
+        },
+        {
+          "name": "failed-example-render",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-error-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-failure",
+          "passed": true
+        },
+        {
+          "name": "new-view-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-color-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-inspection-invalidates-pending-example",
+          "passed": true
+        }
+      ],
+      "keyboardInspectionPassed": true,
+      "monochromeMaterialUnchanged": true,
+      "mobileBoundPassed": true
+    }
+  ],
+  "familyBrowsers": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "grouped": true,
+      "failedGroupedRedraw": true,
+      "races": [
+        "stale-grouped-success",
+        "stale-grouped-error",
+        "grouped-old-success-after-new-success",
+        "grouped-old-error-after-new-success",
+        "grouped-old-success-after-new-failure"
+      ],
+      "legacyNativeImport": true,
+      "viewIdentityPreserved": true,
+      "rows": [
+        {
+          "id": "mad-sixfold-60-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r3",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 24,
+          "redrawMs": 11,
+          "offlineLoadMs": 223,
+          "fileBytes": 3974388,
+          "svgBytes": 1152351,
+          "probes": 151,
+          "pixels": 128,
+          "segments": 13436,
+          "maxBound": 9.374571672414309e-05,
+          "pixelBound": 0.012556244482445833,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-60-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 37,
+          "redrawMs": 25,
+          "offlineLoadMs": 225,
+          "fileBytes": 3974388,
+          "svgBytes": 3179453,
+          "probes": 234,
+          "pixels": 170,
+          "segments": 36584,
+          "maxBound": 9.37476464458452e-05,
+          "pixelBound": 0.006577215830010091,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-180-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r3",
+            "beta": 180
+          },
+          "pattern": 0,
+          "applyMs": 26.299999952316284,
+          "redrawMs": 14,
+          "offlineLoadMs": 191,
+          "fileBytes": 3974227,
+          "svgBytes": 1029399,
+          "probes": 449,
+          "pixels": 178,
+          "segments": 11340,
+          "maxBound": 9.371537600162905e-05,
+          "pixelBound": 0.012552180664460618,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-420-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 420
+          },
+          "pattern": null,
+          "applyMs": 45.59999990463257,
+          "redrawMs": 29,
+          "offlineLoadMs": 231,
+          "fileBytes": 3974232,
+          "svgBytes": 2857929,
+          "probes": 1626,
+          "pixels": 230,
+          "segments": 24318,
+          "maxBound": 9.373410298194537e-05,
+          "pixelBound": 0.006576265637780928,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-600-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 600
+          },
+          "pattern": 2,
+          "applyMs": 63.59999990463257,
+          "redrawMs": 62,
+          "offlineLoadMs": 258,
+          "fileBytes": 3974230,
+          "svgBytes": 5448041,
+          "probes": 2322,
+          "pixels": 260,
+          "segments": 50740,
+          "maxBound": 9.365031405575746e-05,
+          "pixelBound": 0.006570387113118221,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 81.29999995231628,
+          "redrawMs": 63,
+          "offlineLoadMs": 269,
+          "fileBytes": 3974230,
+          "svgBytes": 6857025,
+          "probes": 2786,
+          "pixels": 280,
+          "segments": 64728,
+          "maxBound": 9.371537600162906e-05,
+          "pixelBound": 0.006574951776622229,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": {
+            "segments": 87528,
+            "allWithinBound": true,
+            "svgBytes": 10280926,
+            "pixels": 120
+          }
+        },
+        {
+          "id": "mad-ordinary-600-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-ordinary",
+            "crop": "r6",
+            "beta": 600
+          },
+          "pattern": 1,
+          "applyMs": 106.19999980926514,
+          "redrawMs": 62,
+          "offlineLoadMs": 273,
+          "fileBytes": 3974230,
+          "svgBytes": 5398382,
+          "probes": 1862,
+          "pixels": 210,
+          "segments": 50555,
+          "maxBound": 9.368087619314801e-05,
+          "pixelBound": 0.0065725313138684785,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-ordinary-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-ordinary",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 88.20000004768372,
+          "redrawMs": 66,
+          "offlineLoadMs": 274,
+          "fileBytes": 3974230,
+          "svgBytes": 6781420,
+          "probes": 2234,
+          "pixels": 220,
+          "segments": 64116,
+          "maxBound": 9.371972652635976e-05,
+          "pixelBound": 0.006575257003912859,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-60-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r3",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 26.700000047683716,
+          "redrawMs": 19,
+          "offlineLoadMs": 204,
+          "fileBytes": 3974384,
+          "svgBytes": 1152329,
+          "probes": 151,
+          "pixels": 128,
+          "segments": 13436,
+          "maxBound": 9.374571672414309e-05,
+          "pixelBound": 0.012556244482445833,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-420-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r3",
+            "beta": 420
+          },
+          "pattern": null,
+          "applyMs": 25.200000047683716,
+          "redrawMs": 19,
+          "offlineLoadMs": 199,
+          "fileBytes": 3974228,
+          "svgBytes": 962528,
+          "probes": 1045,
+          "pixels": 202,
+          "segments": 8848,
+          "maxBound": 9.373410298194537e-05,
+          "pixelBound": 0.0125546889448545,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 76.5,
+          "redrawMs": 64,
+          "offlineLoadMs": 278,
+          "fileBytes": 3974226,
+          "svgBytes": 6781410,
+          "probes": 2234,
+          "pixels": 220,
+          "segments": 64116,
+          "maxBound": 9.371972652635976e-05,
+          "pixelBound": 0.006575257003912859,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-60-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 25.09999990463257,
+          "redrawMs": 29,
+          "offlineLoadMs": 205,
+          "fileBytes": 3974382,
+          "svgBytes": 1064933,
+          "probes": 186,
+          "pixels": 137,
+          "segments": 13096,
+          "maxBound": 9.374571672414309e-05,
+          "pixelBound": 0.0056761105194618145,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-180-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 180
+          },
+          "pattern": 0,
+          "applyMs": 23.799999952316284,
+          "redrawMs": 10,
+          "offlineLoadMs": 197,
+          "fileBytes": 3974221,
+          "svgBytes": 1026398,
+          "probes": 554,
+          "pixels": 172,
+          "segments": 12252,
+          "maxBound": 9.341291540402917e-05,
+          "pixelBound": 0.005655960083367245,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 32.200000047683716,
+          "redrawMs": 16,
+          "offlineLoadMs": 211,
+          "fileBytes": 3974224,
+          "svgBytes": 1650603,
+          "probes": 1842,
+          "pixels": 200,
+          "segments": 18660,
+          "maxBound": 9.352770635335223e-05,
+          "pixelBound": 0.005662910439476944,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 33.5,
+          "redrawMs": 19,
+          "offlineLoadMs": 213,
+          "fileBytes": 3974224,
+          "svgBytes": 2130354,
+          "probes": 2210,
+          "pixels": 208,
+          "segments": 24168,
+          "maxBound": 9.341291540402814e-05,
+          "pixelBound": 0.005655960083367183,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-minus",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 33.40000009536743,
+          "redrawMs": 17,
+          "offlineLoadMs": 214,
+          "fileBytes": 3974224,
+          "svgBytes": 1668342,
+          "probes": 1382,
+          "pixels": 180,
+          "segments": 18725,
+          "maxBound": 9.34817378966415e-05,
+          "pixelBound": 0.005660127143878841,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-minus-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-minus",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 33.90000009536743,
+          "redrawMs": 19,
+          "offlineLoadMs": 213,
+          "fileBytes": 3974224,
+          "svgBytes": 2095531,
+          "probes": 1658,
+          "pixels": 184,
+          "segments": 23646,
+          "maxBound": 9.370944212257657e-05,
+          "pixelBound": 0.005673914166873814,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-plus",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 29.899999856948853,
+          "redrawMs": 18,
+          "offlineLoadMs": 214,
+          "fileBytes": 3974223,
+          "svgBytes": 1670412,
+          "probes": 1412,
+          "pixels": 180,
+          "segments": 18740,
+          "maxBound": 9.348173789664181e-05,
+          "pixelBound": 0.00566012714387886,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-plus-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-plus",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 32.10000014305115,
+          "redrawMs": 21,
+          "offlineLoadMs": 216,
+          "fileBytes": 3974223,
+          "svgBytes": 2095321,
+          "probes": 1694,
+          "pixels": 184,
+          "segments": 23676,
+          "maxBound": 9.370944212257617e-05,
+          "pixelBound": 0.00567391416687379,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        }
+      ],
+      "offlineNetworkRequests": [],
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "grouped": true,
+      "failedGroupedRedraw": true,
+      "races": [
+        "stale-grouped-success",
+        "stale-grouped-error",
+        "grouped-old-success-after-new-success",
+        "grouped-old-error-after-new-success",
+        "grouped-old-success-after-new-failure"
+      ],
+      "legacyNativeImport": true,
+      "viewIdentityPreserved": true,
+      "rows": [
+        {
+          "id": "mad-sixfold-60-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r3",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 16,
+          "redrawMs": 16,
+          "offlineLoadMs": 220,
+          "fileBytes": 3974389,
+          "svgBytes": 1152350,
+          "probes": 151,
+          "pixels": 128,
+          "segments": 13436,
+          "maxBound": 9.37457167241431e-05,
+          "pixelBound": 0.012556244127625581,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-60-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 40,
+          "redrawMs": 38,
+          "offlineLoadMs": 253,
+          "fileBytes": 3974389,
+          "svgBytes": 3179454,
+          "probes": 234,
+          "pixels": 170,
+          "segments": 36584,
+          "maxBound": 9.374764644584524e-05,
+          "pixelBound": 0.006577215972372866,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-180-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r3",
+            "beta": 180
+          },
+          "pattern": 0,
+          "applyMs": 18,
+          "redrawMs": 14,
+          "offlineLoadMs": 214,
+          "fileBytes": 3974227,
+          "svgBytes": 1029398,
+          "probes": 449,
+          "pixels": 178,
+          "segments": 11340,
+          "maxBound": 9.371537600162912e-05,
+          "pixelBound": 0.012552180309755212,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-420-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 420
+          },
+          "pattern": null,
+          "applyMs": 41,
+          "redrawMs": 42,
+          "offlineLoadMs": 268,
+          "fileBytes": 3974232,
+          "svgBytes": 2857929,
+          "probes": 1626,
+          "pixels": 230,
+          "segments": 24318,
+          "maxBound": 9.373410298194537e-05,
+          "pixelBound": 0.006576265780123134,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-600-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 600
+          },
+          "pattern": 2,
+          "applyMs": 83,
+          "redrawMs": 79,
+          "offlineLoadMs": 264,
+          "fileBytes": 3974230,
+          "svgBytes": 5448040,
+          "probes": 2322,
+          "pixels": 260,
+          "segments": 50740,
+          "maxBound": 9.36503140557574e-05,
+          "pixelBound": 0.006570387255333184,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 128,
+          "redrawMs": 106,
+          "offlineLoadMs": 318,
+          "fileBytes": 3974230,
+          "svgBytes": 6857023,
+          "probes": 2786,
+          "pixels": 280,
+          "segments": 64728,
+          "maxBound": 9.371537600162912e-05,
+          "pixelBound": 0.006574951918936,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": {
+            "segments": 87528,
+            "allWithinBound": true,
+            "svgBytes": 10280925,
+            "pixels": 120
+          }
+        },
+        {
+          "id": "mad-ordinary-600-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-ordinary",
+            "crop": "r6",
+            "beta": 600
+          },
+          "pattern": 1,
+          "applyMs": 207,
+          "redrawMs": 100,
+          "offlineLoadMs": 337,
+          "fileBytes": 3974230,
+          "svgBytes": 5398383,
+          "probes": 1862,
+          "pixels": 210,
+          "segments": 50555,
+          "maxBound": 9.368087619314802e-05,
+          "pixelBound": 0.0065725314561298565,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-ordinary-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-ordinary",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 98,
+          "redrawMs": 90,
+          "offlineLoadMs": 313,
+          "fileBytes": 3974230,
+          "svgBytes": 6781420,
+          "probes": 2234,
+          "pixels": 220,
+          "segments": 64116,
+          "maxBound": 9.371972652635976e-05,
+          "pixelBound": 0.006575257146233233,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-60-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r3",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 29,
+          "redrawMs": 14,
+          "offlineLoadMs": 206,
+          "fileBytes": 3974385,
+          "svgBytes": 1152328,
+          "probes": 151,
+          "pixels": 128,
+          "segments": 13436,
+          "maxBound": 9.37457167241431e-05,
+          "pixelBound": 0.012556244127625581,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-420-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r3",
+            "beta": 420
+          },
+          "pattern": null,
+          "applyMs": 16,
+          "redrawMs": 19,
+          "offlineLoadMs": 213,
+          "fileBytes": 3974228,
+          "svgBytes": 962528,
+          "probes": 1045,
+          "pixels": 202,
+          "segments": 8848,
+          "maxBound": 9.373410298194537e-05,
+          "pixelBound": 0.012554688590078205,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 86,
+          "redrawMs": 85,
+          "offlineLoadMs": 310,
+          "fileBytes": 3974226,
+          "svgBytes": 6781410,
+          "probes": 2234,
+          "pixels": 220,
+          "segments": 64116,
+          "maxBound": 9.371972652635976e-05,
+          "pixelBound": 0.006575257146233233,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-60-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 34,
+          "redrawMs": 14,
+          "offlineLoadMs": 211,
+          "fileBytes": 3974382,
+          "svgBytes": 1064932,
+          "probes": 186,
+          "pixels": 137,
+          "segments": 13096,
+          "maxBound": 9.37457167241431e-05,
+          "pixelBound": 0.0056761104718160635,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-180-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 180
+          },
+          "pattern": 0,
+          "applyMs": 15,
+          "redrawMs": 20,
+          "offlineLoadMs": 206,
+          "fileBytes": 3974221,
+          "svgBytes": 1026398,
+          "probes": 554,
+          "pixels": 172,
+          "segments": 12252,
+          "maxBound": 9.341291540402917e-05,
+          "pixelBound": 0.0056559600358906375,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 43,
+          "redrawMs": 40,
+          "offlineLoadMs": 208,
+          "fileBytes": 3974224,
+          "svgBytes": 1650603,
+          "probes": 1842,
+          "pixels": 200,
+          "segments": 18660,
+          "maxBound": 9.352770635335232e-05,
+          "pixelBound": 0.005662910391941999,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 31,
+          "redrawMs": 29,
+          "offlineLoadMs": 216,
+          "fileBytes": 3974224,
+          "svgBytes": 2130354,
+          "probes": 2210,
+          "pixels": 208,
+          "segments": 24168,
+          "maxBound": 9.341291540402814e-05,
+          "pixelBound": 0.005655960035890576,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-minus",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 25,
+          "redrawMs": 28,
+          "offlineLoadMs": 221,
+          "fileBytes": 3974224,
+          "svgBytes": 1668343,
+          "probes": 1382,
+          "pixels": 180,
+          "segments": 18725,
+          "maxBound": 9.348173789664156e-05,
+          "pixelBound": 0.005660127096367259,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-minus-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-minus",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 29,
+          "redrawMs": 35,
+          "offlineLoadMs": 219,
+          "fileBytes": 3974224,
+          "svgBytes": 2095531,
+          "probes": 1658,
+          "pixels": 184,
+          "segments": 23646,
+          "maxBound": 9.370944212257657e-05,
+          "pixelBound": 0.0056739141192464985,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-plus",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 33,
+          "redrawMs": 32,
+          "offlineLoadMs": 210,
+          "fileBytes": 3974223,
+          "svgBytes": 1670412,
+          "probes": 1412,
+          "pixels": 180,
+          "segments": 18740,
+          "maxBound": 9.348173789664181e-05,
+          "pixelBound": 0.0056601270963672744,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-plus-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-plus",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 37,
+          "redrawMs": 43,
+          "offlineLoadMs": 343,
+          "fileBytes": 3974223,
+          "svgBytes": 2095321,
+          "probes": 1694,
+          "pixels": 184,
+          "segments": 23676,
+          "maxBound": 9.370944212257617e-05,
+          "pixelBound": 0.005673914119246474,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        }
+      ],
+      "offlineNetworkRequests": [],
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "grouped": true,
+      "failedGroupedRedraw": true,
+      "races": [
+        "stale-grouped-success",
+        "stale-grouped-error",
+        "grouped-old-success-after-new-success",
+        "grouped-old-error-after-new-success",
+        "grouped-old-success-after-new-failure"
+      ],
+      "legacyNativeImport": true,
+      "viewIdentityPreserved": true,
+      "rows": [
+        {
+          "id": "mad-sixfold-60-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r3",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 11,
+          "redrawMs": 13,
+          "offlineLoadMs": 245,
+          "fileBytes": 3974389,
+          "svgBytes": 1152350,
+          "probes": 151,
+          "pixels": 128,
+          "segments": 13436,
+          "maxBound": 9.37457167241431e-05,
+          "pixelBound": 0.012556244482445834,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-60-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 37,
+          "redrawMs": 38,
+          "offlineLoadMs": 250,
+          "fileBytes": 3974389,
+          "svgBytes": 3179454,
+          "probes": 234,
+          "pixels": 170,
+          "segments": 36584,
+          "maxBound": 9.374764644584524e-05,
+          "pixelBound": 0.006577215830010094,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-180-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r3",
+            "beta": 180
+          },
+          "pattern": 0,
+          "applyMs": 16,
+          "redrawMs": 17,
+          "offlineLoadMs": 226,
+          "fileBytes": 3974227,
+          "svgBytes": 1029398,
+          "probes": 449,
+          "pixels": 178,
+          "segments": 11340,
+          "maxBound": 9.371537600162912e-05,
+          "pixelBound": 0.012552180664460627,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-420-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 420
+          },
+          "pattern": null,
+          "applyMs": 47,
+          "redrawMs": 47,
+          "offlineLoadMs": 284,
+          "fileBytes": 3974232,
+          "svgBytes": 2857929,
+          "probes": 1626,
+          "pixels": 230,
+          "segments": 24318,
+          "maxBound": 9.373410298194537e-05,
+          "pixelBound": 0.006576265637780928,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-600-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 600
+          },
+          "pattern": 2,
+          "applyMs": 84,
+          "redrawMs": 78,
+          "offlineLoadMs": 346,
+          "fileBytes": 3974230,
+          "svgBytes": 5448040,
+          "probes": 2322,
+          "pixels": 260,
+          "segments": 50740,
+          "maxBound": 9.36503140557574e-05,
+          "pixelBound": 0.0065703871131182175,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-sixfold",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 117,
+          "redrawMs": 93,
+          "offlineLoadMs": 375,
+          "fileBytes": 3974230,
+          "svgBytes": 6857023,
+          "probes": 2786,
+          "pixels": 280,
+          "segments": 64728,
+          "maxBound": 9.371537600162912e-05,
+          "pixelBound": 0.0065749517766222326,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": {
+            "segments": 87528,
+            "allWithinBound": true,
+            "svgBytes": 10280924,
+            "pixels": 120
+          }
+        },
+        {
+          "id": "mad-ordinary-600-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-ordinary",
+            "crop": "r6",
+            "beta": 600
+          },
+          "pattern": 1,
+          "applyMs": 104,
+          "redrawMs": 71,
+          "offlineLoadMs": 343,
+          "fileBytes": 3974230,
+          "svgBytes": 5398383,
+          "probes": 1862,
+          "pixels": 210,
+          "segments": 50555,
+          "maxBound": 9.368087619314802e-05,
+          "pixelBound": 0.006572531313868479,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-ordinary-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-ordinary",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 126,
+          "redrawMs": 103,
+          "offlineLoadMs": 367,
+          "fileBytes": 3974230,
+          "svgBytes": 6781420,
+          "probes": 2234,
+          "pixels": 220,
+          "segments": 64116,
+          "maxBound": 9.371972652635976e-05,
+          "pixelBound": 0.006575257003912859,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-60-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r3",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 38,
+          "redrawMs": 15,
+          "offlineLoadMs": 223,
+          "fileBytes": 3974385,
+          "svgBytes": 1152328,
+          "probes": 151,
+          "pixels": 128,
+          "segments": 13436,
+          "maxBound": 9.37457167241431e-05,
+          "pixelBound": 0.012556244482445834,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-420-r3",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r3",
+            "beta": 420
+          },
+          "pattern": null,
+          "applyMs": 14,
+          "redrawMs": 14,
+          "offlineLoadMs": 232,
+          "fileBytes": 3974228,
+          "svgBytes": 962528,
+          "probes": 1045,
+          "pixels": 202,
+          "segments": 8848,
+          "maxBound": 9.373410298194537e-05,
+          "pixelBound": 0.0125546889448545,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "mad-c-on-720-r6",
+          "config": {
+            "weave": "madweave",
+            "phase": "mad-c-on",
+            "crop": "r6",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 103,
+          "redrawMs": 99,
+          "offlineLoadMs": 370,
+          "fileBytes": 3974226,
+          "svgBytes": 6781410,
+          "probes": 2234,
+          "pixels": 220,
+          "segments": 64116,
+          "maxBound": 9.371972652635976e-05,
+          "pixelBound": 0.006575257003912859,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-60-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 60
+          },
+          "pattern": null,
+          "applyMs": 39,
+          "redrawMs": 15,
+          "offlineLoadMs": 225,
+          "fileBytes": 3974382,
+          "svgBytes": 1064932,
+          "probes": 186,
+          "pixels": 137,
+          "segments": 13096,
+          "maxBound": 9.37457167241431e-05,
+          "pixelBound": 0.005676110519461815,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-180-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 180
+          },
+          "pattern": 0,
+          "applyMs": 14,
+          "redrawMs": 14,
+          "offlineLoadMs": 234,
+          "fileBytes": 3974221,
+          "svgBytes": 1026398,
+          "probes": 554,
+          "pixels": 172,
+          "segments": 12252,
+          "maxBound": 9.341291540402917e-05,
+          "pixelBound": 0.005655960083367245,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 19,
+          "redrawMs": 32,
+          "offlineLoadMs": 238,
+          "fileBytes": 3974224,
+          "svgBytes": 1650603,
+          "probes": 1842,
+          "pixels": 200,
+          "segments": 18660,
+          "maxBound": 9.352770635335223e-05,
+          "pixelBound": 0.005662910439476944,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-large-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-large",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 29,
+          "redrawMs": 30,
+          "offlineLoadMs": 246,
+          "fileBytes": 3974224,
+          "svgBytes": 2130354,
+          "probes": 2210,
+          "pixels": 208,
+          "segments": 24168,
+          "maxBound": 9.341291540402814e-05,
+          "pixelBound": 0.005655960083367183,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-minus",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 23,
+          "redrawMs": 27,
+          "offlineLoadMs": 236,
+          "fileBytes": 3974224,
+          "svgBytes": 1668343,
+          "probes": 1382,
+          "pixels": 180,
+          "segments": 18725,
+          "maxBound": 9.348173789664156e-05,
+          "pixelBound": 0.005660127143878845,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-minus-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-minus",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 31,
+          "redrawMs": 30,
+          "offlineLoadMs": 239,
+          "fileBytes": 3974224,
+          "svgBytes": 2095531,
+          "probes": 1658,
+          "pixels": 184,
+          "segments": 23646,
+          "maxBound": 9.370944212257657e-05,
+          "pixelBound": 0.005673914166873814,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-plus",
+            "crop": "r7",
+            "beta": 600
+          },
+          "pattern": 3,
+          "applyMs": 21,
+          "redrawMs": 29,
+          "offlineLoadMs": 242,
+          "fileBytes": 3974223,
+          "svgBytes": 1670412,
+          "probes": 1412,
+          "pixels": 180,
+          "segments": 18740,
+          "maxBound": 9.348173789664181e-05,
+          "pixelBound": 0.00566012714387886,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        },
+        {
+          "id": "hex-plus-720-r7",
+          "config": {
+            "weave": "hexweave",
+            "phase": "hex-plus",
+            "crop": "r7",
+            "beta": 720
+          },
+          "pattern": 0,
+          "applyMs": 27,
+          "redrawMs": 33,
+          "offlineLoadMs": 247,
+          "fileBytes": 3974223,
+          "svgBytes": 2095321,
+          "probes": 1694,
+          "pixels": 184,
+          "segments": 23676,
+          "maxBound": 9.370944212257617e-05,
+          "pixelBound": 0.00567391416687379,
+          "offlineRoundTrip": true,
+          "independentExport": true,
+          "inspection": null
+        }
+      ],
+      "offlineNetworkRequests": [],
+      "errors": []
+    }
+  ],
+  "planarSeams": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "fixtures": [
+        {
+          "opacity": [
+            1,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.6,
+            0.6
+          ],
+          "expected": [
+            225.6,
+            192.12,
+            169.44
+          ],
+          "seam": [
+            225,
+            193,
+            171
+          ],
+          "interior": [
+            225,
+            192,
+            170
+          ],
+          "transparentSeam": [
+            219,
+            181,
+            155,
+            214
+          ]
+        },
+        {
+          "opacity": [
+            1,
+            0.4
+          ],
+          "expected": [
+            184.8,
+            152.8,
+            191.8
+          ],
+          "seam": [
+            186,
+            152,
+            192
+          ],
+          "interior": [
+            185,
+            152,
+            191
+          ],
+          "transparentSeam": [
+            186,
+            152,
+            192,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.3,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0,
+            0
+          ],
+          "expected": [
+            255,
+            255,
+            255
+          ],
+          "seam": [
+            255,
+            255,
+            255
+          ],
+          "interior": [
+            255,
+            255,
+            255
+          ],
+          "transparentSeam": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 2,
+        "exportWorst": 2
+      },
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.7799999999999727
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "fixtures": [
+        {
+          "opacity": [
+            1,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.6,
+            0.6
+          ],
+          "expected": [
+            225.6,
+            192.12,
+            169.44
+          ],
+          "seam": [
+            225,
+            193,
+            171
+          ],
+          "interior": [
+            225,
+            192,
+            170
+          ],
+          "transparentSeam": [
+            219,
+            181,
+            154,
+            214
+          ]
+        },
+        {
+          "opacity": [
+            1,
+            0.4
+          ],
+          "expected": [
+            184.8,
+            152.8,
+            191.8
+          ],
+          "seam": [
+            186,
+            152,
+            192
+          ],
+          "interior": [
+            185,
+            152,
+            191
+          ],
+          "transparentSeam": [
+            186,
+            152,
+            192,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.3,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0,
+            0
+          ],
+          "expected": [
+            255,
+            255,
+            255
+          ],
+          "seam": [
+            255,
+            255,
+            255
+          ],
+          "interior": [
+            255,
+            255,
+            255
+          ],
+          "transparentSeam": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 1,
+        "exportWorst": 1
+      },
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.4000000000000057
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "fixtures": [
+        {
+          "opacity": [
+            1,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            204,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.6,
+            0.6
+          ],
+          "expected": [
+            225.6,
+            192.12,
+            169.44
+          ],
+          "seam": [
+            225,
+            193,
+            171
+          ],
+          "interior": [
+            225,
+            192,
+            170
+          ],
+          "transparentSeam": [
+            219,
+            179,
+            153,
+            214
+          ]
+        },
+        {
+          "opacity": [
+            1,
+            0.4
+          ],
+          "expected": [
+            184.8,
+            152.8,
+            191.8
+          ],
+          "seam": [
+            186,
+            152,
+            192
+          ],
+          "interior": [
+            185,
+            152,
+            191
+          ],
+          "transparentSeam": [
+            184,
+            152,
+            192,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.3,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            204,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0,
+            0
+          ],
+          "expected": [
+            255,
+            255,
+            255
+          ],
+          "seam": [
+            255,
+            255,
+            255
+          ],
+          "interior": [
+            255,
+            255,
+            255
+          ],
+          "transparentSeam": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 2,
+        "exportWorst": 2
+      },
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.7799999999999727
+    }
+  ],
+  "planarApplication": [
+    {
+      "browser": "chromium",
+      "passed": true,
+      "tests": 11
+    },
+    {
+      "browser": "firefox",
+      "passed": true,
+      "tests": 11
+    },
+    {
+      "browser": "webkit",
+      "passed": true,
+      "tests": 11
+    }
+  ],
+  "unitStages": {
+    "startedAt": "2026-11-05T08:01:26.248134+00:00",
+    "unitOnly": true,
+    "applicationSuite": false,
+    "stages": [
+      {
+        "name": "syntax-browser-svg-check",
+        "command": [
+          "node",
+          "--check",
+          "research/browser-svg-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-browser-svg-check.log"
+      },
+      {
+        "name": "syntax-editor-button-experiments",
+        "command": [
+          "node",
+          "--check",
+          "research/editor-button-experiments.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-editor-button-experiments.log"
+      },
+      {
+        "name": "syntax-editor-pointer-experiments",
+        "command": [
+          "node",
+          "--check",
+          "research/editor-pointer-experiments.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.016,
+        "log": "research/output/suite/syntax-editor-pointer-experiments.log"
+      },
+      {
+        "name": "syntax-editor-hover-paint",
+        "command": [
+          "node",
+          "--check",
+          "research/editor-hover-paint.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.016,
+        "log": "research/output/suite/syntax-editor-hover-paint.log"
+      },
+      {
+        "name": "syntax-hexweave-comparison",
+        "command": [
+          "node",
+          "--check",
+          "research/hexweave-comparison.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-hexweave-comparison.log"
+      },
+      {
+        "name": "syntax-crossing-pixel-check",
+        "command": [
+          "node",
+          "--check",
+          "research/crossing-pixel-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.016,
+        "log": "research/output/suite/syntax-crossing-pixel-check.log"
+      },
+      {
+        "name": "syntax-triple-area-check",
+        "command": [
+          "node",
+          "--check",
+          "research/triple-area-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-triple-area-check.log"
+      },
+      {
+        "name": "syntax-mask-boundary-check",
+        "command": [
+          "node",
+          "--check",
+          "research/mask-boundary-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.016,
+        "log": "research/output/suite/syntax-mask-boundary-check.log"
+      },
+      {
+        "name": "syntax-planar-matrix-check",
+        "command": [
+          "node",
+          "--check",
+          "research/planar-matrix-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.016,
+        "log": "research/output/suite/syntax-planar-matrix-check.log"
+      },
+      {
+        "name": "syntax-boundary-matrix-check",
+        "command": [
+          "node",
+          "--check",
+          "research/boundary-matrix-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.016,
+        "log": "research/output/suite/syntax-boundary-matrix-check.log"
+      },
+      {
+        "name": "syntax-compare-seams",
+        "command": [
+          "node",
+          "--check",
+          "research/compare-seams.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.016,
+        "log": "research/output/suite/syntax-compare-seams.log"
+      },
+      {
+        "name": "math",
+        "command": [
+          "node",
+          "--test",
+          "tests/math.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.114,
+        "log": "research/output/suite/math.log"
+      },
+      {
+        "name": "indexing",
+        "command": [
+          "node",
+          "research/planar-indexing.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/indexing.log"
+      },
+      {
+        "name": "crossing-model",
+        "command": [
+          "node",
+          "research/crossing-audit.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.064,
+        "log": "research/output/suite/crossing-model.log"
+      },
+      {
+        "name": "independent-geometry",
+        "command": [
+          "node",
+          "research/planar-geometry.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 1.418,
+        "log": "research/output/suite/independent-geometry.log"
+      },
+      {
+        "name": "symmetry",
+        "command": [
+          "node",
+          "research/symmetry.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.565,
+        "log": "research/output/suite/symmetry.log"
+      },
+      {
+        "name": "angular-baseline",
+        "command": [
+          "node",
+          "research/angular-baseline.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.064,
+        "log": "research/output/suite/angular-baseline.log"
+      },
+      {
+        "name": "site",
+        "command": [
+          "/usr/bin/python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_site.py",
+          "-v"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.115,
+        "log": "research/output/suite/site.log"
+      }
+    ],
+    "passed": true
+  },
+  "pixelChannelLimit": 4,
+  "fileByteLimits": {
+    "planar": 5242880,
+    "corner": 10485760
+  },
+  "physicalValidation": "Unverified",
+  "deterministicRuntimeBuild": {
+    "corner-runtime.js": "d53b49ae9af4fdb3b9ad3d83e25322592aaad8999deac09d2e3d6312a2dce53c",
+    "research/corner-prototype/bundle.mjs": "ba56306faab93cd26c7f1a6257402957e9471530d7133d6e66dbc3f581e2a109"
+  },
+  "sourceHashes": {
+    "editor.js": "a44f851f469bb373fce1ffef83b0ad0149a9990dd8d630342be4f79715f00a34",
+    "corner-editor.js": "13dbdfc3e740c4c3a6ea8671435c437246d83f43a3a8ed5ade47bbfd8fcfe992",
+    "corner-model.mjs": "d2768035ea05fd6433696c29390ed711a8631a51aaf79907c1550a29e96dd3bc",
+    "research/corner-prototype/render.mjs": "4f50b2ad2abbbdba072f4e8972d67f02cd98a5c39fa812d15202824132a5c838",
+    "research/check-corner-colors.py": "be1e21ca9fb1c3c46810af233334923c9ed2b016e41ddcb6c9aaf273f2bdd048"
+  },
+  "finalWorkedReplay": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "offlineModeRoundTrip": true,
+      "offlineResave": true,
+      "requests": [],
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "offlineModeRoundTrip": true,
+      "offlineResave": true,
+      "requests": [],
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "offlineModeRoundTrip": true,
+      "offlineResave": true,
+      "requests": [],
+      "errors": []
+    }
+  ]
+}

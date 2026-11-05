@@ -5,7 +5,7 @@ export function makePackage(bundle){
     const assets=JSON.parse(document.getElementById('corner-assets').textContent);
     const script=document.createElement('script');script.type='module';
     script.textContent="const BUNDLE=JSON.parse(document.getElementById('corner-assets').textContent);\n"+
-      ['kernel','project','offline','app'].map(key=>assets.sources[key]).join('\n');
+      ['kernel','project','render','offline','app'].map(key=>assets.sources[key]).join('\n');
     document.body.append(script);
   }
   const json=x=>JSON.stringify(x).replaceAll('<','\\u003c');
