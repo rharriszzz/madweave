@@ -114,6 +114,25 @@ an override. Do not add a `/tmp` library override to your shell startup files.
 
 ## Updating or repairing
 
+### Pages CI container
+
+The Pages workflow's three browser jobs use the official
+`mcr.microsoft.com/playwright/python:v1.63.0-noble` image, pinned by digest in
+[pages.yml](../.github/workflows/pages.yml). The image supplies browser binaries
+and their Linux libraries at `/ms-playwright`; jobs install the locked Node and
+Python packages but do not run `playwright install --with-deps`.
+
+Keep the image version and digest aligned with both `package-lock.json` and
+`requirements-dev.txt` when upgrading Playwright. Both language clients must use
+the matching browser builds. Validate upgrades through all three CI matrix jobs.
+The image still needs downloading on a fresh runner; it removes repeated Ubuntu
+package installation, not all network setup. The separate historical research
+workflows retain their existing browser environments.
+
+Reference: [Official Playwright container](https://playwright.dev/python/docs/docker).
+
+### Local installation
+
 After updating `requirements-dev.txt`, reinstall the pinned Python dependency,
 its system dependencies if needed, and the matching browser builds:
 
