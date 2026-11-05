@@ -1,0 +1,1016 @@
+{
+  "baseline": "d483557",
+  "scope": "Stage 3B only",
+  "physicalConstructibility": "Unvalidated",
+  "productionUnchanged": {
+    "madweave.js": "eb51c20e549bda425557eeb1d0c754f6a5c31be057f939be508f512e3ccd1d1d",
+    "madweave.css": "81f664251c51ed1741b84a9c1d52891c4ea56afa170637310ad65bafdcee90b8",
+    "project.js": "e9051a3fcd3e360231665950524d164328e0a09efad329b358ee396e7fa5fcd6",
+    "editor.js": "c39c9e36a7930200590833c0c98fe496e7fb4675835786faaa82f7dfa706be88",
+    "editor.html": "04426dcda9953715f8a7abe71b08cabc4952cd2823cbf675d57f98af419ec7e0",
+    "scripts/build_site.py": "75d0942c0320b0af85649666bc827a2389c02d0d7ddd62b6eb64e67a94224ff4"
+  },
+  "originalReferenceCases": 89,
+  "circularCropCases": 137,
+  "unitSuite": {
+    "stages": 18,
+    "passed": true
+  },
+  "prototype": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "examples": 9,
+      "referenceProbes": 6665,
+      "boundaryChecks": 2424,
+      "transactions": [
+        {
+          "name": "failed-color-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-view-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-outline-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-seam-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-strip-inspection",
+          "passed": true
+        },
+        {
+          "name": "failed-visible-boundaries",
+          "passed": true
+        },
+        {
+          "name": "failed-keyboard-crossing-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-next-local-position",
+          "passed": true
+        },
+        {
+          "name": "failed-clear-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-certificate-fetch",
+          "passed": true
+        },
+        {
+          "name": "failed-example-render",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-error-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-failure",
+          "passed": true
+        },
+        {
+          "name": "new-view-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-color-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-inspection-invalidates-pending-example",
+          "passed": true
+        }
+      ],
+      "visiblePaintNegative": {
+        "positions": [
+          [
+            0,
+            0,
+            7
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "referenceXY": [
+          -3.5,
+          4.5
+        ],
+        "sector": 0,
+        "correctColor": 1,
+        "wrongTopColor": 2,
+        "x": 624.4020654185517,
+        "y": 997.5309036936385,
+        "actualRGB": [
+          139,
+          109,
+          165
+        ],
+        "normalAuditRejected": true,
+        "witness": "page.evaluate: Error: Actual opaque paint union disagrees with reference order",
+        "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
+      },
+      "keyboardInspectionPassed": true,
+      "mobileBoundPassed": true
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "examples": 9,
+      "referenceProbes": 6665,
+      "boundaryChecks": 2424,
+      "transactions": [
+        {
+          "name": "failed-color-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-view-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-outline-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-seam-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-strip-inspection",
+          "passed": true
+        },
+        {
+          "name": "failed-visible-boundaries",
+          "passed": true
+        },
+        {
+          "name": "failed-keyboard-crossing-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-next-local-position",
+          "passed": true
+        },
+        {
+          "name": "failed-clear-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-certificate-fetch",
+          "passed": true
+        },
+        {
+          "name": "failed-example-render",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-error-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-failure",
+          "passed": true
+        },
+        {
+          "name": "new-view-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-color-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-inspection-invalidates-pending-example",
+          "passed": true
+        }
+      ],
+      "visiblePaintNegative": {
+        "positions": [
+          [
+            0,
+            0,
+            7
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "referenceXY": [
+          -3.5,
+          4.5
+        ],
+        "sector": 0,
+        "correctColor": 1,
+        "wrongTopColor": 2,
+        "x": 624.4021107083931,
+        "y": 998.5371688026493,
+        "actualRGB": [
+          139,
+          109,
+          165
+        ],
+        "normalAuditRejected": true,
+        "witness": "page.evaluate: Actual opaque paint union disagrees with reference order",
+        "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
+      },
+      "keyboardInspectionPassed": true,
+      "mobileBoundPassed": true
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "examples": 9,
+      "referenceProbes": 6665,
+      "boundaryChecks": 2424,
+      "transactions": [
+        {
+          "name": "failed-color-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-view-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-outline-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-seam-redraw",
+          "passed": true
+        },
+        {
+          "name": "failed-strip-inspection",
+          "passed": true
+        },
+        {
+          "name": "failed-visible-boundaries",
+          "passed": true
+        },
+        {
+          "name": "failed-keyboard-crossing-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-next-local-position",
+          "passed": true
+        },
+        {
+          "name": "failed-clear-selection",
+          "passed": true
+        },
+        {
+          "name": "failed-certificate-fetch",
+          "passed": true
+        },
+        {
+          "name": "failed-example-render",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-error-after-new-success",
+          "passed": true
+        },
+        {
+          "name": "stale-success-after-new-failure",
+          "passed": true
+        },
+        {
+          "name": "new-view-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-color-invalidates-pending-example",
+          "passed": true
+        },
+        {
+          "name": "new-inspection-invalidates-pending-example",
+          "passed": true
+        }
+      ],
+      "visiblePaintNegative": {
+        "positions": [
+          [
+            0,
+            0,
+            7
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "referenceXY": [
+          -3.5,
+          4.5
+        ],
+        "sector": 0,
+        "correctColor": 1,
+        "wrongTopColor": 2,
+        "x": 624.4020654185517,
+        "y": 997.5309036936385,
+        "actualRGB": [
+          139,
+          109,
+          165
+        ],
+        "normalAuditRejected": true,
+        "witness": "page.evaluate: Error: Actual opaque paint union disagrees with reference order",
+        "oracleHash": "1e0c2be66cb844a12543e89340431ff23cd48930f78ecf3bc8c6782b19f5a8a9"
+      },
+      "keyboardInspectionPassed": true,
+      "mobileBoundPassed": true
+    }
+  ],
+  "portableLegacyCatalogue": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "assignments": 33,
+      "invalidImports": [
+        "version",
+        "catalogue",
+        "parameters",
+        "construction",
+        "identity",
+        "incompatible-color",
+        "view",
+        "saved-valid-flag",
+        "digest",
+        "invalid-pattern",
+        "malformed",
+        "duplicate-envelope",
+        "artwork",
+        "collapsed-self-position",
+        "wrong-local-active",
+        "wrong-local-order",
+        "wrong-local-point",
+        "wrong-crossing",
+        "failed-read",
+        "failed-render"
+      ],
+      "races": [
+        "late-file-success",
+        "late-file-error",
+        "view-supersedes-file",
+        "color-supersedes-file",
+        "inspection-supersedes-file",
+        "save-supersedes-file",
+        "export-supersedes-file",
+        "rejected-import-supersedes-file",
+        "file-supersedes-example",
+        "example-supersedes-file"
+      ],
+      "offlineNetworkRequests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "assignments": 33,
+      "invalidImports": [
+        "version",
+        "catalogue",
+        "parameters",
+        "construction",
+        "identity",
+        "incompatible-color",
+        "view",
+        "saved-valid-flag",
+        "digest",
+        "invalid-pattern",
+        "malformed",
+        "duplicate-envelope",
+        "artwork",
+        "collapsed-self-position",
+        "wrong-local-active",
+        "wrong-local-order",
+        "wrong-local-point",
+        "wrong-crossing",
+        "failed-read",
+        "failed-render"
+      ],
+      "races": [
+        "late-file-success",
+        "late-file-error",
+        "view-supersedes-file",
+        "color-supersedes-file",
+        "inspection-supersedes-file",
+        "save-supersedes-file",
+        "export-supersedes-file",
+        "rejected-import-supersedes-file",
+        "file-supersedes-example",
+        "example-supersedes-file"
+      ],
+      "offlineNetworkRequests": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "assignments": 33,
+      "invalidImports": [
+        "version",
+        "catalogue",
+        "parameters",
+        "construction",
+        "identity",
+        "incompatible-color",
+        "view",
+        "saved-valid-flag",
+        "digest",
+        "invalid-pattern",
+        "malformed",
+        "duplicate-envelope",
+        "artwork",
+        "collapsed-self-position",
+        "wrong-local-active",
+        "wrong-local-order",
+        "wrong-local-point",
+        "wrong-crossing",
+        "failed-read",
+        "failed-render"
+      ],
+      "races": [
+        "late-file-success",
+        "late-file-error",
+        "view-supersedes-file",
+        "color-supersedes-file",
+        "inspection-supersedes-file",
+        "save-supersedes-file",
+        "export-supersedes-file",
+        "rejected-import-supersedes-file",
+        "file-supersedes-example",
+        "example-supersedes-file"
+      ],
+      "offlineNetworkRequests": []
+    }
+  ],
+  "planarRenderer": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "fixtures": [
+        {
+          "opacity": [
+            1,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.6,
+            0.6
+          ],
+          "expected": [
+            225.6,
+            192.12,
+            169.44
+          ],
+          "seam": [
+            225,
+            193,
+            171
+          ],
+          "interior": [
+            225,
+            192,
+            170
+          ],
+          "transparentSeam": [
+            219,
+            181,
+            155,
+            214
+          ]
+        },
+        {
+          "opacity": [
+            1,
+            0.4
+          ],
+          "expected": [
+            184.8,
+            152.8,
+            191.8
+          ],
+          "seam": [
+            186,
+            152,
+            192
+          ],
+          "interior": [
+            185,
+            152,
+            191
+          ],
+          "transparentSeam": [
+            186,
+            152,
+            192,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.3,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0,
+            0
+          ],
+          "expected": [
+            255,
+            255,
+            255
+          ],
+          "seam": [
+            255,
+            255,
+            255
+          ],
+          "interior": [
+            255,
+            255,
+            255
+          ],
+          "transparentSeam": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 2,
+        "exportWorst": 2
+      },
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.7799999999999727
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "fixtures": [
+        {
+          "opacity": [
+            1,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.6,
+            0.6
+          ],
+          "expected": [
+            225.6,
+            192.12,
+            169.44
+          ],
+          "seam": [
+            225,
+            193,
+            171
+          ],
+          "interior": [
+            225,
+            192,
+            170
+          ],
+          "transparentSeam": [
+            219,
+            181,
+            154,
+            214
+          ]
+        },
+        {
+          "opacity": [
+            1,
+            0.4
+          ],
+          "expected": [
+            184.8,
+            152.8,
+            191.8
+          ],
+          "seam": [
+            186,
+            152,
+            192
+          ],
+          "interior": [
+            185,
+            152,
+            191
+          ],
+          "transparentSeam": [
+            186,
+            152,
+            192,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.3,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            206,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0,
+            0
+          ],
+          "expected": [
+            255,
+            255,
+            255
+          ],
+          "seam": [
+            255,
+            255,
+            255
+          ],
+          "interior": [
+            255,
+            255,
+            255
+          ],
+          "transparentSeam": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 1,
+        "exportWorst": 1
+      },
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.4000000000000057
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "fixtures": [
+        {
+          "opacity": [
+            1,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            204,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.6,
+            0.6
+          ],
+          "expected": [
+            225.6,
+            192.12,
+            169.44
+          ],
+          "seam": [
+            225,
+            193,
+            171
+          ],
+          "interior": [
+            225,
+            192,
+            170
+          ],
+          "transparentSeam": [
+            219,
+            179,
+            153,
+            214
+          ]
+        },
+        {
+          "opacity": [
+            1,
+            0.4
+          ],
+          "expected": [
+            184.8,
+            152.8,
+            191.8
+          ],
+          "seam": [
+            186,
+            152,
+            192
+          ],
+          "interior": [
+            185,
+            152,
+            191
+          ],
+          "transparentSeam": [
+            184,
+            152,
+            192,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0.3,
+            1
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "seam": [
+            252,
+            206,
+            118
+          ],
+          "interior": [
+            252,
+            205,
+            118
+          ],
+          "transparentSeam": [
+            252,
+            204,
+            118,
+            255
+          ]
+        },
+        {
+          "opacity": [
+            0,
+            0
+          ],
+          "expected": [
+            255,
+            255,
+            255
+          ],
+          "seam": [
+            255,
+            255,
+            255
+          ],
+          "interior": [
+            255,
+            255,
+            255
+          ],
+          "transparentSeam": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 2,
+        "exportWorst": 2
+      },
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.7799999999999727
+    }
+  ],
+  "planarFileIsolation": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "boundarySelections": [
+        "empty-hole",
+        "first-ray",
+        "interior-ray",
+        "final-wrap"
+      ],
+      "planarVersion1RoundTrip": true,
+      "planarRejectedByCorner": true,
+      "cornerRejectedByPlanar": true,
+      "offlineColorEdit": true,
+      "offlineSelfInspection": true,
+      "offlineInspectionResaveExport": true,
+      "offlineSuppliedCertificate": true,
+      "offlineNetworkRequests": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "boundarySelections": [
+        "empty-hole",
+        "first-ray",
+        "interior-ray",
+        "final-wrap"
+      ],
+      "planarVersion1RoundTrip": true,
+      "planarRejectedByCorner": true,
+      "cornerRejectedByPlanar": true,
+      "offlineColorEdit": true,
+      "offlineSelfInspection": true,
+      "offlineInspectionResaveExport": true,
+      "offlineSuppliedCertificate": true,
+      "offlineNetworkRequests": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "boundarySelections": [
+        "empty-hole",
+        "first-ray",
+        "interior-ray",
+        "final-wrap"
+      ],
+      "planarVersion1RoundTrip": true,
+      "planarRejectedByCorner": true,
+      "cornerRejectedByPlanar": true,
+      "offlineColorEdit": true,
+      "offlineSelfInspection": true,
+      "offlineInspectionResaveExport": true,
+      "offlineSuppliedCertificate": true,
+      "offlineNetworkRequests": []
+    }
+  ],
+  "checkerBounds": {
+    "validatedSectors": 12,
+    "rejectedSectors": 13,
+    "status": "Unvalidated",
+    "witness": "Unvalidated: outside bounded checker domain"
+  },
+  "workedFilesSha256": {
+    "corner-stage3b-worked.corner.html": "f1d984087b7ed45e6a6b43a0d0fc3613efd080dee7d216712d373c2bc26aa1a1",
+    "corner-stage3b-worked.svg": "f59d816128a693816063011e474126e364cacad0011441641acd410d49d5dd7f"
+  },
+  "sourceSha256": {
+    "research/corner-prototype/app.mjs": "c6d56e004cdf3dd35ac7e7571c92afa309564c641966e431c4e699ca219be3a9",
+    "research/corner-prototype/project.mjs": "c8ef25cef64202e2a4885671ad19846aac0c47c5770284eae45bb660b15b6fcf",
+    "research/corner-prototype/kernel.mjs": "70147b23de0ea6faa903938a82ae932659fc304bbce4d3c6b6f55f8809bc895c",
+    "research/corner-prototype/bundle.mjs": "384e7260e2da0f51190dda4f988769fd9849fa0d810e9dd320aa3441b9f51629",
+    "research/corner-prototype/family.json": "b3246a91db587f1996a09288b8451bf7cd534e85cf7f5076f3b625f7b7274a82",
+    "research/corner-prototype/family-matrix.json": "4c3bd6d25c985631feeaf4a25f046e4ee49ed65f7630fa4e4925f6d5582baef3"
+  },
+  "legacySVGReplay": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "exports": 42,
+      "inImagePixelProbes": 5040
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "exports": 42,
+      "inImagePixelProbes": 5040
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "exports": 42,
+      "inImagePixelProbes": 5040
+    }
+  ]
+}

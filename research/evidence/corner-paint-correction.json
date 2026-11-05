@@ -1,0 +1,427 @@
+{
+  "reviewedCommit": "2029873",
+  "before": {
+    "browser": "chromium",
+    "exitCode": 1,
+    "regression": "CP1 → paint → unchanged Apply (direct)",
+    "expectedOverrides": {
+      "0:0:3": 7
+    },
+    "actualOverrides": {},
+    "log": "chromium starting\nAssertionError [ERR_ASSERTION]: CP1 → paint → unchanged Apply (direct) must preserve the saved design\n+ actual - expected\n... Skipped lines\n\n  {\n    active: 'corner',\n    design: {\n      catalogue: 'corner-family-v2',\n      construction: {\n...\n      material: {\n+       overrides: {},\n-       overrides: {\n-         '0:0:3': 7\n-       },\n        pattern: 1\n      },\n      opacity: [\n        1,\n        1,\n\n    at formulaTransactions (/home/rharris/git/madweave/research/corner-integration-browser.test.cjs:38:44)\n    at async /home/rharris/git/madweave/research/corner-integration-browser.test.cjs:119:230 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: [Object],\n  expected: [Object],\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n"
+  },
+  "after": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "rows": [
+        {
+          "id": "excess",
+          "probes": 1549,
+          "pixels": 150,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 0,
+          "referenceCells": 1520,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "self",
+          "probes": 255,
+          "pixels": 131,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 101,
+          "paintAssemblies": 28
+        },
+        {
+          "id": "mad-sixfold-60-r3",
+          "probes": 157,
+          "pixels": 69,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 52,
+          "paintAssemblies": 21
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "probes": 2965,
+          "pixels": 46,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Validated",
+          "seamPixels": 0,
+          "referenceCells": 2316,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "hex-large-720-r7",
+          "probes": 2425,
+          "pixels": 310,
+          "maxChannelError": 1.0860100148680374,
+          "colorStatus": "Validated",
+          "seamPixels": 160,
+          "referenceCells": 300,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "probes": 1471,
+          "pixels": 159,
+          "maxChannelError": 1.0860100148680374,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "probes": 1501,
+          "pixels": 159,
+          "maxChannelError": 1.0860100148680374,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "c-on",
+          "probes": 1017,
+          "pixels": 157,
+          "maxChannelError": 1.1609327293557357,
+          "colorStatus": "Invalid",
+          "seamPixels": 7,
+          "referenceCells": 404,
+          "paintAssemblies": 20
+        }
+      ],
+      "races": [
+        "late-success-after-mode",
+        "late-error-after-mode",
+        "older-success-after-newer-rejection"
+      ],
+      "formulaTransactions": {
+        "online": [
+          "CP1-direct",
+          "CP1-mode-return",
+          "CP1-construction-return",
+          "CC1-direct",
+          "CC1-mode-return",
+          "CC1-construction-return",
+          "failed-immediate-discarded",
+          "staged-failure-retry",
+          "deliberate-staging-after-construction-return"
+        ],
+        "offline": [
+          "CP1-direct",
+          "CP1-mode-return",
+          "CP1-construction-return",
+          "CC1-direct",
+          "CC1-mode-return",
+          "CC1-construction-return",
+          "failed-immediate-discarded",
+          "staged-failure-retry",
+          "deliberate-staging-after-construction-return"
+        ],
+        "offlineResave": true
+      },
+      "modeRetention": true,
+      "offlinePlanarEditsCancelPendingImports": true,
+      "failedPaletteAndViewRollback": true,
+      "invalidAndUnvalidatedProposals": true,
+      "fringeAndHiddenPainting": true,
+      "paletteAliasesAndTransparency": true,
+      "zeroOpacityPreservesAllMaterial": true,
+      "wrongVisiblePaintRejectedByGeometryAndPixels": true,
+      "continuousTranslucentSeamPixels": 100,
+      "exactRayPixels": 28,
+      "continuousTranslucentMaxError": 0.9157973314708556,
+      "zeroOpacityMaxError": 0,
+      "legacyImports": true,
+      "offlineRequests": [],
+      "projectBytes": 5004883,
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "rows": [
+        {
+          "id": "excess",
+          "probes": 1549,
+          "pixels": 150,
+          "maxChannelError": 1.3021067353378442,
+          "colorStatus": "Invalid",
+          "seamPixels": 0,
+          "referenceCells": 1520,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "self",
+          "probes": 255,
+          "pixels": 131,
+          "maxChannelError": 1.3021067353378442,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 101,
+          "paintAssemblies": 28
+        },
+        {
+          "id": "mad-sixfold-60-r3",
+          "probes": 157,
+          "pixels": 69,
+          "maxChannelError": 1.2917376714532907,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 52,
+          "paintAssemblies": 21
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "probes": 2965,
+          "pixels": 46,
+          "maxChannelError": 0.6685666697957942,
+          "colorStatus": "Validated",
+          "seamPixels": 0,
+          "referenceCells": 2316,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "hex-large-720-r7",
+          "probes": 2425,
+          "pixels": 310,
+          "maxChannelError": 1.0614836144295623,
+          "colorStatus": "Validated",
+          "seamPixels": 160,
+          "referenceCells": 300,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "probes": 1471,
+          "pixels": 159,
+          "maxChannelError": 1.0614836144295623,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "probes": 1501,
+          "pixels": 159,
+          "maxChannelError": 1.0614836144295623,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "c-on",
+          "probes": 1017,
+          "pixels": 157,
+          "maxChannelError": 1.3021067353378442,
+          "colorStatus": "Invalid",
+          "seamPixels": 7,
+          "referenceCells": 404,
+          "paintAssemblies": 20
+        }
+      ],
+      "races": [
+        "late-success-after-mode",
+        "late-error-after-mode",
+        "older-success-after-newer-rejection"
+      ],
+      "formulaTransactions": {
+        "online": [
+          "CP1-direct",
+          "CP1-mode-return",
+          "CP1-construction-return",
+          "CC1-direct",
+          "CC1-mode-return",
+          "CC1-construction-return",
+          "failed-immediate-discarded",
+          "staged-failure-retry",
+          "deliberate-staging-after-construction-return"
+        ],
+        "offline": [
+          "CP1-direct",
+          "CP1-mode-return",
+          "CP1-construction-return",
+          "CC1-direct",
+          "CC1-mode-return",
+          "CC1-construction-return",
+          "failed-immediate-discarded",
+          "staged-failure-retry",
+          "deliberate-staging-after-construction-return"
+        ],
+        "offlineResave": true
+      },
+      "modeRetention": true,
+      "offlinePlanarEditsCancelPendingImports": true,
+      "failedPaletteAndViewRollback": true,
+      "invalidAndUnvalidatedProposals": true,
+      "fringeAndHiddenPainting": true,
+      "paletteAliasesAndTransparency": true,
+      "zeroOpacityPreservesAllMaterial": true,
+      "wrongVisiblePaintRejectedByGeometryAndPixels": true,
+      "continuousTranslucentSeamPixels": 100,
+      "exactRayPixels": 28,
+      "continuousTranslucentMaxError": 0.9158494181083938,
+      "zeroOpacityMaxError": 0,
+      "legacyImports": true,
+      "offlineRequests": [],
+      "projectBytes": 5004882,
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "rows": [
+        {
+          "id": "excess",
+          "probes": 1549,
+          "pixels": 150,
+          "maxChannelError": 1.3020591114870683,
+          "colorStatus": "Invalid",
+          "seamPixels": 0,
+          "referenceCells": 1520,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "self",
+          "probes": 255,
+          "pixels": 131,
+          "maxChannelError": 1.3020591114870683,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 101,
+          "paintAssemblies": 28
+        },
+        {
+          "id": "mad-sixfold-60-r3",
+          "probes": 157,
+          "pixels": 69,
+          "maxChannelError": 1.2917427582905816,
+          "colorStatus": "Invalid",
+          "seamPixels": 4,
+          "referenceCells": 52,
+          "paintAssemblies": 21
+        },
+        {
+          "id": "mad-sixfold-720-r6",
+          "probes": 2965,
+          "pixels": 46,
+          "maxChannelError": 0.6685858240550715,
+          "colorStatus": "Validated",
+          "seamPixels": 0,
+          "referenceCells": 2316,
+          "paintAssemblies": 20
+        },
+        {
+          "id": "hex-large-720-r7",
+          "probes": 2425,
+          "pixels": 310,
+          "maxChannelError": 1.0614066475413892,
+          "colorStatus": "Validated",
+          "seamPixels": 160,
+          "referenceCells": 300,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-minus-600-r7",
+          "probes": 1471,
+          "pixels": 159,
+          "maxChannelError": 1.0614066475413892,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "hex-plus-600-r7",
+          "probes": 1501,
+          "pixels": 159,
+          "maxChannelError": 1.0614066475413892,
+          "colorStatus": "Invalid",
+          "seamPixels": 9,
+          "referenceCells": 280,
+          "paintAssemblies": 9
+        },
+        {
+          "id": "c-on",
+          "probes": 1017,
+          "pixels": 157,
+          "maxChannelError": 1.3020591114870683,
+          "colorStatus": "Invalid",
+          "seamPixels": 7,
+          "referenceCells": 404,
+          "paintAssemblies": 20
+        }
+      ],
+      "races": [
+        "late-success-after-mode",
+        "late-error-after-mode",
+        "older-success-after-newer-rejection"
+      ],
+      "formulaTransactions": {
+        "online": [
+          "CP1-direct",
+          "CP1-mode-return",
+          "CP1-construction-return",
+          "CC1-direct",
+          "CC1-mode-return",
+          "CC1-construction-return",
+          "failed-immediate-discarded",
+          "staged-failure-retry",
+          "deliberate-staging-after-construction-return"
+        ],
+        "offline": [
+          "CP1-direct",
+          "CP1-mode-return",
+          "CP1-construction-return",
+          "CC1-direct",
+          "CC1-mode-return",
+          "CC1-construction-return",
+          "failed-immediate-discarded",
+          "staged-failure-retry",
+          "deliberate-staging-after-construction-return"
+        ],
+        "offlineResave": true
+      },
+      "modeRetention": true,
+      "offlinePlanarEditsCancelPendingImports": true,
+      "failedPaletteAndViewRollback": true,
+      "invalidAndUnvalidatedProposals": true,
+      "fringeAndHiddenPainting": true,
+      "paletteAliasesAndTransparency": true,
+      "zeroOpacityPreservesAllMaterial": true,
+      "wrongVisiblePaintRejectedByGeometryAndPixels": true,
+      "continuousTranslucentSeamPixels": 100,
+      "exactRayPixels": 28,
+      "continuousTranslucentMaxError": 0.9157973314708556,
+      "zeroOpacityMaxError": 0,
+      "legacyImports": true,
+      "offlineRequests": [],
+      "projectBytes": 5004883,
+      "errors": []
+    }
+  ],
+  "checks": {
+    "mathTests": 4,
+    "siteTests": 5,
+    "semanticRoundTrips": 3024,
+    "independentCases": 3028
+  },
+  "scope": "Formula proposal bookkeeping only; geometry, palette semantics and project formats unchanged",
+  "workedModelUnchanged": true,
+  "workedAssetsChanged": [
+    "editorScript"
+  ],
+  "sourceHashes": {
+    "editor.js": "769965e8ec031f5d153328e83477acd6315dca68ddaf283c695955658679af0e",
+    "research/corner-integration-browser.test.cjs": "f4c23d67e95ed1394f179de067c03fe5a71e1bfd03b0d9cb3a51a4c20153c357",
+    "research/evidence/corner-integration-worked/editable.html": "6028fc916217df5f22bf0e238b4ce96e5cf461db4fb7320344e6b974a6920a3b"
+  }
+}

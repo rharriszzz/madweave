@@ -1,0 +1,2114 @@
+{
+  "catalogue": "corner-family-v2",
+  "constructions": 84,
+  "assignments": 268,
+  "rejectedColors": 236,
+  "boundaryChecks": 6192,
+  "totalSegments": 1796083,
+  "maxBound": 9.37476464458452e-05,
+  "largestHTMLBytes": 3970798,
+  "bundleBytes": 3962720,
+  "legacyWorkedFiles": true,
+  "rows": [
+    {
+      "id": "self",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970774,
+      "meshSegments": 13014,
+      "circularSegments": 1145,
+      "totalMilliseconds": 163.14139299999997
+    },
+    {
+      "id": "deficit",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970779,
+      "meshSegments": 10532,
+      "circularSegments": 1174,
+      "totalMilliseconds": 111.65203399999996
+    },
+    {
+      "id": "planar",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970776,
+      "meshSegments": 2391,
+      "circularSegments": 1188,
+      "totalMilliseconds": 144.74746500000003
+    },
+    {
+      "id": "mad-ordinary-480-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970793,
+      "meshSegments": 12756,
+      "circularSegments": 1216,
+      "totalMilliseconds": 101.84296899999993
+    },
+    {
+      "id": "mad-ordinary-600-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 5,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 17650,
+      "circularSegments": 1215,
+      "totalMilliseconds": 108.37270999999998
+    },
+    {
+      "id": "mad-ordinary-720-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 6,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970791,
+      "meshSegments": 22074,
+      "circularSegments": 1272,
+      "totalMilliseconds": 155.86331799999994
+    },
+    {
+      "id": "mad-ordinary-120-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 35522,
+      "circularSegments": 1698,
+      "totalMilliseconds": 118.25802999999996
+    },
+    {
+      "id": "mad-ordinary-240-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970798,
+      "meshSegments": 28440,
+      "circularSegments": 1740,
+      "totalMilliseconds": 118.43103900000006
+    },
+    {
+      "id": "mad-ordinary-360-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970793,
+      "meshSegments": 6216,
+      "circularSegments": 1782,
+      "totalMilliseconds": 165.30190599999992
+    },
+    {
+      "id": "excess",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970783,
+      "meshSegments": 34012,
+      "circularSegments": 1828,
+      "totalMilliseconds": 137.36120499999993
+    },
+    {
+      "id": "mad-ordinary-600-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 5,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970796,
+      "meshSegments": 50555,
+      "circularSegments": 1885,
+      "totalMilliseconds": 137.93573300000003
+    },
+    {
+      "id": "mad-ordinary-720-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 6,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970798,
+      "meshSegments": 64116,
+      "circularSegments": 1908,
+      "totalMilliseconds": 179.678447
+    },
+    {
+      "id": "mad-sixfold-60-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 1,
+        "beta": 60,
+        "f": "6",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970786,
+      "meshSegments": 13436,
+      "circularSegments": 1134,
+      "totalMilliseconds": 26.60554100000013
+    },
+    {
+      "id": "mad-sixfold-120-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 2,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 13130,
+      "circularSegments": 1146,
+      "totalMilliseconds": 56.1793540000001
+    },
+    {
+      "id": "mad-sixfold-180-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 3,
+        "beta": 180,
+        "f": "2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970788,
+      "meshSegments": 11340,
+      "circularSegments": 1158,
+      "totalMilliseconds": 48.79915200000005
+    },
+    {
+      "id": "mad-sixfold-240-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970792,
+      "meshSegments": 10524,
+      "circularSegments": 1172,
+      "totalMilliseconds": 51.32286900000008
+    },
+    {
+      "id": "sixty",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970776,
+      "meshSegments": 8540,
+      "circularSegments": 1170,
+      "totalMilliseconds": 26.82362799999987
+    },
+    {
+      "id": "mad-sixfold-360-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 6,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970788,
+      "meshSegments": 2466,
+      "circularSegments": 1188,
+      "totalMilliseconds": 135.00811299999987
+    },
+    {
+      "id": "mad-sixfold-420-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 7,
+        "beta": 420,
+        "f": "6/7",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 8848,
+      "circularSegments": 1190,
+      "totalMilliseconds": 28.911949000000277
+    },
+    {
+      "id": "mad-sixfold-480-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970792,
+      "meshSegments": 12960,
+      "circularSegments": 1216,
+      "totalMilliseconds": 50.8800040000001
+    },
+    {
+      "id": "mad-sixfold-540-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 9,
+        "beta": 540,
+        "f": "2/3",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 15606,
+      "circularSegments": 1206,
+      "totalMilliseconds": 51.0179390000003
+    },
+    {
+      "id": "mad-sixfold-600-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 10,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970791,
+      "meshSegments": 17670,
+      "circularSegments": 1210,
+      "totalMilliseconds": 53.51927500000011
+    },
+    {
+      "id": "mad-sixfold-660-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 11,
+        "beta": 660,
+        "f": "6/11",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970792,
+      "meshSegments": 19778,
+      "circularSegments": 1232,
+      "totalMilliseconds": 34.53849999999966
+    },
+    {
+      "id": "mad-sixfold-720-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 12,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970793,
+      "meshSegments": 22020,
+      "circularSegments": 1284,
+      "totalMilliseconds": 150.04982199999995
+    },
+    {
+      "id": "mad-sixfold-60-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 1,
+        "beta": 60,
+        "f": "6",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970786,
+      "meshSegments": 36584,
+      "circularSegments": 1686,
+      "totalMilliseconds": 39.3235279999999
+    },
+    {
+      "id": "mad-sixfold-120-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 2,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 35228,
+      "circularSegments": 1700,
+      "totalMilliseconds": 57.909075999999914
+    },
+    {
+      "id": "mad-sixfold-180-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 3,
+        "beta": 180,
+        "f": "2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970793,
+      "meshSegments": 32628,
+      "circularSegments": 1734,
+      "totalMilliseconds": 61.35579400000006
+    },
+    {
+      "id": "mad-sixfold-240-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970797,
+      "meshSegments": 28568,
+      "circularSegments": 1744,
+      "totalMilliseconds": 60.61774800000012
+    },
+    {
+      "id": "mad-sixfold-300-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970794,
+      "meshSegments": 21730,
+      "circularSegments": 1770,
+      "totalMilliseconds": 41.03657700000031
+    },
+    {
+      "id": "mad-sixfold-360-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 6,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970793,
+      "meshSegments": 6396,
+      "circularSegments": 1788,
+      "totalMilliseconds": 145.42195700000002
+    },
+    {
+      "id": "mad-sixfold-420-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 7,
+        "beta": 420,
+        "f": "6/7",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970795,
+      "meshSegments": 24318,
+      "circularSegments": 1792,
+      "totalMilliseconds": 46.734691999999995
+    },
+    {
+      "id": "mad-sixfold-480-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970797,
+      "meshSegments": 33712,
+      "circularSegments": 1840,
+      "totalMilliseconds": 77.22767199999998
+    },
+    {
+      "id": "mad-sixfold-540-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 9,
+        "beta": 540,
+        "f": "2/3",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970794,
+      "meshSegments": 42822,
+      "circularSegments": 1872,
+      "totalMilliseconds": 81.60224599999992
+    },
+    {
+      "id": "mad-sixfold-600-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 10,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970796,
+      "meshSegments": 50740,
+      "circularSegments": 1900,
+      "totalMilliseconds": 82.4617489999996
+    },
+    {
+      "id": "mad-sixfold-660-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 11,
+        "beta": 660,
+        "f": "6/11",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970797,
+      "meshSegments": 57970,
+      "circularSegments": 1914,
+      "totalMilliseconds": 58.77382099999977
+    },
+    {
+      "id": "mad-sixfold-720-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 12,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970798,
+      "meshSegments": 64728,
+      "circularSegments": 1920,
+      "totalMilliseconds": 177.36335599999984
+    },
+    {
+      "id": "mad-c-on-60-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 1,
+        "beta": 60,
+        "f": "6",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970782,
+      "meshSegments": 13436,
+      "circularSegments": 1134,
+      "totalMilliseconds": 26.111613999999918
+    },
+    {
+      "id": "mad-c-on-120-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970786,
+      "meshSegments": 13014,
+      "circularSegments": 1145,
+      "totalMilliseconds": 50.23690600000009
+    },
+    {
+      "id": "mad-c-on-180-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 3,
+        "beta": 180,
+        "f": "2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970784,
+      "meshSegments": 11340,
+      "circularSegments": 1158,
+      "totalMilliseconds": 45.03564499999993
+    },
+    {
+      "id": "mad-c-on-240-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 10532,
+      "circularSegments": 1174,
+      "totalMilliseconds": 48.75481499999978
+    },
+    {
+      "id": "mad-c-on-300-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970785,
+      "meshSegments": 8540,
+      "circularSegments": 1170,
+      "totalMilliseconds": 27.64656200000036
+    },
+    {
+      "id": "mad-c-on-360-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970785,
+      "meshSegments": 2391,
+      "circularSegments": 1188,
+      "totalMilliseconds": 130.64548999999988
+    },
+    {
+      "id": "mad-c-on-420-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 7,
+        "beta": 420,
+        "f": "6/7",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970786,
+      "meshSegments": 8848,
+      "circularSegments": 1190,
+      "totalMilliseconds": 25.800105999999687
+    },
+    {
+      "id": "c-on",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970778,
+      "meshSegments": 12756,
+      "circularSegments": 1216,
+      "totalMilliseconds": 53.38891899999999
+    },
+    {
+      "id": "mad-c-on-540-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 9,
+        "beta": 540,
+        "f": "2/3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970785,
+      "meshSegments": 15606,
+      "circularSegments": 1206,
+      "totalMilliseconds": 54.58955199999991
+    },
+    {
+      "id": "mad-c-on-600-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 5,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970787,
+      "meshSegments": 17650,
+      "circularSegments": 1215,
+      "totalMilliseconds": 52.19320599999992
+    },
+    {
+      "id": "mad-c-on-660-r3",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 11,
+        "beta": 660,
+        "f": "6/11",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970788,
+      "meshSegments": 19778,
+      "circularSegments": 1232,
+      "totalMilliseconds": 36.00567499999988
+    },
+    {
+      "id": "mad-c-on-720-r3",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 6,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 22074,
+      "circularSegments": 1272,
+      "totalMilliseconds": 153.68535299999985
+    },
+    {
+      "id": "mad-c-on-60-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 1,
+        "beta": 60,
+        "f": "6",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970782,
+      "meshSegments": 36584,
+      "circularSegments": 1686,
+      "totalMilliseconds": 38.5675140000003
+    },
+    {
+      "id": "mad-c-on-120-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970786,
+      "meshSegments": 35522,
+      "circularSegments": 1698,
+      "totalMilliseconds": 64.3907079999999
+    },
+    {
+      "id": "mad-c-on-180-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 3,
+        "beta": 180,
+        "f": "2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 32628,
+      "circularSegments": 1734,
+      "totalMilliseconds": 66.75850200000059
+    },
+    {
+      "id": "mad-c-on-240-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970794,
+      "meshSegments": 28440,
+      "circularSegments": 1740,
+      "totalMilliseconds": 64.30924799999957
+    },
+    {
+      "id": "mad-c-on-300-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 21730,
+      "circularSegments": 1770,
+      "totalMilliseconds": 35.55730700000004
+    },
+    {
+      "id": "mad-c-on-360-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 6216,
+      "circularSegments": 1782,
+      "totalMilliseconds": 147.55508800000007
+    },
+    {
+      "id": "mad-c-on-420-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 7,
+        "beta": 420,
+        "f": "6/7",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970791,
+      "meshSegments": 24318,
+      "circularSegments": 1792,
+      "totalMilliseconds": 41.32510300000013
+    },
+    {
+      "id": "mad-c-on-480-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970794,
+      "meshSegments": 34012,
+      "circularSegments": 1828,
+      "totalMilliseconds": 69.71720099999948
+    },
+    {
+      "id": "mad-c-on-540-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 9,
+        "beta": 540,
+        "f": "2/3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 42822,
+      "circularSegments": 1872,
+      "totalMilliseconds": 72.23293199999989
+    },
+    {
+      "id": "mad-c-on-600-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 5,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970792,
+      "meshSegments": 50555,
+      "circularSegments": 1885,
+      "totalMilliseconds": 78.78629200000069
+    },
+    {
+      "id": "mad-c-on-660-r6",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 11,
+        "beta": 660,
+        "f": "6/11",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 1,
+      "maxHTMLBytes": 3970793,
+      "meshSegments": 57970,
+      "circularSegments": 1914,
+      "totalMilliseconds": 66.04197900000054
+    },
+    {
+      "id": "mad-c-on-720-r6",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 6,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970794,
+      "meshSegments": 64116,
+      "circularSegments": 1908,
+      "totalMilliseconds": 194.57047299999977
+    },
+    {
+      "id": "hex-large-60-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 1,
+        "beta": 60,
+        "f": "6",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970779,
+      "meshSegments": 13096,
+      "circularSegments": 584,
+      "totalMilliseconds": 52.52109999999993
+    },
+    {
+      "id": "hex-large-120-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 2,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970782,
+      "meshSegments": 12272,
+      "circularSegments": 584,
+      "totalMilliseconds": 85.78427399999964
+    },
+    {
+      "id": "hex-large-180-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 3,
+        "beta": 180,
+        "f": "2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970787,
+      "meshSegments": 12252,
+      "circularSegments": 600,
+      "totalMilliseconds": 91.08453700000064
+    },
+    {
+      "id": "hex-large-240-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970791,
+      "meshSegments": 9928,
+      "circularSegments": 592,
+      "totalMilliseconds": 87.97499500000049
+    },
+    {
+      "id": "hex-large-300-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970788,
+      "meshSegments": 7470,
+      "circularSegments": 600,
+      "totalMilliseconds": 46.66176799999994
+    },
+    {
+      "id": "hex-large-360-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 6,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970787,
+      "meshSegments": 1272,
+      "circularSegments": 600,
+      "totalMilliseconds": 129.23869899999954
+    },
+    {
+      "id": "hex-large-420-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 7,
+        "beta": 420,
+        "f": "6/7",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 8358,
+      "circularSegments": 616,
+      "totalMilliseconds": 56.357076000000234
+    },
+    {
+      "id": "hex-1",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970780,
+      "meshSegments": 11600,
+      "circularSegments": 608,
+      "totalMilliseconds": 91.90214000000014
+    },
+    {
+      "id": "hex-large-540-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 9,
+        "beta": 540,
+        "f": "2/3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970788,
+      "meshSegments": 15264,
+      "circularSegments": 648,
+      "totalMilliseconds": 92.80836999999974
+    },
+    {
+      "id": "hex-large-600-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 10,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 18660,
+      "circularSegments": 640,
+      "totalMilliseconds": 97.02183100000002
+    },
+    {
+      "id": "hex-large-660-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 11,
+        "beta": 660,
+        "f": "6/11",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 2,
+      "maxHTMLBytes": 3970791,
+      "meshSegments": 21494,
+      "circularSegments": 616,
+      "totalMilliseconds": 54.131148000000394
+    },
+    {
+      "id": "hex-large-720-r7",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 12,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970792,
+      "meshSegments": 24168,
+      "circularSegments": 624,
+      "totalMilliseconds": 143.99557100000038
+    },
+    {
+      "id": "hex-minus-120-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970783,
+      "meshSegments": 13161,
+      "circularSegments": 830,
+      "totalMilliseconds": 90.49529500000062
+    },
+    {
+      "id": "hex-minus-240-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 10404,
+      "circularSegments": 836,
+      "totalMilliseconds": 90.72059499999978
+    },
+    {
+      "id": "hex-minus-360-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970788,
+      "meshSegments": 1554,
+      "circularSegments": 852,
+      "totalMilliseconds": 134.87372200000027
+    },
+    {
+      "id": "hex-0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970781,
+      "meshSegments": 12636,
+      "circularSegments": 852,
+      "totalMilliseconds": 92.85105500000009
+    },
+    {
+      "id": "hex-minus-600-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 5,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 18725,
+      "circularSegments": 900,
+      "totalMilliseconds": 92.56562200000008
+    },
+    {
+      "id": "hex-minus-720-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 6,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970790,
+      "meshSegments": 23646,
+      "circularSegments": 900,
+      "totalMilliseconds": 140.30311299999994
+    },
+    {
+      "id": "hex-plus-120-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970783,
+      "meshSegments": 13166,
+      "circularSegments": 832,
+      "totalMilliseconds": 88.86504100000002
+    },
+    {
+      "id": "hex-plus-240-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970791,
+      "meshSegments": 10414,
+      "circularSegments": 840,
+      "totalMilliseconds": 91.01555800000006
+    },
+    {
+      "id": "hex-plus-360-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970786,
+      "meshSegments": 1569,
+      "circularSegments": 858,
+      "totalMilliseconds": 124.87150399999973
+    },
+    {
+      "id": "hex-2",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970779,
+      "meshSegments": 12660,
+      "circularSegments": 864,
+      "totalMilliseconds": 90.78588099999979
+    },
+    {
+      "id": "hex-plus-600-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 5,
+        "beta": 600,
+        "f": "3/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 4,
+      "maxHTMLBytes": 3970789,
+      "meshSegments": 18740,
+      "circularSegments": 900,
+      "totalMilliseconds": 93.15448599999945
+    },
+    {
+      "id": "hex-plus-720-r7",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 6,
+        "beta": 720,
+        "f": "1/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "acceptedPatterns": 6,
+      "maxHTMLBytes": 3970791,
+      "meshSegments": 23676,
+      "circularSegments": 912,
+      "totalMilliseconds": 137.8689320000003
+    }
+  ]
+}

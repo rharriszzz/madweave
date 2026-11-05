@@ -1,0 +1,2663 @@
+[
+  {
+    "browser": "chromium",
+    "version": "145.0.7632.6",
+    "rows": [
+      {
+        "id": "planar",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "planar",
+        "pattern": 0,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 2,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "deficit",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "excess",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "sixty",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 45,
+          "joins": 30,
+          "open_strips": 15,
+          "outer_ends": 30,
+          "centerline_crossings": 60,
+          "self_crossings": 0
+        },
+        "svgProbes": 745,
+        "seamProbes": 130,
+        "gapProbes": 205,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "c-on",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "svgProbes": 988,
+        "seamProbes": 104,
+        "gapProbes": 244,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "c-on",
+        "pattern": 2,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "svgProbes": 988,
+        "seamProbes": 104,
+        "gapProbes": 244,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "self",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-1",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-0",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-2",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      }
+    ],
+    "invalidImports": [
+      "version",
+      "catalogue",
+      "parameters",
+      "construction",
+      "identity",
+      "incompatible-color",
+      "view",
+      "saved-valid-flag",
+      "digest",
+      "invalid-pattern",
+      "malformed",
+      "duplicate-envelope",
+      "artwork",
+      "collapsed-self-position",
+      "wrong-local-active",
+      "wrong-local-order",
+      "wrong-local-point",
+      "wrong-crossing",
+      "failed-read",
+      "failed-render"
+    ],
+    "races": [
+      "late-file-success",
+      "late-file-error",
+      "view-supersedes-file",
+      "color-supersedes-file",
+      "inspection-supersedes-file",
+      "save-supersedes-file",
+      "export-supersedes-file",
+      "rejected-import-supersedes-file",
+      "file-supersedes-example",
+      "example-supersedes-file"
+    ],
+    "offlineNetworkRequests": [],
+    "workedRoundTrip": {
+      "saved": "/home/rharris/git/madweave/research/output/corner-project/chromium-self-mono.corner.html",
+      "resaved": "/home/rharris/git/madweave/research/output/corner-project/chromium-self-mono-resaved.corner.html",
+      "artwork": "/home/rharris/git/madweave/research/output/corner-project/chromium-self-mono.svg",
+      "inspection": "/home/rharris/git/madweave/research/output/corner-project/chromium-self-mono-inspection.svg",
+      "before": {
+        "format": "madweave-corner-project",
+        "version": 1,
+        "catalogue": "corner-nine-v1",
+        "construction": {
+          "id": "self",
+          "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+          "parameters": {
+            "alpha": 120,
+            "sectors": 1,
+            "beta": 120,
+            "f": "3",
+            "k": [
+              0,
+              0,
+              0
+            ],
+            "C": 0,
+            "hand": 0,
+            "X": 0,
+            "member": null,
+            "W_over_P": "3/4",
+            "R_over_P": "3"
+          }
+        },
+        "material": {
+          "pattern": null
+        },
+        "view": {
+          "rotation": 23,
+          "outlines": false,
+          "seams": false,
+          "edges": false,
+          "annotations": false,
+          "center": [
+            1.25,
+            -0.75
+          ]
+        },
+        "selection": {
+          "strip": "0:0:3",
+          "local": {
+            "sector": 0,
+            "point": [
+              0.8660254037844386,
+              0.4999999999999999
+            ],
+            "positions": [
+              "0:2:3",
+              "0:0:3"
+            ],
+            "active": "0:0:3",
+            "crossing": {
+              "pair": [
+                [
+                  0,
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  2,
+                  3
+                ]
+              ],
+              "XY": [
+                "3/2",
+                "1/2"
+              ]
+            }
+          }
+        }
+      },
+      "after": {
+        "format": "madweave-corner-project",
+        "version": 1,
+        "catalogue": "corner-nine-v1",
+        "construction": {
+          "id": "self",
+          "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+          "parameters": {
+            "alpha": 120,
+            "sectors": 1,
+            "beta": 120,
+            "f": "3",
+            "k": [
+              0,
+              0,
+              0
+            ],
+            "C": 0,
+            "hand": 0,
+            "X": 0,
+            "member": null,
+            "W_over_P": "3/4",
+            "R_over_P": "3"
+          }
+        },
+        "material": {
+          "pattern": null
+        },
+        "view": {
+          "rotation": 90,
+          "outlines": false,
+          "seams": false,
+          "edges": false,
+          "annotations": false,
+          "center": [
+            1.25,
+            -0.75
+          ]
+        },
+        "selection": {
+          "strip": "0:0:3",
+          "local": {
+            "sector": 0,
+            "point": [
+              0.8660254037844386,
+              0.4999999999999999
+            ],
+            "positions": [
+              "0:2:3",
+              "0:0:3"
+            ],
+            "active": "0:0:3",
+            "crossing": {
+              "pair": [
+                [
+                  0,
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  2,
+                  3
+                ]
+              ],
+              "XY": [
+                "3/2",
+                "1/2"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "version": "155.0",
+    "rows": [
+      {
+        "id": "planar",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "planar",
+        "pattern": 0,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 2,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "deficit",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "excess",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "sixty",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 45,
+          "joins": 30,
+          "open_strips": 15,
+          "outer_ends": 30,
+          "centerline_crossings": 60,
+          "self_crossings": 0
+        },
+        "svgProbes": 745,
+        "seamProbes": 130,
+        "gapProbes": 205,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "c-on",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "svgProbes": 988,
+        "seamProbes": 104,
+        "gapProbes": 244,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "c-on",
+        "pattern": 2,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "svgProbes": 988,
+        "seamProbes": 104,
+        "gapProbes": 244,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "self",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-1",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-0",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-2",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      }
+    ],
+    "invalidImports": [
+      "version",
+      "catalogue",
+      "parameters",
+      "construction",
+      "identity",
+      "incompatible-color",
+      "view",
+      "saved-valid-flag",
+      "digest",
+      "invalid-pattern",
+      "malformed",
+      "duplicate-envelope",
+      "artwork",
+      "collapsed-self-position",
+      "wrong-local-active",
+      "wrong-local-order",
+      "wrong-local-point",
+      "wrong-crossing",
+      "failed-read",
+      "failed-render"
+    ],
+    "races": [
+      "late-file-success",
+      "late-file-error",
+      "view-supersedes-file",
+      "color-supersedes-file",
+      "inspection-supersedes-file",
+      "save-supersedes-file",
+      "export-supersedes-file",
+      "rejected-import-supersedes-file",
+      "file-supersedes-example",
+      "example-supersedes-file"
+    ],
+    "offlineNetworkRequests": [],
+    "workedRoundTrip": {
+      "saved": "/home/rharris/git/madweave/research/output/corner-project/firefox-self-mono.corner.html",
+      "resaved": "/home/rharris/git/madweave/research/output/corner-project/firefox-self-mono-resaved.corner.html",
+      "artwork": "/home/rharris/git/madweave/research/output/corner-project/firefox-self-mono.svg",
+      "inspection": "/home/rharris/git/madweave/research/output/corner-project/firefox-self-mono-inspection.svg",
+      "before": {
+        "format": "madweave-corner-project",
+        "version": 1,
+        "catalogue": "corner-nine-v1",
+        "construction": {
+          "id": "self",
+          "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+          "parameters": {
+            "alpha": 120,
+            "sectors": 1,
+            "beta": 120,
+            "f": "3",
+            "k": [
+              0,
+              0,
+              0
+            ],
+            "C": 0,
+            "hand": 0,
+            "X": 0,
+            "member": null,
+            "W_over_P": "3/4",
+            "R_over_P": "3"
+          }
+        },
+        "material": {
+          "pattern": null
+        },
+        "view": {
+          "rotation": 23,
+          "outlines": false,
+          "seams": false,
+          "edges": false,
+          "annotations": false,
+          "center": [
+            1.25,
+            -0.75
+          ]
+        },
+        "selection": {
+          "strip": "0:0:3",
+          "local": {
+            "sector": 0,
+            "point": [
+              0.8660254037844387,
+              0.49999999999999994
+            ],
+            "positions": [
+              "0:2:3",
+              "0:0:3"
+            ],
+            "active": "0:0:3",
+            "crossing": {
+              "pair": [
+                [
+                  0,
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  2,
+                  3
+                ]
+              ],
+              "XY": [
+                "3/2",
+                "1/2"
+              ]
+            }
+          }
+        }
+      },
+      "after": {
+        "format": "madweave-corner-project",
+        "version": 1,
+        "catalogue": "corner-nine-v1",
+        "construction": {
+          "id": "self",
+          "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+          "parameters": {
+            "alpha": 120,
+            "sectors": 1,
+            "beta": 120,
+            "f": "3",
+            "k": [
+              0,
+              0,
+              0
+            ],
+            "C": 0,
+            "hand": 0,
+            "X": 0,
+            "member": null,
+            "W_over_P": "3/4",
+            "R_over_P": "3"
+          }
+        },
+        "material": {
+          "pattern": null
+        },
+        "view": {
+          "rotation": 90,
+          "outlines": false,
+          "seams": false,
+          "edges": false,
+          "annotations": false,
+          "center": [
+            1.25,
+            -0.75
+          ]
+        },
+        "selection": {
+          "strip": "0:0:3",
+          "local": {
+            "sector": 0,
+            "point": [
+              0.8660254037844387,
+              0.49999999999999994
+            ],
+            "positions": [
+              "0:2:3",
+              "0:0:3"
+            ],
+            "active": "0:0:3",
+            "crossing": {
+              "pair": [
+                [
+                  0,
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  2,
+                  3
+                ]
+              ],
+              "XY": [
+                "3/2",
+                "1/2"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "version": "26.6",
+    "rows": [
+      {
+        "id": "planar",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "planar",
+        "pattern": 0,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 2,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "planar",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "svgProbes": 741,
+        "seamProbes": 78,
+        "gapProbes": 183,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "deficit",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "deficit",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "svgProbes": 494,
+        "seamProbes": 52,
+        "gapProbes": 122,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "excess",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "excess",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "svgProbes": 1488,
+        "seamProbes": 224,
+        "gapProbes": 284,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "sixty",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 45,
+          "joins": 30,
+          "open_strips": 15,
+          "outer_ends": 30,
+          "centerline_crossings": 60,
+          "self_crossings": 0
+        },
+        "svgProbes": 745,
+        "seamProbes": 130,
+        "gapProbes": 205,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "c-on",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "svgProbes": 988,
+        "seamProbes": 104,
+        "gapProbes": 244,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "c-on",
+        "pattern": 2,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "svgProbes": 988,
+        "seamProbes": 104,
+        "gapProbes": 244,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "self",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "self",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "svgProbes": 247,
+        "seamProbes": 26,
+        "gapProbes": 61,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-1",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-1",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1472,
+        "seamProbes": 560,
+        "gapProbes": 888,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-0",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-0",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1104,
+        "seamProbes": 284,
+        "gapProbes": 584,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": null,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": true
+      },
+      {
+        "id": "hex-2",
+        "pattern": 1,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": 3,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      },
+      {
+        "id": "hex-2",
+        "pattern": 4,
+        "roundTrip": true,
+        "offlineEdit": true,
+        "offlineResave": true,
+        "offlineExport": true,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "svgProbes": 1128,
+        "seamProbes": 284,
+        "gapProbes": 560,
+        "pixels": 120,
+        "annotated": false
+      }
+    ],
+    "invalidImports": [
+      "version",
+      "catalogue",
+      "parameters",
+      "construction",
+      "identity",
+      "incompatible-color",
+      "view",
+      "saved-valid-flag",
+      "digest",
+      "invalid-pattern",
+      "malformed",
+      "duplicate-envelope",
+      "artwork",
+      "collapsed-self-position",
+      "wrong-local-active",
+      "wrong-local-order",
+      "wrong-local-point",
+      "wrong-crossing",
+      "failed-read",
+      "failed-render"
+    ],
+    "races": [
+      "late-file-success",
+      "late-file-error",
+      "view-supersedes-file",
+      "color-supersedes-file",
+      "inspection-supersedes-file",
+      "save-supersedes-file",
+      "export-supersedes-file",
+      "rejected-import-supersedes-file",
+      "file-supersedes-example",
+      "example-supersedes-file"
+    ],
+    "offlineNetworkRequests": [],
+    "workedRoundTrip": {
+      "saved": "/home/rharris/git/madweave/research/output/corner-project/webkit-self-mono.corner.html",
+      "resaved": "/home/rharris/git/madweave/research/output/corner-project/webkit-self-mono-resaved.corner.html",
+      "artwork": "/home/rharris/git/madweave/research/output/corner-project/webkit-self-mono.svg",
+      "inspection": "/home/rharris/git/madweave/research/output/corner-project/webkit-self-mono-inspection.svg",
+      "before": {
+        "format": "madweave-corner-project",
+        "version": 1,
+        "catalogue": "corner-nine-v1",
+        "construction": {
+          "id": "self",
+          "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+          "parameters": {
+            "alpha": 120,
+            "sectors": 1,
+            "beta": 120,
+            "f": "3",
+            "k": [
+              0,
+              0,
+              0
+            ],
+            "C": 0,
+            "hand": 0,
+            "X": 0,
+            "member": null,
+            "W_over_P": "3/4",
+            "R_over_P": "3"
+          }
+        },
+        "material": {
+          "pattern": null
+        },
+        "view": {
+          "rotation": 23,
+          "outlines": false,
+          "seams": false,
+          "edges": false,
+          "annotations": false,
+          "center": [
+            1.25,
+            -0.75
+          ]
+        },
+        "selection": {
+          "strip": "0:0:3",
+          "local": {
+            "sector": 0,
+            "point": [
+              0.8660254037844387,
+              0.49999999999999994
+            ],
+            "positions": [
+              "0:2:3",
+              "0:0:3"
+            ],
+            "active": "0:0:3",
+            "crossing": {
+              "pair": [
+                [
+                  0,
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  2,
+                  3
+                ]
+              ],
+              "XY": [
+                "3/2",
+                "1/2"
+              ]
+            }
+          }
+        }
+      },
+      "after": {
+        "format": "madweave-corner-project",
+        "version": 1,
+        "catalogue": "corner-nine-v1",
+        "construction": {
+          "id": "self",
+          "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+          "parameters": {
+            "alpha": 120,
+            "sectors": 1,
+            "beta": 120,
+            "f": "3",
+            "k": [
+              0,
+              0,
+              0
+            ],
+            "C": 0,
+            "hand": 0,
+            "X": 0,
+            "member": null,
+            "W_over_P": "3/4",
+            "R_over_P": "3"
+          }
+        },
+        "material": {
+          "pattern": null
+        },
+        "view": {
+          "rotation": 90,
+          "outlines": false,
+          "seams": false,
+          "edges": false,
+          "annotations": false,
+          "center": [
+            1.25,
+            -0.75
+          ]
+        },
+        "selection": {
+          "strip": "0:0:3",
+          "local": {
+            "sector": 0,
+            "point": [
+              0.8660254037844387,
+              0.49999999999999994
+            ],
+            "positions": [
+              "0:2:3",
+              "0:0:3"
+            ],
+            "active": "0:0:3",
+            "crossing": {
+              "pair": [
+                [
+                  0,
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  2,
+                  3
+                ]
+              ],
+              "XY": [
+                "3/2",
+                "1/2"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "errors": []
+  }
+]

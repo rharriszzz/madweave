@@ -1,5 +1,12 @@
 # Contract for the first cone mapping prototype
 
+For the actual single-corner project, read the newer
+[project prompt](SINGLE_CORNER_PROJECT_PROMPT.md) first. It adds physical
+strip/color continuation, hole-center requirements, removal and excess angle,
+and the user's tree-style flattening reference. This older contract's N=6
+fixture and scope restrictions are not approval to begin that project; its
+implementation remains on hold while the prompt is completed.
+
 This specification completes the preparation for a bounded cone experiment.
 **No nonunit cone fraction has been enabled or executed by this research pass.**
 The application remains planar. The prototype described here is the next phase;

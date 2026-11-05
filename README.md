@@ -8,7 +8,29 @@ colors, spacing, layers, handedness, and over-and-under structure.
 [Open the editor](https://rharriszzz.github.io/madweave/editor.html) ·
 [User guide](https://rharriszzz.github.io/madweave/guide.html)
 
-![MadWeaver's original interface, with pink, gold, and violet strips and SVG controls](madweave_small.png)
+Switch between planar patterns and a bounded corner-diagram editor. Both use
+editable SVG, an eight-color palette, strip painting, and portable project files.
+
+## A few things you can make
+
+Screenshots below come from the built editor. Click an image for full size.
+
+![Teal, gold and plum planar weave with pattern, palette, spacing and orientation controls](docs/images/planar-directions.png)
+*Planar direction coloring: twelve strips per direction, with all editing controls visible.*
+
+![Open planar weave with grouped colors, wider spacing and one hexweave class hidden](docs/images/planar-open.png)
+*A different formula, wider spacing, and a hidden b class reveal the layered structure.*
+
+![Corner diagram with hole phase, 480 degree reference angle, circular crop and Apply together controls](docs/images/corner-construction.png)
+*A 480° reference-angle corner diagram with class coloring and a full fringe crop.*
+
+![Orange joined-strip outline crossing sector seams, with dashed hidden material and seam partners](docs/images/corner-inspection.png)
+*Inspection follows one joined strip through visible and hidden positions; orange marks its material identity.*
+
+![Translucent blue, coral and violet corner diagram with pink seam markers and a visible continuity warning](docs/images/corner-translucent-warning.png)
+*Transparency shows overlapping material. Pink markers deliberately flag a formula's color changes across seams.*
+
+[Capture script](scripts/capture_readme.cjs) · [Screenshot reproduction](docs/SCREENSHOTS.md)
 
 ## Run locally
 
@@ -24,40 +46,80 @@ Open <http://127.0.0.1:8000/> for the website or
 <http://127.0.0.1:8000/editor.html> for the editor. Opening HTML directly with
 `file://` can prevent the wrapper from accessing the embedded SVG.
 
-## Make a weave
+## Make a planar weave
 
-1. Choose one of the five pattern previews on the left.
-2. Set the pattern color count with the left-hand **1–6** buttons.
-3. Select one of the eight palette swatches along the top, then click a strip.
-4. Adjust opacity, hue, saturation, and value with the upper-right sliders.
-5. Explore the **a/b/c** layers, **H/R/L** directions, **−/X/C** orientation
-   controls, and **N/M/W/E** spacing. Lower-left **1–8** selects 3–24 strips
-   per direction. Hover over a control for its description.
-6. Choose **Save Project** to download `madweave-project.html`. It includes your
-   design, the editor, and all pattern images. Open that file in a browser to
-   continue editing offline, or use **Open Project** on the website.
-7. Choose **Export artwork as SVG** when you want a static vector image without
-   controls or scripts.
+Choose **Design mode → Planar**. The five previews select pattern formulas;
+**1–6** sets the formula's color count. Choose one of eight top palette swatches
+and click a strip to paint it. The sliders change opacity, hue, saturation, and
+value; recent colors sit beside the palette.
 
-Save again after editing: each save downloads a new copy, and your browser may
-add a number to the filename. Rename copies to keep different designs. **Open
-Project** also accepts original editable MadWeave SVG files; it cannot restore
-editing information removed by static artwork export.
+Planar controls include **a/b/c** hexweave classes, **H/R/L** directions,
+**−/X/C** handedness/order/center choices, **N/M/W/E** spacing, outlines, and
+individual hide/show modes. Lower-left **1–8** selects 3–24 strips per direction.
+Hover over controls for descriptions. Pattern/color-count changes replace manual
+strip edits; changing the strip count resets them too.
 
-Project saving preserves strip colors and visibility, the complete palette and
-opacity, recent colors, size, pattern settings, spacing, orientation, visible
-layers/directions, paint/hide/show mode, and whether controls are hidden.
+## Explore a corner diagram
 
-Pattern and color-count changes reset manual strip edits; changing the strip
-count also resets them. Save a project before those changes if you want to keep
-the previous design. There is no full undo or autosave.
+Choose **Design mode → Corner**, select a hole/weave phase, reference angle and
+circular crop, then choose **Apply together**. Pending settings do not change the
+active drawing or saved file. Construction changes replace custom painting and
+selection, as described in the proposal.
 
-The browser checks cover Chromium and Firefox, with WebKit in CI. The original
-SVG controls expect a mouse or trackpad; complete keyboard and touch operation
-are not yet implemented. The website adapts to smaller screens and lets the
-editor scroll horizontally. See [the testing record](docs/TESTING.md) for the
-exact browser coverage, and [Mac testing results](docs/MAC_TESTING.md) for
-installed Safari, Chrome, and Firefox checks.
+Use the shared palette and opacity sliders, then click material to paint its
+**entire joined strip**, including hidden pieces and seam partners. The five
+pattern previews select three-label formulas; **1** selects monochrome and **3**
+selects a formula. Formula choices intentionally replace custom painting.
+An unchanged **Apply together** preserves painting added after the last formula
+choice. With construction changes pending, formula choices are staged for Apply.
+
+Open **Strip and seam inspection** to choose joined strips or crossings, cycle
+through local positions (including hidden positions at a self-crossing), and
+show dashed hidden pieces or seam partners. **Paint selected strip** supports
+painting from that selection. Pink markers mean colors or opacity differ across
+a seam: your colors remain, but color continuity is not validated. Transparent
+material remains present in the model.
+
+Corner mode uses a **finite catalogue of 84 constructions**, with reference
+angles from 60° to 720°. It is not a complete list of possible constructions.
+Unsupported configurations remain Unvalidated; rejected construction choices
+retain the active design. Independent planar size, spacing, handedness/order,
+center, direction filtering, and material hide/show controls are unavailable.
+The **a/b/c** buttons instead stage supported hexweave phases.
+
+These are checked **diagrams**, not fabrication templates. **Physical
+constructibility remains unverified**: diagram certificates do not establish
+that an object can be woven from physical stock. See the
+[integration report](research/SINGLE_CORNER_INTEGRATION.md) for the catalogue,
+checks, unsupported cases and remaining research scope.
+
+## Save, reopen and export
+
+- **Mode switching retains both designs in the current session. Saving persists
+  only the active design.** Save each mode separately before closing the tab.
+- **Save Project** downloads a self-contained editable HTML file. Open that
+  file directly in a browser to edit and resave offline, or use **Open Project**
+  on the website. Saving downloads a new copy; it does not overwrite earlier
+  copies. Rename files to keep versions.
+- **Open Project** accepts planar projects, original editable MadWeave SVG files,
+  and earlier Stage 3A/3B corner projects. A valid import replaces that mode's
+  design and retains the other mode; save your work first.
+- **Export artwork as SVG** downloads static vector artwork without editor
+  controls or scripts. It cannot restore an editable project. Corner exports
+  optionally include inspection/warning markers; their caption retains warning
+  counts and the physical-constructibility limitation.
+
+Projects preserve the active design's supported settings, palette, opacity,
+painting and selection. There is **no full undo or autosave**. Save before
+formula or construction changes if you want to retain the previous design.
+
+A mouse or trackpad works best. Corner palette buttons support Enter/Space,
+sliders support arrow keys, and inspection has keyboard controls. Complete
+planar keyboard and physical touch-device operation remain unimplemented or
+unverified. Planar controls scroll horizontally on narrow screens; corner
+controls rearrange. Automated checks cover Chromium, Firefox and Playwright
+WebKit; WebKit automation is not installed Safari verification. See the
+[testing record](docs/TESTING.md) and [Mac testing results](docs/MAC_TESTING.md).
 
 ## Documentation
 
@@ -73,25 +135,35 @@ installed Safari, Chrome, and Firefox checks.
 
 ## Test and build
 
-Node.js 24+ runs the dependency-free color/indexing checks. Python 3.10+ runs the
-site build and tests. Browser tests additionally require Playwright and the browser under test:
+Node.js 24+ and Python 3.10+ run the development checks. Browser dependencies
+are pinned in `package-lock.json` and `requirements-dev.txt`; the application
+itself needs no package install:
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
+npm ci
 .venv/bin/python -m playwright install chromium firefox webkit
 node --check madweave.js
 node --check project.js
 node --check editor.js
+node --check corner-editor.js
+node --check corner-model.mjs
+node --check corner-runtime.js
 node --test tests/math.test.cjs
 .venv/bin/python -m unittest discover -s tests -v
 python3 scripts/build_site.py
+npm run test:corner
+npm run test:corner:browser
 ```
 
 On Windows, use `.venv\Scripts\python` in place of `.venv/bin/python`. On a fresh
 Linux system, Playwright may require `python -m playwright install --with-deps
 chromium`. Set `MADWEAVE_BROWSER=firefox` or `MADWEAVE_BROWSER=webkit` to run the same
-suite in those engines (the default is Chromium). The site-only checks have no
+Python suite in those engines (the default is Chromium). The corner browser
+suite runs all three by default; `MADWEAVE_STAGE2_BROWSERS=firefox` selects one.
+See [developer setup](docs/BROWSER_TEST_SETUP.md) for browser storage and
+[testing](docs/TESTING.md) for generated-asset consistency checks. The site-only checks have no
 third-party dependencies:
 
 ```sh

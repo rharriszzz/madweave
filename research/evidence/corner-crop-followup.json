@@ -1,0 +1,8071 @@
+{
+  "scope": "Bounded full-region reference certificates; physical constructibility unverified",
+  "original_fixtures_reproduced": 89,
+  "total_checked": 137,
+  "mutations": [
+    {
+      "mutation": "wrong-partners",
+      "status": "Rejected",
+      "witness": "Wrong, missing or duplicate registered partner"
+    },
+    {
+      "mutation": "missing-material",
+      "status": "Rejected",
+      "witness": "Material coverage mismatch: missing={(3, 2, 5)}, extra=set()"
+    },
+    {
+      "mutation": "duplicate-material",
+      "status": "Rejected",
+      "witness": "Duplicated or merged occurrence identity"
+    },
+    {
+      "mutation": "merged-occurrences",
+      "status": "Rejected",
+      "witness": "Duplicated or merged occurrence identity"
+    },
+    {
+      "mutation": "merged-components",
+      "status": "Rejected",
+      "witness": "Merged/split material components"
+    },
+    {
+      "mutation": "color-conflict",
+      "status": "Rejected",
+      "witness": "Color conflict at join: (0, 0, 3), (1, 2, 3)"
+    },
+    {
+      "mutation": "local-order",
+      "status": "Rejected",
+      "witness": "Missing/incorrect local order or overlap material: ((0, 0, 3), (0, 1, 0))"
+    },
+    {
+      "mutation": "missing-overlap",
+      "status": "Rejected",
+      "witness": "Missing/incorrect local order or overlap material: ((3, 1, 2), (3, 2, 3))"
+    },
+    {
+      "mutation": "bad-interval",
+      "status": "Rejected",
+      "witness": "Full-width seam interval: (0, 2, 0)"
+    },
+    {
+      "mutation": "side-reversal",
+      "status": "Rejected",
+      "witness": "Ribbon face/side transport"
+    },
+    {
+      "mutation": "missing-fringe",
+      "status": "Rejected",
+      "witness": "Material coverage mismatch: missing={(0, 2, -3)}, extra=set()"
+    },
+    {
+      "mutation": "changed-boundary",
+      "status": "Rejected",
+      "witness": "Band boundary geometry: (0, 0, 3)"
+    },
+    {
+      "mutation": "collapsed-self-crossing",
+      "status": "Rejected",
+      "witness": "Missing/incorrect crossing positions"
+    },
+    {
+      "mutation": "simultaneous-cycle",
+      "status": "Rejected",
+      "witness": "Missing/incorrect local order or overlap material: ((0, 0, 3), (0, 2, 4))"
+    }
+  ],
+  "legitimate_self_crossings": 2,
+  "self_crossing_mutation_selection": {
+    "positions": [
+      [
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ]
+    ],
+    "global_strip": 0,
+    "XY": [
+      "3/2",
+      "1/2"
+    ]
+  },
+  "legitimate_separate_location_cycle": [
+    0,
+    3,
+    9
+  ],
+  "additional_cap_crop_limit": {
+    "R_over_P": "63/10",
+    "status": "Unvalidated",
+    "witness": "Unvalidated: crop is not a regular two-ended ribbon",
+    "all_occurrences_retained": 52
+  },
+  "cases": [
+    {
+      "name": "mad-origin-m2-C0-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C0-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C0-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C0-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 1), (0, 1, 1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 1), (0, 1, 1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 1), (0, 1, 1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 1), (0, 1, 1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 18,
+        "joins": 8,
+        "open_strips": 10,
+        "outer_ends": 20,
+        "centerline_crossings": 28,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C0-H0",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 45,
+        "joins": 30,
+        "open_strips": 15,
+        "outer_ends": 30,
+        "centerline_crossings": 60,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C0-H1",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 45,
+        "joins": 30,
+        "open_strips": 15,
+        "outer_ends": 30,
+        "centerline_crossings": 60,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 4), (0, 1, 1)"
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C1-H0",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 45,
+        "joins": 30,
+        "open_strips": 15,
+        "outer_ends": 30,
+        "centerline_crossings": 60,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 4), (0, 1, 1)"
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C1-H1",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 45,
+        "joins": 30,
+        "open_strips": 15,
+        "outer_ends": 30,
+        "centerline_crossings": 60,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 4), (0, 1, 1)"
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 3), (0, 1, 2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (4, 0, 4), (0, 1, 1)"
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-large-radius",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 104,
+        "joins": 48,
+        "open_strips": 56,
+        "outer_ends": 112,
+        "centerline_crossings": 520,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-self-crossing-beta120",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 12,
+        "joins": 6,
+        "open_strips": 6,
+        "outer_ends": 12,
+        "centerline_crossings": 24,
+        "self_crossings": 2
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (0, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (0, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-C1-color-phase-member0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          -1,
+          0,
+          1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -2), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -2), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-C1-color-phase-member1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          -1,
+          0,
+          1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-C1-color-phase-member2",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          -1,
+          0,
+          1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/107-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/107",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/107-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/107",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/133-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/133",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/133-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/133",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-5/9-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "5/9",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-5/9-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "5/9",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-1/3-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "1/3",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-1/3-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "1/3",
+        "R_over_P": "3"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": true,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-R59/10-alpha60-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 64,
+        "joins": 40,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 192,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 5), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R59/10-alpha60-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 128,
+        "joins": 80,
+        "open_strips": 48,
+        "outer_ends": 96,
+        "centerline_crossings": 384,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 6), (0, 1, -1)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R59/10-alpha120-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 44,
+        "joins": 20,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 192,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -2), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -2), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-R59/10-alpha120-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 88,
+        "joins": 40,
+        "open_strips": 48,
+        "outer_ends": 96,
+        "centerline_crossings": 384,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -2), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -2), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C0-class0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 14,
+        "joins": 6,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C0-class0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 28,
+        "joins": 12,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C0-class1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C0-class1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C0-class2-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 14,
+        "joins": 6,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C0-class2-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 28,
+        "joins": 12,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C1-class0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 14,
+        "joins": 6,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C1-class0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 28,
+        "joins": 12,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C1-class1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C1-class1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C1-class2-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 14,
+        "joins": 6,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R59/10-C1-class2-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "59/10"
+      },
+      "counts": {
+        "occurrences": 28,
+        "joins": 12,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R6-alpha60-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 72,
+        "joins": 48,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 192,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 8), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R6-alpha60-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 144,
+        "joins": 96,
+        "open_strips": 48,
+        "outer_ends": 96,
+        "centerline_crossings": 384,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R6-alpha120-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 192,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-R6-alpha120-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 96,
+        "joins": 48,
+        "open_strips": 48,
+        "outer_ends": 96,
+        "centerline_crossings": 384,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C0-class0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C0-class0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C0-class1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C0-class1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C0-class2-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C0-class2-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C1-class0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C1-class0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C1-class1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C1-class1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C1-class2-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R6-C1-class2-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "6"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R61/10-alpha60-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 72,
+        "joins": 48,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 208,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 8), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R61/10-alpha60-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 144,
+        "joins": 96,
+        "open_strips": 48,
+        "outer_ends": 96,
+        "centerline_crossings": 416,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 8), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "mad-R61/10-alpha120-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 208,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "mad-R61/10-alpha120-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 96,
+        "joins": 48,
+        "open_strips": 48,
+        "outer_ends": 96,
+        "centerline_crossings": 416,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C0-class0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 24,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C0-class0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C0-class1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C0-class1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C0-class2-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 24,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C0-class2-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "witness": null
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C1-class0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 24,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 3), (0, 2, 3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C1-class0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          -3
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C1-class1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 24,
+        "joins": 16,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 20,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 1, 1), (0, 2, 4)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C1-class1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 40,
+        "self_crossings": 0
+      },
+      "fringe_bands": [],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C1-class2-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 16,
+        "joins": 8,
+        "open_strips": 8,
+        "outer_ends": 16,
+        "centerline_crossings": 24,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (1, 0, 5), (0, 2, 5)"
+        }
+      ]
+    },
+    {
+      "name": "hex-R61/10-C1-class2-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "61/10"
+      },
+      "counts": {
+        "occurrences": 32,
+        "joins": 16,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      },
+      "fringe_bands": [
+        [
+          2,
+          8
+        ]
+      ],
+      "original_counts_unchanged": null,
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "witness": null
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)"
+        }
+      ]
+    }
+  ]
+}

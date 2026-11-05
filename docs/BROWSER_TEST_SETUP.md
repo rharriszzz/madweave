@@ -73,6 +73,23 @@ matching builds with the install command is safe.
 
 ## Run and verify
 
+The integrated corner suite also needs Node.js 24+ and the locked development
+dependencies. `npm ci` installs Playwright 1.63.0 (matching Python) and pngjs;
+neither is used by the running application. Both clients share the installed
+browser builds when `PLAYWRIGHT_BROWSERS_PATH` is the same.
+
+```sh
+npm ci
+npm run test:corner
+npm run test:corner:browser
+```
+
+The corner browser suite builds the public site and serves it under `/madweave/`.
+It runs Chromium, Firefox and WebKit by default. Set
+`MADWEAVE_STAGE2_BROWSERS=chromium`, `firefox` or `webkit` for a single engine.
+`MADWEAVE_CHROMIUM_EXECUTABLE` can select an installed Chromium executable for
+this Node suite and the README capture script.
+
 From the checkout:
 
 ```sh

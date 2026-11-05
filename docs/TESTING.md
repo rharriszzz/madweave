@@ -1,5 +1,63 @@
 # Testing record
 
+## Integrated editor release on 2026-11-05
+
+The release keeps the complete Stage 1–3C branch history and the reviewed
+formula-intent correction. The original planar engine and state module remain
+unchanged. The following checks were rerun for the README/CI release changes:
+
+| Check | Result |
+| --- | --- |
+| Syntax: engine, project, editor, corner adapter/model/runtime and capture script | Passed |
+| Math | 4 tests passed |
+| Static build/link/boundary checks | 5 tests passed; 24 public files |
+| Regenerate integrated runtime and research offline bundle | Byte-for-byte identical to committed assets; all 84 certificates checked |
+| Integrated corner semantics | 3,024 round trips over 84 constructions; 3,028 independent color cases; 5 negative controls passed |
+| Original application browser suite | 11 tests per engine passed in Chromium 145.0.7632.6, Firefox 155.0 and Playwright WebKit 26.6 |
+| Integrated corner browser suite against built `/madweave/` site | Passed in all three engines, 8 rendering representatives per engine |
+| CI-matched Chromium 153.0.8010.12 | Additional run passed all 16 application/static tests and the full integrated corner browser suite |
+| README screenshots | 5 real built-editor captures, reviewed at full size and 830-pixel README width; relative documentation links checked |
+| Dependency and whitespace checks | `npm ci` and `git diff --check` passed |
+
+The corner browser suite includes retained planar/corner sessions, real strip
+painting, palette opacity and seam warnings, import failures/races, legacy file
+imports, native Save/Open, offline reopen/edit/resave, and standalone plain and
+annotated SVG export. Formula transactions compare complete saved designs for
+CP1/CC1, mode round trips, construction controls moved away/back, immediate
+redraw failures, staged failure/retry, and reopening/resaving the corrected
+worked HTML. Pixel audits retain their original 4/255 channel tolerance.
+
+Node v24.16.0 and Python 3.14.4 were used locally, with Playwright 1.63.0 for
+both clients and pngjs 7.0.0. The established local WebKit setup required
+`LD_LIBRARY_PATH=/tmp/madweave-webkit-libs/usr/lib/x86_64-linux-gnu` and
+`PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=1` after its libraries were supplied.
+An initial launch without these settings failed before tests ran. These local
+workarounds are not CI configuration; CI installs system dependencies normally.
+
+The Pages workflow now locks Node test dependencies with `npm ci`, verifies
+generated-asset consistency, and runs both corner suites in the existing
+Chromium/Firefox/WebKit matrix. Each matrix job selects its browser with
+`MADWEAVE_STAGE2_BROWSERS`. The screenshot files stay outside the static-site
+allowlist. Reproduction:
+
+```sh
+npm ci
+python3 scripts/build_corner_runtime.py
+python3 research/build-corner-package.py
+git diff --exit-code -- corner-runtime.js research/corner-prototype/bundle.mjs
+npm run test:corner
+npm run test:corner:browser
+npm run screenshots
+```
+
+See [browser setup](BROWSER_TEST_SETUP.md) for the Python environment and browser
+installation, and [screenshot settings](SCREENSHOTS.md) for capture details.
+The broader historical research/browser suites were not rerun for this release.
+Automated WebKit is not installed Safari, responsive emulation is not physical
+touch-device testing, and physical constructibility remains unverified.
+
+## Earlier application verification
+
 Reviewed on 2026-11-01. These checks run against the actual JavaScript/SVG engine
 and the generated static site, rather than a reimplementation of the editor.
 
@@ -140,3 +198,32 @@ The [research testing reference](../research/TESTING.md) describes the separate
 34-stage suite, independent planar geometry, boundary/end pixels, symmetry,
 and Firefox/Chromium clipping comparison. Research artifacts remain outside
 the published site allowlist.
+
+## Bounded corner integration on 2026-11-05
+
+Stage 3C is tested through the existing `editor.html` and shared SVG palette/file
+controls. The [integration report](../research/SINGLE_CORNER_INTEGRATION.md) and
+[machine-readable evidence](../research/evidence/corner-integration.json) record:
+
+- All 84 unchanged geometry certificates and 3,024 integrated RGBA/custom-color
+  semantic round trips checked by a separate Python checker; original 268
+  compatible fixed-palette assignments and their 236 color witnesses retained.
+- Eight integrated browser representatives per engine in Chromium 145.0.7632.6,
+  Firefox 155 and Playwright WebKit 26.6, plus all nine original prototype
+  examples and nineteen Stage 3B family representatives in all three engines.
+- Native pointer/keyboard painting, full joined-strip/fringe/self-crossing
+  identity, opacity including zero, palette aliases and seam warnings, failed
+  palette/view/import/mode operations, deliberately stale reads, both retained
+  session designs, and an actual wrong-paint negative control.
+- Native Open of actual legacy files, offline save/open/edit/resave in each
+  mode with HTTP blocked, and independent rendering/auditing of plain/annotated
+  SVG exports. Flat interior/near-ray/exact-ray pixels retain 4/255 limits;
+  representative final errors are below 1.31/255.
+- All eleven planar application tests per engine; unchanged planar seam checks
+  cover 163 configurations and 90,350 pixels per engine, including transparency.
+  All eighteen unit-only research stages pass; the allowlisted site build now
+  has 24 public files. No deployment or master merge is part of these checks.
+
+Browser samples are not exhaustive rendering of all palette/view combinations.
+WebKit automation is not installed Safari or physical-device verification.
+Physical constructibility remains unverified and requires its separate gate.

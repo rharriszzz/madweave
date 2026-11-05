@@ -1,0 +1,416 @@
+[
+  {
+    "id": "planar",
+    "label": "Madweave \u00b7 planar 360\u00b0",
+    "url": "certificates/planar.json",
+    "counts": {
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 2,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 2
+      },
+      {
+        "pattern": 4,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": null
+  },
+  {
+    "id": "deficit",
+    "label": "Madweave \u00b7 deficit 240\u00b0",
+    "url": "certificates/deficit.json",
+    "counts": {
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 2,
+        "valid": false,
+        "witness": "Color conflict at join: (1, 2, 0), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 2
+      },
+      {
+        "pattern": 4,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": null
+  },
+  {
+    "id": "excess",
+    "label": "Madweave \u00b7 excess 480\u00b0 \u00b7 radius-6 fringes",
+    "url": "certificates/excess.json",
+    "counts": {
+      "occurrences": 96,
+      "joins": 48,
+      "open_strips": 48,
+      "outer_ends": 96,
+      "centerline_crossings": 384,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 2,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 4,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": 1
+  },
+  {
+    "id": "sixty",
+    "label": "Madweave \u00b7 300\u00b0 \u00b7 60\u00b0 increments",
+    "url": "certificates/sixty.json",
+    "counts": {
+      "occurrences": 45,
+      "joins": 30,
+      "open_strips": 15,
+      "outer_ends": 30,
+      "centerline_crossings": 60,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": false,
+        "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 2,
+        "valid": false,
+        "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": false,
+        "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 4,
+        "valid": false,
+        "witness": "Color conflict at join: (4, 0, 5), (0, 1, 0)",
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": null
+  },
+  {
+    "id": "c-on",
+    "label": "Madweave \u00b7 C on \u00b7 480\u00b0",
+    "url": "certificates/c-on.json",
+    "counts": {
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 2,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, 1), (0, 1, 1)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 4,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, 0), (0, 1, 0)",
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": null
+  },
+  {
+    "id": "self",
+    "label": "Madweave \u00b7 120\u00b0 \u00b7 self-crossings",
+    "url": "certificates/self.json",
+    "counts": {
+      "occurrences": 12,
+      "joins": 6,
+      "open_strips": 6,
+      "outer_ends": 12,
+      "centerline_crossings": 24,
+      "self_crossings": 2
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (0, 2, 0), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 2,
+        "valid": false,
+        "witness": "Color conflict at join: (0, 2, 0), (0, 1, 0)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 2
+      },
+      {
+        "pattern": 4,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": null
+  },
+  {
+    "id": "hex-1",
+    "label": "Hexweave \u00b7 large hexagon \u00b7 480\u00b0",
+    "url": "certificates/hex-1.json",
+    "counts": {
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 1
+      },
+      {
+        "pattern": 2,
+        "valid": false,
+        "witness": "Color conflict at join: (7, 0, 7), (0, 1, -2)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 4,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": 3
+  },
+  {
+    "id": "hex-0",
+    "label": "Hexweave \u00b7 triangle \u2212y \u00b7 480\u00b0",
+    "url": "certificates/hex-0.json",
+    "counts": {
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 1
+      },
+      {
+        "pattern": 2,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, -3), (0, 1, -3)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 4,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": 3
+  },
+  {
+    "id": "hex-2",
+    "label": "Hexweave \u00b7 triangle +y \u00b7 480\u00b0",
+    "url": "certificates/hex-2.json",
+    "counts": {
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "self_crossings": 0
+    },
+    "patterns": [
+      {
+        "pattern": 0,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 1,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 1
+      },
+      {
+        "pattern": 2,
+        "valid": false,
+        "witness": "Color conflict at join: (3, 2, -1), (0, 1, -1)",
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 3,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      },
+      {
+        "pattern": 4,
+        "valid": true,
+        "witness": null,
+        "distinct_colors": 3
+      }
+    ],
+    "default_pattern": 3
+  }
+]

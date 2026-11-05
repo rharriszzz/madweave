@@ -1,0 +1,5972 @@
+{
+  "scope": "Exact reference-ribbon certificates, not physical or application validation",
+  "source_sha256": "eb51c20e549bda425557eeb1d0c754f6a5c31be057f939be508f512e3ccd1d1d",
+  "source_checks": {
+    "source_pair_comparisons": 3456,
+    "source_color_comparisons": 360,
+    "simultaneous_triple_residue_checks": 144
+  },
+  "negative_controls": {
+    "fringe_material_detected": true,
+    "same_interval_partner_swap_distinguished_by_direction": true
+  },
+  "fixture_count": 89,
+  "periodic_order_rows": 72,
+  "periodic_color_rows": 972,
+  "hexweave_hole_representatives": [
+    {
+      "C": 0,
+      "member": 0,
+      "z": -1,
+      "k": [
+        0,
+        0,
+        0
+      ],
+      "center_XY_over_P": [
+        0,
+        0
+      ],
+      "kind": "triangle-minus",
+      "relative_vertices_XY": [
+        [
+          "3/8",
+          "1/8"
+        ],
+        [
+          "-3/8",
+          "1/8"
+        ],
+        [
+          "0",
+          "-1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 0,
+      "member": 0,
+      "z": 0,
+      "k": [
+        -1,
+        -1,
+        2
+      ],
+      "center_XY_over_P": [
+        3,
+        -1
+      ],
+      "kind": "large-hexagon",
+      "relative_vertices_XY": [
+        [
+          "9/8",
+          "9/8"
+        ],
+        [
+          "-9/8",
+          "9/8"
+        ],
+        [
+          "-9/4",
+          "0"
+        ],
+        [
+          "-9/8",
+          "-9/8"
+        ],
+        [
+          "9/8",
+          "-9/8"
+        ],
+        [
+          "9/4",
+          "0"
+        ]
+      ],
+      "clearance_over_P": "9/8"
+    },
+    {
+      "C": 0,
+      "member": 0,
+      "z": 1,
+      "k": [
+        -2,
+        -2,
+        4
+      ],
+      "center_XY_over_P": [
+        6,
+        -2
+      ],
+      "kind": "triangle-plus",
+      "relative_vertices_XY": [
+        [
+          "-3/8",
+          "-1/8"
+        ],
+        [
+          "3/8",
+          "-1/8"
+        ],
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 0,
+      "member": 1,
+      "z": -1,
+      "k": [
+        1,
+        1,
+        -2
+      ],
+      "center_XY_over_P": [
+        -3,
+        1
+      ],
+      "kind": "triangle-minus",
+      "relative_vertices_XY": [
+        [
+          "3/8",
+          "1/8"
+        ],
+        [
+          "-3/8",
+          "1/8"
+        ],
+        [
+          "0",
+          "-1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 0,
+      "member": 1,
+      "z": 0,
+      "k": [
+        0,
+        0,
+        0
+      ],
+      "center_XY_over_P": [
+        0,
+        0
+      ],
+      "kind": "large-hexagon",
+      "relative_vertices_XY": [
+        [
+          "9/8",
+          "9/8"
+        ],
+        [
+          "-9/8",
+          "9/8"
+        ],
+        [
+          "-9/4",
+          "0"
+        ],
+        [
+          "-9/8",
+          "-9/8"
+        ],
+        [
+          "9/8",
+          "-9/8"
+        ],
+        [
+          "9/4",
+          "0"
+        ]
+      ],
+      "clearance_over_P": "9/8"
+    },
+    {
+      "C": 0,
+      "member": 1,
+      "z": 1,
+      "k": [
+        -1,
+        -1,
+        2
+      ],
+      "center_XY_over_P": [
+        3,
+        -1
+      ],
+      "kind": "triangle-plus",
+      "relative_vertices_XY": [
+        [
+          "-3/8",
+          "-1/8"
+        ],
+        [
+          "3/8",
+          "-1/8"
+        ],
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 0,
+      "member": 2,
+      "z": -1,
+      "k": [
+        2,
+        2,
+        -4
+      ],
+      "center_XY_over_P": [
+        -6,
+        2
+      ],
+      "kind": "triangle-minus",
+      "relative_vertices_XY": [
+        [
+          "3/8",
+          "1/8"
+        ],
+        [
+          "-3/8",
+          "1/8"
+        ],
+        [
+          "0",
+          "-1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 0,
+      "member": 2,
+      "z": 0,
+      "k": [
+        1,
+        1,
+        -2
+      ],
+      "center_XY_over_P": [
+        -3,
+        1
+      ],
+      "kind": "large-hexagon",
+      "relative_vertices_XY": [
+        [
+          "9/8",
+          "9/8"
+        ],
+        [
+          "-9/8",
+          "9/8"
+        ],
+        [
+          "-9/4",
+          "0"
+        ],
+        [
+          "-9/8",
+          "-9/8"
+        ],
+        [
+          "9/8",
+          "-9/8"
+        ],
+        [
+          "9/4",
+          "0"
+        ]
+      ],
+      "clearance_over_P": "9/8"
+    },
+    {
+      "C": 0,
+      "member": 2,
+      "z": 1,
+      "k": [
+        0,
+        0,
+        0
+      ],
+      "center_XY_over_P": [
+        0,
+        0
+      ],
+      "kind": "triangle-plus",
+      "relative_vertices_XY": [
+        [
+          "-3/8",
+          "-1/8"
+        ],
+        [
+          "3/8",
+          "-1/8"
+        ],
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 1,
+      "member": 0,
+      "z": -1,
+      "k": [
+        0,
+        1,
+        -1
+      ],
+      "center_XY_over_P": [
+        -2,
+        0
+      ],
+      "kind": "triangle-minus",
+      "relative_vertices_XY": [
+        [
+          "3/8",
+          "1/8"
+        ],
+        [
+          "-3/8",
+          "1/8"
+        ],
+        [
+          "0",
+          "-1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 1,
+      "member": 0,
+      "z": 0,
+      "k": [
+        -1,
+        0,
+        1
+      ],
+      "center_XY_over_P": [
+        1,
+        -1
+      ],
+      "kind": "large-hexagon",
+      "relative_vertices_XY": [
+        [
+          "9/8",
+          "9/8"
+        ],
+        [
+          "-9/8",
+          "9/8"
+        ],
+        [
+          "-9/4",
+          "0"
+        ],
+        [
+          "-9/8",
+          "-9/8"
+        ],
+        [
+          "9/8",
+          "-9/8"
+        ],
+        [
+          "9/4",
+          "0"
+        ]
+      ],
+      "clearance_over_P": "9/8"
+    },
+    {
+      "C": 1,
+      "member": 0,
+      "z": 1,
+      "k": [
+        -2,
+        -1,
+        3
+      ],
+      "center_XY_over_P": [
+        4,
+        -2
+      ],
+      "kind": "triangle-plus",
+      "relative_vertices_XY": [
+        [
+          "-3/8",
+          "-1/8"
+        ],
+        [
+          "3/8",
+          "-1/8"
+        ],
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 1,
+      "member": 1,
+      "z": -1,
+      "k": [
+        1,
+        2,
+        -3
+      ],
+      "center_XY_over_P": [
+        -5,
+        1
+      ],
+      "kind": "triangle-minus",
+      "relative_vertices_XY": [
+        [
+          "3/8",
+          "1/8"
+        ],
+        [
+          "-3/8",
+          "1/8"
+        ],
+        [
+          "0",
+          "-1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 1,
+      "member": 1,
+      "z": 0,
+      "k": [
+        0,
+        1,
+        -1
+      ],
+      "center_XY_over_P": [
+        -2,
+        0
+      ],
+      "kind": "large-hexagon",
+      "relative_vertices_XY": [
+        [
+          "9/8",
+          "9/8"
+        ],
+        [
+          "-9/8",
+          "9/8"
+        ],
+        [
+          "-9/4",
+          "0"
+        ],
+        [
+          "-9/8",
+          "-9/8"
+        ],
+        [
+          "9/8",
+          "-9/8"
+        ],
+        [
+          "9/4",
+          "0"
+        ]
+      ],
+      "clearance_over_P": "9/8"
+    },
+    {
+      "C": 1,
+      "member": 1,
+      "z": 1,
+      "k": [
+        -1,
+        0,
+        1
+      ],
+      "center_XY_over_P": [
+        1,
+        -1
+      ],
+      "kind": "triangle-plus",
+      "relative_vertices_XY": [
+        [
+          "-3/8",
+          "-1/8"
+        ],
+        [
+          "3/8",
+          "-1/8"
+        ],
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 1,
+      "member": 2,
+      "z": -1,
+      "k": [
+        2,
+        3,
+        -5
+      ],
+      "center_XY_over_P": [
+        -8,
+        2
+      ],
+      "kind": "triangle-minus",
+      "relative_vertices_XY": [
+        [
+          "3/8",
+          "1/8"
+        ],
+        [
+          "-3/8",
+          "1/8"
+        ],
+        [
+          "0",
+          "-1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    },
+    {
+      "C": 1,
+      "member": 2,
+      "z": 0,
+      "k": [
+        1,
+        2,
+        -3
+      ],
+      "center_XY_over_P": [
+        -5,
+        1
+      ],
+      "kind": "large-hexagon",
+      "relative_vertices_XY": [
+        [
+          "9/8",
+          "9/8"
+        ],
+        [
+          "-9/8",
+          "9/8"
+        ],
+        [
+          "-9/4",
+          "0"
+        ],
+        [
+          "-9/8",
+          "-9/8"
+        ],
+        [
+          "9/8",
+          "-9/8"
+        ],
+        [
+          "9/4",
+          "0"
+        ]
+      ],
+      "clearance_over_P": "9/8"
+    },
+    {
+      "C": 1,
+      "member": 2,
+      "z": 1,
+      "k": [
+        0,
+        1,
+        -1
+      ],
+      "center_XY_over_P": [
+        -2,
+        0
+      ],
+      "kind": "triangle-plus",
+      "relative_vertices_XY": [
+        [
+          "-3/8",
+          "-1/8"
+        ],
+        [
+          "3/8",
+          "-1/8"
+        ],
+        [
+          "0",
+          "1/4"
+        ]
+      ],
+      "clearance_over_P": "1/8"
+    }
+  ],
+  "fixtures": [
+    {
+      "name": "mad-origin-m2-C0-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C0-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C0-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C0-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m2-C1-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C0-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m3-C1-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 3,
+        "beta": 360,
+        "f": "1",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 36,
+      "joins": 18,
+      "open_strips": 18,
+      "loops": 0,
+      "outer_ends": 36,
+      "centerline_crossings": 72,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C0-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H0-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H0-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H1-X0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-m4-C1-H1-X1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H0-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C0-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C0-H1-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C0-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H0-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H0-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X0-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X0-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X0-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X0-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-minus-C1-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X1-beta240",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 4,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 24,
+      "joins": 16,
+      "open_strips": 8,
+      "loops": 0,
+      "outer_ends": 16,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-large-hexagon-C1-H1-X1-beta480",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 8,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 6,
+      "occurrences": 48,
+      "joins": 32,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 9,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X1-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 18,
+      "joins": 8,
+      "open_strips": 10,
+      "loops": 0,
+      "outer_ends": 20,
+      "centerline_crossings": 28,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-triangle-plus-C1-H1-X1-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 1,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C0-H0",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 9,
+      "occurrences": 45,
+      "joins": 30,
+      "open_strips": 15,
+      "loops": 0,
+      "outer_ends": 30,
+      "centerline_crossings": 60,
+      "positive_pair_overlaps_per_sector": 18,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 9,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C0-H1",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          1,
+          -1
+        ],
+        "C": 0,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 9,
+      "occurrences": 45,
+      "joins": 30,
+      "open_strips": 15,
+      "loops": 0,
+      "outer_ends": 30,
+      "centerline_crossings": 60,
+      "positive_pair_overlaps_per_sector": 18,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 9,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C1-H0",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 9,
+      "occurrences": 45,
+      "joins": 30,
+      "open_strips": 15,
+      "loops": 0,
+      "outer_ends": 30,
+      "centerline_crossings": 60,
+      "positive_pair_overlaps_per_sector": 18,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 9,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-sixfold-C1-H1",
+      "parameters": {
+        "alpha": 60,
+        "sectors": 5,
+        "beta": 300,
+        "f": "6/5",
+        "k": [
+          0,
+          2,
+          -2
+        ],
+        "C": 1,
+        "hand": 1,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 9,
+      "occurrences": 45,
+      "joins": 30,
+      "open_strips": 15,
+      "loops": 0,
+      "outer_ends": 30,
+      "centerline_crossings": 60,
+      "positive_pair_overlaps_per_sector": 18,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 9,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": false,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-origin-large-radius",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 26,
+      "occurrences": 104,
+      "joins": 48,
+      "open_strips": 56,
+      "loops": 0,
+      "outer_ends": 112,
+      "centerline_crossings": 520,
+      "positive_pair_overlaps_per_sector": 154,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 94,
+      "seam_order_comparisons_per_boundary": 6,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-self-crossing-beta120",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 12,
+      "joins": 6,
+      "open_strips": 6,
+      "loops": 0,
+      "outer_ends": 12,
+      "centerline_crossings": 24,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 2,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-C1-color-phase-member0",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          -1,
+          0,
+          1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 0,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 8,
+      "occurrences": 32,
+      "joins": 16,
+      "open_strips": 16,
+      "loops": 0,
+      "outer_ends": 32,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 16,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 2,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-C1-color-phase-member1",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          -1,
+          0,
+          1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 1,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "hex-C1-color-phase-member2",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          -1,
+          0,
+          1
+        ],
+        "C": 1,
+        "hand": 0,
+        "X": 0,
+        "member": 2,
+        "W_over_P": "3/4",
+        "R_over_P": "7"
+      },
+      "sector_pieces": 9,
+      "occurrences": 36,
+      "joins": 16,
+      "open_strips": 20,
+      "loops": 0,
+      "outer_ends": 40,
+      "centerline_crossings": 56,
+      "positive_pair_overlaps_per_sector": 17,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 0,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 1
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/107-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/107",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/107-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/107",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/133-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/133",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-100/133-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "100/133",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-5/9-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "5/9",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-5/9-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "5/9",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 18,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-1/3-beta240",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 2,
+        "beta": 240,
+        "f": "3/2",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "1/3",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 24,
+      "joins": 12,
+      "open_strips": 12,
+      "loops": 0,
+      "outer_ends": 24,
+      "centerline_crossings": 48,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    },
+    {
+      "name": "mad-spacing-1/3-beta480",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 4,
+        "beta": 480,
+        "f": "3/4",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "1/3",
+        "R_over_P": "3"
+      },
+      "sector_pieces": 12,
+      "occurrences": 48,
+      "joins": 24,
+      "open_strips": 24,
+      "loops": 0,
+      "outer_ends": 48,
+      "centerline_crossings": 96,
+      "positive_pair_overlaps_per_sector": 33,
+      "self_crossings": 0,
+      "positive_triple_overlaps_per_sector": 0,
+      "seam_order_comparisons_per_boundary": 3,
+      "open_strips_only": "Validated",
+      "physical_constructibility": "Unvalidated",
+      "patterns": [
+        {
+          "pattern": 0,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 1,
+          "valid": true,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 2,
+          "valid": false,
+          "distinct_colors": 3
+        },
+        {
+          "pattern": 3,
+          "valid": true,
+          "distinct_colors": 2
+        },
+        {
+          "pattern": 4,
+          "valid": true,
+          "distinct_colors": 3
+        }
+      ]
+    }
+  ]
+}

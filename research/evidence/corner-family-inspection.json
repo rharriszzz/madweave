@@ -1,0 +1,143 @@
+[
+  {
+    "browser": "chromium",
+    "version": "145.0.7632.6",
+    "grouped": true,
+    "failedGroupedRedraw": true,
+    "races": [
+      "stale-grouped-success",
+      "stale-grouped-error",
+      "grouped-old-success-after-new-success",
+      "grouped-old-error-after-new-success",
+      "grouped-old-success-after-new-failure"
+    ],
+    "legacyNativeImport": true,
+    "viewIdentityPreserved": true,
+    "rows": [
+      {
+        "id": "mad-sixfold-720-r6",
+        "config": {
+          "weave": "madweave",
+          "phase": "mad-sixfold",
+          "crop": "r6",
+          "beta": 720
+        },
+        "pattern": 0,
+        "applyMs": 79,
+        "redrawMs": 75,
+        "offlineLoadMs": 315,
+        "fileBytes": 3970645,
+        "svgBytes": 6857025,
+        "probes": 2786,
+        "pixels": 280,
+        "segments": 64728,
+        "maxBound": 9.371537600162906e-05,
+        "pixelBound": 0.006574951776622229,
+        "offlineRoundTrip": true,
+        "independentExport": true,
+        "inspection": {
+          "segments": 87528,
+          "allWithinBound": true,
+          "svgBytes": 10280926,
+          "pixels": 120
+        }
+      }
+    ],
+    "offlineNetworkRequests": [],
+    "errors": []
+  },
+  {
+    "browser": "firefox",
+    "version": "155.0",
+    "grouped": true,
+    "failedGroupedRedraw": true,
+    "races": [
+      "stale-grouped-success",
+      "stale-grouped-error",
+      "grouped-old-success-after-new-success",
+      "grouped-old-error-after-new-success",
+      "grouped-old-success-after-new-failure"
+    ],
+    "legacyNativeImport": true,
+    "viewIdentityPreserved": true,
+    "rows": [
+      {
+        "id": "mad-sixfold-720-r6",
+        "config": {
+          "weave": "madweave",
+          "phase": "mad-sixfold",
+          "crop": "r6",
+          "beta": 720
+        },
+        "pattern": 0,
+        "applyMs": 77,
+        "redrawMs": 97,
+        "offlineLoadMs": 315,
+        "fileBytes": 3970645,
+        "svgBytes": 6857023,
+        "probes": 2786,
+        "pixels": 280,
+        "segments": 64728,
+        "maxBound": 9.371537600162912e-05,
+        "pixelBound": 0.006574951918936,
+        "offlineRoundTrip": true,
+        "independentExport": true,
+        "inspection": {
+          "segments": 87528,
+          "allWithinBound": true,
+          "svgBytes": 10280925,
+          "pixels": 120
+        }
+      }
+    ],
+    "offlineNetworkRequests": [],
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "version": "26.6",
+    "grouped": true,
+    "failedGroupedRedraw": true,
+    "races": [
+      "stale-grouped-success",
+      "stale-grouped-error",
+      "grouped-old-success-after-new-success",
+      "grouped-old-error-after-new-success",
+      "grouped-old-success-after-new-failure"
+    ],
+    "legacyNativeImport": true,
+    "viewIdentityPreserved": true,
+    "rows": [
+      {
+        "id": "mad-sixfold-720-r6",
+        "config": {
+          "weave": "madweave",
+          "phase": "mad-sixfold",
+          "crop": "r6",
+          "beta": 720
+        },
+        "pattern": 0,
+        "applyMs": 137,
+        "redrawMs": 133,
+        "offlineLoadMs": 440,
+        "fileBytes": 3970645,
+        "svgBytes": 6857023,
+        "probes": 2786,
+        "pixels": 280,
+        "segments": 64728,
+        "maxBound": 9.371537600162912e-05,
+        "pixelBound": 0.0065749517766222326,
+        "offlineRoundTrip": true,
+        "independentExport": true,
+        "inspection": {
+          "segments": 87528,
+          "allWithinBound": true,
+          "svgBytes": 10280924,
+          "pixels": 120
+        }
+      }
+    ],
+    "offlineNetworkRequests": [],
+    "errors": []
+  }
+]
