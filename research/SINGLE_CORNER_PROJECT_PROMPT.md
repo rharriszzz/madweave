@@ -1,6 +1,11 @@
 # Single-corner project: prompt for later work
 
-**Status: bounded Stage 3A portable diagrams authorized; delivered for review.**
+**Status: bounded Stage 3B construction controls authorized; delivered for review.**
+The [Stage 3B instruction](SINGLE_CORNER_STAGE3B_PROMPT.md) authorizes the finite
+60°–720° family, explicit hole phases/crops, grouped changes and compatible
+offline files/diagram SVG. See the [handoff](SINGLE_CORNER_STAGE3B.md) and
+[machine-readable matrix](corner-prototype/family-matrix.json). The production
+planar application remains unchanged; the rest of Stage 3 remains on hold.
 The [Stage 3A instruction](SINGLE_CORNER_STAGE3A_PROMPT.md) authorizes editable
 save/open, offline reopening and static SVG only for the nine certified
 constructions. See the [handoff and viewing instructions](SINGLE_CORNER_STAGE3A.md)
@@ -13,8 +18,8 @@ The [Stage 1 model](SINGLE_CORNER_STAGE1.md) and
 reference constructions. The user authorized a separate inspectable drawing,
 simple example/color/identity controls, and bounded geometry/browser checks.
 Production application code remains unchanged. Do not merge into master or
-expand Stage 3 to arbitrary construction editing, other families, fabrication,
-production integration or deployment. Stop at Stage 3A for review.
+expand Stage 3 beyond the explicitly bounded family, or add fabrication,
+production integration or deployment. Stop at Stage 3B for review.
 The accepted requirements and separate diagram/physical gates below
 remain in force. Earlier historical/image forensics remain preparation evidence.
 
@@ -713,6 +718,15 @@ the production planar application, including its separate version-1 project
 meaning. The remaining Stage 3 inventory above is on hold. A Stage 3A pass is
 not whole-project readiness, production release approval or physical validation.
 
+**Stage 3B — bounded construction controls (authorized; delivered for review).**
+The [scoped instruction](SINGLE_CORNER_STAGE3B_PROMPT.md) extends the prototype
+to 60°–720° in 60° steps, fixed W/P=3/4, explicit representative phases and
+crop presets. The [handoff](SINGLE_CORNER_STAGE3B.md) records the complete finite
+matrix, grouped transactions, v1-compatible v2 files, exhaustive reference/state
+checks and separately disclosed browser sampling. This is not an exhaustive
+classification or the eventual allowed-angle list. Broader editing and production
+integration remain on hold, and physical validation remains a separate gate.
+
 Diagram release requires the applicable acceptance evidence above, user
 documentation, and a worked diagram example. It does not depend on Stage 4,
 but must clearly state that physical constructibility remains unverified.
@@ -734,7 +748,7 @@ stage, stop at its stated deliverable. Pause dependent work only for an actual
 unresolved user decision or a specifically requested review gate. The initial
 implementation hold remains in effect until the user explicitly authorizes
 implementation. Later explicit instructions authorized the bounded Stage 2 and
-Stage 3A prototypes only; they do not authorize full product integration.
+Stage 3A and bounded Stage 3B prototypes only; they do not authorize full product integration.
 
 ## Decisions, ownership, and readiness
 

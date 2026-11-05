@@ -4,10 +4,32 @@ import {makePackage} from './offline.mjs';
 import {BUNDLE} from './bundle.mjs';
 const $=s=>document.querySelector(s),svg=$('#diagram'),NS=svg.namespaceURI;
 const colors=['#477f79','#bd713d','#8b6da5'];
-let registry=[],state=null,revision=0,pending=false,initialized=false;
+let registry=[],state=null,draft=null,revision=0,pending=false,initialized=false;
 const defaults=Project.defaults,standalone=Boolean(document.getElementById('corner-assets')),Package=makePackage(BUNDLE);
 const node=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);parent?.append(e);return e;};
 const openPath=mesh=>pathFor(mesh).replace(/ Z$/,'');
+const family=BUNDLE.catalogue.matrix;
+function proposed(s){return {...s.entry.config,pattern:s.model.pattern};}
+function candidateResult(value){
+  const row=family.rows.find(a=>['weave','phase','crop','beta'].every(k=>a[k]===value[k]));
+  if(!row)return {status:'Unvalidated',witness:'Selected weave and hole phase do not match the bounded family'};
+  if(row.status!=='Validated')return {...row,row};
+  return {...row.patterns.find(a=>a.pattern===value.pattern),row};
+}
+function syncDraft(){
+  if(!draft)return;
+  for(const key of ['weave','phase','crop','beta','pattern'])$('#candidate-'+key).value=key==='pattern'&&draft[key]===null?'mono':String(draft[key]);
+  const result=candidateResult(draft),row=result.row,phase=family.domain.phases.find(a=>a.id===draft.phase),crop=family.domain.crops.find(a=>a.id===draft.crop),beta=draft.beta;
+  const gcd=(a,b)=>b?gcd(b,a%b):a,g=gcd(beta,360),q=`${beta/g}/${360/g}`,f=`${360/g}/${beta/g}`;
+  const center=phase?`center/P = (${-(2*phase.k[1]+phase.k[0])}/√3, ${phase.k[0]}); k=(${phase.k}); C/hand/X=${phase.C}/${phase.hand}/${phase.X}; membership ${phase.member===null?'all':phase.member}`:'';
+  $('#candidate-summary').dataset.status=result.status;
+  $('#candidate-summary').textContent=`PROPOSED: ${draft.weave}, ${phase?.label||draft.phase}, β=${beta}°, q=${q}, f=${f}, signed deficit ${360-beta}°. Crop ${crop?.label||draft.crop}, W/P=3/4. ${center}. Geometry/order: ${row?.status||'Unvalidated'}. Coloring: ${row?.status==='Validated'?result.status:'not certified for this geometry'}. ${result.status==='Validated'?`${result.distinct_colors} actually used color(s). Open-strips-only: Validated. Ready to apply together.`:result.witness}`;
+  for(const option of $('#candidate-pattern').options){
+    const pattern=option.value==='mono'?null:Number(option.value),entry=row?.patterns.find(a=>a.pattern===pattern);
+    option.title=entry?.witness||'No implicit phase/color substitution';
+    option.textContent=option.textContent.split(' — ')[0]+(entry?.status==='Validated'?` — ${entry.distinct_colors} color(s)`:` — ${entry?.status||'Unvalidated'}`);
+  }
+}
 function report(status,message){
   $('#status').dataset.status=status;$('#status').dataset.activeExample=state?.entry.id||'';
   $('#status').dataset.activeStatus=state?'Validated':'Unvalidated';
@@ -31,6 +53,7 @@ function syncControls(){
   for(const control of document.querySelectorAll('.controls select,.controls input,.controls button'))if(control.id!=='example')control.disabled=['open-project','open-file'].includes(control.id)?registry.length===0:!state;
   $('#example').value=state?.entry.id||'';$('#rotation').value=String(view.rotation);
   for(const [name,key]of [['outlines','outlines'],['seams','seams'],['visible-edges','edges'],['export-annotations','annotations']])$('#'+name).checked=view[key];
+  syncDraft();
   if(!state){$('#color').value='mono';$('#strip').value='';$('#crossing').value='';return;}
   const {model,entry,selected,crossing}=state;
   for(const option of $('#color').options){
@@ -128,15 +151,16 @@ function prepare(s,exportSigma=null){
       node('line',{x1:model.center[0]+lo*Math.cos(angle),y1:model.center[1]+lo*Math.sin(angle),x2:model.center[0]+hi*Math.cos(angle),y2:model.center[1]+hi*Math.sin(angle),class:'partner','data-left':id(e.left),'data-right':id(e.right)},root);
     }
   }
-  const maxBound=Math.max(...model.meshAudit.flatMap(a=>a.segments.map(s=>s.bound)));
+  let maxBound=0;for(const mesh of model.meshAudit)for(const segment of mesh.segments)maxBound=Math.max(maxBound,segment.bound);
   return {root,viewBox,inspection:inspection(s),
-    summary:`Reference ${model.p.beta}° · ${model.p.beta<360?'deficit':model.p.beta>360?'excess':'planar'} ${Math.abs(360-model.p.beta)}° · multiplier ${model.p.f} · R/P ${model.p.R_over_P} · ${entry.counts.open_strips} open strips. Open-strips-only: Validated.`,
+    summary:`ACTIVE: ${entry.label}. Reference ${model.p.beta}° · signed deficit ${360-model.p.beta}° · ${model.p.beta<360?'deficit':model.p.beta>360?'excess':'planar'} ${Math.abs(360-model.p.beta)}° · multiplier ${model.p.f} · R/P ${model.p.R_over_P} · ${entry.counts.open_strips} open strips. Open-strips-only: Validated.`,
     certificate:JSON.stringify({certificate:entry.id,counts:entry.counts,worldTolerance:epsilon,maxBound,pixelBound:maxBound*sigma,analyticDisk:true,referenceCenter:[-(2*model.p.k[1]+model.p.k[0])/Math.sqrt(3),model.p.k[0]],displayCenter:model.center,displayRotation:model.rotation},null,2)};
 }
-function commit(candidate,drawing,{quiet=false}={}){
+function commit(candidate,drawing,{quiet=false,resetDraft=false}={}){
   // Preparation, including inspector text and all bounded paths, is complete.
   // This synchronous commit has no network or other user-code await points.
-  state=candidate;svg.setAttribute('viewBox',drawing.viewBox);svg.replaceChildren(...drawing.root.childNodes);
+  state=candidate;if(!draft||resetDraft)draft=proposed(state);
+  svg.setAttribute('viewBox',drawing.viewBox);svg.replaceChildren(...drawing.root.childNodes);
   syncControls();$('#summary').textContent=drawing.summary;$('#inspection').textContent=drawing.inspection;
   $('#certificate').textContent=drawing.certificate;
   $('#certificate-link').href=standalone?'data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(state.model.certificate)):state.entry.url;
@@ -152,7 +176,7 @@ function transition(operation,update){
   try{const next=cloneState();update(next);const drawing=prepare(next);commit(next,drawing);return true;}
   catch(error){if(ticket===revision)fail(operation,error);return false;}
 }
-export async function load(key){
+export async function load(key,{pattern,grouped=false}={}){
   const ticket=begin(),candidate=registry.find(a=>a.id===key);
   if(!candidate){fail('Example change',Error('No supplied certificate for this example or radius'));return false;}
   pending=true;report('Loading',`Requested ${candidate.label}; ${state?'active controls still describe the previous committed diagram':'preparing first diagram'}.`);
@@ -165,13 +189,16 @@ export async function load(key){
       certificate=await response.json();if(ticket!==revision)return false;
       if(!Project.same(certificate,BUNDLE.catalogue.certificates[candidate.id]))throw Error('certificate differs from trusted catalogue');
     }
-    const model=new Diagram(certificate);model.pattern=candidate.default_pattern;
+    const model=new Diagram(certificate);model.pattern=pattern===undefined?candidate.default_pattern:pattern;
     if(model.compatibility(model.pattern).status!=='Validated')throw Error('default coloring is not compatible');
     const crossings=Project.crossings(model);
-    const next={model,entry:candidate,view:{...(state?.view||defaults)},selected:null,hits:[],hitIndex:0,crossing:null,crossings,anchor:null};
+    const changed=state&&state.entry.id!==candidate.id;
+    const next=grouped&&!changed?{...cloneState(),model,entry:candidate,crossings}:{model,entry:candidate,view:{...(state?.view||defaults)},selected:null,hits:[],hitIndex:0,crossing:null,crossings,anchor:null};
     const drawing=prepare(next);if(ticket!==revision)return false;
-    commit(next,drawing);return true;
-  }catch(error){if(ticket===revision)fail('Example change',error);return false;}
+    commit(next,drawing,{resetDraft:true});
+    if(changed)report('Validated',validMessage()+' Construction changed; selection cleared because no material correspondence is assumed.');
+    return true;
+  }catch(error){if(ticket===revision)fail(grouped?'Grouped construction change':'Example change',error);return false;}
   finally{if(ticket===revision)pending=false;}
 }
 function choosePoint(s,point,crossing=null){
@@ -183,6 +210,17 @@ svg.addEventListener('pointerdown',event=>transition('Position inspection',s=>{
   const p=new DOMPoint(event.clientX,event.clientY).matrixTransform(svg.getScreenCTM().inverse());choosePoint(s,[p.x,p.y]);
 }));
 $('#example').onchange=()=>load($('#example').value);
+for(const key of ['weave','phase','crop','beta','pattern'])$('#candidate-'+key).onchange=()=>{
+  let value=$('#candidate-'+key).value;if(key==='beta')value=Number(value);if(key==='pattern')value=value==='mono'?null:Number(value);
+  const wasPending=pending;begin();draft={...draft,[key]:value};syncDraft();
+  if(wasPending)report('Validated',validMessage()+' Older pending operation superseded by the proposal.');
+};
+$('#reset-candidate').onclick=()=>{begin();draft=proposed(state);syncDraft();report('Validated',validMessage());};
+$('#apply-candidate').onclick=()=>{
+  const value={...draft},result=candidateResult(value);
+  if(result.status!=='Validated'){begin();fail('Grouped construction change',Object.assign(Error(result.witness),{status:result.status}));return Promise.resolve(false);}
+  return load(result.row.id,{pattern:value.pattern,grouped:true});
+};
 $('#color').onchange=()=>{
   const value=$('#color').value;
   return transition('Color change',s=>{
@@ -211,7 +249,7 @@ async function openFile(file){
   try{
     const text=await file.text();if(ticket!==revision)return false;
     const next=Project.restore(Project.parse(text),BUNDLE.catalogue),drawing=prepare(next);
-    if(ticket!==revision)return false;commit(next,drawing);return true;
+    if(ticket!==revision)return false;commit(next,drawing,{resetDraft:true});return true;
   }catch(error){if(ticket===revision)fail('Open project',error);return false;}
   finally{if(ticket===revision)pending=false;}
 }
@@ -266,15 +304,19 @@ let resizeTimer;new ResizeObserver(()=>{
 }).observe(svg);
 window.corner={get model(){return state?.model;},get ready(){return Boolean(state);},get initialized(){return initialized;},get pending(){return pending;},
   get entry(){return state?.entry;},load,selectPoint,draw:refresh,
+  get proposal(){return {...draft};},
   setPattern(pattern){$('#color').value=pattern===null?'mono':String(pattern);return $('#color').onchange();},
   captureProject(){return Project.capture(state,BUNDLE.catalogue);},
   get selection(){return {selected:state?.selected??null,hits:state?.hits||[],hitIndex:state?.hitIndex||0};}};
 syncControls();
 try{
   registry=BUNDLE.catalogue.examples;
+  for(const phase of family.domain.phases)$('#candidate-phase').append(new Option(`${phase.weave} · ${phase.label}`,phase.id));
+  for(const beta of family.domain.angles)$('#candidate-beta').append(new Option(`${beta}°`,String(beta)));
+  for(const crop of family.domain.crops)$('#candidate-crop').append(new Option(crop.label,crop.id));
   for(const row of registry)$('#example').append(new Option(row.label,row.id));
   for(const text of ['Other radii — Unvalidated','Circle-through-vertex / cap-end cases — Unvalidated']){const option=new Option(text,'unsupported');option.disabled=true;$('#example').append(option);}
   await load('excess');
   const embedded=document.getElementById('corner-project');
-  if(embedded){const restored=Project.restore(Project.parse(embedded.textContent),BUNDLE.catalogue);commit(restored,prepare(restored));}
+  if(embedded){const restored=Project.restore(Project.parse(embedded.textContent),BUNDLE.catalogue);commit(restored,prepare(restored),{resetDraft:true});}
 }catch(error){fail('Initial project load',error);}finally{initialized=true;}

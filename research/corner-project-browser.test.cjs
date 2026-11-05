@@ -21,8 +21,8 @@ function independent(c,filename){
  fs.writeFileSync(filename,JSON.stringify(c));const run=spawnSync('python3',[path.join(__dirname,'check-corner-certificate.py'),filename],{encoding:'utf8'});
  assert.equal(run.status,0,run.stdout+run.stderr);return JSON.parse(run.stdout).counts;
 }
-function seamSamples(entry){
- const c=certs[entry.id],p=c.parameters,R=number(p.R_over_P),w=number(p.W_over_P),alpha=p.alpha*Math.PI/180;
+function seamSamples(entry,certificate=certs[entry.id]){
+ const c=certificate,p=c.parameters,R=number(p.R_over_P),w=number(p.W_over_P),alpha=p.alpha*Math.PI/180;
  const normals=[[0,1],[-Math.sqrt(3)/2,-.5],[Math.sqrt(3)/2,-.5]],orders=new Map(c.orders.map(a=>[a.pair.map(key).sort().join('|'),key(a.top)])),rows=[];
  for(let sector=0;sector<p.sectors;sector++)for(const delta of [.004,.025])for(const angle of [delta,alpha-delta])for(let r=.35;r<R-.12;r+=.37){
   const x=r*Math.cos(angle),y=r*Math.sin(angle);
@@ -58,7 +58,7 @@ const server=http.createServer((req,res)=>{
  if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');
  fs.readFile(file,(e,b)=>{if(e)return res.writeHead(404).end();res.setHeader('Content-Type',file.endsWith('.mjs')?'text/javascript':file.endsWith('.json')?'application/json':file.endsWith('.css')?'text/css':'text/html');res.end(b);});
 });
-async function inspectSVG(page,entry,expected,annotated){
+async function inspectSVG(page,entry,expected,annotated,samplesOverride=null){
  const colors=Object.fromEntries(expected.pieces.map(a=>[key(a.id),a.color]));
  return page.evaluate(({samples,colors,expected,annotated,palette})=>{
   const svg=document.documentElement,info=JSON.parse(document.querySelector('#corner-artwork-info').textContent);
@@ -87,7 +87,7 @@ async function inspectSVG(page,entry,expected,annotated){
    if(!(annotated&&row.seam)&&clearance*Math.min(1,f)*sigma>3&&pixel.length<120){
     const screen=point.matrixTransform(matrix),overlays=[...document.querySelectorAll('.selection,.outline,.seam,.visible-boundary,.partner')];
     const nearOverlay=annotated&&overlays.some(e=>[-3,-2,-1,0,1,2,3].some(dx=>[-3,-2,-1,0,1,2,3].some(dy=>e.isPointInStroke(new DOMPoint(screen.x+dx,screen.y+dy).matrixTransform(matrix.inverse())))));
-    if(!nearOverlay)pixel.push({x:screen.x+scrollX,y:screen.y+scrollY,color});
+    if(!nearOverlay&&screen.x>=1&&screen.y>=1&&screen.x<innerWidth-1&&screen.y<innerHeight-1)pixel.push({x:screen.x+scrollX,y:screen.y+scrollY,color});
    }
   }
   const c=structuredClone(expected);c.parameters=info.parameters;c.components=info.components;c.joins=info.joins;c.crossings=info.crossings;
@@ -101,15 +101,15 @@ async function inspectSVG(page,entry,expected,annotated){
   }
   c.orders=[...orders.values()];c.render_cells=[...document.querySelectorAll('clipPath[data-sector="0"]')].map(a=>JSON.parse(a.dataset.referenceCell));
   return {certificate:c,pixel,probes:samples.length,seamProbes:samples.filter(a=>a.seam).length,gapProbes:samples.filter(a=>!a.positions.length).length,annotations:annotated};
- },{samples:[...seamSamples(entry),...oracles[entry.id]],colors,expected,annotated,palette});
+ },{samples:samplesOverride||[...seamSamples(entry),...oracles[entry.id]],colors,expected,annotated,palette});
 }
 async function pixelAudit(page,audit,detail){
  const image=PNG.sync.read(await page.screenshot());
- for(const probe of audit.pixel){const i=(Math.floor(probe.y)*image.width+Math.floor(probe.x))*4,actual=[...image.data.subarray(i,i+3)],want=probe.color===null?[255,255,255]:rgb[probe.color];assert(Math.max(...actual.map((v,j)=>Math.abs(v-want[j])))<=3,JSON.stringify({detail,probe,actual,want}));}
+ for(const probe of audit.pixel){assert(probe.x>=0&&probe.y>=0&&probe.x<image.width&&probe.y<image.height,'Pixel probe outside captured image');const i=(Math.floor(probe.y)*image.width+Math.floor(probe.x))*4,actual=[...image.data.subarray(i,i+3)],want=probe.color===null?[255,255,255]:rgb[probe.color];assert.equal(actual.length,3);assert(Math.max(...actual.map((v,j)=>Math.abs(v-want[j])))<=3,JSON.stringify({detail,probe,actual,want}));}
  assert(audit.pixel.length>0,'No safe material-color pixels tested');
 }
 
-(async()=>{
+if(require.main===module)(async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/research/corner-prototype/`,results=[];
  try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,webkit').split(',')){
   const browser=await p[name].launch({headless:true,...(name==='chromium'&&process.env.MADWEAVE_CHROMIUM_EXECUTABLE?{executablePath:process.env.MADWEAVE_CHROMIUM_EXECUTABLE}:{})});
@@ -190,7 +190,7 @@ async function pixelAudit(page,audit,detail){
     await chooseFile(page,payload(name+'.json',text));await settled(page,index);
     assert.deepEqual(await snapshot(page),before,name+' changed active state');assert.match(await page.locator('#status').innerText(),/failed:.*retained/);bad.push(name);
    };
-   await reject('version',v=>{v.version=2;});await reject('catalogue',v=>{v.catalogue='unknown';});
+   await reject('version',v=>{v.version=999;});await reject('catalogue',v=>{v.catalogue='unknown';});
    await reject('parameters',v=>{v.construction.parameters.R_over_P='63/10';});await reject('construction',v=>{v.construction.id='new-angle';});
    await reject('identity',v=>{v.selection.strip='99:0:0';});await reject('incompatible-color',v=>{v.material.pattern=0;});
    await reject('view',v=>{v.view.seams='true';});await reject('saved-valid-flag',v=>{v.validated=true;});
@@ -285,3 +285,4 @@ async function pixelAudit(page,audit,detail){
  fs.writeFileSync(path.join(OUT,'results.json'),JSON.stringify(results,null,2)+'\n');
  console.log('Stage 3A browser checks passed');
 })().catch(error=>{console.error(error);server.close();process.exitCode=1;});
+module.exports={inspectSVG,pixelAudit,independent,semantic,save,artwork,chooseFile,watchImports,settled,seamSamples};

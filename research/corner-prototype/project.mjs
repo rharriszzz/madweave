@@ -1,8 +1,9 @@
 import {Diagram,id,number} from './kernel.mjs';
 
-// Version 1 is a finite-catalogue model format, never a serialized SVG scene.
+// Version 2 extends the trusted catalogue. Version 1 restores the original nine
+// with exact certificates/identities, then resaves in v2 without ID renaming.
 export const Project=(()=>{
-  const format='madweave-corner-project',version=1;
+  const format='madweave-corner-project',version=2;
   const defaults={rotation:23,outlines:false,seams:true,edges:false,annotations:false};
   const reject=(message,status='Invalid')=>{throw Object.assign(Error(message),{status});};
   const exactKeys=(x,keys)=>{if(!x||typeof x!=='object'||Array.isArray(x)||Object.keys(x).sort().join('|')!==[...keys].sort().join('|'))reject('Malformed project fields');};
@@ -34,12 +35,14 @@ export const Project=(()=>{
   }
   function restore(value,catalogue){
     if(!value||value.format!==format)reject('Not a supported corner project');
-    if(value.version!==version)reject('Unsupported corner-project version','Unvalidated');
+    if(![1,version].includes(value.version))reject('Unsupported corner-project version','Unvalidated');
     exactKeys(value,['format','version','catalogue','construction','material','view','selection']);
-    if(value.catalogue!==catalogue.id)reject('Unsupported reference catalogue','Unvalidated');
+    const legacy=value.version===1;
+    if(value.catalogue!==(legacy?'corner-nine-v1':catalogue.id))reject('Unsupported reference catalogue','Unvalidated');
     exactKeys(value.construction,['id','digest','parameters']);
     const entry=catalogue.examples.find(a=>a.id===value.construction.id);
     if(!entry)reject('Construction outside the supported finite catalogue','Unvalidated');
+    if(legacy&&!catalogue.legacyIds.includes(entry.id))reject('Construction was not in the version-1 catalogue','Unvalidated');
     const certificate=catalogue.certificates[entry.id];
     if(value.construction.digest!==catalogue.digests[entry.id]||!same(value.construction.parameters,certificate.parameters))reject('Inconsistent certified construction parameters or digest');
     exactKeys(value.material,['pattern']);const pattern=value.material.pattern;

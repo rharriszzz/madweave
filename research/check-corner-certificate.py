@@ -141,7 +141,12 @@ def validate_render_partition(c,bands):
 @lru_cache(maxsize=256)
 def reference(raw):
     p=json.loads(raw);R=Q(p['R_over_P']);w=Q(p['W_over_P']);alpha=p['alpha'];m=p['sectors']
-    require(alpha in (60,120) and isinstance(m,int) and 1<=m<=8 and Q(1)<=R<=8 and 0<w<1,
+    # Stage 3B extends only the enumeration bound, to twelve 60-degree sectors
+    # (beta=720). All geometry remains in one convex canonical sector; joins,
+    # source phase checks, orders and the final wrap are still checked for every
+    # occurrence. No proof assumes m<=8. Twelve/thirteen-sector regression cases
+    # explicitly exercise the new limit and its rejection boundary.
+    require(alpha in (60,120) and isinstance(m,int) and 1<=m<=12 and Q(1)<=R<=8 and 0<w<1,
             'Unvalidated: outside bounded checker domain')
     require(sum(p['k'])==0 and all(isinstance(v,int) for v in p['k']),'Center phase')
     require(all(p[f] in (0,1) for f in ('C','hand','X')),'Order flags')
@@ -183,10 +188,10 @@ def validate(c):
         for a in bands:
             d,s=rotate(*a,j*(alpha//60))
             require(p['member'] is None or (s+p['k'][d]+p['C']*(3-d))%3==p['member'],
-                    'Sector material membership phase')
+                    f'Sector material membership phase: sector={j}, original={a}, rotated={(d,s)}, selected class={p["member"]}')
         for (a,b),top in expected_orders.items():
             aa=rotate(*a,j*(alpha//60));bb=rotate(*b,j*(alpha//60))
-            require(precedence(a,b,p)==precedence(aa,bb,p),'Sector/seam crossing phase')
+            require(precedence(a,b,p)==precedence(aa,bb,p),f'Sector/seam crossing phase: sector={j}, pair={(a,b)}, rotated={(aa,bb)}, original_top={top}, rotated_top={aa if precedence(aa,bb,p) else bb}')
     expected={(j,*a) for j in range(m) for a in bands}
     supplied=[tuple(a['id']) for a in c['pieces']]
     require(len(set(supplied))==len(supplied),'Duplicated or merged occurrence identity')

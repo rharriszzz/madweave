@@ -1,5 +1,18 @@
 # Planar research testing
 
+The [Stage 3B bounded-family checks](SINGLE_CORNER_STAGE3B.md) add
+`python3 research/build-corner-family.py`, followed by rebuilding the package,
+`node research/corner-family.test.mjs`, and
+`node research/corner-family-browser.test.cjs`. The generator independently
+checks the complete advertised finite matrix; the Node test exhausts 84
+constructions / 268 compatible semantic round trips and unchanged subdivision
+budgets. Browser rendering/export checks sample 19 explicitly listed constructions
+in each engine, alongside the original nine-example suites. The checker now
+enumerates at most 12 sectors, with explicit positive-12 and Unvalidated-13 tests;
+this is a bounded implementation envelope, not a mathematical impossibility bound.
+Build family inputs before `build-corner-package.py`. The existing runners retain
+their CLI behavior and export shared normal audits for the new suite.
+
 The [Stage 3A portable diagram tests](SINGLE_CORNER_STAGE3A.md) add
 `python3 research/build-corner-package.py`,
 `node research/corner-project-browser.test.cjs`, and

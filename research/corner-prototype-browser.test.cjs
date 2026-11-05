@@ -28,7 +28,7 @@ function auditReference(samples){
       const expected=row.positions.map(key).sort();
       if(!equal(actual,expected))throw Error('SVG material occupancy '+JSON.stringify({row,actual,expected}));
       const hits=m.pick(point);
-      if(!equal(hits.map(a=>a.position),row.positions.map(key))||!equal(hits.map(a=>a.strip),row.strips))throw Error('Reference picking/order mismatch');
+      if(!equal(hits.map(a=>a.position),row.positions.map(key))||!equal(hits.map(a=>a.strip),row.strips))throw Error('Reference picking/order mismatch '+JSON.stringify({row,hits,inverse:m.inverse(point)}));
       // Firefox reports a zero getBBox for paths inside clipPath, while its
       // isPointInFill is valid. A bbox is only an optional performance filter.
       const faces=cells.filter(a=>(!a.box.width&&!a.box.height||point[0]>=a.box.x&&point[0]<=a.box.x+a.box.width&&point[1]>=a.box.y&&point[1]<=a.box.y+a.box.height)&&a.path.isPointInFill(dom));
@@ -116,7 +116,7 @@ const server=http.createServer((req,res)=>{
   res.writeHead(200,{'Content-Type':type});res.end(bytes);
  });
 });
-(async()=>{
+if(require.main===module)(async()=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const url=`http://127.0.0.1:${server.address().port}/research/corner-prototype/`;
  const names=(process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,webkit').split(',');
@@ -326,3 +326,4 @@ const server=http.createServer((req,res)=>{
  fs.writeFileSync(path.join(OUT,'browser-results.json'),JSON.stringify(results,null,2)+'\n');
  console.log('Stage 2 browser checks passed');
 })().catch(error=>{console.error(error);server.close();process.exitCode=1;});
+module.exports={auditReference,checkCertificate};

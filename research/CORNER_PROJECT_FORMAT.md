@@ -1,19 +1,30 @@
-# Corner project format, version 1
+# Corner project formats, versions 1 and 2
 
-This is the editable state for the separate [Stage 3A prototype](SINGLE_CORNER_STAGE3A.md).
+Version 2 is the editable state for the separate [Stage 3B prototype](SINGLE_CORNER_STAGE3B.md).
+It retains version-1 imports from [Stage 3A](SINGLE_CORNER_STAGE3A.md).
 It is distinct from the production planar editor's `madweave-project` version 1.
 Neither importer translates the other format. No production file or schema changes.
 
 ## Authority and construction version
 
-The state has format `madweave-corner-project`, integer version `1`, and catalogue
-`corner-nine-v1`. The catalogue contains precisely the nine certified Stage 2
-constructions. Each construction has its original certificate's SHA-256 digest,
+The current state has format `madweave-corner-project`, integer version `2`, and
+catalogue `corner-family-v2`: 84 certified constructions from the
+[bounded matrix](corner-prototype/family-matrix.json). Each construction has its
+certificate's SHA-256 digest,
 computed over the committed UTF-8 file bytes. The ID, digest, and complete exact
 parameter object must agree with the trusted catalogue. A future change to
 geometry, occurrence names, continuation, precedence, or certificate content
 cannot silently reuse this mapping: it requires a new catalogue/version or an
-explicit checked migration. No migration or occurrence renaming is implemented.
+explicit checked migration.
+
+Version 1 used `corner-nine-v1` and precisely the nine Stage 2 constructions.
+The new runtime retains those exact trusted certificates, IDs and digests.
+Importing v1 restores all model, color, view and local-selection data unchanged;
+resaving changes only the version/catalogue fields to v2. No occurrence is
+renamed. A new family ID forged into a v1 envelope is rejected. The archived
+Stage 3A standalone files still run their own original nine-example runtime;
+open one through the **current prototype's Open control** to migrate it to the
+expanded runtime. Old v1 software does not import v2 states.
 
 Authoritative input is the construction reference, material pattern, view and
 selection below. SVG paths, inspection text, component indices in controls,
@@ -31,10 +42,10 @@ All fields are required. Unknown fields are rejected, including a `validated`
 flag. JSON null is distinct from zero. Rational parameters keep their certificate
 string representation; alternate numeric spellings do not change a construction.
 
-| Field | Version 1 meaning |
+| Field | Version 1 / 2 meaning |
 |---|---|
 | `format`, `version`, `catalogue` | Exact identifiers above |
-| `construction.id` | One of `planar`, `deficit`, `excess`, `sixty`, `c-on`, `self`, `hex-1`, `hex-0`, `hex-2` |
+| `construction.id` | V1: `planar`, `deficit`, `excess`, `sixty`, `c-on`, `self`, `hex-1`, `hex-0`, `hex-2`. V2 also has the 75 new IDs listed in [family.json](corner-prototype/family.json) |
 | `construction.digest` | Catalogue's SHA-256 string for that certificate |
 | `construction.parameters` | Exact `alpha`, `sectors`, `beta`, `f`, `k`, `C`, `hand`, `X`, `member`, `W_over_P`, `R_over_P` object; these are consistency checks, not arbitrary editing inputs |
 | `material.pattern` | null for monochrome; integers 0–4 for direction, class, direction+class, group, class+group; must be constant on every joined component |
@@ -51,12 +62,18 @@ keys refer to components of full material regions, including fringe pieces;
 crossings do not join components. UI strip numbers and crossing list indices are
 derived and are never stored as stable identity.
 
-Version 1 fixes the distinct material-label palette to 0=`#477f79`,
+Both versions fix the distinct material-label palette to 0=`#477f79`,
 1=`#bd713d`, 2=`#8b6da5`; monochrome uses label 0. Patterns are the existing
 reference formulas, including their signed-index and phase rules. This fixed
 interpretation is part of the format, not a palette inferred from SVG. A future
 change to its material-color meaning needs a new version or explicit migration.
-Palette editing and aliases are outside this stage.
+Palette editing and aliases are outside this stage. Proposed, unapplied control
+values are not saved. Active construction ID/parameters reverse-map to the
+trusted weave/phase/angle/crop choices, rather than storing a second conflicting
+authority for them. View/color-only changes preserve material identities. A
+different construction ID clears selection on Apply, with an explicit message;
+no correspondence between different assemblies is assumed. Saved-file selection
+is restored only after validation against that file's construction.
 
 `selection.local` contains:
 
@@ -88,14 +105,16 @@ Save produces `corner-ID.corner.html`, a standalone HTML application containing:
 
 - One inert JSON script `id="corner-project" type="application/json"` with the
   state above, escaping `<` as `\u003c`.
-- A separate `corner-assets` JSON block with the trusted nine-example catalogue,
+- A separate `corner-assets` JSON block with the trusted versioned catalogue,
   certified reference data, CSS, template, and runtime sources.
 - A small inline bootstrap which runs those sources as one inline ES module.
 
 There are no remote fonts, imports, script/style links, fetches, or server calls
 in the standalone runtime. Its certificate link downloads inline JSON explicitly
-(avoiding browsers' blocked top-level data-URL navigation). All nine
-constructions and all compatible pattern choices remain available offline.
+(avoiding browsers' blocked top-level data-URL navigation). All 84 constructions,
+the compatibility matrix, grouped controls and compatible patterns are available
+offline in v2. Version-1 files retain their original embedded runtime until opened
+and resaved through the new prototype.
 Resaving builds a fresh envelope from the template and current state, so SVG,
 old runtime instances and old status text do not accumulate in successive saves.
 Downloads report that a file was *prepared*; they cannot certify that the user
@@ -107,6 +126,10 @@ executed or used as authority. Raw JSON alone is useful for import but lacks the
 runtime needed for standalone offline reopening. SVG artwork is rejected as an
 editable project. Files over 10 MiB of text, malformed JSON, missing/duplicate
 state envelopes and invalid schemas are rejected before commit.
+Current v2 files are about 4 MB, including the whole runtime/catalogue. Exhaustive
+round trips for all 268 compatible assignments verify they fit the import limit;
+state contains only bounded catalogue references, finite coordinates and at most
+three local positions, with no unbounded user text or rendered SVG.
 
 Unsupported version, catalogue or construction IDs report **Unvalidated**.
 Inconsistent parameters/digests, malformed fields, invalid identities and
@@ -138,7 +161,8 @@ also records world/chord tolerance and the export target scale; enlarging an SVG
 changes its pixel error while preserving the bounded world approximation.
 
 All catalogue results still explicitly pass open-strips-only compatibility.
-This scope is not the eventual allowed-angle list. The general 60° monochrome
+The v2 range is 60°–720° in 60° steps, W/P=3/4, with the phase/crop restrictions
+in the matrix. It is not the eventual allowed-angle list. The general 60° monochrome
 baseline and pattern restrictions remain; other radii and degeneracies are
 Unvalidated. Diagram acceptance and physical validation remain separate gates.
 Reference ribbons are ideal straight, constant-width, zero-thickness material

@@ -1,5 +1,10 @@
 # Stage 3A handoff: portable editable corner diagrams
 
+**Later bounded authorization:** [Stage 3B](SINGLE_CORNER_STAGE3B.md) adds explicit
+angle/phase/crop/color choices and grouped Apply within a certified finite family.
+It retains the nine v1 constructions exactly and resaves them as compatible v2
+projects. The scope/hold statements below describe the original Stage 3A checkpoint.
+
 Starting from `ac9cdc3` on `docs/single-corner-prompt`, this completes the bounded
 [Stage 3A instruction](SINGLE_CORNER_STAGE3A_PROMPT.md): editable save/open,
 offline reopening/resaving and static SVG for the existing nine certified

@@ -1,11 +1,22 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Single-corner diagram · Stage 3A prototype</title><link rel="stylesheet" href="style.css"></head>
-<body><header><p class="eyebrow">MadWeave research · Stage 3A</p><h1>Single-corner diagram</h1>
-<p>Certified reference examples. Physical constructibility is unverified. This diagram is not a cutting template.</p>
-<p>The examples illustrate the general 60° monochrome baseline and pattern restrictions. They are not the eventual allowed-angle list.</p></header>
+<title>Single-corner diagram · Stage 3B prototype</title><link rel="stylesheet" href="style.css"></head>
+<body><header><p class="eyebrow">MadWeave research · Stage 3B</p><h1>Single-corner diagram</h1>
+<p>Bounded certified family: 60°–720° reference angles, explicit hole phases and crop presets. Physical constructibility is unverified. This diagram is not a cutting template.</p>
+<p>This practical range is not a mathematical upper limit or the eventual allowed-angle list. Monochrome madweave has a general 60° baseline; each fixed phase and coloring has its own restrictions.</p></header>
 <main><section class="controls" aria-label="Prototype controls">
-<label>Reference example <select id="example"></select></label>
+<fieldset class="candidate"><legend>Proposed construction — apply together</legend>
+<label>Weave <select id="candidate-weave"><option value="madweave">Madweave</option><option value="hexweave">Hexweave</option></select></label>
+<label>Hole kind / center phase <select id="candidate-phase"></select></label>
+<label>Reference angle β <select id="candidate-beta"></select></label>
+<label>Circular crop preset <select id="candidate-crop"></select></label>
+<label>Proposed material coloring <select id="candidate-pattern"><option value="mono">Monochrome</option><option value="0">Direction</option><option value="1">Class</option><option value="2">Direction + class</option><option value="3">Group</option><option value="4">Class + group</option></select></label>
+<p id="candidate-summary" role="status" aria-live="polite">Preparing compatibility matrix…</p>
+<button id="apply-candidate" type="button">Apply grouped construction</button>
+<button id="reset-candidate" type="button">Reset proposal to active design</button>
+<p class="limits">Staged choices do not change the active design. Save/export use the active design. Crop, phase, order and coloring are never changed automatically to make a choice pass.</p>
+</fieldset>
+<label>Optional certified shortcut <select id="example"></select></label>
 <label>Material coloring <select id="color"><option value="mono">Monochrome</option><option value="0">Direction</option><option value="1">Class</option><option value="2">Direction + class</option><option value="3">Group</option><option value="4">Class + group</option></select></label>
 <label>Display rotation <select id="rotation"><option value="23">23°</option><option value="0">0°</option><option value="90">90°</option><option value="-137">−137°</option></select></label>
 <label>Inspect joined strip <select id="strip"><option value="">Click a strip or choose here</option></select></label>
@@ -20,8 +31,8 @@
 <button id="export-svg" type="button">Export static SVG artwork</button>
 <p class="limits">Editable HTML includes the runtime and catalogue for offline reopening. SVG is artwork only; neither output is a fabrication template.</p>
 <p id="summary"></p><p id="status" role="status" aria-live="polite">Loading certified examples…</p>
-<p class="limits">Only the listed certificates are supported. Other radii, circle-through-vertex degeneracies and nonstandard cap ends remain Unvalidated. Rejected choices preserve the current diagram.</p>
+<p class="limits">Only the matrix's Validated constructions and colorings can be applied. Other crops, circle-through-vertex degeneracies and nonstandard cap ends remain Unvalidated. Rejected choices preserve the current diagram.</p>
 </section><section class="drawing" aria-label="Angular diagram"><svg id="diagram" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Radius-preserving angular diagram" tabindex="0"></svg></section>
 <aside><h2>Material inspection</h2><p>Click or choose a crossing with the keyboard. Positions are listed OVER to UNDER; cycle to inspect each one, including separate positions of a self-crossing. Solid dark boundaries show visible edges only. Dashed piece outlines and orange whole-strip selection include hidden material and conceptual cuts.</p><pre id="inspection">No strip selected.</pre><details><summary>Certificate and approximation</summary><pre id="certificate"></pre><a id="certificate-link">Open supplied reference certificate</a></details></aside></main>
-<footer><a href="../SINGLE_CORNER_STAGE3A.md">Save/open, offline examples and checks</a> · <a href="../../editor.html">Existing planar editor</a></footer>
+<footer><a href="../SINGLE_CORNER_STAGE3B.md">Bounded family, offline examples and checks</a> · <a href="family-matrix.json">Compatibility matrix</a> · <a href="../../editor.html">Existing planar editor</a></footer>
 <script type="module" src="app.mjs"></script></body></html>
