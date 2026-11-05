@@ -15,8 +15,8 @@ editable SVG, an eight-color palette, strip painting, and portable project files
 
 Screenshots below come from the built editor. Click an image for full size.
 
-![Teal, gold and plum planar weave with pattern, palette, spacing and orientation controls](docs/images/planar-directions.png)
-*Planar direction coloring: twelve strips per direction, with all editing controls visible.*
+![Original pink, gold and violet weave, with six strips per direction and the editor controls visible](docs/images/planar-original.png)
+*The [original MadWeave design](https://fiberwoman.com/madweave/madweave.svg), reopened and rendered by the current editor.*
 
 ![Open planar weave with grouped colors, wider spacing and one hexweave class hidden](docs/images/planar-open.png)
 *A different formula, wider spacing, and a hidden b class reveal the layered structure.*

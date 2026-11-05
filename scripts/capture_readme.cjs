@@ -44,6 +44,31 @@ const server = http.createServer((req, res) => {
       } else await page.locator('.canvas').screenshot({path:path.join(output,name+'.png')});
       console.log(name);
     }
+    // Reopen the original fiberwoman.com design through the current editor.
+    // The repository SVG is byte-identical to that reference (see SCREENSHOTS.md).
+    const original = fs.readFileSync(path.join(root, 'madweave.svg'), 'utf8');
+    const expected = await page.evaluate(text => MadWeaveProject.parse(text), original);
+    await page.locator('#project-file').setInputFiles(path.join(root, 'madweave.svg'));
+    await page.waitForFunction(() => document.querySelector('#export-status').textContent.startsWith('Opened '));
+    assert.deepEqual(await page.evaluate(() => MadWeaveEditor.capture().design), expected);
+    const paths = await page.evaluate(text => {
+      const reference = new DOMParser().parseFromString(text, 'image/svg+xml');
+      const current = MadWeaveEditor.planar.contentDocument;
+      let checked = 0;
+      for (const source of reference.querySelectorAll('path[mwColorIndex],clipPath path')) {
+        const target = current.getElementById(source.id);
+        if (!target) throw Error('Missing reference path: '+source.id);
+        for (const attribute of ['d','transform','fill','fill-opacity','mwColorIndex']) {
+          if (source.getAttribute(attribute) !== target.getAttribute(attribute)) {
+            throw Error('Reference differs: '+source.id+' '+attribute);
+          }
+        }
+        checked++;
+      }
+      return checked;
+    }, original);
+    assert.equal(paths, 21, 'Check all 18 strip paths and 3 clipping paths');
+    await capture('planar-original');
     // Use the application model to set repeatable palettes, then native controls.
     await page.evaluate(() => {
       const w=MadWeaveEditor.planar.contentWindow;
@@ -51,7 +76,6 @@ const server = http.createServer((req, res) => {
       w.buildButtons(w.document);w.buildStrips(w.document);
     });
     await button('SC4');await button('CC3');await button('CP0');await button('Sep1');
-    await capture('planar-directions');
     await button('CP4');await button('Sep2');await button('VH1');
     await capture('planar-open');
     await page.selectOption('#design-mode','corner');
