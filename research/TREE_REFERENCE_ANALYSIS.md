@@ -81,12 +81,12 @@ The result also distinguishes radius-preserving angular rescaling from a
 conformal power map: in the latter, inverse radius changes as well. It is the
 existing radius-preserving transformation that reproduces the reference.
 
-## 2. Count the upper-half strip tracks
+## 2. Corroborate with model-assisted upper-half tracks
 
 Trace the cut ends/tracks in the upper half, above the corner's horizontal
 level. Some short cut ends are partly obscured by crossings, so follow their
 visible continuation rather than treating every white break as a new strip.
-The count is:
+The replay-assisted count is:
 
 | Upper-half group | Ends/tracks |
 |---|---:|
@@ -112,7 +112,11 @@ Count ends/tracks in the half, not the total number of complete physical strips.
 The lower part is incomplete; counting the whole image as a completed corner
 would give the wrong conclusion. The generated numbered figure uses the
 historical replay to place labels on these tracks. The label positions are an
-inspection aid, not an independent estimator of f.
+inspection aid, not an independent estimator of f. The Python report reads these
+replay endpoints and names the count `replayEndpointOccurrences`; it does not
+detect or independently count raster endpoints. The planar 18-track comparison
+also assumes the inferred six strips per family. This corroborates the selected
+model and must not be treated as a separate observation determining f.
 
 ## 3. Replay the historical renderer at several multipliers
 

@@ -1,13 +1,13 @@
 # Single-corner project: prompt for later work
 
-**Status: preparation only; not yet an implementation authorization.**
-The user wants this prompt to contain the necessary details before the project
-starts. Do not enable nonunit cone mode in the production application, modify
-its renderer, or build the new UI merely because this document exists. Resolve
-the remaining decisions and wait for an explicit instruction to start the
-agreed stage. The user separately authorized image measurements and disposable
-historical-renderer trials to understand `tree.png`; those forensic checks are
-preparation, not the start of the corner feature.
+**Status (2026-11-04): Stage 1 mathematical research authorized; implementation
+remains on hold.** The user accepted the product defaults below and authorized
+only the scoped model, hole/phase catalogue, seam and continuation evidence,
+compatibility results, and acceptance-fixture plan. Stop at that deliverable for
+review. Do not enable nonunit cone mode, change production application code,
+build the corner UI, or merge into master. Stage 1 readiness is not whole-project
+readiness or permission to proceed to Stage 2. Earlier historical/image
+forensics remain preparation evidence, not a completed corner certificate.
 
 **Recovered reference (strong reconstruction evidence):** `tree.png` is closely
 reproduced by the radius-preserving angular map with
@@ -157,7 +157,7 @@ Keep these categories separate throughout the work:
 | Confirmed user requirements | Both deficit and excess angle; center over a hole; exact continuation and same material color; no branches, twists, or dangling seam ends; conceptual seams; controls on the webpage | Preserve unless the user changes them |
 | Recovered evidence | Tree multiplier near 3/4 and center near (218,228); historical replay and palette | A reference to explain and test; not a completed corner certificate |
 | Conditional deduction | A fixed three-direction coloring conflicts with a 120-degree identification about the ordinary center | Verify its assumptions on the actual seam and global strips |
-| Proposed defaults | Symmetry-center selection, circular extent, behavior on invalid edits, first-release scope below | Obtain agreement before treating them as requirements |
+| Accepted product defaults | Discrete hole centers, circular extent, diagram/save/open/SVG outputs, untwisted loops with open-strips-only reporting, grouped atomic edits, separate corner mode | User accepted on 2026-11-04; preserve alongside confirmed construction constraints |
 | Research deliverables | Admissible angles, hole phases, continuation graph, compatible coloring catalogue | The agent must derive these; do not ask the user to supply the mathematics |
 
 The upper-half count and replay corroborate the reconstruction under shared
@@ -200,7 +200,7 @@ The user's requirements are:
 - List methods for flattening the excess-angle case and start with the easiest
   intended method, using `tree.png` as the user's reference.
 
-## Proposed first-release boundary
+## First-release boundary and separate acceptance gates
 
 The first release should produce a **complete flat angular-chart simulation**
 with verified geometry, strip identities, crossing order, and compatible colors.
@@ -222,9 +222,21 @@ acceptance criteria. This scope does not postpone the paper-construction
 constraints: correct reference dimensions and seam registration must be retained
 in the model even when the first output is a distorted diagram.
 
-This is a proposed release boundary, awaiting the user's agreement. The control
-inventory below applies to supported features; listing an optional output is not
-a commitment to implement it in the first release.
+**Confirmed acceptance policy (2026-11-04):** diagram-release acceptance is
+separate from physical-validation acceptance. The diagram release must pass the
+geometry, strip-continuation, color, crossing-order, and persistence checks and
+clearly state that physical constructibility remains unverified. A documented
+physical example is required before claiming physical validation or releasing
+fabrication-ready outputs. Such outputs also need the applicable stock,
+dimension, scale, and tolerance checks; one example does not validate every
+configuration in the catalogue.
+
+This separation preserves every confirmed construction constraint in the model,
+including exact full-ribbon continuation, material-color continuity, an uncovered
+center, and rejection of branches, twists, and unmatched seam ends. It does not
+authorize implementation. The user subsequently accepted the recommended release
+outputs, center selection, loop policy, and grouped atomic edits. The control inventory below applies to supported features;
+listing an optional output is not a commitment to implement it in the first release.
 
 ## The tree reference and flattening methods
 
@@ -276,8 +288,9 @@ Enumerate all three internal boundaries and the closing boundary for this
 four-sector fixture, with complete interval pairings, transported phases and
 intentional outer endpoints. Prove coverage once per sector interior and no
 extra material duplication; angular closure alone does not prove completion.
-If the candidate fails, deliver a concrete witness and a corrected candidate for
-review; do not force it to pass or silently change the reference interpretation.
+If the candidate fails, deliver a concrete witness; a successful replacement is
+not required. If unresolved, report Unvalidated with explicit limits. Any proposed
+replacement needs review; do not force success or silently change the reference interpretation.
 Every strip edge, local-order mask, outline, and picking
 coordinate must use the same sector/branch map. Include exact endpoints and
 bounded curve approximation as required by the earlier mapping contract. Do
@@ -309,10 +322,10 @@ triangles or other apparently identical holes have different order/color phases.
 Use the chosen hole as the coordinate origin; do not assume the current SVG
 origin or the legacy C/star flags already select it correctly.
 
-The proposed default is the geometric symmetry center of the selected hole,
-with positive clearance from every material strip. Confirm whether arbitrary
-points inside a hole are needed; they must not be silently treated as equivalent
-symmetry centers. Revalidate the hole after changing spacing, weave type, or
+The accepted default is the geometric symmetry center of the selected hole,
+with positive clearance from every material strip. Arbitrary interior points are
+deferred and must not be silently treated as equivalent symmetry centers.
+Revalidate the hole after changing spacing, weave type, or
 construction settings. Derive a certified positive clearance to the entire
 material boundary, not just to centerlines; exact contact is not a valid center.
 Handle collapsed/merged holes explicitly.
@@ -365,9 +378,10 @@ Carry ordered ribbon sides and a material face through each join. Checking only
 loop orientation parity detects a Moebius join but does not exclude an inserted
 full twist: the chart must specify untwisted local transport throughout. Any
 later physical realization must verify that transport, not infer absence of
-twist from an orientable graph alone. The proposed material model permits
-ordinary untwisted
-closed loops and open strips; confirm that loop policy before implementation.
+twist from an orientable graph alone. The accepted material model permits
+ordinary untwisted closed loops and open strips. Report open-strips-only
+compatibility separately for every certified finite construction; loop closure
+and assembly methods remain part of the physical-validation gate.
 Rejection of branches, twists/Moebius continuations, and dangling seam ends is
 an explicit user requirement, independent of the choice about closed loops.
 
@@ -403,7 +417,7 @@ copying the literal H/R/L or a/b/c labels into every sector is not sufficient.
 
 ### Finite extent and the meaning of an allowed angle
 
-The proposed first extent is a circular crop of radius R around the selected
+The accepted first extent is a circular crop of radius R around the selected
 hole, with enough underlying periodic strip material to cover it before clipping.
 Any other boundary needs an explicit policy. Separate intentional outer strip
 ends from missing material caused by reusing a too-small legacy strip array.
@@ -440,6 +454,10 @@ Every result must have one of these statuses:
 | Validated | Explicit evidence for the stated pattern, center, phase, coloring, and finite/periodic scope |
 | Invalid | A concrete witness, such as an unmatched interval, wrong crossing, or color conflict |
 | Unvalidated | Outside the proved/tested domain or unresolved numerical/assembly work |
+
+These statuses describe the stated mathematical/model checks. Report physical
+validation separately; a Validated diagram configuration is not thereby
+physically validated.
 
 Lack of a proof, an exhausted numerical subdivision budget, or a failed search
 is not by itself a proof that an angle is impossible. Geometry and coloring must
@@ -506,7 +524,7 @@ invalid choices visible with a reason; do not silently recolor strips or change
 the angle to disguise a conflict. Define how a user resolves an edit that would
 invalidate the current configuration before implementing that interaction.
 
-### Proposed edit behavior
+### Accepted edit behavior
 
 Start with a valid-state-only interaction: evaluate a candidate construction or
 color edit before committing it. If it would merge differently colored strips
@@ -514,6 +532,12 @@ or otherwise break the contract, keep the previous design, highlight the actual
 conflict, and offer explicit compatible choices. Do not silently recolor,
 discard painted state, change the angle, or save a supposedly valid template.
 A separate invalid-draft mode can be designed later if the user wants one.
+
+Allow grouped edits: validate the entire proposed set of parameter/color changes
+as one transaction, then commit all or none. Individually invalid intermediate
+settings must not prevent a valid combined change. Keep Invalid (with a witness)
+distinct from Unvalidated (with explicit limits); neither becomes a certified
+design by being saved or exported.
 
 Apply paint/show/hide actions to a whole global strip when they are material
 edits. View-only hiding must remain separate. Reuse neither the planar V button's
@@ -557,7 +581,11 @@ A flat visualization export and an undistorted fabrication/reference template
 must be labeled separately. Do not print a distorted chart as a 1:1 paper guide
 unless the selected construction actually calls for those curved shapes.
 
-## Acceptance evidence required for completion
+## Acceptance evidence required for diagram completion
+
+The checks below govern diagram-release acceptance. Physical constructibility
+must remain labeled unverified until the separate physical-validation gate is
+met. Passing diagram checks does not authorize fabrication-ready outputs.
 
 Keep structural/numerical checks separate from browser appearance. A monochrome
 screenshot cannot establish over/under correctness, and a diagnostic color overlay
@@ -613,25 +641,35 @@ masks, fills and outlines against the same map independently. Cases with an
 uncertain bound are Unvalidated and cannot be saved/exported as certified.
 Physical cutting/printing tolerance is a separate later parameter.
 
-## Recommended sequence: several stages, with an initial hold
+## Authorized research and later stages on hold
 
-**Stage 0 — finish and approve this prompt.** Resolve the outstanding decisions
-below; the tree's center and angular mapping have now been recovered. Set the
-status to ready only when the user agrees the specification is sufficiently
-complete. No project implementation during this stage. The explicitly authorized
-historical/image forensics are recorded separately and do not enable cone mode
-in the production app.
+**Stage 0 — preparation accepted for Stage 1.** The user accepted the product
+defaults and separate diagram/physical gates on 2026-11-04. This establishes
+research readiness, not whole-project readiness or implementation authorization.
 
-**Stage 1 — mathematical model and compatibility catalogue.** After explicit
-authorization, derive hole coordinates, the chosen flattening, boundary
+**Stage 1 — mathematical model and compatibility catalogue (authorized).**
+Derive hole coordinates, the chosen flattening, boundary
 registration, strip continuation, color constraints, and allowed angle classes.
 Deliver a short model specification, a compatibility table with explicit scope,
 example/rejection witnesses, and an acceptance-fixture list. Treat exact angle
 classification as an agent research task, not a question for the user. Reconcile
 the old cone contract with this model; do not begin by enabling its N=6 fixture.
 
-**Stage 2 — one small, independently checked construction.** After the model is
-reviewed, implement a **completed** tree-style f=3/4 example if Stage 1 validates it (or
+State physical assumptions explicitly. Begin with ideal constant-width straight
+reference ribbons, zero thickness for the diagram model, and the declared seam
+transport; do not infer unstrained straight-stock realization from this abstraction.
+Record bending, stretching, twist, joints and assembly assumptions when making
+physical claims. Never silently substitute custom-cut stock for straight stock.
+Stock-specific dimensions and tolerances remain prerequisites for fabrication.
+
+Each scoped result may conclude Validated, Invalid with a concrete witness, or
+Unvalidated with explicit mathematical/search/numerical limits. A successful
+replacement is not required. A valid partial result must not be presented as a
+completed assembly. Deliver all requested research categories and stop for review;
+negative or unresolved results block dependent implementation, not honest reporting.
+
+**Stage 2 — one small, independently checked construction (not authorized).**
+Only after review and explicit implementation authorization, implement a **completed** tree-style f=3/4 example if Stage 1 validates it (or
 the explicitly reviewed replacement), and a derived wedge-removal example.
 Include a valid single-color case and a
 three-color conflict using the same geometric seam, plus a valid three-color
@@ -646,10 +684,18 @@ families, multiple sizes/spacings/orientations, and Chromium/Firefox/WebKit.
 Retain the existing seam-rendering fix; geometric seam correctness and SVG
 antialiasing are separate issues.
 
-**Stage 4 — physical check and completion record.** Review an agreed paper-strip
+Diagram release requires the applicable acceptance evidence above, user
+documentation, and a worked diagram example. It does not depend on Stage 4,
+but must clearly state that physical constructibility remains unverified.
+
+**Stage 4 — separate physical-validation gate.** Review an agreed paper-strip
 or sheet example with the user, record what was actually built and measured,
-and compare it with the model. Do not claim physical validation from a render.
-Finish user documentation and a worked construction example before release.
+and compare it with the model. A documented physical example is required before
+claiming physical validation or releasing fabrication-ready outputs; record the
+scope actually checked and satisfy the applicable fabrication acceptance criteria.
+Do not claim physical validation from a render or generalize one example to
+untested configurations. This gate does not block the diagram release or relax
+any confirmed construction constraint in its model.
 A practical paper test may also be useful earlier, before committing to a map.
 
 After the prompt is agreed, follow the scope of the user's start instruction.
@@ -657,7 +703,8 @@ Authorization for the whole project covers its agreed stages; continue without
 repeated approval questions for routine work. If the user authorizes only one
 stage, stop at its stated deliverable. Pause dependent work only for an actual
 unresolved user decision or a specifically requested review gate. The initial
-implementation hold remains in effect until the user explicitly starts work.
+implementation hold remains in effect until the user explicitly authorizes
+implementation; the current Stage 1 instruction does not do so.
 
 ## Decisions, ownership, and readiness
 
@@ -668,24 +715,27 @@ Keep unresolved research explicit, with a required deliverable and owner.
 | Item | Owner / status | Proposed handling | Needed before |
 |---|---|---|---|
 | Tree center, map and reciprocal fractions | Recovered evidence | Near (218,228); code f=3/4, reference q=4/3; do not ask the user to rederive these | Already documented; reviewer may challenge the evidence |
-| Release outputs and physical scope | User decision | First release: verified flat angular-chart simulation, editable save/open and diagram SVG; retain reference dimensions; no automatic cutting-template or 3D claim | Finalizing first-release scope |
-| Reference-center selection | User decision | Discrete geometric symmetry centers of the specified hole kinds first; arbitrary interior points deferred | Finalizing first-release scope |
+| Diagram versus physical acceptance | Confirmed user decision, 2026-11-04 | Diagram release passes geometry, continuation, color, order and persistence checks and states physical constructibility is unverified; documented physical example required for physical-validation claims or fabrication-ready outputs; all confirmed construction constraints remain | Respective release/claim gates; no implementation authorization |
+| Release outputs | Accepted default | Verified flat angular-chart simulation, editable save/open and diagram SVG; retain reference dimensions; no automatic cutting-template or 3D claim | Diagram-release acceptance |
+| Reference-center selection | Accepted default | Discrete geometric symmetry centers of all specified hole kinds; distinct phases/orientations retained; arbitrary interior points deferred | Model and UI acceptance |
 | Seam construction errors | Confirmed user requirement | Reject branches, twists and dangling/unmatched seam ends; enforce one-to-one full-ribbon continuation | Every validator and accepted construction |
-| Closed loops and edits | User decision | Proposal: allow untwisted closed strips as well as open strips; reject incompatible edits atomically with an explanation | Finalizing first-release behavior |
+| Closed loops | Accepted default | Allow untwisted loops and open strips; explicitly report open-strips-only compatibility; physical loop construction separately validated | Every finite compatibility result |
+| Invalid and grouped edits | Accepted default | Validate a group of changes together; commit all or none, preserve prior design on failure, report conflict/uncertainty; invalid drafts deferred | Interaction acceptance |
 | Infinite-pattern classification versus finite certificates | Agent research, with scope review | Derive phase/angle families where possible; otherwise publish the exact bound; propose a practical UI range | End of Stage 1 |
 | All hole coordinates and distinct phases | Agent research | Derive from material geometry, including shifted/triangular centers; do not assume all are covered by the existing origin-centered symmetry test | End of Stage 1 |
 | Material-color equivalence and patterns | Model/review task | Distinguish material labels from palette slots and actually used colors; require three distinct colors in the advertised three-color examples | End of Stage 1 |
-| Extent and finite ends | Proposed modeling default | Circular crop with adequate underlying periodic material; record R and free ends explicitly | End of Stage 1 |
+| Extent and finite ends | Accepted modeling default | Circular crop with adequate underlying periodic material; record R and free ends explicitly | End of Stage 1 |
 | Strip stock, physical dimensions and printable outputs | User decision for fabrication | Agree straight versus custom-cut stock, units, page size, scale checks, tolerances and optional tape allowances before output is called a construction template | Fabrication output / physical claims |
 | Front/back, thickness, creases and layered flattening | Deferred mode-specific decisions | Define only if a folded/layered physical mode is selected; do not block the initial angular chart on an unrequested mode | That mode |
-| Separate mode/page | Proposed product default | Preserve the planar editor; expose the corner tool as a separate mode/page | UI design |
+| Separate mode/page | Accepted product default | Preserve the planar editor; expose the corner tool as a separate mode/page | UI design |
 | Additional flattenings and 3D relaxation | Deferred additions | List alternatives; implement the tree method first | Explicit later scope |
 
-Before marking this prompt **ready**, resolve the user-owned first-release rows,
-record accepted/rejected defaults, and ensure every remaining research item has
-a deliverable and acceptance test. Do not silently convert a proposal into a
-confirmed user requirement. A second mathematical review is recommended; its
-findings must be checked against source/evidence before integration. See the
+**Stage 1 readiness is approved. Whole-project readiness is not.** Stage 1 ends
+with its scoped deliverables, statuses, witnesses and explicit limits for review.
+Later implementation requires explicit authorization and sufficient validated
+evidence for each dependent construction. Diagram release requires its own
+acceptance checks; physical-validation claims and fabrication-ready outputs
+require the separate physical gate. See the
 [independent review record](SINGLE_CORNER_PROMPT_REVIEW.md) for applied
 corrections and remaining decisions. The
 [documentation-only review and improvement handoff](SINGLE_CORNER_REVIEW_PROMPT.md)

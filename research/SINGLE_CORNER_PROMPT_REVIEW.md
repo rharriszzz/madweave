@@ -244,3 +244,40 @@ the research guide.
 No new product default was adopted. Unapplied proposals are the user-owned
 choices above and mathematical results awaiting Stage 1 evidence. No application,
 test, forensic script, state format, repository setting or deployment was changed.
+
+## Subsequent user clarification — 2026-11-04
+
+After the review, the user confirmed separate diagram-release and
+physical-validation acceptance gates. The project prompt now records this
+decision: a diagram release must pass geometry, strip-continuation, color,
+crossing-order, and persistence checks and clearly state that physical
+constructibility remains unverified. A documented physical example is required
+before claiming physical validation or releasing fabrication-ready outputs.
+The example's scope and any additional fabrication checks must be explicit.
+
+All confirmed construction constraints remain in the model. This clarification
+does not authorize implementation or adopt the remaining proposed defaults for
+outputs, center selection, loops, or invalid edits. It supersedes any implication
+above that a physical example must precede the diagram release; the review's
+other evidence and unresolved mathematical deliverables are unchanged.
+
+## Subsequent acceptance and Stage 1 authorization — 2026-11-04
+
+The user then accepted the recommended product defaults: diagram/save/open/SVG
+outputs, discrete required hole centers, untwisted loops with explicit
+open-strips-only compatibility reporting, and grouped atomic edits. Circular
+extent and a separate corner mode remain the accepted defaults. The separate
+diagram and physical gates remain in force.
+
+Stage 1 mathematical research is now authorized; whole-project readiness and
+implementation are not. Its scoped results may be Validated, Invalid with a
+witness, or Unvalidated with explicit limits. It need not find a successful
+replacement for a failed candidate. Physical assumptions must be stated, and
+custom-cut stock must never silently replace straight stock. The authorized work
+ends at the model, hole/phase catalogue, seam/continuation evidence, compatibility
+results and acceptance-fixture plan for review.
+
+The forensic Python comment and report key were corrected from an independent/
+observed count to a model-assisted `replayEndpointOccurrences` count. Its
+computation is unchanged. These subsequent instructions supersede the earlier
+pending-decision and preparation-only status statements in this historical review.

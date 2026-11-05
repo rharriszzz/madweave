@@ -79,9 +79,9 @@ assert report['rmsFromStraightLine'] < .3
 caps = json.loads((OUT / 'endcaps.json').read_text())
 upper = caps['upper']
 assert len(upper) == 24
-# Independent track count: 24 upper-half ends versus the ordinary 18 for six
-# strips in each of three planar families. Do not count the incomplete bottom.
-report['upperHalfCount'] = {'observedTracks': len(upper), 'ordinaryPlanarTracks': 18,
+# Model-assisted count from historical replay: 24 upper-half endpoint occurrences
+# versus 18 assumed planar tracks. This is not an independent raster measurement.
+report['upperHalfCount'] = {'replayEndpointOccurrences': len(upper), 'ordinaryPlanarTracks': 18,
                            'paperAngleRatio': len(upper)/18,
                            'codeMultiplier': 18/len(upper)}
 (OUT / 'curve-analysis.json').write_text(json.dumps(report, indent=2)+'\n')
