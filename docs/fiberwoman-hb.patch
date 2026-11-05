@@ -1,0 +1,11 @@
+--- madweave.js
++++ madweave.js
+@@ -1188,7 +1188,7 @@
+     var child = buttons.firstChild;
+     while (child != null) {
+         var nextChild = child.nextSibling;
+-        if (child.hasAttributes() && child.getAttribute("id").match("gbutton.*")) {
++        if (child.nodeType === 1 && child.hasAttributes() && child.getAttribute("id").match("gbutton.*")) {
+             child.setAttribute("visibility", hidingButtons?"hidden":"visible");
+         }
+         child = nextChild;
