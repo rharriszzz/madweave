@@ -257,6 +257,7 @@ const server=http.createServer((req,res)=>{
      await page.locator('#seams').uncheck();
     }
     await page.locator('#clear').click();
+    await page.locator('#diagram').scrollIntoViewIfNeeded();
     const click=samples.find(a=>a.positions.length&&a.XY[0]!==0);
     const screen=await page.evaluate(row=>{
      const m=window.corner.model,p=m.map([row.XY[0]/Math.sqrt(3),row.XY[1]],row.sector);

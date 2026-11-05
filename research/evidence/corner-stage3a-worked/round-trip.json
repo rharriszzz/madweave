@@ -1,0 +1,189 @@
+{
+  "browser": "145.0.7632.6",
+  "before": {
+    "format": "madweave-corner-project",
+    "version": 1,
+    "catalogue": "corner-nine-v1",
+    "construction": {
+      "id": "self",
+      "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      }
+    },
+    "material": {
+      "pattern": null
+    },
+    "view": {
+      "rotation": 23,
+      "outlines": false,
+      "seams": false,
+      "edges": false,
+      "annotations": false,
+      "center": [
+        1.25,
+        -0.75
+      ]
+    },
+    "selection": {
+      "strip": "0:0:3",
+      "local": {
+        "sector": 0,
+        "point": [
+          0.8660254037844386,
+          0.4999999999999999
+        ],
+        "positions": [
+          "0:2:3",
+          "0:0:3"
+        ],
+        "active": "0:0:3",
+        "crossing": {
+          "pair": [
+            [
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "XY": [
+            "3/2",
+            "1/2"
+          ]
+        }
+      }
+    }
+  },
+  "otherPosition": {
+    "strip": "0:0:3",
+    "local": {
+      "sector": 0,
+      "point": [
+        0.8660254037844386,
+        0.4999999999999999
+      ],
+      "positions": [
+        "0:2:3",
+        "0:0:3"
+      ],
+      "active": "0:2:3",
+      "crossing": {
+        "pair": [
+          [
+            0,
+            0,
+            3
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ],
+        "XY": [
+          "3/2",
+          "1/2"
+        ]
+      }
+    }
+  },
+  "after": {
+    "format": "madweave-corner-project",
+    "version": 1,
+    "catalogue": "corner-nine-v1",
+    "construction": {
+      "id": "self",
+      "digest": "42fbae9a6f5abba54903c4b5d57719864f7937d9bacf8167a431a86b449a93c8",
+      "parameters": {
+        "alpha": 120,
+        "sectors": 1,
+        "beta": 120,
+        "f": "3",
+        "k": [
+          0,
+          0,
+          0
+        ],
+        "C": 0,
+        "hand": 0,
+        "X": 0,
+        "member": null,
+        "W_over_P": "3/4",
+        "R_over_P": "3"
+      }
+    },
+    "material": {
+      "pattern": null
+    },
+    "view": {
+      "rotation": 90,
+      "outlines": false,
+      "seams": false,
+      "edges": false,
+      "annotations": false,
+      "center": [
+        1.25,
+        -0.75
+      ]
+    },
+    "selection": {
+      "strip": "0:0:3",
+      "local": {
+        "sector": 0,
+        "point": [
+          0.8660254037844386,
+          0.4999999999999999
+        ],
+        "positions": [
+          "0:2:3",
+          "0:0:3"
+        ],
+        "active": "0:0:3",
+        "crossing": {
+          "pair": [
+            [
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              2,
+              3
+            ]
+          ],
+          "XY": [
+            "3/2",
+            "1/2"
+          ]
+        }
+      }
+    }
+  },
+  "offlineNetworkRequests": [],
+  "files": [
+    "01-self-23.corner.html",
+    "02-self-90.corner.html",
+    "03-self-artwork.svg",
+    "04-self-inspection.svg"
+  ]
+}

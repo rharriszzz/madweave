@@ -1,5 +1,10 @@
 # Stage 2 correction handoff: coherent transactions and visible paint
 
+**Later bounded authorization:** [Stage 3A](SINGLE_CORNER_STAGE3A.md) extends these
+transactions to portable editable files and static SVG for the same nine
+constructions. Statements below about no persistence or Stage 3 authorization
+record this correction pass's checkpoint; the remaining product stage stays on hold.
+
 This bounded correction pass starts from `951bc4c` on
 `docs/single-corner-prompt`. The user authorized prototype corrections, failure
 regressions, a real visible-paint negative control, and optional monochrome

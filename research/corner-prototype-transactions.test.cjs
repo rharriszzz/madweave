@@ -69,6 +69,7 @@ async function run(page,url,{baseline=false}={}){
  });
  await record('failed-next-local-position',async()=>{
   await prime(page,url,'self');
+  await page.locator('#diagram').scrollIntoViewIfNeeded();
   const screen=await page.evaluate(()=>{
    const c=window.corner,m=c.model,key=a=>a.join(':'),e=m.certificate.crossings.find(e=>key(e.pair[0])!==key(e.pair[1])&&m.owner.get(key(e.pair[0]))===m.owner.get(key(e.pair[1])));
    const n=x=>String(x).split('/').map(Number).reduce((a,b)=>a/b),p=m.map([n(e.XY[0])/Math.sqrt(3),n(e.XY[1])],e.pair[0][0]);

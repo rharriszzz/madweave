@@ -1,5 +1,11 @@
 # Independent single-corner prompt review
 
+**Later bounded authorization:** [Stage 3A](SINGLE_CORNER_STAGE3A.md) adds portable
+editable save/open, offline reopening and static SVG for the existing nine
+certified constructions. Earlier Stage 3 hold statements below describe their
+historical checkpoints. Full product integration and physical validation remain
+separate, unauthorized gates.
+
 The later [Stage 2 correction handoff](SINGLE_CORNER_STAGE2_CORRECTIONS.md)
 records transactional control/request fixes and corrects the earlier visible-
 paint test description. Its new negative control changes the actual compound

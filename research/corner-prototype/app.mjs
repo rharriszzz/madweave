@@ -1,8 +1,11 @@
 import {Diagram,number,id,boundary,pathFor,TAU} from './kernel.mjs';
+import {Project} from './project.mjs';
+import {makePackage} from './offline.mjs';
+import {BUNDLE} from './bundle.mjs';
 const $=s=>document.querySelector(s),svg=$('#diagram'),NS=svg.namespaceURI;
 const colors=['#477f79','#bd713d','#8b6da5'];
-let registry=[],state=null,revision=0,pending=false;
-const defaults={rotation:23,outlines:false,seams:true,edges:false};
+let registry=[],state=null,revision=0,pending=false,initialized=false;
+const defaults=Project.defaults,standalone=Boolean(document.getElementById('corner-assets')),Package=makePackage(BUNDLE);
 const node=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);parent?.append(e);return e;};
 const openPath=mesh=>pathFor(mesh).replace(/ Z$/,'');
 function report(status,message){
@@ -25,9 +28,9 @@ function cloneState(){
 function syncControls(){
   const view=state?.view||defaults;
   $('#example').disabled=registry.length===0;
-  for(const control of document.querySelectorAll('.controls select,.controls input,.controls button'))if(control.id!=='example')control.disabled=!state;
+  for(const control of document.querySelectorAll('.controls select,.controls input,.controls button'))if(control.id!=='example')control.disabled=['open-project','open-file'].includes(control.id)?registry.length===0:!state;
   $('#example').value=state?.entry.id||'';$('#rotation').value=String(view.rotation);
-  for(const [name,key]of [['outlines','outlines'],['seams','seams'],['visible-edges','edges']])$('#'+name).checked=view[key];
+  for(const [name,key]of [['outlines','outlines'],['seams','seams'],['visible-edges','edges'],['export-annotations','annotations']])$('#'+name).checked=view[key];
   if(!state){$('#color').value='mono';$('#strip').value='';$('#crossing').value='';return;}
   const {model,entry,selected,crossing}=state;
   for(const option of $('#color').options){
@@ -59,7 +62,7 @@ function inspection(s){
 }
 // This routine touches only a candidate model and a detached SVG. It does not
 // change active controls, active geometry, selection or the committed model.
-function prepare(s){
+function prepare(s,exportSigma=null){
   const {model,entry,selected,view}=s;model.rotation=view.rotation*Math.PI/180;
   const pad=model.R+.3,viewBox=`${model.center[0]-pad} ${model.center[1]-pad} ${2*pad} ${2*pad}`;
   const matrix=svg.getScreenCTM(),oldWidth=svg.viewBox.baseVal.width;
@@ -70,6 +73,7 @@ function prepare(s){
     const tr=a*a+b*b+c*c+d*d,det=a*d-b*c;
     sigma=Math.sqrt((tr+Math.sqrt(Math.max(0,tr*tr-4*det*det)))/2);
   }else{const box=svg.getBoundingClientRect();sigma=Math.min(box.width,box.height)/(2*pad);}
+  if(exportSigma!==null)sigma=exportSigma;
   const epsilon=Math.min(model.W/1000,.25/sigma)/8;
   const meshes=new Map([...model.parts.keys()].map(position=>[position,model.pieceMesh(position,epsilon)]));
   const cellMeshes=model.cells.map(cell=>model.mesh(cell.edges,cell.j,epsilon));
@@ -134,7 +138,12 @@ function commit(candidate,drawing,{quiet=false}={}){
   // This synchronous commit has no network or other user-code await points.
   state=candidate;svg.setAttribute('viewBox',drawing.viewBox);svg.replaceChildren(...drawing.root.childNodes);
   syncControls();$('#summary').textContent=drawing.summary;$('#inspection').textContent=drawing.inspection;
-  $('#certificate').textContent=drawing.certificate;$('#certificate-link').href=state.entry.url;
+  $('#certificate').textContent=drawing.certificate;
+  $('#certificate-link').href=standalone?'data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(state.model.certificate)):state.entry.url;
+  if(standalone){
+    $('#certificate-link').download=`corner-${state.entry.id}.certificate.json`;
+    $('#certificate-link').textContent='Save supplied reference certificate';
+  }
   if(!quiet)report('Validated',validMessage());
 }
 function begin(){revision++;pending=false;syncControls();return revision;}
@@ -148,22 +157,27 @@ export async function load(key){
   if(!candidate){fail('Example change',Error('No supplied certificate for this example or radius'));return false;}
   pending=true;report('Loading',`Requested ${candidate.label}; ${state?'active controls still describe the previous committed diagram':'preparing first diagram'}.`);
   try{
-    const response=await fetch(candidate.url);
-    if(ticket!==revision)return false;
-    if(!response.ok)throw Error('certificate unavailable');
-    const certificate=await response.json();if(ticket!==revision)return false;
+    let certificate;
+    if(standalone)certificate=BUNDLE.catalogue.certificates[candidate.id];
+    else{
+      const response=await fetch(candidate.url);if(ticket!==revision)return false;
+      if(!response.ok)throw Error('certificate unavailable');
+      certificate=await response.json();if(ticket!==revision)return false;
+      if(!Project.same(certificate,BUNDLE.catalogue.certificates[candidate.id]))throw Error('certificate differs from trusted catalogue');
+    }
     const model=new Diagram(certificate);model.pattern=candidate.default_pattern;
     if(model.compatibility(model.pattern).status!=='Validated')throw Error('default coloring is not compatible');
-    const crossings=certificate.crossings.map((event,index)=>({event,index})).filter(({event})=>{
-      const [X,Y]=event.XY.map(number);return Y>1e-10&&X+(model.p.alpha===120?Y:-Y)>1e-10;
-    });
-    const next={model,entry:candidate,view:{...(state?.view||defaults)},selected:null,hits:[],hitIndex:0,crossing:null,crossings};
+    const crossings=Project.crossings(model);
+    const next={model,entry:candidate,view:{...(state?.view||defaults)},selected:null,hits:[],hitIndex:0,crossing:null,crossings,anchor:null};
     const drawing=prepare(next);if(ticket!==revision)return false;
     commit(next,drawing);return true;
   }catch(error){if(ticket===revision)fail('Example change',error);return false;}
   finally{if(ticket===revision)pending=false;}
 }
-function choosePoint(s,point,crossing=null){s.hits=s.model.pick(point);s.hitIndex=0;s.selected=s.hits[0]?.strip??null;s.crossing=crossing;}
+function choosePoint(s,point,crossing=null){
+  s.hits=s.model.pick(point);s.hitIndex=0;s.selected=s.hits[0]?.strip??null;s.crossing=crossing;
+  const inverse=s.model.inverse(point);s.anchor=s.hits.length?{sector:inverse.j,point:inverse.local}:null;
+}
 function selectPoint(point){const ok=transition('Position inspection',s=>choosePoint(s,point));return ok?state.hits:[];}
 svg.addEventListener('pointerdown',event=>transition('Position inspection',s=>{
   const p=new DOMPoint(event.clientX,event.clientY).matrixTransform(svg.getScreenCTM().inverse());choosePoint(s,[p.x,p.y]);
@@ -178,10 +192,10 @@ $('#color').onchange=()=>{
   });
 };
 $('#rotation').onchange=()=>{const value=Number($('#rotation').value);return transition('View change',s=>{s.view.rotation=value;});};
-for(const [control,key]of [['outlines','outlines'],['seams','seams'],['visible-edges','edges']])$('#'+control).onchange=()=>{
+for(const [control,key]of [['outlines','outlines'],['seams','seams'],['visible-edges','edges'],['export-annotations','annotations']])$('#'+control).onchange=()=>{
   const value=$('#'+control).checked;return transition('View change',s=>{s.view[key]=value;});
 };
-$('#strip').onchange=()=>{const value=$('#strip').value;return transition('Strip inspection',s=>{s.selected=value===''?null:Number(value);s.hits=[];s.hitIndex=0;s.crossing=null;});};
+$('#strip').onchange=()=>{const value=$('#strip').value;return transition('Strip inspection',s=>{s.selected=value===''?null:Number(value);s.hits=[];s.hitIndex=0;s.crossing=null;s.anchor=null;});};
 $('#crossing').onchange=()=>{
   const value=$('#crossing').value;
   return transition('Crossing inspection',s=>{
@@ -191,7 +205,55 @@ $('#crossing').onchange=()=>{
   });
 };
 $('#next').onclick=()=>transition('Local-position inspection',s=>{if(s.hits.length){s.hitIndex=(s.hitIndex+1)%s.hits.length;s.selected=s.hits[s.hitIndex].strip;}});
-$('#clear').onclick=()=>transition('Clear selection',s=>{s.selected=null;s.hits=[];s.hitIndex=0;s.crossing=null;});
+$('#clear').onclick=()=>transition('Clear selection',s=>{s.selected=null;s.hits=[];s.hitIndex=0;s.crossing=null;s.anchor=null;});
+async function openFile(file){
+  const ticket=begin();pending=true;report('Loading',`Reading editable project ${file.name}; active design retained.`);
+  try{
+    const text=await file.text();if(ticket!==revision)return false;
+    const next=Project.restore(Project.parse(text),BUNDLE.catalogue),drawing=prepare(next);
+    if(ticket!==revision)return false;commit(next,drawing);return true;
+  }catch(error){if(ticket===revision)fail('Open project',error);return false;}
+  finally{if(ticket===revision)pending=false;}
+}
+function download(text,type,filename){
+  const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');
+  a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
+}
+function saveProject(){
+  const ticket=begin();
+  try{
+    const project=Project.capture(state,BUNDLE.catalogue);Project.restore(project,BUNDLE.catalogue);
+    const html=Package.html(project);download(html,'text/html;charset=utf-8',`corner-${state.entry.id}.corner.html`);
+    report('Validated','Self-contained editable project prepared. Physical constructibility unverified.');return true;
+  }catch(error){if(ticket===revision)fail('Save project',error);return false;}
+}
+function exportArtwork(){
+  const ticket=begin();
+  try{
+    const next=cloneState(),include=next.view.annotations;
+    if(!include){next.view={...next.view,edges:false,seams:false,outlines:false};next.selected=null;}
+    const width=1024,span=2*(next.model.R+.3),drawing=prepare(next,width/span),root=drawing.root;
+    const minX=next.model.center[0]-span/2,minY=next.model.center[1]-span/2;
+    root.setAttribute('viewBox',`${minX} ${minY} ${span} ${span*1.075}`);
+    root.setAttribute('width',width);root.setAttribute('height',Math.ceil(width*1.075));
+    const title=node('title',{},root);title.textContent='Angular diagram artwork — physical constructibility unverified';
+    const desc=node('desc',{},root);desc.textContent=`Not an editable project or fabrication template. Inspection annotations ${include?'included':'excluded'}.`;
+    const style=node('style',{},root);style.textContent=(BUNDLE.css.match(/\.(?:selection|outline|seam|partner|visible-boundary)\{[^}]*\}/g)||[]).join('\n');
+    const background=node('rect',{x:minX,y:minY,width:span,height:span*1.075,fill:'white','data-background':'true'},null);root.prepend(background);
+    const info=node('metadata',{id:'corner-artwork-info'},root);info.textContent=JSON.stringify({format:'madweave-corner-artwork',version:1,
+      parameters:next.model.p,pattern:next.model.pattern,rotation:next.view.rotation,center:next.model.center,inspectionAnnotations:include,
+      components:next.model.certificate.components,joins:next.model.certificate.joins,crossings:next.model.certificate.crossings,
+      approximation:JSON.parse(drawing.certificate)});
+    for(const [i,text]of ['Angular diagram artwork — physical constructibility unverified.',`Not an editable project or fabrication template. Inspection annotations: ${include?'included':'excluded'}.`].entries()){
+      const label=node('text',{x:minX+span*.02,y:minY+span*(1.026+i*.025),'font-size':span/66,fill:'#203c3b','font-family':'sans-serif'},root);label.textContent=text;
+    }
+    download('<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(root),'image/svg+xml',`corner-${state.entry.id}.${include?'inspection':'diagram'}.svg`);
+    report('Validated',`Static SVG artwork prepared; inspection annotations ${include?'included':'excluded'}. This is not an editable project or fabrication template.`);return true;
+  }catch(error){if(ticket===revision)fail('SVG export',error);return false;}
+}
+$('#save-project').onclick=saveProject;$('#export-svg').onclick=exportArtwork;
+$('#open-project').onclick=()=>$('#open-file').click();
+$('#open-file').onchange=()=>{const file=$('#open-file').files[0];$('#open-file').value='';if(file)return openFile(file);};
 function refresh(){
   if(!state)return false;
   const ticket=revision;
@@ -202,14 +264,17 @@ let resizeTimer;new ResizeObserver(()=>{
   clearTimeout(resizeTimer);const ticket=revision;
   resizeTimer=setTimeout(()=>{if(ticket===revision)refresh();},150);
 }).observe(svg);
-window.corner={get model(){return state?.model;},get ready(){return Boolean(state);},get pending(){return pending;},
+window.corner={get model(){return state?.model;},get ready(){return Boolean(state);},get initialized(){return initialized;},get pending(){return pending;},
   get entry(){return state?.entry;},load,selectPoint,draw:refresh,
   setPattern(pattern){$('#color').value=pattern===null?'mono':String(pattern);return $('#color').onchange();},
+  captureProject(){return Project.capture(state,BUNDLE.catalogue);},
   get selection(){return {selected:state?.selected??null,hits:state?.hits||[],hitIndex:state?.hitIndex||0};}};
 syncControls();
 try{
-  registry=await(await fetch('examples.json')).json();
+  registry=BUNDLE.catalogue.examples;
   for(const row of registry)$('#example').append(new Option(row.label,row.id));
   for(const text of ['Other radii — Unvalidated','Circle-through-vertex / cap-end cases — Unvalidated']){const option=new Option(text,'unsupported');option.disabled=true;$('#example').append(option);}
   await load('excess');
-}catch(error){fail('Catalogue load',error);}
+  const embedded=document.getElementById('corner-project');
+  if(embedded){const restored=Project.restore(Project.parse(embedded.textContent),BUNDLE.catalogue);commit(restored,prepare(restored));}
+}catch(error){fail('Initial project load',error);}finally{initialized=true;}

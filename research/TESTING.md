@@ -1,5 +1,17 @@
 # Planar research testing
 
+The [Stage 3A portable diagram tests](SINGLE_CORNER_STAGE3A.md) add
+`python3 research/build-corner-package.py`,
+`node research/corner-project-browser.test.cjs`, and
+`node research/corner-project-isolation.test.cjs`. The browser tests start their
+own loopback servers. They exercise the real save/open/export controls, all
+nine examples and 33 compatible example/pattern pairs per engine, blocked-network
+file reopening/resaving, semantic and independent SVG checks, rejected imports,
+overlapping operations, exact-ray selection persistence, and separate planar
+version-1 file meanings. These are separate from the historical planar suite
+stage count. Rebuild the package after changing prototype source/template/CSS
+or the certified catalogue; commit the generated `bundle.mjs` for buildless use.
+
 The [Stage 2 correction pass](SINGLE_CORNER_STAGE2_CORRECTIONS.md) adds
 `research/corner-prototype-transactions.test.cjs`. The normal prototype browser
 runner calls its 17 actual-control failure/race tests in every engine. A focused

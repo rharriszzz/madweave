@@ -1,5 +1,10 @@
 # Stage 2: separate single-corner diagram prototype
 
+**Later bounded authorization:** [Stage 3A](SINGLE_CORNER_STAGE3A.md) adds portable
+editable save/open, offline reopening and static SVG for these same nine
+constructions. The scope/hold statements below describe the original Stage 2
+checkpoint; the rest of Stage 3 and production integration remain on hold.
+
 **Correction pass from `951bc4c`:** [coherent transactions and visible-paint
 validation](SINGLE_CORNER_STAGE2_CORRECTIONS.md) records reproduced failures,
 the completed fixes, the actual visible-paint mutation, and optional monochrome

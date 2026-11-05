@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Single-corner diagram · Stage 2 prototype</title><link rel="stylesheet" href="style.css"></head>
-<body><header><p class="eyebrow">MadWeave research · Stage 2</p><h1>Single-corner diagram</h1>
+<title>Single-corner diagram · Stage 3A prototype</title><link rel="stylesheet" href="style.css"></head>
+<body><header><p class="eyebrow">MadWeave research · Stage 3A</p><h1>Single-corner diagram</h1>
 <p>Certified reference examples. Physical constructibility is unverified. This diagram is not a cutting template.</p>
 <p>The examples illustrate the general 60° monochrome baseline and pattern restrictions. They are not the eventual allowed-angle list.</p></header>
 <main><section class="controls" aria-label="Prototype controls">
@@ -14,9 +14,14 @@
 <label class="check"><input id="outlines" type="checkbox"> Dashed hidden-material / sector-piece inspection</label>
 <label class="check"><input id="seams" type="checkbox" checked> Seam rays and selected partners</label>
 <button id="next" type="button">Next local position at click</button><button id="clear" type="button">Clear selection</button>
+<button id="save-project" type="button">Save editable project (offline HTML)</button>
+<button id="open-project" type="button">Open editable project</button><input id="open-file" type="file" accept=".html,.json" hidden>
+<label class="check"><input id="export-annotations" type="checkbox"> Include current inspection annotations in SVG</label>
+<button id="export-svg" type="button">Export static SVG artwork</button>
+<p class="limits">Editable HTML includes the runtime and catalogue for offline reopening. SVG is artwork only; neither output is a fabrication template.</p>
 <p id="summary"></p><p id="status" role="status" aria-live="polite">Loading certified examples…</p>
 <p class="limits">Only the listed certificates are supported. Other radii, circle-through-vertex degeneracies and nonstandard cap ends remain Unvalidated. Rejected choices preserve the current diagram.</p>
 </section><section class="drawing" aria-label="Angular diagram"><svg id="diagram" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Radius-preserving angular diagram" tabindex="0"></svg></section>
 <aside><h2>Material inspection</h2><p>Click or choose a crossing with the keyboard. Positions are listed OVER to UNDER; cycle to inspect each one, including separate positions of a self-crossing. Solid dark boundaries show visible edges only. Dashed piece outlines and orange whole-strip selection include hidden material and conceptual cuts.</p><pre id="inspection">No strip selected.</pre><details><summary>Certificate and approximation</summary><pre id="certificate"></pre><a id="certificate-link">Open supplied reference certificate</a></details></aside></main>
-<footer><a href="../SINGLE_CORNER_STAGE2_CORRECTIONS.md">Research notes and reproducible checks</a> · <a href="../../editor.html">Existing planar editor</a></footer>
+<footer><a href="../SINGLE_CORNER_STAGE3A.md">Save/open, offline examples and checks</a> · <a href="../../editor.html">Existing planar editor</a></footer>
 <script type="module" src="app.mjs"></script></body></html>
