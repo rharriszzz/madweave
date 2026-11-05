@@ -1,5 +1,12 @@
 # Planar research testing
 
+For the separate [Stage 2 prototype](SINGLE_CORNER_STAGE2.md), rebuild the fixed
+catalogue/oracles with `python3 research/build-corner-prototype.py` and run
+`node research/corner-prototype-browser.test.cjs` with Playwright and pngjs
+available through NODE_PATH. That test starts its own loopback server, checks
+Chromium/Firefox/WebKit and passes actual SVG identity/order records back to the
+independent Python checker. Browser installation and host details are in the report.
+
 The [bounded crop follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md) adds
 `python3 research/corner-crop-followup.py` after the Stage 1 reproduction below,
 and `python3 research/corner-coordinate-check.py` for rotated inverse/circle

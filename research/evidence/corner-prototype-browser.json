@@ -1,0 +1,1382 @@
+[
+  {
+    "browser": "chromium",
+    "version": "145.0.7632.6",
+    "rows": [
+      {
+        "id": "planar",
+        "probes": 663,
+        "occupied": 498,
+        "empty": 165,
+        "pixels": 178,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "segments": 2391,
+        "circularSegments": 1188,
+        "maxMeasured": 9.11907406309217e-05,
+        "maxBound": 9.119130261972968e-05,
+        "pixelBound": 0.012214107981919568,
+        "boundaryChecks": 216,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": true
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": true
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "deficit",
+        "probes": 442,
+        "occupied": 332,
+        "empty": 110,
+        "pixels": 172,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "segments": 10532,
+        "circularSegments": 1174,
+        "maxMeasured": 9.320213423874204e-05,
+        "maxBound": 9.374247342326456e-05,
+        "pixelBound": 0.012555810258118371,
+        "boundaryChecks": 144,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "excess",
+        "probes": 1264,
+        "occupied": 1004,
+        "empty": 260,
+        "pixels": 200,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "segments": 34012,
+        "circularSegments": 1828,
+        "maxMeasured": 9.347991739725883e-05,
+        "maxBound": 9.370921913171397e-05,
+        "pixelBound": 0.006574519619401187,
+        "boundaryChecks": 576,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": {
+          "bandMismatch": true,
+          "maskMismatch": true,
+          "painterMismatch": true,
+          "depthExhaustionUnvalidated": true,
+          "numericReserveUnvalidated": true
+        },
+        "fringeSelection": {
+          "position": "0:2:-3",
+          "strip": 12,
+          "pieces": 2,
+          "partners": 1
+        }
+      },
+      {
+        "id": "sixty",
+        "probes": 615,
+        "occupied": 440,
+        "empty": 175,
+        "pixels": 190,
+        "counts": {
+          "occurrences": 45,
+          "joins": 30,
+          "open_strips": 15,
+          "outer_ends": 30,
+          "centerline_crossings": 60,
+          "self_crossings": 0
+        },
+        "segments": 8540,
+        "circularSegments": 1170,
+        "maxMeasured": 9.232609566541066e-05,
+        "maxBound": 9.367843878686293e-05,
+        "pixelBound": 0.012547233497603677,
+        "boundaryChecks": 360,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": false
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": false
+          },
+          {
+            "pattern": 4,
+            "valid": false
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "c-on",
+        "probes": 884,
+        "occupied": 664,
+        "empty": 220,
+        "pixels": 184,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "segments": 12756,
+        "circularSegments": 1216,
+        "maxMeasured": 9.160529919466801e-05,
+        "maxBound": 9.336717917405488e-05,
+        "pixelBound": 0.012505543573103952,
+        "boundaryChecks": 288,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": false
+          },
+          {
+            "pattern": 2,
+            "valid": true
+          },
+          {
+            "pattern": 3,
+            "valid": false
+          },
+          {
+            "pattern": 4,
+            "valid": false
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "self",
+        "probes": 221,
+        "occupied": 166,
+        "empty": 55,
+        "pixels": 166,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "segments": 13014,
+        "circularSegments": 1145,
+        "maxMeasured": 9.342568897305777e-05,
+        "maxBound": 9.372820497363538e-05,
+        "pixelBound": 0.012553899150594969,
+        "boundaryChecks": 72,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-1",
+        "probes": 912,
+        "occupied": 424,
+        "empty": 488,
+        "pixels": 192,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 11600,
+        "circularSegments": 608,
+        "maxMeasured": 9.263809941968013e-05,
+        "maxBound": 9.310467508222404e-05,
+        "pixelBound": 0.005637296617960826,
+        "boundaryChecks": 384,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-0",
+        "probes": 820,
+        "occupied": 360,
+        "empty": 460,
+        "pixels": 176,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 12636,
+        "circularSegments": 852,
+        "maxMeasured": 9.351426327569966e-05,
+        "maxBound": 9.374414442797464e-05,
+        "pixelBound": 0.005676015171856275,
+        "boundaryChecks": 192,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-2",
+        "probes": 844,
+        "occupied": 408,
+        "empty": 436,
+        "pixels": 176,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 12660,
+        "circularSegments": 864,
+        "maxMeasured": 9.351426327512467e-05,
+        "maxBound": 9.374414442797436e-05,
+        "pixelBound": 0.005676015171856259,
+        "boundaryChecks": 192,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      }
+    ],
+    "errors": [],
+    "mobileBoundPassed": true
+  },
+  {
+    "browser": "firefox",
+    "version": "155.0",
+    "rows": [
+      {
+        "id": "planar",
+        "probes": 663,
+        "occupied": 498,
+        "empty": 165,
+        "pixels": 178,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "segments": 2391,
+        "circularSegments": 1188,
+        "maxMeasured": 9.119074063061294e-05,
+        "maxBound": 9.119130261972968e-05,
+        "pixelBound": 0.01221410763676757,
+        "boundaryChecks": 216,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": true
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": true
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "deficit",
+        "probes": 442,
+        "occupied": 332,
+        "empty": 110,
+        "pixels": 172,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "segments": 10532,
+        "circularSegments": 1174,
+        "maxMeasured": 9.320213423866163e-05,
+        "maxBound": 9.374247342326455e-05,
+        "pixelBound": 0.012555809903310388,
+        "boundaryChecks": 144,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "excess",
+        "probes": 1264,
+        "occupied": 1004,
+        "empty": 260,
+        "pixels": 200,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "segments": 34012,
+        "circularSegments": 1828,
+        "maxMeasured": 9.347991739680223e-05,
+        "maxBound": 9.370921913171397e-05,
+        "pixelBound": 0.006574519761705599,
+        "boundaryChecks": 576,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": {
+          "bandMismatch": true,
+          "maskMismatch": true,
+          "painterMismatch": true,
+          "depthExhaustionUnvalidated": true,
+          "numericReserveUnvalidated": true
+        },
+        "fringeSelection": {
+          "position": "0:2:-3",
+          "strip": 12,
+          "pieces": 2,
+          "partners": 1
+        }
+      },
+      {
+        "id": "sixty",
+        "probes": 615,
+        "occupied": 440,
+        "empty": 175,
+        "pixels": 190,
+        "counts": {
+          "occurrences": 45,
+          "joins": 30,
+          "open_strips": 15,
+          "outer_ends": 30,
+          "centerline_crossings": 60,
+          "self_crossings": 0
+        },
+        "segments": 8540,
+        "circularSegments": 1170,
+        "maxMeasured": 9.232609566555788e-05,
+        "maxBound": 9.367843878686293e-05,
+        "pixelBound": 0.01254723314303806,
+        "boundaryChecks": 360,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": false
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": false
+          },
+          {
+            "pattern": 4,
+            "valid": false
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "c-on",
+        "probes": 884,
+        "occupied": 664,
+        "empty": 220,
+        "pixels": 184,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "segments": 12756,
+        "circularSegments": 1216,
+        "maxMeasured": 9.160529919439395e-05,
+        "maxBound": 9.336717917405484e-05,
+        "pixelBound": 0.012505543219716425,
+        "boundaryChecks": 288,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": false
+          },
+          {
+            "pattern": 2,
+            "valid": true
+          },
+          {
+            "pattern": 3,
+            "valid": false
+          },
+          {
+            "pattern": 4,
+            "valid": false
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "self",
+        "probes": 221,
+        "occupied": 166,
+        "empty": 55,
+        "pixels": 166,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "segments": 13014,
+        "circularSegments": 1145,
+        "maxMeasured": 9.342568897294736e-05,
+        "maxBound": 9.372820497363538e-05,
+        "pixelBound": 0.012553898795840991,
+        "boundaryChecks": 72,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-1",
+        "probes": 912,
+        "occupied": 424,
+        "empty": 488,
+        "pixels": 192,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 11600,
+        "circularSegments": 608,
+        "maxMeasured": 9.263809941887975e-05,
+        "maxBound": 9.310467508222398e-05,
+        "pixelBound": 0.0056372965706408765,
+        "boundaryChecks": 384,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-0",
+        "probes": 820,
+        "occupied": 360,
+        "empty": 460,
+        "pixels": 176,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 12636,
+        "circularSegments": 852,
+        "maxMeasured": 9.351426327569968e-05,
+        "maxBound": 9.37441444279746e-05,
+        "pixelBound": 0.005676015124211321,
+        "boundaryChecks": 192,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-2",
+        "probes": 844,
+        "occupied": 408,
+        "empty": 436,
+        "pixels": 176,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 12660,
+        "circularSegments": 864,
+        "maxMeasured": 9.351426327551215e-05,
+        "maxBound": 9.374414442797436e-05,
+        "pixelBound": 0.005676015124211307,
+        "boundaryChecks": 192,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      }
+    ],
+    "errors": [],
+    "mobileBoundPassed": true
+  },
+  {
+    "browser": "webkit",
+    "version": "26.6",
+    "rows": [
+      {
+        "id": "planar",
+        "probes": 663,
+        "occupied": 498,
+        "empty": 165,
+        "pixels": 178,
+        "counts": {
+          "occurrences": 36,
+          "joins": 18,
+          "open_strips": 18,
+          "outer_ends": 36,
+          "centerline_crossings": 72,
+          "self_crossings": 0
+        },
+        "segments": 2391,
+        "circularSegments": 1188,
+        "maxMeasured": 9.119074063085813e-05,
+        "maxBound": 9.119130261972968e-05,
+        "pixelBound": 0.012214107981919568,
+        "boundaryChecks": 216,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": true
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": true
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "deficit",
+        "probes": 442,
+        "occupied": 332,
+        "empty": 110,
+        "pixels": 172,
+        "counts": {
+          "occurrences": 24,
+          "joins": 12,
+          "open_strips": 12,
+          "outer_ends": 24,
+          "centerline_crossings": 48,
+          "self_crossings": 0
+        },
+        "segments": 10532,
+        "circularSegments": 1174,
+        "maxMeasured": 9.320213423853528e-05,
+        "maxBound": 9.374247342326455e-05,
+        "pixelBound": 0.01255581025811837,
+        "boundaryChecks": 144,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "excess",
+        "probes": 1264,
+        "occupied": 1004,
+        "empty": 260,
+        "pixels": 200,
+        "counts": {
+          "occurrences": 96,
+          "joins": 48,
+          "open_strips": 48,
+          "outer_ends": 96,
+          "centerline_crossings": 384,
+          "self_crossings": 0
+        },
+        "segments": 34012,
+        "circularSegments": 1828,
+        "maxMeasured": 9.347991739682695e-05,
+        "maxBound": 9.370921913171397e-05,
+        "pixelBound": 0.006574519619401187,
+        "boundaryChecks": 576,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": {
+          "bandMismatch": true,
+          "maskMismatch": true,
+          "painterMismatch": true,
+          "depthExhaustionUnvalidated": true,
+          "numericReserveUnvalidated": true
+        },
+        "fringeSelection": {
+          "position": "0:2:-3",
+          "strip": 12,
+          "pieces": 2,
+          "partners": 1
+        }
+      },
+      {
+        "id": "sixty",
+        "probes": 615,
+        "occupied": 440,
+        "empty": 175,
+        "pixels": 190,
+        "counts": {
+          "occurrences": 45,
+          "joins": 30,
+          "open_strips": 15,
+          "outer_ends": 30,
+          "centerline_crossings": 60,
+          "self_crossings": 0
+        },
+        "segments": 8540,
+        "circularSegments": 1170,
+        "maxMeasured": 9.232609566535212e-05,
+        "maxBound": 9.367843878686293e-05,
+        "pixelBound": 0.012547233497603677,
+        "boundaryChecks": 360,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": false
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": false
+          },
+          {
+            "pattern": 4,
+            "valid": false
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "c-on",
+        "probes": 884,
+        "occupied": 664,
+        "empty": 220,
+        "pixels": 184,
+        "counts": {
+          "occurrences": 48,
+          "joins": 24,
+          "open_strips": 24,
+          "outer_ends": 48,
+          "centerline_crossings": 96,
+          "self_crossings": 0
+        },
+        "segments": 12756,
+        "circularSegments": 1216,
+        "maxMeasured": 9.160529919418198e-05,
+        "maxBound": 9.336717917405488e-05,
+        "pixelBound": 0.012505543573103952,
+        "boundaryChecks": 288,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": false
+          },
+          {
+            "pattern": 2,
+            "valid": true
+          },
+          {
+            "pattern": 3,
+            "valid": false
+          },
+          {
+            "pattern": 4,
+            "valid": false
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "self",
+        "probes": 221,
+        "occupied": 166,
+        "empty": 55,
+        "pixels": 166,
+        "counts": {
+          "occurrences": 12,
+          "joins": 6,
+          "open_strips": 6,
+          "outer_ends": 12,
+          "centerline_crossings": 24,
+          "self_crossings": 2
+        },
+        "segments": 13014,
+        "circularSegments": 1145,
+        "maxMeasured": 9.342568897294736e-05,
+        "maxBound": 9.372820497363543e-05,
+        "pixelBound": 0.012553899150594976,
+        "boundaryChecks": 72,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-1",
+        "probes": 912,
+        "occupied": 424,
+        "empty": 488,
+        "pixels": 192,
+        "counts": {
+          "occurrences": 48,
+          "joins": 32,
+          "open_strips": 16,
+          "outer_ends": 32,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 11600,
+        "circularSegments": 608,
+        "maxMeasured": 9.263809941921565e-05,
+        "maxBound": 9.310467508222404e-05,
+        "pixelBound": 0.005637296617960826,
+        "boundaryChecks": 384,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-0",
+        "probes": 820,
+        "occupied": 360,
+        "empty": 460,
+        "pixels": 176,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 12636,
+        "circularSegments": 852,
+        "maxMeasured": 9.351426327453406e-05,
+        "maxBound": 9.37441444279746e-05,
+        "pixelBound": 0.0056760151718562735,
+        "boundaryChecks": 192,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      },
+      {
+        "id": "hex-2",
+        "probes": 844,
+        "occupied": 408,
+        "empty": 436,
+        "pixels": 176,
+        "counts": {
+          "occurrences": 36,
+          "joins": 16,
+          "open_strips": 20,
+          "outer_ends": 40,
+          "centerline_crossings": 56,
+          "self_crossings": 0
+        },
+        "segments": 12660,
+        "circularSegments": 864,
+        "maxMeasured": 9.351426327526678e-05,
+        "maxBound": 9.374414442797436e-05,
+        "pixelBound": 0.005676015171856259,
+        "boundaryChecks": 192,
+        "colorResults": [
+          {
+            "pattern": null,
+            "valid": true
+          },
+          {
+            "pattern": 0,
+            "valid": false
+          },
+          {
+            "pattern": 1,
+            "valid": true
+          },
+          {
+            "pattern": 2,
+            "valid": false
+          },
+          {
+            "pattern": 3,
+            "valid": true
+          },
+          {
+            "pattern": 4,
+            "valid": true
+          }
+        ],
+        "negativeControls": null,
+        "fringeSelection": null
+      }
+    ],
+    "errors": [],
+    "mobileBoundPassed": true
+  }
+]

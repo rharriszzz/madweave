@@ -1,5 +1,9 @@
 # Single-corner Stage 1: reference model and compatibility results
 
+**Later authorization:** the separate [Stage 2 visual prototype](SINGLE_CORNER_STAGE2.md)
+is now delivered for review. The hold statements below record this report's
+original Stage 1 boundary; Stage 3 and production integration remain on hold.
+
 **Follow-up:** [complete circular crops and independent certificate checks](SINGLE_CORNER_CROP_FOLLOWUP.md)
 now cover the R/P=6 sector fringes and neighboring radii. The limitations and
 absence of a supplied-certificate checker described below are historical to

@@ -1,0 +1,143 @@
+{
+  "cases": [
+    {
+      "id": "planar",
+      "render_cells": 101,
+      "outside_cells": 14,
+      "counts": {
+        "occurrences": 36,
+        "joins": 18,
+        "open_strips": 18,
+        "outer_ends": 36,
+        "centerline_crossings": 72,
+        "self_crossings": 0
+      }
+    },
+    {
+      "id": "deficit",
+      "render_cells": 101,
+      "outside_cells": 14,
+      "counts": {
+        "occurrences": 24,
+        "joins": 12,
+        "open_strips": 12,
+        "outer_ends": 24,
+        "centerline_crossings": 48,
+        "self_crossings": 0
+      }
+    },
+    {
+      "id": "excess",
+      "render_cells": 380,
+      "outside_cells": 61,
+      "counts": {
+        "occurrences": 96,
+        "joins": 48,
+        "open_strips": 48,
+        "outer_ends": 96,
+        "centerline_crossings": 384,
+        "self_crossings": 0
+      }
+    },
+    {
+      "id": "sixty",
+      "render_cells": 52,
+      "outside_cells": 12,
+      "counts": {
+        "occurrences": 45,
+        "joins": 30,
+        "open_strips": 15,
+        "outer_ends": 30,
+        "centerline_crossings": 60,
+        "self_crossings": 0
+      }
+    },
+    {
+      "id": "c-on",
+      "render_cells": 101,
+      "outside_cells": 14,
+      "counts": {
+        "occurrences": 48,
+        "joins": 24,
+        "open_strips": 24,
+        "outer_ends": 48,
+        "centerline_crossings": 96,
+        "self_crossings": 0
+      }
+    },
+    {
+      "id": "self",
+      "render_cells": 101,
+      "outside_cells": 14,
+      "counts": {
+        "occurrences": 12,
+        "joins": 6,
+        "open_strips": 6,
+        "outer_ends": 12,
+        "centerline_crossings": 24,
+        "self_crossings": 2
+      }
+    },
+    {
+      "id": "hex-1",
+      "render_cells": 25,
+      "outside_cells": 3,
+      "counts": {
+        "occurrences": 48,
+        "joins": 32,
+        "open_strips": 16,
+        "outer_ends": 32,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      }
+    },
+    {
+      "id": "hex-0",
+      "render_cells": 56,
+      "outside_cells": 10,
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      }
+    },
+    {
+      "id": "hex-2",
+      "render_cells": 56,
+      "outside_cells": 9,
+      "counts": {
+        "occurrences": 36,
+        "joins": 16,
+        "open_strips": 20,
+        "outer_ends": 40,
+        "centerline_crossings": 56,
+        "self_crossings": 0
+      }
+    }
+  ],
+  "partition_mutations": [
+    {
+      "mutation": "missing-cell",
+      "status": "Invalid",
+      "witness": "Incomplete order-region material coverage"
+    },
+    {
+      "mutation": "duplicated-cell",
+      "status": "Invalid",
+      "witness": "Duplicated order-region material"
+    },
+    {
+      "mutation": "wrong-members",
+      "status": "Invalid",
+      "witness": "Incorrect order-region membership"
+    },
+    {
+      "mutation": "false-outside",
+      "status": "Invalid",
+      "witness": "Positive cropped material marked outside"
+    }
+  ]
+}

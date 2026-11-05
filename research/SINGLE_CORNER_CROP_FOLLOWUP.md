@@ -1,5 +1,10 @@
 # Stage 1 follow-up: complete circular crops and supplied-certificate checks
 
+**Later authorization:** the separate [Stage 2 visual prototype](SINGLE_CORNER_STAGE2.md)
+uses these reference constructions. Its handoff corrects the mutation below to
+select two distinct positions in the same global strip explicitly before
+collapsing them. Earlier scope/hold statements remain historical to this pass.
+
 Bounded research on `docs/single-corner-prompt`, starting at `69c7d3a`.
 The previous [Stage 1 report](SINGLE_CORNER_STAGE1.md) remains the source for
 the model, phase/angle families and accepted product requirements. This follow-up

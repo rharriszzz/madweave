@@ -75,6 +75,25 @@
     }
   ],
   "legitimate_self_crossings": 2,
+  "self_crossing_mutation_selection": {
+    "positions": [
+      [
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ]
+    ],
+    "global_strip": 0,
+    "XY": [
+      "3/2",
+      "1/2"
+    ]
+  },
   "legitimate_separate_location_cycle": [
     0,
     3,

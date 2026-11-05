@@ -104,6 +104,40 @@ def precedence(a,b,p):
     return value
 
 
+def validate_render_partition(c,bands):
+    """Independent exact coverage proof for Stage 2's optional cell partition.
+
+    Distinct plane-sign signatures give disjoint interiors. Exact area sums
+    within each full reference band prove completeness before circular clipping.
+    Exact disk predicates then prove that omitted cells have zero crop area.
+    No clipping algorithm or producer cells are used as expected answers.
+    """
+    p=c['parameters'];R=Q(p['R_over_P']);w=Q(p['W_over_P'])
+    cuts={(N[d],Q(s)-Q(5,2)+sign*w/2) for d,s in bands for sign in (-1,1)}
+    cuts=sorted(cuts)
+    signatures=set();areas={a:Q(0) for a in bands}
+    def twice_area(poly):return sum(a[0]*b[1]-a[1]*b[0] for a,b in zip(poly,poly[1:]+poly[:1]))
+    for visible,rows in [(True,c['render_cells']),(False,c['render_outside_cells'])]:
+        for row in rows:
+            poly=[tuple(map(Q,a)) for a in row['vertices']];convex=hull(poly)
+            require(len(set(poly))==len(poly) and len(convex)>=3 and twice_area(poly)==twice_area(convex)>0,'Nonconvex/invalid order-region polygon')
+            require(all(abs(x)<=2*R and abs(y)<=R and y>=0 and x+(y if p['alpha']==120 else -y)>=0 for x,y in poly),'Order region outside reference wedge')
+            signature=[]
+            for n,b in cuts:
+                values=[dot(n,a)-b for a in poly]
+                require(not(min(values)<0<max(values)),'Order region crosses a material boundary')
+                signature.append(max(values)>0)
+            signature=tuple(signature)
+            require(signature not in signatures,'Duplicated order-region material');signatures.add(signature)
+            mean=tuple(sum(a[i] for a in poly)/len(poly) for i in range(2))
+            members={a for a in bands if abs(dot(N[a[0]],mean)-(Q(a[1])-Q(5,2)))<w/2}
+            supplied=[tuple(a) for a in row['members']]
+            require(members and len(supplied)==len(set(supplied)) and set(supplied)==members,'Incorrect order-region membership')
+            require(inside(convex,R)==visible,'Positive cropped material marked outside')
+            for a in members:areas[a]+=twice_area(convex)
+    require(all(areas[a]==twice_area(poly) for a,poly in bands.items()),'Incomplete order-region material coverage')
+
+
 @lru_cache(maxsize=256)
 def reference(raw):
     p=json.loads(raw);R=Q(p['R_over_P']);w=Q(p['W_over_P']);alpha=p['alpha'];m=p['sectors']
@@ -144,6 +178,7 @@ def validate(c):
     require(c['version']==2,'Certificate version')
     p=c['parameters'];alpha=p['alpha'];m=p['sectors'];R=Q(p['R_over_P']);w=Q(p['W_over_P'])
     bands,expected_orders,crossings,arc_counts=reference(json.dumps(p,sort_keys=True))
+    if 'render_cells' in c:validate_render_partition(c,bands)
     for j in range(m+1):
         for a in bands:
             d,s=rotate(*a,j*(alpha//60))

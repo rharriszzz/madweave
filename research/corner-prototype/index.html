@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Single-corner diagram · Stage 2 prototype</title><link rel="stylesheet" href="style.css"></head>
+<body><header><p class="eyebrow">MadWeave research · Stage 2</p><h1>Single-corner diagram</h1>
+<p>Certified reference examples. Physical constructibility is unverified. This diagram is not a cutting template.</p>
+<p>The examples illustrate the general 60° monochrome baseline and pattern restrictions. They are not the eventual allowed-angle list.</p></header>
+<main><section class="controls" aria-label="Prototype controls">
+<label>Reference example <select id="example"></select></label>
+<label>Material coloring <select id="color"><option value="mono">Monochrome</option><option value="0">Direction</option><option value="1">Class</option><option value="2">Direction + class</option><option value="3">Group</option><option value="4">Class + group</option></select></label>
+<label>Display rotation <select id="rotation"><option value="23">23°</option><option value="0">0°</option><option value="90">90°</option><option value="-137">−137°</option></select></label>
+<label>Inspect joined strip <select id="strip"><option value="">Click a strip or choose here</option></select></label>
+<label class="check"><input id="outlines" type="checkbox"> Piece outlines (including hidden material)</label>
+<label class="check"><input id="seams" type="checkbox" checked> Seam rays and selected partners</label>
+<button id="next" type="button">Next local position at click</button><button id="clear" type="button">Clear selection</button>
+<p id="summary"></p><p id="status" role="status" aria-live="polite">Loading certified examples…</p>
+<p class="limits">Only the listed certificates are supported. Other radii, circle-through-vertex degeneracies and nonstandard cap ends remain Unvalidated. Rejected choices preserve the current diagram.</p>
+</section><section class="drawing" aria-label="Angular diagram"><svg id="diagram" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Radius-preserving angular diagram" tabindex="0"></svg></section>
+<aside><h2>Material inspection</h2><p>Clicking picks the top local position. At an overlap, cycle positions to inspect hidden material. All positions of the selected joined strip are outlined.</p><pre id="inspection">No strip selected.</pre><details><summary>Certificate and approximation</summary><pre id="certificate"></pre><a id="certificate-link">Open supplied reference certificate</a></details></aside></main>
+<footer><a href="../SINGLE_CORNER_STAGE2.md">Research notes and reproducible checks</a> · <a href="../../editor.html">Existing planar editor</a></footer>
+<script type="module" src="app.mjs"></script></body></html>

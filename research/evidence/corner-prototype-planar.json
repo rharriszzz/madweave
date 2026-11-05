@@ -1,0 +1,266 @@
+{
+  "unit_suite": {
+    "startedAt": "2026-11-05T02:05:58.476143+00:00",
+    "unitOnly": true,
+    "applicationSuite": false,
+    "stages": [
+      {
+        "name": "syntax-browser-svg-check",
+        "command": [
+          "node",
+          "--check",
+          "research/browser-svg-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.033,
+        "log": "research/output/suite/syntax-browser-svg-check.log"
+      },
+      {
+        "name": "syntax-editor-button-experiments",
+        "command": [
+          "node",
+          "--check",
+          "research/editor-button-experiments.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-editor-button-experiments.log"
+      },
+      {
+        "name": "syntax-editor-pointer-experiments",
+        "command": [
+          "node",
+          "--check",
+          "research/editor-pointer-experiments.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.033,
+        "log": "research/output/suite/syntax-editor-pointer-experiments.log"
+      },
+      {
+        "name": "syntax-editor-hover-paint",
+        "command": [
+          "node",
+          "--check",
+          "research/editor-hover-paint.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.033,
+        "log": "research/output/suite/syntax-editor-hover-paint.log"
+      },
+      {
+        "name": "syntax-hexweave-comparison",
+        "command": [
+          "node",
+          "--check",
+          "research/hexweave-comparison.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-hexweave-comparison.log"
+      },
+      {
+        "name": "syntax-crossing-pixel-check",
+        "command": [
+          "node",
+          "--check",
+          "research/crossing-pixel-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.033,
+        "log": "research/output/suite/syntax-crossing-pixel-check.log"
+      },
+      {
+        "name": "syntax-triple-area-check",
+        "command": [
+          "node",
+          "--check",
+          "research/triple-area-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-triple-area-check.log"
+      },
+      {
+        "name": "syntax-mask-boundary-check",
+        "command": [
+          "node",
+          "--check",
+          "research/mask-boundary-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-mask-boundary-check.log"
+      },
+      {
+        "name": "syntax-planar-matrix-check",
+        "command": [
+          "node",
+          "--check",
+          "research/planar-matrix-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.033,
+        "log": "research/output/suite/syntax-planar-matrix-check.log"
+      },
+      {
+        "name": "syntax-boundary-matrix-check",
+        "command": [
+          "node",
+          "--check",
+          "research/boundary-matrix-check.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.017,
+        "log": "research/output/suite/syntax-boundary-matrix-check.log"
+      },
+      {
+        "name": "syntax-compare-seams",
+        "command": [
+          "node",
+          "--check",
+          "research/compare-seams.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.032,
+        "log": "research/output/suite/syntax-compare-seams.log"
+      },
+      {
+        "name": "math",
+        "command": [
+          "node",
+          "--test",
+          "tests/math.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.114,
+        "log": "research/output/suite/math.log"
+      },
+      {
+        "name": "indexing",
+        "command": [
+          "node",
+          "research/planar-indexing.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.033,
+        "log": "research/output/suite/indexing.log"
+      },
+      {
+        "name": "crossing-model",
+        "command": [
+          "node",
+          "research/crossing-audit.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.067,
+        "log": "research/output/suite/crossing-model.log"
+      },
+      {
+        "name": "independent-geometry",
+        "command": [
+          "node",
+          "research/planar-geometry.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 1.469,
+        "log": "research/output/suite/independent-geometry.log"
+      },
+      {
+        "name": "symmetry",
+        "command": [
+          "node",
+          "research/symmetry.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.516,
+        "log": "research/output/suite/symmetry.log"
+      },
+      {
+        "name": "angular-baseline",
+        "command": [
+          "node",
+          "research/angular-baseline.test.cjs"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.064,
+        "log": "research/output/suite/angular-baseline.log"
+      },
+      {
+        "name": "site",
+        "command": [
+          "/usr/bin/python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_site.py",
+          "-v"
+        ],
+        "overrides": {},
+        "returncode": 0,
+        "seconds": 0.165,
+        "log": "research/output/suite/site.log"
+      }
+    ],
+    "passed": true
+  },
+  "planar_browser_seam_regressions": [
+    {
+      "browser": "chromium",
+      "version": "145.0.7632.6",
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.7799999999999727,
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 2,
+        "exportWorst": 2
+      }
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.4000000000000057,
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 1,
+        "exportWorst": 1
+      }
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "configurations": 163,
+      "samples": 90350,
+      "maxChannelError": 2.7799999999999727,
+      "negativeControl": {
+        "oldWorst": 47,
+        "fixedWorst": 2,
+        "exportWorst": 2
+      }
+    }
+  ],
+  "scope": "Planar unit/site suite and full seam-fix-check in three engines; not the full application browser suite"
+}

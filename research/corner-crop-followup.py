@@ -94,7 +94,16 @@ def main():
         d,q=c['fringe_bands'][0];c['pieces']=[a for a in c['pieces'] if a['id']!=[0,d,q]]
     reject('missing-fringe',missing_fringe,fringe_example)
     reject('changed-boundary',lambda c:c['pieces'][0]['vertices'][0].__setitem__(0,'0'))
-    reject('collapsed-self-crossing',lambda c:c['crossings'].pop(),self_example)
+    self_selection={}
+    def collapse_self_crossing(c):
+        owner={tuple(a):i for i,group in enumerate(c['components']) for a in group['pieces']}
+        row=next(e for e in c['crossings'] if e['pair'][0]!=e['pair'][1]
+                 and owner[tuple(e['pair'][0])]==owner[tuple(e['pair'][1])])
+        a,b=row['pair']
+        assert a!=b and owner[tuple(a)]==owner[tuple(b)]
+        self_selection.update(positions=copy.deepcopy(row['pair']),global_strip=owner[tuple(a)],XY=row['XY'])
+        row['pair'][1]=list(a)
+    reject('collapsed-self-crossing',collapse_self_crossing,self_example)
     def simultaneous_cycle(c):
         g=producer['g'];p=c['parameters']
         bands=[tuple(a['id'][1:]) for a in c['pieces'] if a['id'][0]==0]
@@ -124,6 +133,7 @@ def main():
     result={'scope':'Bounded full-region reference certificates; physical constructibility unverified',
             'original_fixtures_reproduced':89,'total_checked':len(specs),'mutations':mutations,
             'legitimate_self_crossings':checker['validate'](self_example)['self_crossings'],
+            'self_crossing_mutation_selection':self_selection,
             'legitimate_separate_location_cycle':cycle,
             'additional_cap_crop_limit':{'R_over_P':'63/10','status':'Unvalidated','witness':cap_limit,
                 'all_occurrences_retained':len(cap['pieces'])},

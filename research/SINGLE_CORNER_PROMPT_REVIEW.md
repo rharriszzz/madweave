@@ -1,5 +1,10 @@
 # Independent single-corner prompt review
 
+The later [Stage 2 prototype handoff](SINGLE_CORNER_STAGE2.md) records the user's
+authorization for a separate visual prototype and its delivered checks. Stage 3,
+production integration and merging remain on hold. Earlier readiness statements
+below refer to their original review checkpoints.
+
 Subsequent authorized research: the [bounded crop/checker follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md)
 supplies full-region fringe handling and independent supplied-certificate mutation
 checks at the stated finite parameters. The original findings below remain the

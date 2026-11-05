@@ -1,17 +1,15 @@
 # Single-corner project: prompt for later work
 
-**Status (2026-11-04): Stage 1 research delivered for review; implementation
-remains on hold.** See the [scoped model and evidence](SINGLE_CORNER_STAGE1.md).
-The authorized [bounded crop/checker follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md)
-is also delivered for review, with full fringe regions and a separate supplied-
-certificate checker; general radius and physical limits remain explicit.
-The user accepted the product defaults below and authorized
-only the scoped model, hole/phase catalogue, seam and continuation evidence,
-compatibility results, and acceptance-fixture plan. Stop at that deliverable for
-review. Do not enable nonunit cone mode, change production application code,
-build the corner UI, or merge into master. Stage 1 readiness is not whole-project
-readiness or permission to proceed to Stage 2. Earlier historical/image
-forensics remain preparation evidence, not a completed corner certificate.
+**Status: Stage 2 separate visual prototype authorized and delivered for review.**
+See the [prototype report and viewing instructions](SINGLE_CORNER_STAGE2.md).
+The [Stage 1 model](SINGLE_CORNER_STAGE1.md) and
+[bounded crop/checker follow-up](SINGLE_CORNER_CROP_FOLLOWUP.md) supply the
+reference constructions. The user authorized a separate inspectable drawing,
+simple example/color/identity controls, and bounded geometry/browser checks.
+Production application code remains unchanged. Do not merge into master or
+proceed to Stage 3's full product UI/persistence. Stop at the Stage 2 deliverable
+for review. The accepted requirements and separate diagram/physical gates below
+remain in force. Earlier historical/image forensics remain preparation evidence.
 
 **Recovered reference (strong reconstruction evidence):** `tree.png` is closely
 reproduced by the radius-preserving angular map with
@@ -683,8 +681,9 @@ The [Stage 1 deliverable](SINGLE_CORNER_STAGE1.md) records constructive finite
 certificates, phase/angle families, color witnesses and explicit limits. Its
 research completion does not authorize Stage 2 or certify an application release.
 
-**Stage 2 — one small, independently checked construction (not authorized).**
-Only after review and explicit implementation authorization, implement a **completed** tree-style f=3/4 example if Stage 1 validates it (or
+**Stage 2 — separate visual prototype (authorized; delivered for review).**
+The user authorized the [bounded prototype](SINGLE_CORNER_STAGE2.md), including
+the completed f=3/4 reference example validated by Stage 1 (or
 the explicitly reviewed replacement), and a derived wedge-removal example.
 Include a valid single-color case and a
 three-color conflict using the same geometric seam, plus a valid three-color
@@ -698,6 +697,7 @@ clearly separated output types. Test both weave types and all approved hole
 families, multiple sizes/spacings/orientations, and Chromium/Firefox/WebKit.
 Retain the existing seam-rendering fix; geometric seam correctness and SVG
 antialiasing are separate issues.
+Stage 3 remains on hold pending explicit authorization after Stage 2 review.
 
 Diagram release requires the applicable acceptance evidence above, user
 documentation, and a worked diagram example. It does not depend on Stage 4,
