@@ -9,12 +9,13 @@ agreed stage. The user separately authorized image measurements and disposable
 historical-renderer trials to understand `tree.png`; those forensic checks are
 preparation, not the start of the corner feature.
 
-**Recovered reference:** `tree.png` uses the radius-preserving angular map with
+**Recovered reference (strong reconstruction evidence):** `tree.png` is closely
+reproduced by the radius-preserving angular map with
 **code multiplier `coneFraction=3/4`**, corresponding to **paper/reference-angle
 fraction 4/3**, or 480 degrees with 120 degrees of excess. Its center is the
 small white opening near **pixel (218,228)**, directly above the central gap
 between the gray and teal trunk strips. A long-edge inverse fit gives 0.74986;
-the upper-half track count gives 18/24=3/4; and the historical replay matches
+the model-assisted upper-half track count gives 18/24=3/4; and the historical replay matches
 99.59% of occupied/empty pixels. See the [forensic report](TREE_REFERENCE_ANALYSIS.md).
 This identifies the first flattening method; it does not certify the missing
 lower tracks or complete colored seam assembly.
@@ -90,8 +91,11 @@ weave and seam; do not treat that legacy restriction as a physical theorem.
 
 When using canonical sectors of width alpha, require an integer number m of
 those sectors and `m*alpha=beta`; their displayed angles sum to `m*f*alpha=2*pi`.
-Choose alpha from a symmetry valid for the selected hole, over/under pattern,
-and coloring. The old 60/120-degree unit bookkeeping is not a universal answer.
+For identical-sector replication, choose alpha from a symmetry valid for the
+selected hole and over/under pattern, and explicitly transport color phases.
+A symmetry construction is sufficient only after seam checks; it is not a
+necessity theorem excluding all other seam registrations. The old 60/120-degree
+unit bookkeeping is not a universal answer.
 
 ### A flat angular chart is not a fabrication net
 
@@ -156,9 +160,16 @@ Keep these categories separate throughout the work:
 | Proposed defaults | Symmetry-center selection, circular extent, behavior on invalid edits, first-release scope below | Obtain agreement before treating them as requirements |
 | Research deliverables | Admissible angles, hole phases, continuation graph, compatible coloring catalogue | The agent must derive these; do not ask the user to supply the mathematics |
 
-The upper-half count and replay are complementary checks; numbered endpoint
-annotations were placed using replay geometry. Do not describe all three checks
-as fully independent measurements. Likewise, whole-image occupied/empty pixel
+The upper-half count and replay corroborate the reconstruction under shared
+assumptions; the script obtains its count and numbered endpoint annotations
+from replay geometry, not an independent raster endpoint detector. Do not
+describe all three checks
+as fully independent measurements. The 18-track planar comparison assumes
+the inferred six-strips-per-family population and comparable crop. The edge fit
+fixes a line family, angular branch and radius-preserving model; its fitted
+precision is not a confidence interval for the center or a uniqueness proof
+among all possible maps. Absolute radial scale is not recoverable without
+calibration. Likewise, whole-image occupied/empty pixel
 agreement does not prove exact edge alignment, color compatibility, or physical
 constructibility.
 
@@ -256,7 +267,18 @@ output closure = 4 * 90 = 360 degrees
 ```
 
 This is a proposed **future complete fixture**, distinct from the partial
-historical replay. Every strip edge, local-order mask, outline, and picking
+historical replay. Supply a sector ledger with unwrapped angular intervals,
+reference-to-sector transforms, material membership and local piece IDs including
+sector and connected-piece indices. Two pieces with the same planar `(d,s)` in
+different excess sectors are distinct occurrences until an explicit boundary
+join identifies them. Clipping one ribbon can yield several connected pieces.
+Enumerate all three internal boundaries and the closing boundary for this
+four-sector fixture, with complete interval pairings, transported phases and
+intentional outer endpoints. Prove coverage once per sector interior and no
+extra material duplication; angular closure alone does not prove completion.
+If the candidate fails, deliver a concrete witness and a corrected candidate for
+review; do not force it to pass or silently change the reference interpretation.
+Every strip edge, local-order mask, outline, and picking
 coordinate must use the same sector/branch map. Include exact endpoints and
 bounded curve approximation as required by the earlier mapping contract. Do
 not carry over its unvalidated six-direction inverse-picking shortcut or rely
@@ -291,7 +313,9 @@ The proposed default is the geometric symmetry center of the selected hole,
 with positive clearance from every material strip. Confirm whether arbitrary
 points inside a hole are needed; they must not be silently treated as equivalent
 symmetry centers. Revalidate the hole after changing spacing, weave type, or
-construction settings. Handle collapsed/merged holes explicitly.
+construction settings. Derive a certified positive clearance to the entire
+material boundary, not just to centerlines; exact contact is not a valid center.
+Handle collapsed/merged holes explicitly.
 
 ## Exact seam matching and physical strip identity
 
@@ -334,7 +358,15 @@ distinct local material positions at that crossing even though the global strip
 ID is the same. Classify such cases explicitly; collapsing them by global ID can
 erase a real crossing or invent a junction.
 Report open ribbons and closed loops explicitly, including any orientation
-reversal around a loop. The proposed material model permits ordinary untwisted
+reversal around a loop. Each finite connected centerline component must be a
+path with exactly two intentional outer ends or a cycle with none; disconnected
+pieces must not inherit a shared identity merely from equal source labels.
+Carry ordered ribbon sides and a material face through each join. Checking only
+loop orientation parity detects a Moebius join but does not exclude an inserted
+full twist: the chart must specify untwisted local transport throughout. Any
+later physical realization must verify that transport, not infer absence of
+twist from an orientable graph alone. The proposed material model permits
+ordinary untwisted
 closed loops and open strips; confirm that loop policy before implementation.
 Rejection of branches, twists/Moebius continuations, and dangling seam ends is
 an explicit user requirement, independent of the choice about closed loops.
@@ -346,7 +378,15 @@ specified as a different construction, rather than accepted as an approximate
 match. A twisted continuation is an error in this project, not an optional
 joint style. Compare over/under order at the **same local crossing** on the two sides.
 Do not require one global stack order: legitimate woven strips can participate
-in cyclic above/below relations at different locations.
+in cyclic above/below relations at different locations. Conversely, simultaneous
+positive-area overlaps require a consistent local stack: A above B above C above
+A at the same location is invalid, even though pairwise antisymmetry holds.
+Enumerate crossing events by local material positions, and record their order
+along each joined ribbon, including the last-to-first event for loops. Transport
+the source weave's crossing sequence/phase across joins and reject unexplained
+order switches within a connected overlap. Do not impose universal over/under
+alternation: derive the actual sequence from the selected weave. These necessary
+checks do not alone prove collision-free realization with finite-thickness stock.
 
 Distinguish two controls that are often called "the seam":
 
@@ -368,7 +408,13 @@ hole, with enough underlying periodic strip material to cover it before clipping
 Any other boundary needs an explicit policy. Separate intentional outer strip
 ends from missing material caused by reusing a too-small legacy strip array.
 Do not crop away a bad seam or interpret odd/even finite-array artifacts as
-universal restrictions on the infinite weave.
+universal restrictions on the infinite weave. A crop cuts material and creates
+new endpoints; distinguish finite component identity from its periodic ancestor.
+For periodic extensions use signed integer strip indices and Euclidean residues
+`mod3(s) = ((s % 3) + 3) % 3`, with `s0 = 3*n + c`, `0 <= c < 3`.
+The current `getCFromS0` uses JavaScript remainder and is only safe for its
+nonnegative array inputs. Extend all color/group formulas consistently, including
+modulo colorCount; changing array size must not shift a fixed physical phase.
 
 Stage 1 must state the admissible angle domain. Prefer an exact sector count or
 rational multiple of pi, deriving beta, q, and f from one authoritative value.
@@ -381,8 +427,13 @@ bookkeeping, not the authority for which physical angles are allowed.
 
 Where possible, classify all admissible counts by their symmetry/phase periods,
 then choose a practical finite UI range. If only a bounded search is available,
-state its bound and do not claim a complete classification. Every result must
-have one of these statuses:
+state its bound and do not claim a complete classification. Give each
+classification's assumptions: center, construction phase, material
+membership, order flags, stock model, crop/radius, and color transport. An
+angle permitted by one symmetric-sector construction need not exhaust angles
+permitted by other registrations. Finite feasibility may depend on radius;
+state the certified radius/domain instead of reporting an angle alone.
+Every result must have one of these statuses:
 
 | Status | Meaning |
 |---|---|
@@ -438,7 +489,10 @@ would be a different pattern and must not be described as the original fixed
 direction coloring. Confirm both outcomes on the actual global continuation
 graph; this deduction is not a
 completed seam test. The three colors visible in the incomplete tree are not
-proof that its direction coloring closes in a completed model.
+proof that its direction coloring closes in a completed model. With C on, the
+same origin-centered 120-degree rotation cycles a/b/c instead of fixing each
+class: distinct fixed class colors then also conflict. This is a counterexample
+to treating class coloring as universally compatible with 480 degrees.
 
 Distinguish material colors from palette slots, direction names, and a/b/c
 classes. Two slots can have the same color; three available colors do not prove
@@ -492,7 +546,12 @@ Display-only labels or diagnostic strip colors must not alter material coloring.
 Controls need visible selection states, keyboard access, useful disabled reasons,
 and reliable mouse/touch behavior. Preserve existing planar projects and the
 existing offline save/open workflow. A new versioned state must save all choices
-needed to reproduce the same corner, seam identity, and coloring.
+needed to reproduce the same corner, seam identity, and coloring. Define stable
+IDs or an explicit ID correspondence across re-charting and reload; compare
+component membership and crossing sequences, not only screenshots or array
+lengths. Validate imports before replacing the design, recompute compatibility,
+and reject unsupported/inconsistent state atomically. Version-1 planar files
+retain their meaning; do not infer new physical membership from old view filters.
 
 A flat visualization export and an undistorted fabrication/reference template
 must be labeled separately. Do not print a distorted chart as a 1:1 paper guide
@@ -503,6 +562,11 @@ unless the selected construction actually calls for those curved shapes.
 Keep structural/numerical checks separate from browser appearance. A monochrome
 screenshot cannot establish over/under correctness, and a diagnostic color overlay
 must not change the model's material-color compatibility.
+The independent oracle must construct material occupancy, seam intervals and
+crossing events from reference ribbons and registration, without importing the
+renderer-generated pairing graph or masks as expected answers. Compare both
+hidden and visible pieces. Reusing the source precedence rule is permitted but
+must be disclosed; it is not an independent physical weaving theorem.
 
 | Case | Required evidence |
 |---|---|
@@ -521,14 +585,33 @@ must not change the model's material-color compatibility.
 Include negative controls that deliberately omit a sector, duplicate seam
 material, mismatch one band boundary, break one continuation color, reverse a
 ribbon side, and change one crossing order. The appropriate validator must reject
-each with a useful witness. Do not require a global above/below DAG or reject
-legitimate woven cycles at different crossings.
+each with a useful witness. Also swap two partners while preserving graph degree,
+omit a hidden finite strip, use planar masks with mapped bands, and identify two
+excess-sector occurrences by their repeated planar label. Each must fail the
+relevant structural check even if the silhouette is unchanged. Require a valid
+cycle of above/below relations at separate crossings to pass, while a cycle at
+one simultaneous overlap fails. Test a valid open path, an untwisted loop if
+approved, and a self-crossing represented by two distinct local positions;
+these topology unit fixtures do not assert that every case occurs in the weave.
 
 For numeric checks, start with the earlier contract's proposed curve tolerance
 of stripWidth/1000 and projected error below 0.25 pixels; confirm these bounds
 for the actual output scale. Analytic/discrete seam identities remain exact.
-Specify rounding, seam ownership, degenerate/collinear cases, and maximum-depth
-failure. Physical cutting/printing tolerance is a separate later parameter.
+Use half-open angular ownership for picking and one shared exact seam boundary
+for adjacent geometry. Test every boundary from both sides, the exact ray, and
+the final wrap with nonzero center and display rotation. Retain the unwrapped
+sector index through forward/inverse round trips. Picking must test full finite
+band occupancy after inverse mapping; nearest-strip rounding alone incorrectly
+selects gaps. Use a certified center-hole clearance, not an arbitrary apex epsilon
+that could erase nearby real material. At crossings expose local occurrence and
+global strip IDs with a deterministic selection policy.
+
+Specify rounding, degenerate/collinear cases, and maximum-depth failure. Bound
+curve error in display-world coordinates and then through the actual view matrix;
+require both world and pixel limits at the tested zoom/export scale. Check the
+masks, fills and outlines against the same map independently. Cases with an
+uncertain bound are Unvalidated and cannot be saved/exported as certified.
+Physical cutting/printing tolerance is a separate later parameter.
 
 ## Recommended sequence: several stages, with an initial hold
 
@@ -548,8 +631,9 @@ classification as an agent research task, not a question for the user. Reconcile
 the old cone contract with this model; do not begin by enabling its N=6 fixture.
 
 **Stage 2 — one small, independently checked construction.** After the model is
-reviewed, implement a **completed** tree-style f=3/4 example with the bookkeeping
-above, and a wedge-removal example. Include a valid single-color case and a
+reviewed, implement a **completed** tree-style f=3/4 example if Stage 1 validates it (or
+the explicitly reviewed replacement), and a derived wedge-removal example.
+Include a valid single-color case and a
 three-color conflict using the same geometric seam, plus a valid three-color
 arrangement when one exists.
 Check all identified edges, exact endpoints, widths and local order, and f=1
@@ -601,7 +685,9 @@ Before marking this prompt **ready**, resolve the user-owned first-release rows,
 record accepted/rejected defaults, and ensure every remaining research item has
 a deliverable and acceptance test. Do not silently convert a proposal into a
 confirmed user requirement. A second mathematical review is recommended; its
-findings must be checked against source/evidence before integration. The
+findings must be checked against source/evidence before integration. See the
+[independent review record](SINGLE_CORNER_PROMPT_REVIEW.md) for applied
+corrections and remaining decisions. The
 [documentation-only review and improvement handoff](SINGLE_CORNER_REVIEW_PROMPT.md)
 is prepared for that purpose.
 
