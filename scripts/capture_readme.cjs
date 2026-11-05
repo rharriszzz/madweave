@@ -69,11 +69,12 @@ const server = http.createServer((req, res) => {
     }, original);
     assert.equal(paths, 21, 'Check all 18 strip paths and 3 clipping paths');
     await capture('planar-original');
-    // Keep the original palette; show the b hexweave class with clear crossings.
-    await button('SC4');await button('CC3');await button('CP0');await button('Sep0');
+    // Repeat the original colors across parallel strips in the b hexweave class.
+    await button('SC4');await button('CC3');await button('CP3');await button('Sep0');
     await button('VH0');await button('VH2');await button('Lines');
     const open = await page.evaluate(() => MadWeaveEditor.capture().design);
     assert.deepEqual(open.palette, expected.palette);
+    assert.notEqual(open.colorPattern, expected.colorPattern);
     assert.deepEqual(open.layers, [false,true,false]);
     assert(open.outlines && open.opacity.slice(0,3).every(alpha => alpha === 1));
     await capture('planar-open');
