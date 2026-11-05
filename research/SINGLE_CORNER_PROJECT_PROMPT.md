@@ -144,6 +144,24 @@ variable `coneFraction` means f. A future UI should show, for this example,
 "reference angle 480 degrees (4/3 turn), excess 120 degrees, angular multiplier
 3/4". Do not show an unlabeled fraction and expect users to guess which one.
 
+## Evidence and authority
+
+Keep these categories separate throughout the work:
+
+| Category | Current examples | How to use it |
+|---|---|---|
+| Confirmed user requirements | Both deficit and excess angle; center over a hole; exact continuation and same material color; no branches, twists, or dangling seam ends; conceptual seams; controls on the webpage | Preserve unless the user changes them |
+| Recovered evidence | Tree multiplier near 3/4 and center near (218,228); historical replay and palette | A reference to explain and test; not a completed corner certificate |
+| Conditional deduction | A fixed three-direction coloring conflicts with a 120-degree identification about the ordinary center | Verify its assumptions on the actual seam and global strips |
+| Proposed defaults | Symmetry-center selection, circular extent, behavior on invalid edits, first-release scope below | Obtain agreement before treating them as requirements |
+| Research deliverables | Admissible angles, hole phases, continuation graph, compatible coloring catalogue | The agent must derive these; do not ask the user to supply the mathematics |
+
+The upper-half count and replay are complementary checks; numbered endpoint
+annotations were placed using replay geometry. Do not describe all three checks
+as fully independent measurements. Likewise, whole-image occupied/empty pixel
+agreement does not prove exact edge alignment, color compatibility, or physical
+constructibility.
+
 ## Project goal and confirmed requirements
 
 Prepare an interactive webpage for **one corner**, supporting both removal of a
@@ -155,6 +173,8 @@ The user's requirements are:
 
 - Corresponding strip sections on identified edges must line up exactly and
   have the same color, because they continue as one physical strip.
+- Branches, twists, and dangling/unmatched ends at a seam are physical
+  construction errors and must be rejected, even if the preview looks plausible.
 - The seam may be conceptual. Actual paper strips may continue across it without
   being cut or taped. Paper-sheet constructions may be taped together; taping
   every strip end is not mandatory.
@@ -168,6 +188,32 @@ The user's requirements are:
   choices; no essential choice may require editing source code.
 - List methods for flattening the excess-angle case and start with the easiest
   intended method, using `tree.png` as the user's reference.
+
+## Proposed first-release boundary
+
+The first release should produce a **complete flat angular-chart simulation**
+with verified geometry, strip identities, crossing order, and compatible colors.
+It should cover madweave's small-hexagon reference center and hexweave's large-
+hexagon and triangle reference centers, including distinct phases/orientations
+when they affect compatibility. Build the small madweave fixture first, then
+extend the validated model to the other centers.
+
+Use monochrome and three-distinct-material-color examples as mandatory cases.
+Classify the existing five color formulas for the supported settings; expose
+only configurations with established compatibility. Other palette counts and
+custom patterns can use the same validator, but their support must be stated
+rather than inferred from the planar editor's buttons.
+
+Include editable save/open and static diagram export. Preserve the existing
+planar editor. Dimensioned cutting templates, PDF export, alternative flattenings,
+and a 3D/physical relaxation solver are separate additions requiring their own
+acceptance criteria. This scope does not postpone the paper-construction
+constraints: correct reference dimensions and seam registration must be retained
+in the model even when the first output is a distorted diagram.
+
+This is a proposed release boundary, awaiting the user's agreement. The control
+inventory below applies to supported features; listing an optional output is not
+a commitment to implement it in the first release.
 
 ## The tree reference and flattening methods
 
@@ -269,6 +315,86 @@ incorrect seam. Check finite strip ends and the actual chosen outer boundary.
 State whether a compatibility result is proven for a periodic pattern or only
 certified for the specific finite template.
 
+### Topology, orientation, and a precise seam contract
+
+Use the material **ribbon**, not just its centerline, as the object being joined.
+For each boundary interval, record its reference position/range, the adjoining
+strip-piece ID, which ribbon side is which, material color, and local crossing
+context. Match it bijectively to a partner interval in the registered frame.
+A seam cannot split one continuation into two, assign multiple partners to one
+band end, duplicate material, reverse one side accidentally, or leave an unpaired
+interior end. Joining two matching local pieces into one global strip is the
+intended operation.
+
+The assembled centerline graph must have degree two at ordinary internal
+continuations and degree one only at intentional outer free ends. A geometric
+crossing is an over/under relation, **not** a vertex joining the crossing strips.
+If identified pieces make a strip cross another part of itself, retain the two
+distinct local material positions at that crossing even though the global strip
+ID is the same. Classify such cases explicitly; collapsing them by global ID can
+erase a real crossing or invent a junction.
+Report open ribbons and closed loops explicitly, including any orientation
+reversal around a loop. The proposed material model permits ordinary untwisted
+closed loops and open strips; confirm that loop policy before implementation.
+Rejection of branches, twists/Moebius continuations, and dangling seam ends is
+an explicit user requirement, independent of the choice about closed loops.
+
+Check both band boundaries and the tangent/cross-section after seam registration.
+Numerical proximity between unrelated centerlines is not an identity rule. Any
+intentional joint kink, change of width, reflection, or front/back flip must be
+specified as a different construction, rather than accepted as an approximate
+match. A twisted continuation is an error in this project, not an optional
+joint style. Compare over/under order at the **same local crossing** on the two sides.
+Do not require one global stack order: legitimate woven strips can participate
+in cyclic above/below relations at different locations.
+
+Distinguish two controls that are often called "the seam":
+
+- **Construction cut/phase:** changes which reference material is removed or
+  inserted relative to the weave and may change compatibility.
+- **Display branch cut:** changes where a fixed identified model is opened for
+  coordinates/inspection. Moving this cut must preserve material, colors, global
+  strip identity, and crossings, apart from a declared view transformation.
+
+If a proposed seam control changes the construction, label it as a construction
+edit. A coordinate/branch change must not repaint strips or introduce a new
+physical corner. Carry each sector's direction/class/color phase explicitly;
+copying the literal H/R/L or a/b/c labels into every sector is not sufficient.
+
+### Finite extent and the meaning of an allowed angle
+
+The proposed first extent is a circular crop of radius R around the selected
+hole, with enough underlying periodic strip material to cover it before clipping.
+Any other boundary needs an explicit policy. Separate intentional outer strip
+ends from missing material caused by reusing a too-small legacy strip array.
+Do not crop away a bad seam or interpret odd/even finite-array artifacts as
+universal restrictions on the infinite weave.
+
+Stage 1 must state the admissible angle domain. Prefer an exact sector count or
+rational multiple of pi, deriving beta, q, and f from one authoritative value.
+Do not save rounded, independently mutable copies of all three. For excess
+angle, keep the unwrapped sector index even when displayed angles repeat.
+Require finite positive beta/f, positive strip width and extent, a valid pitch,
+and an actual uncovered center. Reject inconsistent derived state instead of
+retaining stale unit counts or angles. The legacy N parameter is derived
+bookkeeping, not the authority for which physical angles are allowed.
+
+Where possible, classify all admissible counts by their symmetry/phase periods,
+then choose a practical finite UI range. If only a bounded search is available,
+state its bound and do not claim a complete classification. Every result must
+have one of these statuses:
+
+| Status | Meaning |
+|---|---|
+| Validated | Explicit evidence for the stated pattern, center, phase, coloring, and finite/periodic scope |
+| Invalid | A concrete witness, such as an unmatched interval, wrong crossing, or color conflict |
+| Unvalidated | Outside the proved/tested domain or unresolved numerical/assembly work |
+
+Lack of a proof, an exhausted numerical subdivision budget, or a failed search
+is not by itself a proof that an angle is impossible. Geometry and coloring must
+be reported separately so that monochrome compatibility is a superset of any
+fixed multicolor assignment's compatibility.
+
 ## Color compatibility controls the allowed angles
 
 For a seam-induced continuation P, the material-color rule is
@@ -304,9 +430,13 @@ fractions from color count alone.
 A useful first color comparison is now concrete. For the ordinary reference
 center, the 480-degree identification is a 120-degree rotation modulo a turn.
 The verified planar symmetry cycles H/R/L directions but preserves ordinary
-a/b/c classes. Three distinct direction colors therefore conflict with that
-rotation, while class coloring is a compatible-symmetry candidate. Confirm
-both outcomes on the actual global continuation graph; this deduction is not a
+a/b/c classes. Three distinct colors fixed to those reference directions
+conflict with that rotation, while class coloring is a compatible-symmetry
+candidate. State the
+phase/transport convention used: deliberately changing colors between sectors
+would be a different pattern and must not be described as the original fixed
+direction coloring. Confirm both outcomes on the actual global continuation
+graph; this deduction is not a
 completed seam test. The three colors visible in the incomplete tree are not
 proof that its direction coloring closes in a completed model.
 
@@ -321,6 +451,21 @@ incompatible. Recompute angle availability after a color/pattern change. Keep
 invalid choices visible with a reason; do not silently recolor strips or change
 the angle to disguise a conflict. Define how a user resolves an edit that would
 invalidate the current configuration before implementing that interaction.
+
+### Proposed edit behavior
+
+Start with a valid-state-only interaction: evaluate a candidate construction or
+color edit before committing it. If it would merge differently colored strips
+or otherwise break the contract, keep the previous design, highlight the actual
+conflict, and offer explicit compatible choices. Do not silently recolor,
+discard painted state, change the angle, or save a supposedly valid template.
+A separate invalid-draft mode can be designed later if the user wants one.
+
+Apply paint/show/hide actions to a whole global strip when they are material
+edits. View-only hiding must remain separate. Reuse neither the planar V button's
+known show-and-recolor surprise nor its first-palette-click surprise as intended
+behavior. Color equality must use declared material-color equivalence, not
+palette-slot numbers; preview opacity is not evidence of absent paper.
 
 ## Webpage controls and outputs
 
@@ -353,6 +498,38 @@ A flat visualization export and an undistorted fabrication/reference template
 must be labeled separately. Do not print a distorted chart as a 1:1 paper guide
 unless the selected construction actually calls for those curved shapes.
 
+## Acceptance evidence required for completion
+
+Keep structural/numerical checks separate from browser appearance. A monochrome
+screenshot cannot establish over/under correctness, and a diagnostic color overlay
+must not change the model's material-color compatibility.
+
+| Case | Required evidence |
+|---|---|
+| Planar f=1 | Geometry, color, visibility, crossing order, selection and saved state retain their existing meaning |
+| Completed tree reference | Four 120-degree reference sectors at f=3/4 cover one turn, including the missing lower material; every internal and closing seam has partners |
+| Wedge removal | At least one derived valid deficit example; beta=240 degrees/f=3/2 is an initial candidate, not an assumed theorem |
+| Hole families | Madweave small hexagon; hexweave large hexagon and triangle; meaningful center phases/orientations distinguished; center never covered |
+| Material identity | Each joined ribbon is a valid open strip or approved untwisted loop; no branches, false crossing vertices, dangling interior ends, or accidental side reversals |
+| Colors | Same geometric fixture tested monochrome and with both a compatible three-color assignment and a witnessed incompatible assignment, where such assignments exist |
+| Invariance | View rotation and moving a pure display branch cut preserve the physical model and identity; palette aliases and a monochrome reduction behave consistently |
+| Finite boundaries | Free ends and seam intersections handled at the chosen crop; no dependence on omitted legacy strips masquerading as compatibility |
+| Picking/editing | Both sides of a seam and its wrap pick the same global strip; clicking the center hole selects no strip; rejected edits preserve the prior state |
+| Persistence/export | Reload offline and export preserve the completed model, parameters and material colors; diagram/template outputs are labeled accurately |
+| Browsers and regressions | Chromium, Firefox and WebKit; existing planar and SVG-seam checks remain passing |
+
+Include negative controls that deliberately omit a sector, duplicate seam
+material, mismatch one band boundary, break one continuation color, reverse a
+ribbon side, and change one crossing order. The appropriate validator must reject
+each with a useful witness. Do not require a global above/below DAG or reject
+legitimate woven cycles at different crossings.
+
+For numeric checks, start with the earlier contract's proposed curve tolerance
+of stripWidth/1000 and projected error below 0.25 pixels; confirm these bounds
+for the actual output scale. Analytic/discrete seam identities remain exact.
+Specify rounding, seam ownership, degenerate/collinear cases, and maximum-depth
+failure. Physical cutting/printing tolerance is a separate later parameter.
+
 ## Recommended sequence: several stages, with an initial hold
 
 **Stage 0 — finish and approve this prompt.** Resolve the outstanding decisions
@@ -365,13 +542,16 @@ in the production app.
 **Stage 1 — mathematical model and compatibility catalogue.** After explicit
 authorization, derive hole coordinates, the chosen flattening, boundary
 registration, strip continuation, color constraints, and allowed angle classes.
-Deliver examples and rejection witnesses. Reconcile the old cone contract with
-this model; do not begin by enabling its N=6 fixture.
+Deliver a short model specification, a compatibility table with explicit scope,
+example/rejection witnesses, and an acceptance-fixture list. Treat exact angle
+classification as an agent research task, not a question for the user. Reconcile
+the old cone contract with this model; do not begin by enabling its N=6 fixture.
 
 **Stage 2 — one small, independently checked construction.** After the model is
-reviewed, implement a **completed** tree-style f=3/4 example with the bookkeeping above,
-and a wedge-removal example. Include a valid single-color case and a three-color conflict using the
-same geometric seam, plus a valid three-color arrangement when one exists.
+reviewed, implement a **completed** tree-style f=3/4 example with the bookkeeping
+above, and a wedge-removal example. Include a valid single-color case and a
+three-color conflict using the same geometric seam, plus a valid three-color
+arrangement when one exists.
 Check all identified edges, exact endpoints, widths and local order, and f=1
 regression. Use an independent geometric/identity oracle, not only screenshots.
 
@@ -388,25 +568,41 @@ and compare it with the model. Do not claim physical validation from a render.
 Finish user documentation and a worked construction example before release.
 A practical paper test may also be useful earlier, before committing to a map.
 
-Do not automatically start the next stage just because its predecessor's
-artifacts exist; follow the user's explicit project-start and staging instructions.
+After the prompt is agreed, follow the scope of the user's start instruction.
+Authorization for the whole project covers its agreed stages; continue without
+repeated approval questions for routine work. If the user authorizes only one
+stage, stop at its stated deliverable. Pause dependent work only for an actual
+unresolved user decision or a specifically requested review gate. The initial
+implementation hold remains in effect until the user explicitly starts work.
 
-## Decisions to settle and useful additions
+## Decisions, ownership, and readiness
 
-| Priority | Decision / suggested addition | Proposed handling |
-|---|---|---|
-| Resolved during preparation | Tree center and flattening map | Center near (218,228); radius-preserving code multiplier 3/4, paper fraction 4/3; inverse-edge, upper-track-count, and historical replay evidence recorded |
-| Before fabrication output | Physical interpretation of stock strips versus cut shapes | The first tree output is an angular chart. Agree the material and reference/net construction separately before claiming that its displayed curved bands are physical cutting patterns |
-| Blocking | Scope of angles and whether compatibility is required for an infinite periodic weave or the chosen finite model | Derive admissible families; agree a bounded first UI range and label the certificate's scope |
-| Before implementation | Geometric center of a hole versus any point in a hole | Recommend discrete valid symmetry centers first; obtain agreement |
-| Before implementation | Exactly three distinct used material colors versus an available three-slot palette | Expose the distinction; agree which presets are required |
-| Before implementation | Behavior when a color/angle edit breaks an existing valid design | Recommend an explicit conflict report and reversible resolution, with no silent changes |
-| Before fabrication output | Physical dimensions, paper size, strip width, cutting/printing tolerances, and margin/calibration requirements | Agree units and at least one practical example; propose a scale-check ruler |
-| Before fabrication output | Tape/butt-joint/overlap allowances where actual joints are used | Keep separate from the ideal identification; optional for continuous woven strips |
-| Before folded/layered modes | Front/back colors, layer order, thickness, allowable creases and overlap | Specify only if such a mode is chosen; do not make it a prerequisite for the tree approach |
-| Scope proposal | New page/mode versus replacement of the planar editor | Recommend a separate single-corner mode/page while preserving planar behavior |
-| Scope proposal | Mandatory 3D view or physical relaxation solver | Defer; begin with the agreed flat representation and exact seam/identity checks |
-| Quality addition | Reproducible example state, compatibility report, seam labels, and assembly directions | Save with the worked example so another person can reconstruct it |
+A complete prompt must define the problem and its acceptance criteria. It need
+not contain the solutions to every mathematical problem assigned to Stage 1.
+Keep unresolved research explicit, with a required deliverable and owner.
+
+| Item | Owner / status | Proposed handling | Needed before |
+|---|---|---|---|
+| Tree center, map and reciprocal fractions | Recovered evidence | Near (218,228); code f=3/4, reference q=4/3; do not ask the user to rederive these | Already documented; reviewer may challenge the evidence |
+| Release outputs and physical scope | User decision | First release: verified flat angular-chart simulation, editable save/open and diagram SVG; retain reference dimensions; no automatic cutting-template or 3D claim | Finalizing first-release scope |
+| Reference-center selection | User decision | Discrete geometric symmetry centers of the specified hole kinds first; arbitrary interior points deferred | Finalizing first-release scope |
+| Seam construction errors | Confirmed user requirement | Reject branches, twists and dangling/unmatched seam ends; enforce one-to-one full-ribbon continuation | Every validator and accepted construction |
+| Closed loops and edits | User decision | Proposal: allow untwisted closed strips as well as open strips; reject incompatible edits atomically with an explanation | Finalizing first-release behavior |
+| Infinite-pattern classification versus finite certificates | Agent research, with scope review | Derive phase/angle families where possible; otherwise publish the exact bound; propose a practical UI range | End of Stage 1 |
+| All hole coordinates and distinct phases | Agent research | Derive from material geometry, including shifted/triangular centers; do not assume all are covered by the existing origin-centered symmetry test | End of Stage 1 |
+| Material-color equivalence and patterns | Model/review task | Distinguish material labels from palette slots and actually used colors; require three distinct colors in the advertised three-color examples | End of Stage 1 |
+| Extent and finite ends | Proposed modeling default | Circular crop with adequate underlying periodic material; record R and free ends explicitly | End of Stage 1 |
+| Strip stock, physical dimensions and printable outputs | User decision for fabrication | Agree straight versus custom-cut stock, units, page size, scale checks, tolerances and optional tape allowances before output is called a construction template | Fabrication output / physical claims |
+| Front/back, thickness, creases and layered flattening | Deferred mode-specific decisions | Define only if a folded/layered physical mode is selected; do not block the initial angular chart on an unrequested mode | That mode |
+| Separate mode/page | Proposed product default | Preserve the planar editor; expose the corner tool as a separate mode/page | UI design |
+| Additional flattenings and 3D relaxation | Deferred additions | List alternatives; implement the tree method first | Explicit later scope |
+
+Before marking this prompt **ready**, resolve the user-owned first-release rows,
+record accepted/rejected defaults, and ensure every remaining research item has
+a deliverable and acceptance test. Do not silently convert a proposal into a
+confirmed user requirement. A second mathematical review is recommended; its
+findings must be checked against source/evidence before integration. The
+[review-only handoff](SINGLE_CORNER_REVIEW_PROMPT.md) is prepared for that purpose.
 
 ## Read alongside this prompt
 

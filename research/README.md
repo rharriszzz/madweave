@@ -18,6 +18,7 @@ the production application's `coneFraction` remains 1.
 | Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
 | Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
 | Single-corner project prompt | [Draft for later work](SINGLE_CORNER_PROJECT_PROMPT.md) | Physical angle versus coneFraction, hole centers, exact strip/color continuation, recovered tree flattening, stages, and unresolved decisions; implementation is on hold |
+| Independent prompt review | [Review-only handoff](SINGLE_CORNER_REVIEW_PROMPT.md) | Focused questions for an independent mathematical review before implementation |
 | Tree reference evidence | [Recovered center and multiplier](TREE_REFERENCE_ANALYSIS.md) | Single-edge inverse fit, upper-half count, and historical renderer replay establish code f=3/4 versus paper ratio 4/3 |
 | Cone prototype contract | [Mapping specification](CONE_MAPPING_SPEC.md) | Coordinates, units, seams, inverse selection, tolerance, and saved state |
 | Evidence and reproduction | [Research testing](TESTING.md) | One suite command, coverage, results, and remaining test work |
@@ -51,7 +52,9 @@ records the latest pixel-audit repair.
   addresses it in Chromium, Firefox, and WebKit.
 - **Cone preparation:** complete for the current planar app. Unit-fraction helper
   behavior and limitations are tested, and the [mapping contract](CONE_MAPPING_SPEC.md)
-  specifies the first bounded prototype. No nonunit fraction has been executed.
+  records the earlier bounded prototype. The production app remains planar;
+  separately authorized historical forensics have recovered the tree reference
+  at f=3/4. The new single-corner prompt remains under review.
   [Cone readiness](CONE_READINESS.md) maps the original goals to their evidence.
 
 ## Working cycle
