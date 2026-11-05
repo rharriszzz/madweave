@@ -193,6 +193,13 @@ The user's requirements are:
 - A single-color assignment permits at least all the angles permitted by a
   compatible multicolor assignment. Some arrangements of three distinct colors
   rule out angles that the uncolored/single-color weave permits.
+- The user clarified the general madweave angle baseline: monochrome permits
+  multiples of 60 degrees; particular patterns can require larger multiples,
+  such as 120 degrees. Center/phase-specific compatibility describes how to
+  realize that baseline, not a universal restriction to 120-degree increments.
+  The 480- and 240-degree research fixtures are examples, not the allowed-angle
+  list. For `tree.png` specifically, the recovered reference angle remains
+  480 degrees with multiplier 3/4; 240 degrees is not an alternative image fit.
 - The corner center is always over a hole, never inside a strip.
 - In madweave, the permitted hole kind is the small hexagon.
 - In hexweave, the hole kinds are the larger hexagons and the smaller triangles.

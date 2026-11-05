@@ -291,3 +291,13 @@ established reference-model results from remaining crop, implementation and
 physical uncertainties. This supersedes the earlier absence of finite corner
 evidence only within those explicit scopes. Work stops at the deliverable for
 review; implementation and merging remain unauthorized.
+
+## Angle-baseline clarification after Stage 1
+
+The user clarified that the one recovered angle applies to `tree.png`:
+480 reference degrees with multiplier 3/4. General monochrome madweave permits
+multiples of 60 degrees, while particular patterns may demand larger multiples,
+such as 120 degrees. The prompt and Stage 1 report now lead with this distinction.
+The 240-degree fixture is a separate deficit example, not an alternative tree
+reconstruction or a restriction on the general angle range. This clarification
+does not authorize implementation or further research beyond the review stop.

@@ -12,6 +12,17 @@ certificate below is not a passing diagram application or a physical example.
 
 ## 1. Results and their scope
 
+**Angle baseline clarified by the user:** monochrome madweave permits multiples
+of 60 degrees; particular patterns may require larger multiples, such as 120
+degrees. The center/phase catalogue below explains realizations and restrictions
+of particular fixed settings. It does not replace that general baseline with a
+120-degree minimum increment.
+
+For `tree.png`, the recovered reference angle is specifically 480 degrees,
+with angular multiplier 3/4. Its image reconstruction is finished. The 240-degree
+case below is a separate wedge-removal example, not another candidate fit for
+the tree. Neither example is the general tool's complete allowed-angle list.
+
 The four-sector 480-degree and two-sector 240-degree candidates have complete
 reference-ribbon certificates in the stated finite models. They have exact
 registered band intervals, distinct sector occurrences, consistent local order,
@@ -225,9 +236,11 @@ These are symmetric-sector constructions. Their rotation proof gives complete
 local seam registration/order; finite crops and coloring are still certified
 separately. No necessity theorem excludes non-symmetry registrations or other
 finite seam phases. Infinite families do not imply a usable UI range or a physical
-construction for every m. Initially prioritize 240, 360 and 480 degrees; 300
-degrees has a further finite monochrome certificate at appropriate madweave
-centers. An eventual wider UI range needs review and finite evidence.
+construction for every m. The 240, 360 and 480 degree cases are finite acceptance
+examples; 300 degrees has a further finite monochrome certificate at appropriate
+madweave centers. These example choices do not narrow the product's monochrome
+60-degree baseline. Any practical UI range and its finite evidence must be
+stated separately from the mathematical angle family.
 
 ### Local stack consistency
 
