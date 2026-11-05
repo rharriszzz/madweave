@@ -36,7 +36,7 @@ construction/warning views; pointer hover text is dismissed before capture.
 | Image | Reproducible state |
 | --- | --- |
 | `planar-original.png` | Original SVG reopened in the current editor: size 2 (six strips per direction), direction formula, three colors, medium spacing; original pink/gold/violet palette |
-| `planar-open.png` | Size 4, teal/gold/plum palette, class + group formula, wide spacing, b class hidden |
+| `planar-open.png` | Size 4, original pink/gold/violet palette, direction formula, three opaque colors, narrow spacing, only b class visible, L enabled |
 | `corner-construction.png` | Displaced sixfold phase, size 2, 480°, 24 strips with individual ends, direction + class formula, original palette and control positions, L enabled |
 | `corner-inspection.png` | Same construction, first crossing's next local position, hidden outlines and seam partners enabled |
 | `corner-translucent-warning.png` | Displaced sixfold phase, size 2, 420°, 21 strips with individual ends, direction formula; blue/coral/violet at 0.65/0.55/0.70 opacity, deliberate seam warnings |

@@ -18,8 +18,8 @@ Screenshots below come from the built editor. Click an image for full size.
 ![Original pink, gold and violet weave, with six strips per direction and the editor controls visible](docs/images/planar-original.png)
 *The [original MadWeave design](https://fiberwoman.com/madweave/madweave.svg), reopened and rendered by the current editor.*
 
-![Open planar weave with grouped colors, wider spacing and one hexweave class hidden](docs/images/planar-open.png)
-*A different formula, wider spacing, and a hidden b class reveal the layered structure.*
+![Open hexweave in the original pink, gold and violet, with one color per direction and visible strip edges](docs/images/planar-open.png)
+*The b hexweave class in the original colors. Opaque strips and edge lines make the over-and-under crossings clear.*
 
 ![Corner diagram with the original palette and control positions, a 480 degree angle, bottom view buttons, and strip-edge lines](docs/images/corner-construction.png)
 *Size 2 at 480° has 24 strips with individual ends. The original controls and palette remain; L draws lines at the strip edges.*

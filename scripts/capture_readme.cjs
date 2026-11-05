@@ -69,14 +69,13 @@ const server = http.createServer((req, res) => {
     }, original);
     assert.equal(paths, 21, 'Check all 18 strip paths and 3 clipping paths');
     await capture('planar-original');
-    // Use the application model to set repeatable palettes, then native controls.
-    await page.evaluate(() => {
-      const w=MadWeaveEditor.planar.contentWindow;
-      w.colorArray=['rgb(36,104,109)','rgb(222,163,66)','rgb(139,78,108)','rgb(235,221,185)','rgb(61,75,97)','rgb(177,81,49)','rgb(223,233,215)','rgb(37,49,53)'];
-      w.buildButtons(w.document);w.buildStrips(w.document);
-    });
-    await button('SC4');await button('CC3');await button('CP0');await button('Sep1');
-    await button('CP4');await button('Sep2');await button('VH1');
+    // Keep the original palette; show the b hexweave class with clear crossings.
+    await button('SC4');await button('CC3');await button('CP0');await button('Sep0');
+    await button('VH0');await button('VH2');await button('Lines');
+    const open = await page.evaluate(() => MadWeaveEditor.capture().design);
+    assert.deepEqual(open.palette, expected.palette);
+    assert.deepEqual(open.layers, [false,true,false]);
+    assert(open.outlines && open.opacity.slice(0,3).every(alpha => alpha === 1));
     await capture('planar-open');
     await page.evaluate(value => MadWeaveProject.apply(MadWeaveEditor.planar.contentWindow,value), expected);
     await page.selectOption('#design-mode','corner');
