@@ -284,3 +284,43 @@ all confirmed continuation/order constraints remain as documented in Stage 1.
 No custom-cut stock is silently substituted. Physical constructibility remains
 unverified; a documented physical example is required for physical validation or
 fabrication-ready outputs. Stop for review before merge, deployment or expansion.
+
+## Review correction: consume immediate formula intent
+
+The [review](SINGLE_CORNER_INTEGRATION_REVIEW.md) found that an immediately
+applied CP/CC1 formula left `replaceColors` pending. An unchanged Apply then
+cleared custom paint added after that formula. The new native-control regression
+fails on `2029873` in Chromium: `{pattern:1, overrides:{"0:0:3":7}}` becomes
+`{pattern:1, overrides:{}}`.
+
+Only formula proposal bookkeeping is corrected. Immediate success consumes the
+replacement intent. Immediate failure discards the failed choice and rebuilds
+the proposal from the retained active formula, using `corner.edit`'s boolean
+result. Deliberately staged formulas remain queued until Apply; a failed staged
+Apply retains the proposal for retry. A successful grouped Apply consumes it.
+The existing intentional formula-button reset of manual colors is unchanged.
+
+[Correction evidence](evidence/corner-paint-correction.json) records the actual
+before/after result. Chromium 145.0.7632.6, Firefox 155 and WebKit 26.6 pass nine
+transaction scenarios online and the same nine in the committed worked file
+with HTTP blocked: CP1/CC1 → paint → unchanged Apply directly, after a mode return,
+and after moving construction controls away/back; failed immediate redraw;
+staged failure/retry; and intentional staged recoloring after returning geometry
+to its original values. Assertions compare the complete saved design, including
+custom material, selection, palette, view and construction. Offline resave,
+reopening and another formula/paint/Apply cycle also pass in each engine.
+
+The full existing integration suite's eight representatives per engine pass,
+including paint/pixel audits, imports, races, planar mode and exports. Four Node
+math tests, five Python site tests, and the semantic suite (84 constructions,
+3,024 round trips / 3,028 independent cases) pass. Syntax checks and
+`git diff --check` pass. Geometry research, historical prototype and planar seam
+suites were not rerun for this bookkeeping-only correction.
+
+The worked editable HTML updates only its bundled `editorScript`; its saved
+model and all other runtime assets remain unchanged. Its hash is refreshed in
+`round-trip.json`. No generated corner core, certificate, rendering code, palette
+semantics or file format changes are needed. Earlier verification tables and
+`corner-integration.json` remain the historical delivery record; the correction
+evidence above contains the current wrapper/test/artifact hashes. No master
+merge, deployment, broader stage or physical validation is authorized here.

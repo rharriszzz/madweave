@@ -108,9 +108,12 @@
   syncProposal();message(`${s.conflicts.length?'Color continuity warning':'Corner design ready'} — physical constructibility unverified. Paint changes the entire joined strip. Save stores this active design only.`);buttons();
  }
  function formula(pattern){
-  const config=corner.state.entry.config,pending=['phase','beta','crop'].some(k=>draft[k]!==config[k]);begin();draft={...draft,pattern,replaceColors:true};
-  if(pending){syncProposal();return;}
-  corner.edit('Formula coloring',v=>{v.material={pattern,overrides:{}};});syncProposal();
+  const config=corner.state.entry.config,pending=['phase','beta','crop'].some(k=>draft[k]!==config[k]);begin();
+  if(pending){draft={...draft,pattern,replaceColors:true};syncProposal();return;}
+  const applied=corner.edit('Formula coloring',v=>{v.material={pattern,overrides:{}};});
+  // Immediate success consumes the intent; failure discards it and proposes
+  // the retained active formula. Only a deliberately staged edit stays queued.
+  draft={...config,pattern:applied?pattern:corner.state.value.material.pattern};syncProposal();
  }
  for(const p of core.catalogue.matrix.domain.phases)$('#corner-phase').append(new Option(p.label,p.id));
  for(const b of core.catalogue.matrix.domain.angles)$('#corner-beta').append(new Option(b+'°',String(b)));

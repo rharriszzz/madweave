@@ -22,6 +22,36 @@ async function watchFiles(page){await page.evaluate(()=>{const input=document.qu
 async function openTracked(page,payload){const i=await page.evaluate(()=>__files.length);const chooser=page.waitForEvent('filechooser');await page.click('#open-project');await(await chooser).setFiles(payload);await page.evaluate(i=>__files[i],i);}
 const payload=(name,text)=>({name,mimeType:'application/json',buffer:Buffer.from(text)});
 
+// Regression for 2029873: an immediate formula must not queue a replacement
+// that erases paint added later. Compare the complete saved design, not flags.
+async function formulaTransactions(page){
+ await page.locator('#corner-inspector').evaluate(e=>e.open=true);
+ const cases=[];
+ const paint=async slot=>{const key=await page.locator('#corner-strip option').nth(1).getAttribute('value');await page.selectOption('#corner-strip',key);await svgButton(page,'C'+slot);await page.click('#corner-paint');assert.equal((await state(page)).design.material.overrides[key],slot);return key;};
+ const failMesh=()=>page.evaluate(()=>{const C=MadWeaveCornerCore.Diagram;window.__formulaMesh=C.prototype.mesh;C.prototype.mesh=()=>{throw Error('injected formula redraw failure');};});
+ const restoreMesh=()=>page.evaluate(()=>{MadWeaveCornerCore.Diagram.prototype.mesh=window.__formulaMesh;});
+ for(const button of ['CP1','CC1'])for(const history of ['direct','mode-return','construction-return']){
+  await svgButton(page,button);assert.deepEqual((await state(page)).design.material,{pattern:button==='CP1'?1:null,overrides:{}});
+  await page.selectOption('#corner-rotation','90');await paint(7);const before=await state(page);
+  if(history==='mode-return'){await mode(page,'planar');await mode(page,'corner');}
+  if(history==='construction-return'){const beta=before.design.construction.parameters.beta;await page.selectOption('#corner-beta',String(beta===360?480:360));await page.selectOption('#corner-beta',String(beta));}
+  await page.click('#corner-apply');assert.deepEqual(await state(page),before,`${button} → paint → unchanged Apply (${history}) must preserve the saved design`);cases.push(button+'-'+history);
+ }
+ const beforeFailure=await state(page);await failMesh();try{await svgButton(page,'CP2');}finally{await restoreMesh();}
+ assert.deepEqual(await state(page),beforeFailure);assert.match(await page.locator('#export-status').innerText(),/injected formula redraw failure/);assert.match(await page.locator('#corner-proposal').innerText(),/Replacement coloring: Monochrome/);
+ await paint(6);const afterFailure=await state(page);await page.click('#corner-apply');assert.deepEqual(await state(page),afterFailure,'A failed immediate formula must not become a later replacement');cases.push('failed-immediate-discarded');
+ const target=entries.find(e=>e.id==='mad-sixfold-420-r6');for(const key of ['phase','beta','crop'])await page.selectOption('#corner-'+key,String(target.config[key]));
+ const stagedBefore=await state(page);await svgButton(page,'CP2');assert.deepEqual(await state(page),stagedBefore,'A pending construction keeps the formula staged');
+ await failMesh();try{await page.click('#corner-apply');}finally{await restoreMesh();}assert.deepEqual(await state(page),stagedBefore);assert.match(await page.locator('#export-status').innerText(),/injected formula redraw failure/);assert.match(await page.locator('#corner-proposal').innerText(),/Replacement coloring: Direction \+ class/);
+ await page.click('#corner-apply');let applied=await state(page);assert.equal(applied.design.construction.id,target.id);assert.deepEqual(applied.design.material,{pattern:2,overrides:{}});assert.deepEqual(applied.design.palette,stagedBefore.design.palette);assert.deepEqual(applied.design.view,stagedBefore.design.view);cases.push('staged-failure-retry');
+ await paint(7);applied=await state(page);await page.click('#corner-apply');assert.deepEqual(await state(page),applied,'A staged replacement must be consumed once');
+ // Returning construction controls to the active geometry must still honor a
+ // formula deliberately staged while they were away (unlike stale history).
+ await page.selectOption('#corner-beta','480');await svgButton(page,'CC1');assert.deepEqual(await state(page),applied);await page.selectOption('#corner-beta','420');await page.click('#corner-apply');assert.deepEqual((await state(page)).design.material,{pattern:null,overrides:{}});
+ await paint(7);applied=await state(page);await page.click('#corner-apply');assert.deepEqual(await state(page),applied);cases.push('deliberate-staging-after-construction-return');
+ return cases;
+}
+
 // Exact rays use the owned sector's analytic occupancy. Geometry on a shared
 // boundary is audited separately by the kernel suite; these rows test native
 // paint coverage where continuous translucent stacks must leave no crack.
@@ -86,6 +116,7 @@ try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,w
   await page.evaluate(()=>{const w=MadWeaveEditor.planar.contentWindow,r=w.document.getElementById('svg');w.setDefaultColor(r,5);w.setStripColorToCurrentDefault(r,0);w.opacityArray[5]=.37;w.buildStrips(w.document);w.selectedMouseIndex=0;w.showMouseStrip(r,0);});const planar=await state(page);
   // A failed first mode setup leaves the original planar frame untouched.
   await page.route('**/corner-runtime.js',r=>r.fulfill({status:503,body:'injected asset failure'}));await page.selectOption('#design-mode','corner');await page.waitForFunction(()=>document.querySelector('#export-status').textContent.startsWith('Mode was not changed:'));assert.deepEqual(await state(page),planar);await page.unroute('**/corner-runtime.js');
+  const transactionPage=await context.newPage();await transactionPage.goto(url);await transactionPage.waitForFunction(()=>!document.querySelector('#save-project').disabled);await mode(transactionPage,'corner');const formulaCases=await formulaTransactions(transactionPage);await transactionPage.close();
   await mode(page,'corner');const originalGeometry=JSON.stringify(certs.excess);await svgButton(page,'C7');
   // Real pointer paints directly; no mandatory list-select/paint flow.
   const f=await activeFrame(page),row=oracles.excess.find(row=>{const x=row.XY[0]/Math.sqrt(3),y=row.XY[1],r=Math.hypot(x,y),theta=Math.atan2(y,x),normals=[[0,1],[-Math.sqrt(3)/2,-.5],[Math.sqrt(3)/2,-.5]];return row.positions.length&&r>1&&r<4&&theta>.15&&theta<certs.excess.parameters.alpha*Math.PI/180-.15&&!certs.excess.pieces.some(b=>b.id[0]===row.sector&&Math.abs(Math.abs(normals[b.id[1]][0]*x+normals[b.id[1]][1]*y-(b.id[2]-2.5))-.375)<.12);}),local=await f.evaluate(row=>{const m=parent.MadWeaveEditor.corner.state.model,p=m.map([row.XY[0]/Math.sqrt(3),row.XY[1]],row.sector),q=new DOMPoint(...p).matrixTransform(document.querySelector('#diagram .material-cells').getScreenCTM());return {x:q.x,y:q.y};},row);await page.frameLocator('#weave').locator('#diagram').scrollIntoViewIfNeeded();
@@ -137,6 +168,10 @@ try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,w
   await svgButton(page,'C7');await slider(page,'OB',.4);await page.click('#corner-paint');
   const savedState=await state(page),saved=path.join(OUT,name+'-worked.html');await download(page,'#save-project',saved);assert(fs.statSync(saved).size<10*1024*1024);
   const offline=await browser.newContext({acceptDownloads:true,viewport:{width:1280,height:1000}}),requests=[];await offline.route(/^https?:/,r=>r.abort());if(name!=='webkit')await offline.setOffline(true);offline.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url());});const localPage=await offline.newPage();localPage.on('pageerror',e=>errors.push(e.message));await localPage.goto(pathToFileURL(saved).href);await localPage.waitForFunction(()=>MadWeaveEditor?.mode==='corner'&&!document.querySelector('#save-project').disabled);assert.deepEqual(await state(localPage),savedState);
+  // Exercise the committed worked artifact, not just freshly generated files.
+  const artifactPage=await offline.newPage();artifactPage.on('pageerror',e=>errors.push(e.message));await artifactPage.goto(pathToFileURL(path.join(__dirname,'evidence/corner-integration-worked/editable.html')).href);await artifactPage.waitForFunction(()=>MadWeaveEditor?.mode==='corner'&&!document.querySelector('#save-project').disabled);
+  const offlineFormulaCases=await formulaTransactions(artifactPage),artifactState=await state(artifactPage),artifactSave=path.join(OUT,name+'-formula-resaved.html');await download(artifactPage,'#save-project',artifactSave);await artifactPage.goto(pathToFileURL(artifactSave).href);await artifactPage.waitForFunction(()=>MadWeaveEditor?.mode==='corner');assert.deepEqual(await state(artifactPage),artifactState);
+  await artifactPage.locator('#corner-inspector').evaluate(e=>e.open=true);await svgButton(artifactPage,'CP1');const artifactStrip=await artifactPage.locator('#corner-strip option').nth(1).getAttribute('value');await artifactPage.selectOption('#corner-strip',artifactStrip);await svgButton(artifactPage,'C7');await artifactPage.click('#corner-paint');const artifactPaint=await state(artifactPage);await artifactPage.click('#corner-apply');assert.deepEqual(await state(artifactPage),artifactPaint,'Reopened offline formula/paint/Apply retains paint');await artifactPage.close();
   await mode(localPage,'planar');
   // A default planar frame first created offline must join the shared revision
   // guard too: a real palette edit cancels an older pending corner import.
@@ -148,7 +183,7 @@ try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,w
   await mode(page,'planar');await download(page,'#save-project',path.join(OUT,name+'-planar.html'));assert(fs.statSync(path.join(OUT,name+'-planar.html')).size<5*1024*1024);const planarState=await state(page);await localPage.goto(pathToFileURL(path.join(OUT,name+'-planar.html')).href);await localPage.waitForFunction(()=>MadWeaveEditor?.mode==='planar'&&!document.querySelector('#save-project').disabled);assert.deepEqual(await state(localPage),planarState);
   await openTracked(page,legacyPlanarPayload(planar.design));assert.deepEqual((await state(page)).design,planar.design);
   await mode(page,'corner');await page.locator('#corner-inspector').evaluate(e=>e.open=false);await page.screenshot({fullPage:true,path:path.join(OUT,name+'-desktop.png')});await page.setViewportSize({width:390,height:900});await page.waitForTimeout(200);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({fullPage:true,path:path.join(OUT,name+'-narrow.png')});
-  assert.deepEqual(requests,[]);assert.deepEqual(errors,[]);results.push({browser:name,version:browser.version(),rows,races,modeRetention:true,offlinePlanarEditsCancelPendingImports:true,failedPaletteAndViewRollback:true,invalidAndUnvalidatedProposals:true,fringeAndHiddenPainting:true,paletteAliasesAndTransparency:true,zeroOpacityPreservesAllMaterial:true,wrongVisiblePaintRejectedByGeometryAndPixels:true,continuousTranslucentSeamPixels:monoSeams.record.pixel.filter(q=>q.seam).length,exactRayPixels:monoSeams.record.pixel.filter(q=>q.exactRay).length,continuousTranslucentMaxError:monoSeams.error,zeroOpacityMaxError:invisible.error,legacyImports:true,offlineRequests:requests,projectBytes:fs.statSync(saved).size,errors});await offline.close();await context.close();
+  assert.deepEqual(requests,[]);assert.deepEqual(errors,[]);results.push({browser:name,version:browser.version(),rows,races,formulaTransactions:{online:formulaCases,offline:offlineFormulaCases,offlineResave:true},modeRetention:true,offlinePlanarEditsCancelPendingImports:true,failedPaletteAndViewRollback:true,invalidAndUnvalidatedProposals:true,fringeAndHiddenPainting:true,paletteAliasesAndTransparency:true,zeroOpacityPreservesAllMaterial:true,wrongVisiblePaintRejectedByGeometryAndPixels:true,continuousTranslucentSeamPixels:monoSeams.record.pixel.filter(q=>q.seam).length,exactRayPixels:monoSeams.record.pixel.filter(q=>q.exactRay).length,continuousTranslucentMaxError:monoSeams.error,zeroOpacityMaxError:invisible.error,legacyImports:true,offlineRequests:requests,projectBytes:fs.statSync(saved).size,errors});await offline.close();await context.close();
  }finally{await browser.close();}
 }}finally{server.close();}fs.writeFileSync(path.join(OUT,process.env.MADWEAVE_STAGE2_BROWSERS?'browser-'+process.env.MADWEAVE_STAGE2_BROWSERS+'.json':'browser.json'),JSON.stringify(results,null,2)+'\n');console.log('Integrated editor checks passed');
 })().catch(e=>{console.error(e);server.close();process.exitCode=1;});
