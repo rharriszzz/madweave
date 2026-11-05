@@ -32,16 +32,11 @@ const server = http.createServer((req, res) => {
     await page.goto(`http://127.0.0.1:${server.address().port}/madweave/editor.html`);
     await page.waitForFunction(() => !document.querySelector('#save-project').disabled);
     const button = name => page.frameLocator('#weave').locator('#cbutton'+name).click();
-    async function capture(name, settings=false) {
+    async function capture(name) {
       await page.mouse.move(0,0);
       await page.evaluate(() => document.activeElement?.blur());
       await page.waitForTimeout(250);
-      if (settings) {
-        await page.evaluate(() => window.scrollTo({top:0,behavior:'instant'}));
-        const top = await page.locator('.mode-controls').boundingBox();
-        const bottom = await page.locator('.canvas').boundingBox();
-        await page.screenshot({path:path.join(output,name+'.png'),fullPage:true,clip:{x:top.x,y:top.y,width:bottom.width,height:bottom.y+bottom.height-top.y}});
-      } else await page.locator('.canvas').screenshot({path:path.join(output,name+'.png')});
+      await page.locator('.canvas').screenshot({path:path.join(output,name+'.png')});
       console.log(name);
     }
     // Reopen the original fiberwoman.com design through the current editor.
@@ -82,27 +77,36 @@ const server = http.createServer((req, res) => {
     await page.selectOption('#design-mode','corner');
     await page.waitForFunction(() => MadWeaveEditor.mode==='corner');
     await button('Lines');
-    assert.equal(await page.evaluate(() => MadWeaveEditor.capture().design.view.edges), true);
-    await capture('corner-construction');
-    await button('Lines');
     await page.locator('#corner-inspector').evaluate(e=>e.open=true);
     await page.selectOption('#corner-crossing',{index:1});
     await page.click('#corner-next');
     await page.check('#corner-seams');await page.check('#corner-hidden');
-    await capture('corner-inspection');
+    const painted = await page.evaluate(() => {
+      const s=MadWeaveEditor.corner.state;
+      return {edges:s.view.edges,hidden:s.view.outlines,seams:s.view.seams,count:s.keys.length,angle:s.model.p.beta,
+        selected:s.keys[s.selected],accent:s.keys[(s.selected+Math.floor(s.keys.length/2))%s.keys.length]};
+    });
+    assert(painted.edges && painted.hidden && painted.seams && painted.selected);
+    assert.equal(painted.count,24);assert.equal(painted.angle,480);
+    assert(await page.frameLocator('#weave').locator('[data-material-edge]').count()>0);
+    await capture('corner-construction');
     await page.uncheck('#corner-hidden');await page.uncheck('#corner-seams');
     await page.selectOption('#corner-strip','');
-    await page.selectOption('#corner-phase','mad-sixfold');
-    await page.selectOption('#corner-beta','420');
-    await page.selectOption('#corner-crop','s2');
-    await button('CP0');await page.click('#corner-apply');
-    await page.evaluate(() => MadWeaveEditor.corner.edit('Gallery palette',v=>{
-      v.palette[0]='rgb(30,111,140)';v.palette[1]='rgb(204,99,66)';v.palette[2]='rgb(124,85,163)';
-      v.opacity[0]=.65;v.opacity[1]=.55;v.opacity[2]=.7;
-    }));
-    assert(await page.frameLocator('#weave').locator('[data-seam-warning]').count()>0);
+    await button('Lines');
+    await page.evaluate(painted => MadWeaveEditor.corner.edit('Gallery colors',v=>{
+      v.palette=['rgb(30,111,140)','rgb(204,99,66)','rgb(124,85,163)','rgb(54,160,145)',
+        'rgb(235,185,63)','rgb(52,75,100)','rgb(244,227,184)','rgb(250,248,241)'];
+      v.opacity=[.65,.8,.55,1,1,.7,1,1];
+      v.material.overrides[painted.selected]=4;
+      v.material.overrides[painted.accent]=3;
+      v.recent=[v.palette[3],v.palette[4],v.palette[2],v.palette[1]];
+      v.recentOpacity=[1,1,.55,.8];
+    }),painted);
+    assert.equal(await page.evaluate(() => MadWeaveEditor.corner.state.conflicts.length),0);
+    assert.equal(await page.evaluate(() => MadWeaveEditor.corner.state.distinctColors),5);
+    assert.deepEqual(await page.evaluate(() => Object.values(MadWeaveEditor.capture().design.material.overrides).sort()),[3,4]);
     await page.locator('#corner-inspector').evaluate(e=>e.open=false);
-    await capture('corner-translucent-warning',true);
+    await capture('corner-colors');
     assert.deepEqual(errors,[]);
     console.log('Captured in Chromium',browser.version());
   } finally {await browser.close();server.close();}

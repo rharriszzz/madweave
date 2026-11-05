@@ -1,10 +1,10 @@
 # README screenshot reproduction
 
-The five PNGs in `docs/images/` are actual screenshots of the integrated editor,
+The four PNGs in `docs/images/` are actual screenshots of the integrated editor,
 served from the allowlisted build at `/madweave/editor.html`. They are not
 prototype UI or generated illustrations. The capture script sets repeatable
-palettes through the application model and uses the real controls for pattern,
-spacing, visibility, construction and inspection choices.
+palettes and whole-strip colors through the application model and uses the real
+controls for pattern, spacing, visibility, construction and inspection choices.
 
 The first image reopens `madweave.svg` through **Open Project**, rebuilding the
 original design with the current software. The file matches
@@ -27,22 +27,22 @@ npm run screenshots
 On Linux, install browser system dependencies as described in
 [browser setup](BROWSER_TEST_SETUP.md). `MADWEAVE_CHROMIUM_EXECUTABLE` optionally
 selects an existing Chromium executable. The first image used Chromium
-153.0.8010.12, as did the other four. All used Playwright 1.63.0, a
+153.0.8010.12, as did the other three. All used Playwright 1.63.0, a
 1000 × 1000 viewport and device scale 1.
-Captures crop to the canvas, or from the mode selector through the complete
-canvas. No UI is restyled or removed. The inspector is closed for the ordinary
-construction/warning views; pointer hover text is dismissed before capture.
+Captures crop to the canvas, including the original controls. No UI is restyled
+or removed. Inspection choices are made through the inspector above the canvas;
+the README explains the markings beside the picture. Pointer hover text is
+dismissed before capture.
 
 | Image | Reproducible state |
 | --- | --- |
 | `planar-original.png` | Original SVG reopened in the current editor: size 2 (six strips per direction), direction formula, three colors, medium spacing; original pink/gold/violet palette |
 | `planar-open.png` | Size 4, original pink/gold/violet palette, group formula (fourth preview), three opaque colors, narrow spacing, only b class visible, L enabled |
-| `corner-construction.png` | Displaced sixfold phase, size 2, 480°, 24 strips with individual ends, direction + class formula, original palette and control positions, L enabled |
-| `corner-inspection.png` | Same construction, first crossing's next local position, hidden outlines and seam partners enabled |
-| `corner-translucent-warning.png` | Displaced sixfold phase, size 2, 420°, 21 strips with individual ends, direction formula; blue/coral/violet at 0.65/0.55/0.70 opacity, deliberate seam warnings |
+| `corner-construction.png` | Displaced sixfold phase, size 2, 480°, 24 strips with individual ends, direction + class formula, original palette, L enabled; first crossing's next local position selected, hidden outlines and seam partners enabled |
+| `corner-colors.png` | Same construction and formula; blue/coral/violet at 0.65/0.80/0.55 opacity; inspected strip painted opaque gold, another whole strip painted opaque teal; inspection and L off, no seam color warnings |
 
 Review every regenerated image at the README's approximate 830-pixel display
-width as well as full size. Check full drawing bounds, selected controls, warning
-legibility, caption accuracy and absence of hover text. PNGs total about 1 MiB.
+width as well as full size. Check full drawing bounds, selected controls, strip
+edges and inspection markings, caption accuracy and absence of hover text. PNGs total about 0.5 MiB.
 They are repository documentation and deliberately remain outside the site's
 public-file allowlist.

@@ -16,19 +16,16 @@ editable SVG, an eight-color palette, strip painting, and portable project files
 Screenshots below come from the built editor. Click an image for full size.
 
 ![Original pink, gold and violet weave, with six strips per direction and the editor controls visible](docs/images/planar-original.png)
-*The [original MadWeave design](https://fiberwoman.com/madweave/madweave.svg), reopened and rendered by the current editor.*
+The [original MadWeave design](https://fiberwoman.com/madweave/madweave.svg), reopened in the current editor. It has six strips in each of three directions—18 strips in all. Each direction has its own color, so you can follow the strips over and under one another. The bottom buttons switch between Flat and Corner views.
 
 ![Open hexweave with pink, gold and violet repeating across parallel strips and forming a pink star outline](docs/images/planar-open.png)
-*Colors repeat across parallel strips, forming a pink star outline in the open hexweave. Edge lines show the crossings.*
+Here only the **b** class is visible, leaving twelve strips in an open hexweave. The fourth color pattern repeats pink, gold and violet across parallel strips, producing the pink star outline. The strips are opaque, and thin edge lines show which strip passes over another at each crossing.
 
-![Corner diagram with the original palette and control positions, a 480 degree angle, bottom view buttons, and strip-edge lines](docs/images/corner-construction.png)
-*Size 2 at 480° has 24 strips with individual ends. The original controls and palette remain; L draws lines at the strip edges.*
+![480 degree corner with strip-edge lines, an orange outline following one joined strip, and dashed hidden edges and sector boundaries](docs/images/corner-construction.png)
+This corner uses **size 2** at **480°**, giving 24 strips with individual ends. **L** adds black lines along the strip edges. The orange outline follows one entire joined strip, including the parts covered by other strips. Fine dashed lines trace hidden edges; radial dashed lines mark where the drawing's sectors meet. Open **More → Strip and seam inspection** to follow strips and select the material underneath a crossing.
 
-![Orange joined-strip outline crossing sector seams, with dashed hidden material and seam partners](docs/images/corner-inspection.png)
-*Inspection follows one joined strip through visible and hidden positions; orange marks its material identity.*
-
-![Translucent blue, coral and violet corner diagram with pink seam markers and a visible continuity warning](docs/images/corner-translucent-warning.png)
-*Transparency shows overlapping material. Pink markers deliberately flag a formula's color changes across seams.*
+![The same corner with translucent blue, coral and violet strips, an opaque gold strip and an opaque teal strip](docs/images/corner-colors.png)
+The same construction with a different palette and two individually painted strips. Blue, coral and violet are partly transparent, revealing the material underneath and color blends at overlaps. The gold strip is the one outlined in orange above; it and the teal strip are fully opaque. Painting changes the whole joined strip, including its hidden parts, while opacity controls how much you can see through it.
 
 [Capture script](scripts/capture_readme.cjs) · [Screenshot reproduction](docs/SCREENSHOTS.md)
 
