@@ -249,3 +249,10 @@ Lead with your recommended two-view workflow, then provide:
 Make the proposal concrete enough for Richard to correct against his paper
 method. We want to learn and build this together, starting with a small example
 that can actually be represented in both views.
+
+## Advisory response
+
+See [the design advice and worked hat construction](ASTRA_DESIGN_ADVICE.md),
+including Richard's subsequent requirement for several authoring methods and
+polyhedra. Its net/assembly sketch and arithmetic checks are retained alongside
+the proposal. The POV-Ray/application milestone remains future work.
