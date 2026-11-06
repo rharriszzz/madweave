@@ -7,6 +7,12 @@ POV-Ray implementation. Richard accepted the two-sheet hat candidate during the
 review and clarified that the software must support varied shapes, including
 polyhedra, through several ways of specifying corners and nets.
 
+## Implementation follow-up
+
+Richard subsequently authorized implementation. The [working hat example](hat/README.md)
+now provides the patterned net, POV-Ray scene, rendered views and focused checks.
+The sections below retain the original design proposal and its broader roadmap.
+
 ## Recommended workflow
 
 Keep two linked views of **one assembled paper surface**: a length-preserving

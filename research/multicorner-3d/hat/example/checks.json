@@ -1,0 +1,35 @@
+{
+  "panel_distance_checks": 105,
+  "matched_edges": 12,
+  "corners": [
+    {
+      "id": "A0",
+      "beta": 240
+    },
+    {
+      "id": "A1",
+      "beta": 240
+    },
+    {
+      "id": "A2",
+      "beta": 240
+    },
+    {
+      "id": "B0",
+      "beta": 480
+    },
+    {
+      "id": "B1",
+      "beta": 480
+    },
+    {
+      "id": "B2",
+      "beta": 480
+    }
+  ],
+  "brim_area": 332.5537550532244,
+  "vertices": 9,
+  "triangles": 13,
+  "edges": 21,
+  "euler_characteristic": 1
+}
