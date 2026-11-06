@@ -17,6 +17,9 @@ The [paper construction notes](multicorner-3d/PAPER_CONSTRUCTION.md) record
 Richard's method of choosing corners in pattern openings, removing or adding
 angle, and taping the pieces together. Its digital representation will be
 developed jointly; it is not an implemented extension of the corner catalogue.
+The [current software plan](multicorner-3d/EXISTING_SOFTWARE.md) starts in POV-Ray,
+then ports a working construction into an existing browser viewer; it includes
+a locally checked model-viewer probe and revised reuse estimates.
 
 | Level | Read | Purpose |
 |---|---|---|

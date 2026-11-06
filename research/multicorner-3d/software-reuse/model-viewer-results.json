@@ -1,0 +1,127 @@
+{
+  "package": "@google/model-viewer",
+  "version": "4.4.0",
+  "scope": "Local rendering smoke probe, not corner assembly or performance verification",
+  "fixture": {
+    "panels": 7,
+    "triangles": 13,
+    "model": "synthetic supplied mesh, no assembly claim"
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "passed": true,
+      "version": "153.0.8010.12",
+      "materials": [
+        {
+          "name": "top",
+          "texture": true
+        },
+        {
+          "name": "side-0",
+          "texture": true
+        },
+        {
+          "name": "skirt-0",
+          "texture": true
+        },
+        {
+          "name": "side-1",
+          "texture": true
+        },
+        {
+          "name": "skirt-1",
+          "texture": true
+        },
+        {
+          "name": "side-2",
+          "texture": true
+        },
+        {
+          "name": "skirt-2",
+          "texture": true
+        }
+      ],
+      "hit": {
+        "x": 540,
+        "y": 345,
+        "name": "skirt-1",
+        "uv": {
+          "u": 0.5001652115494962,
+          "v": 0.019373820771672497
+        },
+        "position": {
+          "x": 0.0006608461979835667,
+          "y": 0,
+          "z": -1.9225047168476657
+        }
+      },
+      "changedPixels": 11744,
+      "pointerOrbit": true,
+      "pointerZoom": true,
+      "pngBytes": 91275,
+      "pageErrors": [],
+      "externalRequests": []
+    },
+    {
+      "engine": "firefox",
+      "passed": true,
+      "version": "155.0",
+      "materials": [
+        {
+          "name": "top",
+          "texture": true
+        },
+        {
+          "name": "side-0",
+          "texture": true
+        },
+        {
+          "name": "skirt-0",
+          "texture": true
+        },
+        {
+          "name": "side-1",
+          "texture": true
+        },
+        {
+          "name": "skirt-1",
+          "texture": true
+        },
+        {
+          "name": "side-2",
+          "texture": true
+        },
+        {
+          "name": "skirt-2",
+          "texture": true
+        }
+      ],
+      "hit": {
+        "x": 540,
+        "y": 345,
+        "name": "skirt-1",
+        "uv": {
+          "u": 0.5001652115494998,
+          "v": 0.019373820771680803
+        },
+        "position": {
+          "x": 0.0006608461979835667,
+          "y": 0,
+          "z": -1.9225047168476639
+        }
+      },
+      "changedPixels": 11749,
+      "pointerOrbit": true,
+      "pointerZoom": true,
+      "pngBytes": 60578,
+      "pageErrors": [],
+      "externalRequests": []
+    }
+  ],
+  "testDate": "2026-11-05",
+  "runtimeBytes": 1069272,
+  "textureSource": "madweave_stars_tile_small.png, embedded without alteration",
+  "rendererScope": "Chromium uses SwiftShader in this headless probe; no device FPS or large-scene claim.",
+  "fixtureSha256": "7fe89d55c7a33cb4b1bd0ec4444795a987f758d6428f4ecefc09528626768420"
+}

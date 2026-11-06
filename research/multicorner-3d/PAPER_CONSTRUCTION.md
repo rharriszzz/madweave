@@ -58,6 +58,16 @@ identities. I expect matching print scale and deliberate pattern registration
 to matter; those are implementation inferences, not additional instructions
 Richard has supplied yet.
 
+## Preferred implementation sequence
+
+Richard's subsequent direction is to implement this construction in POV-Ray and
+get it working there first. He knows POV-Ray and does not know Blender. Once we
+have working software and a concrete example, translate that construction into
+something more browser friendly, reusing existing rendering software. Porting a
+working model should be easier than designing the construction and a new
+platform at the same time. The [existing-software notes](EXISTING_SOFTWARE.md)
+record the viewer candidates and the revised effort estimates.
+
 ## Consequences for the explorer
 
 A useful construction record would contain:

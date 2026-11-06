@@ -6,12 +6,17 @@ The repository calls its default branch `master`; it has no `main` branch.
 The [Markdown review](MARKDOWN_REVIEW.md) covers all 40 tracked Markdown files
 at that baseline, including later corrections to the early corner reports.
 
-**Use browser GPU rasterization for interactive exploration, and retain POV-Ray
-as an export target.** Three.js is a practical starting point, but a small custom
-WebGL 2 renderer is also a credible choice. My rough budget for writing and
-checking that custom renderer is **20–40 focused working hours**, assuming it
-receives triangle meshes and initially draws opaque material. A basic demonstration
-would be substantially smaller: approximately 6–12 hours.
+**Current direction: implement the construction in POV-Ray first, get it working
+with Richard, then port that working construction into an existing browser
+viewer.** Richard already knows POV-Ray; Blender is outside the recommended
+workflow. The [existing-software follow-up](EXISTING_SOFTWARE.md) records the
+revised plan, much smaller reuse estimates and a successful local model-viewer
+probe in Chromium and Firefox.
+
+The custom-renderer costs below are the earlier comparison, retained for
+reference. They are not the current implementation budget. Reusing an existing
+viewer can produce a basic display in 15–60 minutes once a compatible model is
+available; a bounded picking/material adapter is estimated at 2–6 hours.
 
 These are proposed approaches and effort estimates, not implemented features or
 measured performance. Richard describes a direct
@@ -35,7 +40,7 @@ visual targets. Exact dimensions, concealed joins, corner angles and fold topolo
 cannot be recovered from this view alone. A first example can be an explicitly
 chosen approximation while we work out the construction together.
 
-## Four approaches
+## Earlier comparison of four approaches
 
 The four families below include alternatives within each family. Effort ranges
 are estimates of my implementation and verification work, not vendor prices,
@@ -197,6 +202,9 @@ different lighting and tone mapping need not produce identical pixels.
 
 ## 4. Blender as a procedural desktop explorer
 
+Richard subsequently clarified that he knows POV-Ray and does not know Blender.
+This option remains background research; the agreed workflow starts in POV-Ray.
+
 Generate the supplied panel/ribbon meshes with Python, preserve IDs as custom
 data, and expose a few meaningful scene parameters. Geometry Nodes can add
 procedural display detail without becoming the authority for strip joins.
@@ -281,7 +289,11 @@ The main uncertainty is testing and integration rather than writing the first
 shader. The ranges are planning budgets with roughly factor-of-two uncertainty,
 not a prediction of how long a single chat turn will take.
 
-## A small comparison before committing to a renderer
+## Earlier proposed renderer comparison
+
+The following comparison is deferred. The next construction work starts in
+POV-Ray, following the [updated workflow](EXISTING_SOFTWARE.md), rather than
+starting two competing browser viewers.
 
 Use the same supplied mesh in a minimal Three.js viewer and a custom WebGL 2
 viewer, then export that snapshot to POV-Ray. A proposed **12–24 hour total
