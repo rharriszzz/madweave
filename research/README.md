@@ -13,8 +13,10 @@ The rest of Stage 3 remains on hold and the production application's
 The separate [3D explorer investigation](multicorner-3d/README.md) compares four
 rendering approaches, including POV-Ray and a custom renderer, with effort
 estimates and a [review of the Markdown baseline](multicorner-3d/MARKDOWN_REVIEW.md).
-Multiple-corner assembly will be developed jointly with Richard; it is not an
-implemented extension of the single-corner catalogue.
+The [paper construction notes](multicorner-3d/PAPER_CONSTRUCTION.md) record
+Richard's method of choosing corners in pattern openings, removing or adding
+angle, and taping the pieces together. Its digital representation will be
+developed jointly; it is not an implemented extension of the corner catalogue.
 
 | Level | Read | Purpose |
 |---|---|---|

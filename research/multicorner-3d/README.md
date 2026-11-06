@@ -14,9 +14,11 @@ receives triangle meshes and initially draws opaque material. A basic demonstrat
 would be substantially smaller: approximately 6–12 hours.
 
 These are proposed approaches and effort estimates, not implemented features or
-measured performance. Richard and the agent will work out how multiple corners
-fit together jointly. The estimates below cover rendering supplied geometry;
-they do not assign a cost or solution to that joint geometry research.
+measured performance. Richard describes a direct
+[cut-and-tape paper construction](PAPER_CONSTRUCTION.md): choose corners in
+pattern openings, remove or insert angle, and tape the paper together. We will
+develop its digital representation jointly. The estimates below cover rendering
+supplied geometry; they do not assign a cost to that separate work.
 
 ## What the photograph suggests
 
@@ -218,8 +220,9 @@ describes supported meshes, materials and custom properties.
 The renderer should consume a neutral geometry packet: vertices, triangle
 indices, normals, optional material coordinates, palette/material assignments,
 and a triangle-to-occurrence-to-strip map. The supplied surface may contain any
-number of corners. Corner IDs and provenance travel with it even before we have
-a general assembly algorithm.
+number of corners. Corner IDs, source paper pieces and taped-boundary pairings
+travel with it. The starting construction model is Richard's
+[patterned paper recipe](PAPER_CONSTRUCTION.md).
 
 ```text
 Planar and corner reference data + jointly developed surface assembly
@@ -239,10 +242,11 @@ The existing work supplies important constraints for our joint geometry work:
 - Keep reference coordinates, the existing distorted angular chart, and 3D
   embedding coordinates distinct. `f=360/beta` describes the current flat chart;
   it is not a fold angle. Positive and excess angle need different shape choices.
-- Several locally valid corners do not establish one globally consistent
-  assembly. Shared material, placement, phase and closure need joint checks.
-  A fold changes a surface's embedding without necessarily introducing an
-  intrinsic angular defect. We will distinguish folds from corner defects.
+- Record how the retained paper and inserted pieces are taped together, carrying
+  pattern registration and material identity across the paired boundaries.
+  Work through concrete constructions with Richard. A fold changes a surface's
+  embedding without necessarily introducing an intrinsic angular defect, so
+  distinguish folds from corners made by removing or adding angle.
 - Current seam-color conflicts remain visible warnings that retain chosen
   colors; opacity never removes material. Geometry/order failures remain
   separate from color diagnostics and rendering limitations.
