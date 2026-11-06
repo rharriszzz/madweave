@@ -13,6 +13,11 @@ workflow. The [existing-software follow-up](EXISTING_SOFTWARE.md) records the
 revised plan, much smaller reuse estimates and a successful local model-viewer
 probe in Chromium and Firefox.
 
+The required views are now a **2D net with several chosen corners and angles**
+and a **3D construction built from that net in POV-Ray**. The
+[GPT-6 Astra advisory prompt](ASTRA_DESIGN_PROMPT.md) asks for a worked hat
+construction and a concrete design for these two views.
+
 The custom-renderer costs below are the earlier comparison, retained for
 reference. They are not the current implementation budget. Reusing an existing
 viewer can produce a basic display in 15–60 minutes once a compatible model is

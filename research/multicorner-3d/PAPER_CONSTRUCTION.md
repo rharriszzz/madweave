@@ -68,6 +68,21 @@ working model should be easier than designing the construction and a new
 platform at the same time. The [existing-software notes](EXISTING_SOFTWARE.md)
 record the viewer candidates and the revised effort estimates.
 
+## Two views and the hat example
+
+Richard subsequently specified at least two views. The first is a **2D net**
+starting from planar madweave or hexweave: choose a corner in an opening, choose
+its angle, and repeat for several corners. The second is the **3D construction**
+built from that net, initially as a POV-Ray model. Its assembly should relate
+to how the physical paper model is built. The views describe the same pieces,
+corners and joins, rather than unrelated drawings.
+
+The supplied hat is the example we should work through. A raised triangular
+top, connecting walls and a surrounding brim are visible, but a specific net,
+corner-angle ledger and assembly sequence remain to be established together.
+The [GPT-6 Astra advisory prompt](ASTRA_DESIGN_PROMPT.md) asks for a concrete
+candidate, labeled diagrams and advice on the shared model and workflow.
+
 ## Consequences for the explorer
 
 A useful construction record would contain:
