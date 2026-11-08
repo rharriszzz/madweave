@@ -1,5 +1,11 @@
 # Testing record
 
+## November 2026 restored-feature regression review
+
+See [the regression report](RESTORED_FEATURE_REGRESSION_2026-11.md) for the
+November 7 review of the restored controls and updated toolchains, expanded
+three-browser coverage, offline project workflows, and remaining limitations.
+
 ## Original control positions and bottom view buttons
 
 Local checks on 2026-11-05 cover the SVG entry point and the restored corner

@@ -87,15 +87,15 @@ class BrowserTests(unittest.TestCase):
         for size in range(1, 9):
             self.page.locator(f'#cbuttonSC{size}').click()
             self.assertEqual(self.page.locator('path[mwColorIndex]').count(), 9*size)
-        for pattern in range(5):
-            self.page.locator(f'#cbuttonCP{pattern}').click()
-            for count in range(1, 7):
-                self.page.locator(f'#cbuttonCC{count}').click()
-                self.assertTrue(self.page.evaluate('colorIndexArray.every(i => i >= 0 && i < colorCount)'))
-        for spacing in range(4):
-            self.page.locator(f'#cbuttonSep{spacing}').click()
-            self.assertEqual(self.page.evaluate('separationIndex'), spacing)
-            self.assertNotIn('NaN', self.page.locator('#svg').get_attribute('viewBox'))
+            for pattern in range(5):
+                self.page.locator(f'#cbuttonCP{pattern}').click()
+                for count in range(1, 7):
+                    self.page.locator(f'#cbuttonCC{count}').click()
+                    self.assertTrue(self.page.evaluate('colorIndexArray.every(i => i >= 0 && i < colorCount)'))
+            for spacing in range(4):
+                self.page.locator(f'#cbuttonSep{spacing}').click()
+                self.assertEqual(self.page.evaluate('separationIndex'), spacing)
+                self.assertNotIn('NaN', self.page.locator('#svg').get_attribute('viewBox'))
         self.assertFalse(self.page.evaluate('processing'))
 
     def test_pointer_paints_and_individual_visibility(self):
@@ -448,6 +448,74 @@ class BrowserTests(unittest.TestCase):
         event.value.save_as(artwork)
         self.assertNotIn('viewButtons',artwork.read_text())
         context.close()
+
+    def test_corner_angles_hexweave_and_keyboard_transactions(self):
+        self.open_editor()
+
+        def button(name):
+            return self.page.frame_locator('#weave').locator('[id="cbutton'+name+'"]')
+
+        def capture():
+            return self.page.evaluate('MadWeaveEditor.capture()')
+
+        # Exercise the bottom controls with the keyboard as well as the mouse.
+        button('ViewCorner').focus()
+        self.page.keyboard.press('Enter')
+        self.page.wait_for_function('MadWeaveEditor.mode === "corner"')
+        button('ViewAngle').focus()
+        self.page.keyboard.press('Space')
+        self.assertTrue(self.page.locator('#construction-controls').is_visible())
+        for angle in range(60, 721, 60):
+            self.page.select_option('#corner-beta', str(angle))
+            before = capture()
+            # Pending construction must not leak into a saved design.
+            self.assertNotEqual(before['design']['construction']['parameters']['beta'], angle)
+            self.assertEqual(self.page.locator('#corner-proposal').get_attribute('data-status'), 'Validated')
+            self.page.locator('#corner-apply').click()
+            parameters = capture()['design']['construction']['parameters']
+            self.assertEqual(parameters['beta'], angle)
+            self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.keys.length'),
+                             (9 * parameters['size'] * angle + 180) // 360)
+            self.assertEqual(self.page.frame_locator('#weave').locator('#textViewAngle').text_content(), f'{angle}°')
+
+        self.page.select_option('#corner-beta', '360')
+        self.page.locator('#corner-apply').click()
+        for member in range(3):
+            # Pointer travel can update live strip inspection in WebKit.
+            button('VH'+str(member)).hover()
+            before = capture()
+            button('VH'+str(member)).click()
+            self.assertEqual(capture(), before, 'Hexweave class is staged until Apply')
+            self.page.locator('#corner-apply').click()
+            self.assertEqual(capture()['design']['construction']['parameters']['member'], member)
+            self.assertEqual(self.page.evaluate('Array.from(MadWeaveEditor.corner.w.showC)'),
+                             [i == member for i in range(3)])
+
+        # Paint through inspection, then grow the design at every spacing.
+        button('SC1').click()
+        self.page.locator('#corner-inspector').evaluate('e => e.open=true')
+        key = self.page.locator('#corner-strip option').nth(1).get_attribute('value')
+        self.page.select_option('#corner-strip', key)
+        button('C7').focus()
+        self.page.keyboard.press('Enter')
+        self.page.locator('#corner-paint').click()
+        for size in range(1, 9):
+            button('SC'+str(size)).click()
+            for spacing in range(4):
+                button('Sep'+str(spacing)).click()
+                value = capture()['design']
+                self.assertEqual(value['construction']['parameters']['size'], size)
+                self.assertEqual(self.page.evaluate('MadWeaveEditor.corner.state.keys.length'), 3*size)
+                self.assertIn(7, value['material']['overrides'].values())
+        # Unavailable planar controls must be discoverably disabled and inert.
+        for name in ('-', 'X', 'C', 'VD0', 'VD1', 'VD2', 'V', 'I', 'CC2', 'CC4', 'CC5', 'CC6'):
+            target = button(name)
+            self.assertEqual(target.get_attribute('aria-disabled'), 'true')
+            self.assertEqual(target.get_attribute('tabindex'), '-1')
+            target.hover(force=True)
+            before = capture()
+            target.click(force=True)
+            self.assertEqual(capture(), before)
 
     def test_invalid_project_keeps_current_design(self):
         self.open_editor()

@@ -69,23 +69,21 @@ From the repository root:
 python3 research/run-tests.py --unit-only
 ```
 
-For the full research suite, install the workflow's Node dependencies and matching
-browsers. An external dependency folder avoids adding package files to this
-buildless repository:
+For the full research suite, install the locked development dependencies and
+matching browsers, using the same clients as CI:
 
 ```sh
-npm install --prefix /tmp/madweave-research-deps --no-save playwright@1.58.2 pngjs@7.0.0
-export NODE_PATH=/tmp/madweave-research-deps/node_modules
-/tmp/madweave-research-deps/node_modules/.bin/playwright install chromium firefox
+npm ci
+npx playwright install chromium firefox
 python3 research/run-tests.py
 ```
 
 On supported Linux runners, use `playwright install --with-deps chromium firefox` when
 system browser libraries are missing. See [persistent browser setup](../docs/BROWSER_TEST_SETUP.md)
-for durable installations. Node 22+ and Python 3.10+ are sufficient for the
-research runner; the application's existing README specifies its own toolchain.
-The research workflow's pinned Node Playwright and the application's Python
-Playwright dependency are separate clients and may need different browser builds.
+for durable installations. CI uses Node 24 and Python 3.14. The Node and Python
+Playwright clients are both pinned to 1.63.0 and can share browser builds through
+the same `PLAYWRIGHT_BROWSERS_PATH`. These are development dependencies; the
+application remains buildless.
 
 The runner serves this checkout on an automatically allocated loopback port,
 passes its URL to all research browser scripts, and stops its server on exit.
