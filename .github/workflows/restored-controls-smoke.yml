@@ -40,5 +40,11 @@ jobs:
         with:
           python-version: '3.14'
       - run: python -m pip install -r requirements-dev.txt
-      - name: Exercise restored SVG controls, strip ends, spacing, angles, offline reopen and export
-        run: python -m unittest discover -s tests -p test_browser.py -k original_layout_and_bottom_view_controls -v
+      - name: Exercise restored controls, palettes, persistence, size, patterns, and offline export
+        run: |
+          python -m unittest discover -s tests -p test_browser.py -v \
+            -k original_layout_and_bottom_view_controls \
+            -k every_size_pattern_color_count_and_spacing \
+            -k saved_visibility_spacing_and_controls_survive_rebuild \
+            -k palette_sliders_change_color_and_opacity \
+            -k editable_project_round_trip_offline_and_resave
