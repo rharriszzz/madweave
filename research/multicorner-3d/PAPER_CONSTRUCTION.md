@@ -12,6 +12,11 @@ split is necessary. The [construction preferences](BUILD_PRIORITIES.md) record
 these decisions, a checked one-piece alternative, and the intended regular
 polyhedron scope, including the unresolved dodecahedron question.
 
+Richard also describes families of triangles that expand and turn relative to
+the triangular grid, with a winding-number-like indexing. The
+[lattice note](TRIANGULAR_LATTICE.md) records this and a working interpretation
+using two integer lattice steps; these choices belong to the paper construction.
+
 ## The construction Richard described
 
 Start with one or more pieces of graph paper carrying a printed madweave or

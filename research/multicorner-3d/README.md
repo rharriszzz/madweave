@@ -22,6 +22,9 @@ The [current working hat](hat/README.md) now has one connected paper net and
 one outside cutting loop. Richard's original used a central piece reaching the
 outer edges plus three wedges. The [construction priorities](BUILD_PRIORITIES.md)
 record that distinction, ease of building, symmetry and the polyhedron scope.
+The [triangular-lattice note](TRIANGULAR_LATTICE.md) records Richard's next
+construction insight: varying both triangle size and orientation relative to
+the grid gives many constructions of triangular-faced shapes.
 
 The custom-renderer costs below are the earlier comparison, retained for
 reference. They are not the current implementation budget. Reusing an existing

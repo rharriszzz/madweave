@@ -96,3 +96,9 @@ Richard subsequently noted its relationship to the icosahedron as a possible
 lead, but explicitly chose to **work on the easy constructions first**. Defer
 the dodecahedron investigation; it does not block the simple symmetric hat or
 the established triangular-face examples.
+
+Richard further emphasizes that triangular-faced shapes have many constructions:
+triangles on the underlying grid can grow and turn relative to the weave. The
+[triangular-lattice note](TRIANGULAR_LATTICE.md) records this explanation and a
+working two-integer parameterization. Preserve both size and relative orientation
+as choices; the current hat's aligned triangle is only one example.
