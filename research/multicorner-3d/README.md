@@ -18,6 +18,11 @@ and a **3D construction built from that net in POV-Ray**. The
 [GPT-6 Astra advisory prompt](ASTRA_DESIGN_PROMPT.md) asks for a worked hat
 construction and a concrete design for these two views.
 
+The [current working hat](hat/README.md) now has one connected paper net and
+one outside cutting loop. Richard's original used a central piece reaching the
+outer edges plus three wedges. The [construction priorities](BUILD_PRIORITIES.md)
+record that distinction, ease of building, symmetry and the polyhedron scope.
+
 The custom-renderer costs below are the earlier comparison, retained for
 reference. They are not the current implementation budget. Reusing an existing
 viewer can produce a basic display in 15–60 minutes once a compatible model is

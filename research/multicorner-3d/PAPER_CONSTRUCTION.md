@@ -4,6 +4,14 @@ Recorded 2026-11-05 from Richard's explanation in this conversation.
 This is the working construction model for the 3D explorer. Richard will help
 refine the details as we develop it together.
 
+**Clarifications on 2026-11-07:** the original photographed hat used four paper
+pieces: one central piece extending to the outer edges and three added wedges,
+one for each outer corner. Ease of building and symmetry when possible are
+general design priorities. Prefer a connected net and do not assume a two-piece
+split is necessary. The [construction preferences](BUILD_PRIORITIES.md) record
+these decisions, a checked one-piece alternative, and the intended regular
+polyhedron scope, including the unresolved dodecahedron question.
+
 ## The construction Richard described
 
 Start with one or more pieces of graph paper carrying a printed madweave or

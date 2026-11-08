@@ -11,7 +11,7 @@ const server=http.createServer((req,res)=>{
  fs.mkdirSync(out,{recursive:true});await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const browser=await chromium.launch();
  try{
- const page=await browser.newPage({viewport:{width:2000,height:2000},deviceScaleFactor:1});
+ const page=await browser.newPage({viewport:{width:2500,height:2500},deviceScaleFactor:1});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(`http://127.0.0.1:${server.address().port}/madweave.svg`);
  await page.evaluate(()=>{
@@ -22,11 +22,11 @@ const server=http.createServer((req,res)=>{
  opacityArray.fill(1);showingLines=true;colorIndexArray=null;buildStrips(document);
  const svg=document.documentElement;
  svg.querySelectorAll('script,#buttons,#viewButtons,#documentations,#tools,#pattern').forEach(e=>e.remove());
- svg.setAttribute('viewBox','-9 -9 40 40');svg.setAttribute('width','2000');svg.setAttribute('height','2000');svg.style.background='white';
+ svg.setAttribute('viewBox','-15 -15 50 50');svg.setAttribute('width','2500');svg.setAttribute('height','2500');svg.style.background='white';
  });
  await page.screenshot({path:path.join(out,'pattern.png')});
  fs.writeFileSync(path.join(out,'pattern.svg'),await page.evaluate(()=>new XMLSerializer().serializeToString(document.documentElement)));
  if(errors.length)throw Error(errors.join('\n'));
- console.log('Captured original engine: class colors, P=1, W=.75, bounds [-9,-9,31,31], 2000 pixels.');
+ console.log('Captured original engine: class colors, P=1, W=.75, bounds [-15,-15,35,35], 2500 pixels.');
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;server.close();});

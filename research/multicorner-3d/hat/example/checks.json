@@ -27,9 +27,13 @@
       "beta": 480
     }
   ],
-  "brim_area": 332.5537550532244,
+  "brim_area": 332.55375505322434,
   "vertices": 9,
   "triangles": 13,
   "edges": 21,
-  "euler_characteristic": 1
+  "euler_characteristic": 1,
+  "paper_components": 1,
+  "cut_boundary_loops": 1,
+  "cut_boundary_segments": 15,
+  "net_overlaps": 0
 }

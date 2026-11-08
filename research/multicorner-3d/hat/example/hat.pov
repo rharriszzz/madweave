@@ -13,25 +13,25 @@ light_source { <-19.6076951546,-34,72.1> color rgb .65 }
 light_source { <50.3923048454,26,32.1> color rgb .25 }
 light_source { <10.3923048454,6,-47.9> color rgb .3 }
 // T on S0
-mesh2 { vertex_vectors { 3, <0,0,6>,<20.7846096908,0,6>,<10.3923048454,18,6> } uv_vectors { 3, <0.225,0.775>,<0.744615242271,0.775>,<0.484807621135,0.325> } face_indices { 1, <0,1,2> }
+mesh2 { vertex_vectors { 3, <0,0,6>,<20.7846096908,0,6>,<10.3923048454,18,6> } uv_vectors { 3, <0.3,0.7>,<0.715692193817,0.7>,<0.507846096908,0.34> } face_indices { 1, <0,1,2> }
 #if(Plain) texture { pigment { color rgb <0.7,0.83,0.71> } finish { ambient .2 diffuse .8 } } #else texture { Paper } #end double_illuminate }
 // W0 on S0
-mesh2 { vertex_vectors { 4, <0,0,6>,<20.7846096908,0,6>,<20.7846096908,0,0>,<0,0,0> } uv_vectors { 4, <0.225,0.775>,<0.744615242271,0.775>,<0.744615242271,0.925>,<0.225,0.925> } face_indices { 2, <2,1,0>,<3,2,0> }
+mesh2 { vertex_vectors { 4, <0,0,6>,<20.7846096908,0,6>,<20.7846096908,0,0>,<0,0,0> } uv_vectors { 4, <0.3,0.7>,<0.715692193817,0.7>,<0.715692193817,0.82>,<0.3,0.82> } face_indices { 2, <2,1,0>,<3,2,0> }
 #if(Plain) texture { pigment { color rgb <0.65,0.77,0.88> } finish { ambient .2 diffuse .8 } } #else texture { Paper } #end double_illuminate }
-// R0 on S1
-mesh2 { vertex_vectors { 4, <0,0,0>,<-6.92820323028,-4,0>,<27.7128129211,-4,0>,<20.7846096908,0,0> } uv_vectors { 4, <0.225,0.775>,<0.0517949192431,0.875>,<0.917820323028,0.875>,<0.744615242271,0.775> } face_indices { 2, <0,1,2>,<0,2,3> }
+// R0 on S0
+mesh2 { vertex_vectors { 4, <0,0,0>,<-6.92820323028,-4,0>,<27.7128129211,-4,0>,<20.7846096908,0,0> } uv_vectors { 4, <0.3,0.82>,<0.161435935394,0.9>,<0.854256258422,0.9>,<0.715692193817,0.82> } face_indices { 2, <0,1,2>,<0,2,3> }
 #if(Plain) texture { pigment { color rgb <0.65,0.77,0.88> } finish { ambient .2 diffuse .8 } } #else texture { Paper } #end double_illuminate }
 // W1 on S0
-mesh2 { vertex_vectors { 4, <20.7846096908,0,6>,<10.3923048454,18,6>,<10.3923048454,18,0>,<20.7846096908,0,0> } uv_vectors { 4, <0.744615242271,0.775>,<0.484807621135,0.325>,<0.614711431703,0.25>,<0.874519052838,0.7> } face_indices { 2, <2,1,0>,<3,2,0> }
+mesh2 { vertex_vectors { 4, <20.7846096908,0,6>,<10.3923048454,18,6>,<10.3923048454,18,0>,<20.7846096908,0,0> } uv_vectors { 4, <0.715692193817,0.7>,<0.507846096908,0.34>,<0.611769145362,0.28>,<0.819615242271,0.64> } face_indices { 2, <2,1,0>,<3,2,0> }
 #if(Plain) texture { pigment { color rgb <0.84,0.74,0.88> } finish { ambient .2 diffuse .8 } } #else texture { Paper } #end double_illuminate }
-// R1 on S1
-mesh2 { vertex_vectors { 4, <20.7846096908,0,0>,<27.7128129211,-4,0>,<10.3923048454,26,0>,<10.3923048454,18,0> } uv_vectors { 4, <0.744615242271,0.775>,<0.917820323028,0.875>,<0.484807621135,0.125>,<0.484807621135,0.325> } face_indices { 2, <0,1,2>,<0,2,3> }
+// R1 on S0
+mesh2 { vertex_vectors { 4, <20.7846096908,0,0>,<27.7128129211,-4,0>,<10.3923048454,26,0>,<10.3923048454,18,0> } uv_vectors { 4, <0.819615242271,0.64>,<0.958179306876,0.72>,<0.611769145362,0.12>,<0.611769145362,0.28> } face_indices { 2, <0,1,2>,<0,2,3> }
 #if(Plain) texture { pigment { color rgb <0.84,0.74,0.88> } finish { ambient .2 diffuse .8 } } #else texture { Paper } #end double_illuminate }
 // W2 on S0
-mesh2 { vertex_vectors { 4, <10.3923048454,18,6>,<0,0,6>,<0,0,0>,<10.3923048454,18,0> } uv_vectors { 4, <0.484807621135,0.325>,<0.225,0.775>,<0.0950961894323,0.7>,<0.354903810568,0.25> } face_indices { 2, <2,1,0>,<3,2,0> }
+mesh2 { vertex_vectors { 4, <10.3923048454,18,6>,<0,0,6>,<0,0,0>,<10.3923048454,18,0> } uv_vectors { 4, <0.507846096908,0.34>,<0.3,0.7>,<0.196076951546,0.64>,<0.403923048454,0.28> } face_indices { 2, <2,1,0>,<3,2,0> }
 #if(Plain) texture { pigment { color rgb <0.9,0.82,0.65> } finish { ambient .2 diffuse .8 } } #else texture { Paper } #end double_illuminate }
-// R2 on S1
-mesh2 { vertex_vectors { 4, <10.3923048454,18,0>,<10.3923048454,26,0>,<-6.92820323028,-4,0>,<0,0,0> } uv_vectors { 4, <0.484807621135,0.325>,<0.484807621135,0.125>,<0.0517949192431,0.875>,<0.225,0.775> } face_indices { 2, <0,1,2>,<0,2,3> }
+// R2 on S0
+mesh2 { vertex_vectors { 4, <10.3923048454,18,0>,<10.3923048454,26,0>,<-6.92820323028,-4,0>,<0,0,0> } uv_vectors { 4, <0.403923048454,0.28>,<0.403923048454,0.12>,<0.0575128869404,0.72>,<0.196076951546,0.64> } face_indices { 2, <0,1,2>,<0,2,3> }
 #if(Plain) texture { pigment { color rgb <0.9,0.82,0.65> } finish { ambient .2 diffuse .8 } } #else texture { Paper } #end double_illuminate }
 #if(Plain)
 #declare Forward=vnormalize(Aim-Eye); #declare Right=vnormalize(vcross(Sky,Forward)); #declare Up=vnormalize(vcross(Forward,Right));

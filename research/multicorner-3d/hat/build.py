@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Two-sheet hat recipe; shared reference regions drive SVG net and POV-Ray."""
+"""One-piece hat net; shared reference regions drive SVG and POV-Ray."""
 import argparse, base64, json, math, subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
 OUT=ROOT/'research/output/multicorner-hat'
+PRINT_MIN=-15
+PRINT_MAX=35
+PRINT_SPAN=PRINT_MAX-PRINT_MIN
+PRINT_PIXELS=2500
 def add(a,b):return [x+y for x,y in zip(a,b)]
 def mul(a,k):return [x*k for x in a]
 def sub(a,b):return add(a,mul(b,-1))
@@ -23,13 +27,65 @@ def recipe(side_units=12,height=6,brim=4):
     for i in range(3):
         j=(i+1)%3;bottom=[add(A[i],mul(o[i],height)),add(A[j],mul(o[i],height))]
         panels.append(dict(id=f'W{i}',sheet='S0',ref=[A[i],A[j],bottom[1],bottom[0]],xyz=[A[i]+[height],A[j]+[height],A[j]+[0],A[i]+[0]],vertices=[f'A{i}',f'A{j}',f'B{j}',f'B{i}']))
-        panels.append(dict(id=f'R{i}',sheet='S1',ref=[A[i],O[i],O[j],A[j]],xyz=[A[i]+[0],O[i]+[0],O[j]+[0],A[j]+[0]],vertices=[f'B{i}',f'O{i}',f'O{j}',f'B{j}']))
+        # Unfold each brim trapezoid outward from its wall's bottom. Keeping K
+        # attached makes one sheet; the three radial brim seams D are taped.
+        brim_ref=[add(q,mul(o[i],height)) for q in [A[i],O[i],O[j],A[j]]]
+        panels.append(dict(id=f'R{i}',sheet='S0',ref=brim_ref,xyz=[A[i]+[0],O[i]+[0],O[j]+[0],A[j]+[0]],vertices=[f'B{i}',f'O{i}',f'O{j}',f'B{j}']))
     joins=[]
     for i in range(3):
         j=(i+1)%3;prev=(i-1)%3
-        joins.extend([dict(id=f'F{i}',kind='fold',a=['T',i,j],b=[f'W{i}',0,1]),dict(id=f'J{i}',kind='tape',a=[f'W{prev}',1,2],b=[f'W{i}',0,3]),dict(id=f'K{i}',kind='tape',a=[f'W{i}',3,2],b=[f'R{i}',0,3]),dict(id=f'D{i}',kind='subdivision',a=[f'R{prev}',3,2],b=[f'R{i}',0,1])])
+        joins.extend([dict(id=f'F{i}',kind='fold',a=['T',i,j],b=[f'W{i}',0,1]),dict(id=f'J{i}',kind='tape',a=[f'W{prev}',1,2],b=[f'W{i}',0,3]),dict(id=f'K{i}',kind='fold',a=[f'W{i}',3,2],b=[f'R{i}',0,3]),dict(id=f'D{i}',kind='tape',a=[f'R{prev}',3,2],b=[f'R{i}',0,1])])
     corners=[dict(id=f'{kind}{i}',beta=beta) for kind,beta in [('A',240),('B',480)] for i in range(3)]
     return dict(recipe='triangular-hat',pitch=1,width=.75,side=L,height=height,brim=brim,panels=panels,joins=joins,corners=corners,outer=O)
+
+def flat_net_check(model):
+    """Verify physical paper connectivity, non-overlap and one cutting loop."""
+    panels={p['id']:p for p in model['panels']}
+    def cross(a,b):return a[0]*b[1]-a[1]*b[0]
+    def intersection(poly,clip):
+        signed=sum(cross(a,b) for a,b in zip(clip,clip[1:]+clip[:1]))
+        if signed<0:clip=list(reversed(clip))
+        for a,b in zip(clip,clip[1:]+clip[:1]):
+            out=[]
+            for p,q in zip(poly,poly[1:]+poly[:1]):
+                dp=cross(sub(b,a),sub(p,a));dq=cross(sub(b,a),sub(q,a))
+                if dp>=-1e-10:out.append(p)
+                if (dp>1e-10 and dq< -1e-10) or (dp< -1e-10 and dq>1e-10):out.append(add(p,mul(sub(q,p),dp/(dp-dq))))
+            poly=out
+            if not poly:break
+        return poly
+    values=list(panels.values())
+    for i,p in enumerate(values):
+        for q in values[i+1:]:
+            poly=intersection(p['ref'],q['ref'])
+            if len(poly)>=3 and polygon_area(poly)>1e-8:raise ValueError('Overlapping net panels '+p['id']+'/'+q['id'])
+    adjacent={name:set() for name in panels};retained=set()
+    for join in model['joins']:
+        if join['kind'] not in ('fold','subdivision'):continue
+        a,i,j=join['a'];b,k,l=join['b']
+        if panels[a]['sheet']!=panels[b]['sheet'] or not close(panels[a]['ref'][i],panels[b]['ref'][k]) or not close(panels[a]['ref'][j],panels[b]['ref'][l]):raise ValueError('Misplaced retained edge '+join['id'])
+        adjacent[a].add(b);adjacent[b].add(a)
+        for name,v,w in [(a,i,j),(b,k,l)]:retained.add((name,tuple(sorted((v,w)))))
+    def components(graph):
+        rest=set(graph);count=0
+        while rest:
+            count+=1;todo=[rest.pop()]
+            while todo:
+                for q in graph[todo.pop()]&rest:rest.remove(q);todo.append(q)
+        return count
+    count=components(adjacent)
+    if count!=1:raise ValueError(f'Expected one connected paper component, got {count}')
+    point=lambda q:tuple(round(x,8) for x in q)
+    boundary={};segments=0
+    for p in values:
+        for i,a in enumerate(p['ref']):
+            j=(i+1)%len(p['ref'])
+            if (p['id'],tuple(sorted((i,j)))) in retained:continue
+            a,b=point(a),point(p['ref'][j]);boundary.setdefault(a,set()).add(b);boundary.setdefault(b,set()).add(a);segments+=1
+    if any(len(v)!=2 for v in boundary.values()) or sum(map(len,boundary.values()))!=2*segments:raise ValueError('Cut boundary is not a simple cycle')
+    loops=components(boundary)
+    if loops!=1:raise ValueError(f'Expected one cut boundary without holes, got {loops}')
+    return dict(paper_components=count,cut_boundary_loops=loops,cut_boundary_segments=segments,net_overlaps=0)
 
 def check(model):
     panels={p['id']:p for p in model['panels']};checks=0
@@ -50,7 +106,7 @@ def check(model):
                 if name==c['id']:
                     q=p['ref'];u=sub(q[i-1],q[i]);v=sub(q[(i+1)%len(q)],q[i]);angle+=math.degrees(math.acos(max(-1,min(1,dot(u,v)/length(u)/length(v)))))
         if abs(angle-c['beta'])>1e-7:raise ValueError('Corner angle '+c['id'])
-    brim_area=sum(polygon_area(p['ref']) for p in panels.values() if p['sheet']=='S1')
+    brim_area=sum(polygon_area(p['ref']) for p in panels.values() if p['id'].startswith('R'))
     if abs(brim_area-(polygon_area(model['outer'])-polygon_area(panels['T']['ref'])))>1e-8:raise ValueError('Brim coverage')
     edges={};faces=0;vertices=set()
     for p in panels.values():
@@ -65,25 +121,25 @@ def check(model):
             if not all(v.startswith('O') for v in pair):raise ValueError('Unexpected open edge '+str(pair))
         elif len(uses)!=2 or uses[0]!=tuple(reversed(uses[1])):raise ValueError('Nonmanifold or reversed edge '+str(pair))
     if len(vertices)-len(edges)+faces!=1:raise ValueError('Expected a disk surface')
-    return dict(panel_distance_checks=checks,matched_edges=len(model['joins']),corners=model['corners'],brim_area=brim_area,vertices=len(vertices),triangles=faces,edges=len(edges),euler_characteristic=1)
+    return dict(panel_distance_checks=checks,matched_edges=len(model['joins']),corners=model['corners'],brim_area=brim_area,vertices=len(vertices),triangles=faces,edges=len(edges),euler_characteristic=1,**flat_net_check(model))
 
 def net(model,png):
     # Mathematical y points upward; flip the entire paper group, including print.
-    L=model['side'];shift=L+22;points=[p for panel in model['panels'] for p in panel['ref']]
-    lo=min(x[1] for x in points)-4;hi=max(x[1] for x in points)+4
-    width=2*L+45
-    s=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width*6}mm" height="{(hi-lo)*6}mm" viewBox="-12 {-hi} {width} {hi-lo}"><rect x="-12" y="{-hi}" width="{width}" height="{hi-lo}" fill="white"/>', '<defs>']
+    points=[p for panel in model['panels'] for p in panel['ref']]
+    left=min(p[0] for p in points)-3;right=max(p[0] for p in points)+3
+    lo=min(p[1] for p in points)-3;hi=max(p[1] for p in points)+3;width=right-left
+    s=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width*6}mm" height="{(hi-lo)*6}mm" viewBox="{left} {-hi} {width} {hi-lo}"><rect x="{left}" y="{-hi}" width="{width}" height="{hi-lo}" fill="white"/>', '<defs>']
     for p in model['panels']:
         s.append(f'<clipPath id="{p["id"]}"><polygon points="'+ ' '.join(f'{x},{y}' for x,y in p['ref'])+'"/></clipPath>')
     encoded=base64.b64encode(png).decode()
-    s += [f'<image id="print" x="-9" y="-9" width="40" height="40" href="data:image/png;base64,{encoded}"/>', '</defs>', '<g transform="scale(1,-1)">']
+    s += [f'<image id="print" x="{PRINT_MIN}" y="{PRINT_MIN}" width="{PRINT_SPAN}" height="{PRINT_SPAN}" href="data:image/png;base64,{encoded}"/>', '</defs>', '<g transform="scale(1,-1)">']
     for p in model['panels']:
-        dx=0 if p['sheet']=='S0' else shift
+        dx=0
         s.append(f'<g transform="translate({dx},0)"><use href="#print" clip-path="url(#{p["id"]})"/></g>')
-    # Boundary segments by incidence, including retained folds; omit brim subdivisions.
+    # One outer cutting cycle; retained F/K edges are drawn as dashed folds.
     seen=set()
     for p in model['panels']:
-        dx=0 if p['sheet']=='S0' else shift
+        dx=0
         for i,a in enumerate(p['ref']):
             b=p['ref'][(i+1)%len(p['ref'])];key=(p['sheet'],tuple(sorted((tuple(round(v,7) for v in a),tuple(round(v,7) for v in b)))))
             if key in seen:continue
@@ -113,7 +169,7 @@ def scene(model):
     s += [f'light_source {{ {vec(add(target,[-30,-40,70]))} color rgb .65 }}', f'light_source {{ {vec(add(target,[40,20,30]))} color rgb .25 }}',f'light_source {{ {vec(add(target,[0,0,-50]))} color rgb .3 }}']
     colors=[[.7,.83,.71],[.65,.77,.88],[.84,.74,.88],[.9,.82,.65]]
     for p in model['panels']:
-        q=p['ref'];xyz=p['xyz'];uv=[[(x+9)/40,1-(y+9)/40] for x,y in q];tri=[[0,j,j+1] for j in range(1,len(q)-1)]
+        q=p['ref'];xyz=p['xyz'];uv=[[(x-PRINT_MIN)/PRINT_SPAN,1-(y-PRINT_MIN)/PRINT_SPAN] for x,y in q];tri=[[0,j,j+1] for j in range(1,len(q)-1)]
         if p['id'].startswith('W'):tri=[list(reversed(f)) for f in tri]
         s.append('// '+p['id']+' on '+p['sheet'])
         s.append('mesh2 { vertex_vectors { '+str(len(q))+', '+','.join(map(vec,xyz))+' } uv_vectors { '+str(len(q))+', '+','.join(map(vec,uv))+' } face_indices { '+str(len(tri))+', '+','.join(map(vec,tri))+' }')
@@ -132,9 +188,9 @@ def scene(model):
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--render',action='store_true');ap.add_argument('--povray',default='/usr/bin/povray');ap.add_argument('--size',type=int,default=1000);ap.add_argument('--side-units',type=int,default=12);ap.add_argument('--height',type=int,default=6);ap.add_argument('--brim',type=float,default=4);args=ap.parse_args()
     model=recipe(args.side_units,args.height,args.brim);report=check(model)
-    model['pattern']={'source':'madweave.js','C':0,'hand':False,'alternate':False,'formula':'class','palette':['#83b8ca','#a9cda0','#8c9abd'],'opacity':[1,1,1],'bounds':[-9,-9,31,31],'image':'pattern.png','image_size':[2000,2000],'signed_index_offset':2.5,'reference_units':'pitch'}
+    model['pattern']={'source':'madweave.js','C':0,'hand':False,'alternate':False,'formula':'class','palette':['#83b8ca','#a9cda0','#8c9abd'],'opacity':[1,1,1],'bounds':[PRINT_MIN,PRINT_MIN,PRINT_MAX,PRINT_MAX],'image':'pattern.png','image_size':[PRINT_PIXELS,PRINT_PIXELS],'signed_index_offset':2.5,'reference_units':'pitch'}
     # Current source artwork covers a finite declared domain; never silently sample outside it.
-    if any(not(-9<=x<=31 and -9<=y<=31) for p in model['panels'] for x,y in p['ref']):raise ValueError('Recipe exceeds captured print bounds; enlarge the reference capture first.')
+    if any(not(PRINT_MIN<=x<=PRINT_MAX and PRINT_MIN<=y<=PRINT_MAX) for p in model['panels'] for x,y in p['ref']):raise ValueError('Recipe exceeds captured print bounds; enlarge the reference capture first.')
     OUT.mkdir(parents=True,exist_ok=True);png=(OUT/'pattern.png').read_bytes()
     (OUT/'construction.json').write_text(json.dumps(model,indent=2)+'\n');(OUT/'checks.json').write_text(json.dumps(report,indent=2)+'\n');(OUT/'net.svg').write_text(net(model,png));(OUT/'hat.pov').write_text(scene(model))
     names=['three-quarter','top','side','underside','reverse']
@@ -143,8 +199,8 @@ def main():
             cmd=[args.povray,'+Ihat.pov',f'+O{name}.png',f'+W{args.size}',f'+H{args.size}','-D','+A0.15','+AM2','+R2',f'Declare=View={i if i<5 else 0}',f'Declare=Plain={int(i==5)}']
             with (OUT/(name+'.log')).open('w') as log:subprocess.run(cmd,cwd=OUT,stdout=log,stderr=subprocess.STDOUT,check=True)
             print('Rendered',name,flush=True)
-    html='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>MadWeave paper hat</title><style>body{font:18px system-ui;margin:2rem auto;max-width:1100px;padding:0 1rem;color:#222}img{width:100%;height:auto;border:1px solid #ccc}nav{display:flex;gap:1rem;flex-wrap:wrap}a{color:#145b6c}figure{margin:2rem 0}code{font-size:.85em}</style><h1>MadWeave paper hat</h1><p>Two printed sheets, six corners. The net and POV-Ray views use the same reference regions and joins. This first model is paper carrying a weave print; the individual strips are not raised ribbons.</p><nav><a href="#net">Paper net</a>'''
-    html+=''.join(f'<a href="#{n}">{n.replace("-"," ").title()}</a>' for n in names+['plain'])+'</nav><figure id="net"><img src="net.svg" alt="Two patterned sheets with labeled cuts, folds and taped edge pairs"><figcaption>Solid edges: cut. Dashed red: retained fold. Tape matching J and K labels. The repeated corner labels identify occurrences that meet after assembly. At 100% SVG print scale one pitch is 6 mm; the complete layout is larger than A4.</figcaption></figure>'
+    html='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>MadWeave paper hat</title><style>body{font:18px system-ui;margin:2rem auto;max-width:1100px;padding:0 1rem;color:#222}img{width:100%;height:auto;border:1px solid #ccc}nav{display:flex;gap:1rem;flex-wrap:wrap}a{color:#145b6c}figure{margin:2rem 0}code{font-size:.85em}</style><h1>MadWeave paper hat</h1><p>One connected paper piece, six corners. Its net has one outer cutting loop and no enclosed holes. The net and POV-Ray views use the same reference regions and joins. This is an alternative to Richard's original four-piece hat: one central piece and one added piece per outer corner. The individual strips are printed artwork, not raised ribbons.</p><nav><a href="#net">Paper net</a>'''
+    html+=''.join(f'<a href="#{n}">{n.replace("-"," ").title()}</a>' for n in names+['plain'])+'</nav><figure id="net"><img src="net.svg" alt="One connected patterned paper net with labeled cuts, folds and taped edge pairs"><figcaption>Follow the single solid outside outline to cut out the net. Dashed red F and K edges stay attached and are folded. Tape matching J wall edges and D brim edges. One continuous cutting path takes multiple scissors snips; a single straight snip is not claimed. At 100% SVG print scale one pitch is 6 mm; the complete layout is larger than A4.</figcaption></figure>'
     for n in names+['plain']:html+=f'<figure id="{n}"><img src="{n}.png" alt="POV-Ray {n} view of the paper hat"><figcaption>{n.replace("-"," ").title()}</figcaption></figure>'
     html+='<p>Ideal zero-thickness surface, printed on both sides in this preview. No fabrication or ribbon-clearance claim. <a href="construction.json">Construction record</a> · <a href="hat.pov">POV-Ray scene</a> · <a href="checks.json">Geometry checks</a></p></html>'
     (OUT/'index.html').write_text(html);print(json.dumps(report));print(OUT/'index.html')

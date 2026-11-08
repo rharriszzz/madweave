@@ -1,5 +1,13 @@
 # Net and 3D construction: design advice
 
+**Later clarification, 2026-11-07:** Richard's original photographed hat used a
+central sheet reaching the outside edges plus three added wedges, four pieces
+total. This report's two-sheet recipe is a different construction, not a claim
+that two components are necessary. The [working example](hat/README.md) now
+uses a checked one-piece net with the same assembled shape. See the
+[ease, symmetry and connectivity preferences](BUILD_PRIORITIES.md). The
+two-sheet derivation below is retained as the historical proposal.
+
 Work on `research/multicorner-3d-explorer`, following
 [the advisory prompt](ASTRA_DESIGN_PROMPT.md). This is a construction proposal,
 with an arithmetic check and an explanatory diagram, not an application or a
