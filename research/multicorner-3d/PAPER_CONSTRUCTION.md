@@ -16,6 +16,9 @@ Richard also describes families of triangles that expand and turn relative to
 the triangular grid, with a winding-number-like indexing. The
 [lattice note](TRIANGULAR_LATTICE.md) records this and a working interpretation
 using two integer lattice steps; these choices belong to the paper construction.
+He clarifies that continuing the triangular layout with the same chosen offset
+gives a constructable result and preserves the pattern. Propagate that offset
+through adjoining triangles instead of choosing face orientations independently.
 
 ## The construction Richard described
 

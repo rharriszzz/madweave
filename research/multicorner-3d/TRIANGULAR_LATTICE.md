@@ -15,6 +15,25 @@ The interpretation below concerns equilateral triangles, the immediate case
 for tetrahedra, octahedra and icosahedra. It does not narrow Richard's broader
 statement about triangular faces to regular solids.
 
+## Repeating the offset preserves the pattern
+
+Richard clarified that **whichever lattice direction/offset is chosen,
+continuing to make triangles with that same kind of offset gives a
+constructable result with the pattern preserved**. This is a construction rule
+he supplies, stronger than our earlier description of isolated candidate
+triangle placements.
+
+Start at a chosen opening, choose an edge offset on the underlying grid, and
+continue the triangular layout using that offset and its triangular-grid
+rotations. The triangles share a consistent relationship to the original
+pattern. The offset is a repeatable rule for the construction, not a separate
+arbitrary orientation chosen independently for each face.
+
+The explorer should therefore generate adjoining triangles by propagating the
+chosen offset. Carry the original paper's pattern coordinates through this
+layout and into the folded model. Record a particular color assignment
+separately from preservation of the underlying weave pattern.
+
 ## Working interpretation: a pair of lattice steps
 
 Take equal-length grid vectors `e1` and `e2` at 60 degrees, with length `a`.
@@ -84,10 +103,13 @@ on symmetry and coloring.
 - Apply the selected placement to the paper/net and carry its pattern
   coordinates through to POV-Ray. Rotating the camera does not express this
   choice.
-- Check joined edge lengths, opening centers, pattern phase, over/under order
-  and color behavior for each actual recipe. The lattice formula supplies
-  candidate geometry, not a certificate that every pair gives every desired
-  weave registration or coloring.
+- Generate the adjoining triangular layout by repeating the chosen offset and
+  its grid rotations, following Richard's pattern-preserving construction rule.
+- Check joined edge lengths, opening centers, pattern phase and over/under
+  order to verify that our implementation follows that rule. These checks
+  validate the software, rather than treating each repeated-offset construction
+  as an unestablished possibility. Evaluate any requested color behavior
+  separately.
 
 This is recorded understanding and a proposed parameterization. No new
 polyhedron recipe or general lattice-selection control is implemented here.

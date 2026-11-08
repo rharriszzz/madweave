@@ -102,3 +102,6 @@ triangles on the underlying grid can grow and turn relative to the weave. The
 [triangular-lattice note](TRIANGULAR_LATTICE.md) records this explanation and a
 working two-integer parameterization. Preserve both size and relative orientation
 as choices; the current hat's aligned triangle is only one example.
+Richard clarifies that repeating triangles with the same chosen lattice offset
+preserves the pattern and gives a constructable result. Use that repetition as
+a generation rule, with checks that verify our implementation follows it.
