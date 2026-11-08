@@ -40,7 +40,7 @@ jobs:
           node-version: '24'
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.13'
+          python-version: '3.14'
       - run: python -m pip install -r requirements-dev.txt
       - run: npm ci
       - run: node --check madweave.js && node --check project.js && node --check editor.js && node --check corner-editor.js && node --check corner-model.mjs && node --check corner-runtime.js

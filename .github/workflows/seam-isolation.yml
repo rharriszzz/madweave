@@ -24,7 +24,7 @@ jobs:
           node-version: '24'
       - name: Install rendering engine
         run: |
-          npm install --no-save playwright@1.58.2 pngjs@7.0.0
+          npm ci
           npx playwright install --with-deps ${{ matrix.browser }}
       - name: Serve isolated fixtures
         run: |
@@ -36,7 +36,7 @@ jobs:
         run: node research/seam-isolation-check.cjs
       - name: Check corrected fixture, full weave, and static SVG image
         run: node research/seam-fix-check.cjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: svg-seams-${{ matrix.browser }}

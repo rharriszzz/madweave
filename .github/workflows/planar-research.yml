@@ -15,16 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '24'
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.13'
+          python-version: '3.14'
       - name: Install research and application test dependencies
         run: |
-          npm install --no-save playwright@1.58.2 pngjs@7.0.0
+          npm ci
           npx playwright install --with-deps chromium firefox
           python -m pip install -r requirements-dev.txt
           python -m playwright install chromium
@@ -32,7 +32,7 @@ jobs:
         run: python research/run-tests.py --app
       - name: Upload logs, measurements, SVGs, and screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: planar-weave-research-results
           path: research/output/

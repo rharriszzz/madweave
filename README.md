@@ -142,7 +142,7 @@ Automated checks cover Chromium, Firefox and Playwright WebKit; WebKit automatio
 
 ## Test and build
 
-Node.js 24+ and Python 3.10+ run the development checks. Browser dependencies
+Use Node.js 24 LTS and Python 3.14 for development checks (Python 3.15 can be evaluated separately). Browser dependencies
 are pinned in `package-lock.json` and `requirements-dev.txt`; the application
 itself needs no package install:
 
