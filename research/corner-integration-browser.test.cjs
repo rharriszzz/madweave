@@ -149,8 +149,16 @@ async function stripEndPixels(page){
 
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/madweave/editor.html`,results=[];
 try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,webkit').split(',')){
- console.log(name,'starting');const browser=await p[name].launch({headless:true,...(name==='chromium'?{executablePath:process.env.MADWEAVE_CHROMIUM_EXECUTABLE}:{})});
+ console.log(name,'starting');let browser,firefoxHome;
  try{
+  const options={headless:true,...(name==='chromium'?{executablePath:process.env.MADWEAVE_CHROMIUM_EXECUTABLE}:{})};
+  if(process.platform==='darwin'&&name==='firefox'){
+   // Match tests/test_browser.py: isolate macOS 27's protected shared app data.
+   firefoxHome=fs.mkdtempSync(path.join(require('node:os').tmpdir(),'madweave-firefox-'));
+   for(const folder of ['Documents','Downloads','Library/Application Support','Library/Caches','Library/Preferences'])fs.mkdirSync(path.join(firefoxHome,folder),{recursive:true});
+   options.env={...process.env,CFFIXED_USER_HOME:firefoxHome};
+  }
+  browser=await p[name].launch(options);
   // Keep the weave at least as large as the previous 650px drawing for pixel audits.
   const context=await browser.newContext({acceptDownloads:true,viewport:{width:1280,height:1300}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url);await page.waitForFunction(()=>!document.querySelector('#save-project').disabled);
   await page.evaluate(()=>{const w=MadWeaveEditor.planar.contentWindow,r=w.document.getElementById('svg');w.setDefaultColor(r,5);w.setStripColorToCurrentDefault(r,0);w.opacityArray[5]=.37;w.buildStrips(w.document);w.selectedMouseIndex=0;w.showMouseStrip(r,0);});const planar=await state(page);
@@ -224,7 +232,7 @@ try{for(const name of (process.env.MADWEAVE_STAGE2_BROWSERS||'chromium,firefox,w
   await openTracked(page,legacyPlanarPayload(planar.design));assert.deepEqual((await state(page)).design,planar.design);
   await mode(page,'corner');await page.locator('#corner-inspector').evaluate(e=>e.open=false);await page.screenshot({fullPage:true,path:path.join(OUT,name+'-desktop.png')});await page.setViewportSize({width:390,height:900});await page.waitForTimeout(200);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({fullPage:true,path:path.join(OUT,name+'-narrow.png')});
   assert.deepEqual(requests,[]);assert.deepEqual(errors,[]);results.push({browser:name,version:browser.version(),rows,races,endPixels,formulaTransactions:{online:formulaCases,offline:offlineFormulaCases,offlineResave:true},modeRetention:true,offlinePlanarEditsCancelPendingImports:true,failedPaletteAndViewRollback:true,invalidAndUnvalidatedProposals:true,fringeAndHiddenPainting:true,paletteAliasesAndTransparency:true,zeroOpacityPreservesAllMaterial:true,wrongVisiblePaintRejectedByGeometryAndPixels:true,continuousTranslucentSeamPixels:monoSeams.record.pixel.filter(q=>q.seam).length,exactRayPixels:monoSeams.record.pixel.filter(q=>q.exactRay).length,continuousTranslucentMaxError:monoSeams.error,zeroOpacityMaxError:invisible.error,legacyImports:true,offlineRequests:requests,projectBytes:fs.statSync(saved).size,errors});await offline.close();await context.close();
- }finally{await browser.close();}
+ }finally{try{await browser?.close();}finally{if(firefoxHome)fs.rmSync(firefoxHome,{recursive:true,force:true});}}
 }}finally{server.close();}fs.writeFileSync(path.join(OUT,process.env.MADWEAVE_STAGE2_BROWSERS?'browser-'+process.env.MADWEAVE_STAGE2_BROWSERS+'.json':'browser.json'),JSON.stringify(results,null,2)+'\n');console.log('Integrated editor checks passed');
 })().catch(e=>{console.error(e);server.close();process.exitCode=1;});
 function legacyPlanarPayload(value){return payload('planar-v1.json',JSON.stringify(value));}
