@@ -1,0 +1,322 @@
+{
+  "vertices": 12,
+  "edges": 30,
+  "faces": 20,
+  "euler_characteristic": 2,
+  "paper_components": 1,
+  "cut_boundary_loops": 1,
+  "cut_boundary_segments": 22,
+  "overlapping_triangles": 0,
+  "folds": 19,
+  "tape_pairs": 11,
+  "interior_dihedral_degrees": 138.1896851042214,
+  "corners": [
+    {
+      "id": "L0",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "U1",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "U0",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "L1",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "N",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "S",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "U2",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "L2",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "U3",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "L3",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "U4",
+      "faces": 5,
+      "beta": 300
+    },
+    {
+      "id": "L4",
+      "faces": 5,
+      "beta": 300
+    }
+  ],
+  "pattern_registrations": [
+    {
+      "id": "F01",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F02",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S01",
+      "rotation_degrees": -60,
+      "translation": [
+        34.641016151377535,
+        -30.0
+      ]
+    },
+    {
+      "id": "S02",
+      "rotation_degrees": 0,
+      "translation": [
+        34.641016151377535,
+        -30.0
+      ]
+    },
+    {
+      "id": "F03",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F04",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S03",
+      "rotation_degrees": 60,
+      "translation": [
+        -1.7320508075688794,
+        -8.999999999999996
+      ]
+    },
+    {
+      "id": "F05",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F06",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F07",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S04",
+      "rotation_degrees": 60,
+      "translation": [
+        -3.4641016151377553,
+        -18.0
+      ]
+    },
+    {
+      "id": "F08",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F09",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F10",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S05",
+      "rotation_degrees": 60,
+      "translation": [
+        -5.196152422706636,
+        -26.999999999999993
+      ]
+    },
+    {
+      "id": "F11",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F12",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S06",
+      "rotation_degrees": 60,
+      "translation": [
+        -6.928203230275518,
+        -35.999999999999986
+      ]
+    },
+    {
+      "id": "F13",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F14",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S07",
+      "rotation_degrees": 60,
+      "translation": [
+        43.30127018922192,
+        -27.000000000000004
+      ]
+    },
+    {
+      "id": "S08",
+      "rotation_degrees": -60,
+      "translation": [
+        1.732050807568875,
+        8.999999999999998
+      ]
+    },
+    {
+      "id": "S09",
+      "rotation_degrees": -60,
+      "translation": [
+        10.392304845413259,
+        11.999999999999996
+      ]
+    },
+    {
+      "id": "S10",
+      "rotation_degrees": -60,
+      "translation": [
+        19.05255888325765,
+        14.999999999999996
+      ]
+    },
+    {
+      "id": "S11",
+      "rotation_degrees": -60,
+      "translation": [
+        27.712812921102035,
+        17.999999999999996
+      ]
+    },
+    {
+      "id": "F15",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F16",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F17",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F18",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F19",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "print": {
+    "width_mm": 228.0,
+    "height_mm": 111.92304845413268,
+    "page_rotation_degrees": -139.10660535086907
+  }
+}

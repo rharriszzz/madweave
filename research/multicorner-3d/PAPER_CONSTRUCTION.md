@@ -4,6 +4,12 @@ Recorded 2026-11-05 from Richard's explanation in this conversation.
 This is the working construction model for the 3D explorer. Richard will help
 refine the details as we develop it together.
 
+**Current next build (2026-11-07):** Richard wants regular polyhedra with
+triangular faces in both madweave and hexweave, initially as printed paper with
+folds and taped joins, including different offsets. Do not build another hat
+next. The [polyhedron nets](polyhedra/README.md) implement the first set. The
+octahedron additionally supports threefold centers in the current corner family.
+
 **Clarifications on 2026-11-07:** the original photographed hat used four paper
 pieces: one central piece extending to the outer edges and three added wedges,
 one for each outer corner. Ease of building and symmetry when possible are

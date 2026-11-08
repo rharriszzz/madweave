@@ -18,7 +18,13 @@ and a **3D construction built from that net in POV-Ray**. The
 [GPT-6 Astra advisory prompt](ASTRA_DESIGN_PROMPT.md) asks for a worked hat
 construction and a concrete design for these two views.
 
-The [current working hat](hat/README.md) now has one connected paper net and
+**Current build: [triangular regular polyhedra](polyhedra/README.md)** in both
+madweave and hexweave, starting with printed paper, fold lines and taped edges.
+Richard explicitly chose these instead of another hat. The first set includes
+tetrahedra, octahedra and icosahedra, aligned/skew offsets, and the octahedron's
+threefold-center alternative. See the [printable booklet](polyhedra/example/all-nets.pdf).
+
+The earlier [working hat](hat/README.md) has one connected paper net and
 one outside cutting loop. Richard's original used a central piece reaching the
 outer edges plus three wedges. The [construction priorities](BUILD_PRIORITIES.md)
 record that distinction, ease of building, symmetry and the polyhedron scope.

@@ -1,0 +1,148 @@
+{
+  "vertices": 6,
+  "edges": 12,
+  "faces": 8,
+  "euler_characteristic": 2,
+  "paper_components": 1,
+  "cut_boundary_loops": 1,
+  "cut_boundary_segments": 10,
+  "overlapping_triangles": 0,
+  "folds": 7,
+  "tape_pairs": 5,
+  "interior_dihedral_degrees": 109.47122063449069,
+  "corners": [
+    {
+      "id": "N",
+      "faces": 4,
+      "beta": 240
+    },
+    {
+      "id": "E0",
+      "faces": 4,
+      "beta": 240
+    },
+    {
+      "id": "E1",
+      "faces": 4,
+      "beta": 240
+    },
+    {
+      "id": "S",
+      "faces": 4,
+      "beta": 240
+    },
+    {
+      "id": "E2",
+      "faces": 4,
+      "beta": 240
+    },
+    {
+      "id": "E3",
+      "faces": 4,
+      "beta": 240
+    }
+  ],
+  "pattern_registrations": [
+    {
+      "id": "F01",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F02",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S01",
+      "rotation_degrees": -120,
+      "translation": [
+        1.7320508075688794,
+        2.9999999999999964
+      ]
+    },
+    {
+      "id": "S02",
+      "rotation_degrees": 120,
+      "translation": [
+        8.660254037844387,
+        -14.999999999999996
+      ]
+    },
+    {
+      "id": "F03",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F04",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S03",
+      "rotation_degrees": 120,
+      "translation": [
+        13.85640646055102,
+        11.999999999999998
+      ]
+    },
+    {
+      "id": "F05",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "F06",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S04",
+      "rotation_degrees": 120,
+      "translation": [
+        -1.7320508075688772,
+        15.0
+      ]
+    },
+    {
+      "id": "F07",
+      "rotation_degrees": 0,
+      "translation": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "S05",
+      "rotation_degrees": 120,
+      "translation": [
+        -12.124355652982143,
+        2.9999999999999982
+      ]
+    }
+  ],
+  "print": {
+    "width_mm": 146.5640646055102,
+    "height_mm": 88.0,
+    "page_rotation_degrees": -49.106605350869096
+  }
+}

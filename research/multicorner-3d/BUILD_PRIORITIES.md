@@ -2,6 +2,19 @@
 
 Recorded from Richard's clarifications on 2026-11-07.
 
+## Next build: triangular regular polyhedra, in both patterns
+
+Richard explicitly does **not** want another hat next. Build tetrahedra,
+octahedra and icosahedra using both madweave and hexweave, initially printed
+on paper with fold lines and taped joins. Include different lattice offsets.
+The [polyhedron recipes](polyhedra/README.md) provide the first nets and POV-Ray
+views. Preserve the existing hat as earlier research.
+
+Richard asks which solids also admit threefold centers: in the current
+pattern-preserving sector family the octahedron does (240° = two 120° sectors).
+The tetrahedron's 180° and icosahedron's 300° use sixfold centers. For hexweave,
+threefold means a small triangular opening and sixfold a large hexagonal one.
+
 ## The original hat uses four pieces
 
 The photographed hat has **one central piece that reaches all the way to the

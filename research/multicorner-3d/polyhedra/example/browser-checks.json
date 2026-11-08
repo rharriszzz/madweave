@@ -1,0 +1,12 @@
+{
+  "paper": "Letter",
+  "single_page_pdfs": 16,
+  "booklet_pages": 16,
+  "decoded_preview_images": 32,
+  "viewport_widths": [
+    1200,
+    390
+  ],
+  "errors": [],
+  "failed_requests": []
+}

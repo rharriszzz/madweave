@@ -1,0 +1,290 @@
+[
+  {
+    "id": "tetrahedron-madweave-3-0-sixfold",
+    "solid": "tetrahedron",
+    "weave": "madweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "sixfold",
+    "faces": 4,
+    "folds": 3,
+    "tape_pairs": 3,
+    "print": {
+      "width_mm": 88.00000000000001,
+      "height_mm": 77.28203230275508,
+      "page_rotation_degrees": -0.0
+    }
+  },
+  {
+    "id": "tetrahedron-madweave-2-1-sixfold",
+    "solid": "tetrahedron",
+    "weave": "madweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "sixfold",
+    "faces": 4,
+    "folds": 3,
+    "tape_pairs": 3,
+    "print": {
+      "width_mm": 88.0,
+      "height_mm": 77.2820323027551,
+      "page_rotation_degrees": -19.106605350869096
+    }
+  },
+  {
+    "id": "tetrahedron-hexweave-3-0-sixfold",
+    "solid": "tetrahedron",
+    "weave": "hexweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "sixfold",
+    "faces": 4,
+    "folds": 3,
+    "tape_pairs": 3,
+    "print": {
+      "width_mm": 88.00000000000001,
+      "height_mm": 77.28203230275508,
+      "page_rotation_degrees": -0.0
+    }
+  },
+  {
+    "id": "tetrahedron-hexweave-2-1-sixfold",
+    "solid": "tetrahedron",
+    "weave": "hexweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "sixfold",
+    "faces": 4,
+    "folds": 3,
+    "tape_pairs": 3,
+    "print": {
+      "width_mm": 88.0,
+      "height_mm": 77.2820323027551,
+      "page_rotation_degrees": -19.106605350869096
+    }
+  },
+  {
+    "id": "octahedron-madweave-3-0-sixfold",
+    "solid": "octahedron",
+    "weave": "madweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "sixfold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.00000000000001,
+      "page_rotation_degrees": -29.999999999999996
+    }
+  },
+  {
+    "id": "octahedron-madweave-3-0-threefold",
+    "solid": "octahedron",
+    "weave": "madweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "threefold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.00000000000001,
+      "page_rotation_degrees": -29.999999999999996
+    }
+  },
+  {
+    "id": "octahedron-madweave-2-1-sixfold",
+    "solid": "octahedron",
+    "weave": "madweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "sixfold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.0,
+      "page_rotation_degrees": -49.106605350869096
+    }
+  },
+  {
+    "id": "octahedron-madweave-2-1-threefold",
+    "solid": "octahedron",
+    "weave": "madweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "threefold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.0,
+      "page_rotation_degrees": -49.106605350869096
+    }
+  },
+  {
+    "id": "octahedron-hexweave-3-0-sixfold",
+    "solid": "octahedron",
+    "weave": "hexweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "sixfold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.00000000000001,
+      "page_rotation_degrees": -29.999999999999996
+    }
+  },
+  {
+    "id": "octahedron-hexweave-3-0-threefold",
+    "solid": "octahedron",
+    "weave": "hexweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "threefold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.00000000000001,
+      "page_rotation_degrees": -29.999999999999996
+    }
+  },
+  {
+    "id": "octahedron-hexweave-2-1-sixfold",
+    "solid": "octahedron",
+    "weave": "hexweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "sixfold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.0,
+      "page_rotation_degrees": -49.106605350869096
+    }
+  },
+  {
+    "id": "octahedron-hexweave-2-1-threefold",
+    "solid": "octahedron",
+    "weave": "hexweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "threefold",
+    "faces": 8,
+    "folds": 7,
+    "tape_pairs": 5,
+    "print": {
+      "width_mm": 146.5640646055102,
+      "height_mm": 88.0,
+      "page_rotation_degrees": -49.106605350869096
+    }
+  },
+  {
+    "id": "icosahedron-madweave-3-0-sixfold",
+    "solid": "icosahedron",
+    "weave": "madweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "sixfold",
+    "faces": 20,
+    "folds": 19,
+    "tape_pairs": 11,
+    "print": {
+      "width_mm": 227.99999999999997,
+      "height_mm": 111.92304845413267,
+      "page_rotation_degrees": -119.99999999999999
+    }
+  },
+  {
+    "id": "icosahedron-madweave-2-1-sixfold",
+    "solid": "icosahedron",
+    "weave": "madweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "sixfold",
+    "faces": 20,
+    "folds": 19,
+    "tape_pairs": 11,
+    "print": {
+      "width_mm": 228.0,
+      "height_mm": 111.92304845413268,
+      "page_rotation_degrees": -139.10660535086907
+    }
+  },
+  {
+    "id": "icosahedron-hexweave-3-0-sixfold",
+    "solid": "icosahedron",
+    "weave": "hexweave",
+    "offset": [
+      3,
+      0
+    ],
+    "center": "sixfold",
+    "faces": 20,
+    "folds": 19,
+    "tape_pairs": 11,
+    "print": {
+      "width_mm": 227.99999999999997,
+      "height_mm": 111.92304845413267,
+      "page_rotation_degrees": -119.99999999999999
+    }
+  },
+  {
+    "id": "icosahedron-hexweave-2-1-sixfold",
+    "solid": "icosahedron",
+    "weave": "hexweave",
+    "offset": [
+      2,
+      1
+    ],
+    "center": "sixfold",
+    "faces": 20,
+    "folds": 19,
+    "tape_pairs": 11,
+    "print": {
+      "width_mm": 228.0,
+      "height_mm": 111.92304845413268,
+      "page_rotation_degrees": -139.10660535086907
+    }
+  }
+]
