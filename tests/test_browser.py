@@ -19,12 +19,18 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+class BrowserTestServer(http.server.ThreadingHTTPServer):
+    # The editor loads SVG previews and its larger offline bundle concurrently.
+    # A five-connection listen backlog resets bursts on native macOS Chromium.
+    request_queue_size = 64
+
+
 class BrowserTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.folder = tempfile.TemporaryDirectory()
         cls.output = site.build(Path(cls.folder.name) / 'madweave')
-        cls.server = http.server.ThreadingHTTPServer(
+        cls.server = BrowserTestServer(
             ('127.0.0.1', 0), functools.partial(QuietHandler, directory=cls.folder.name))
         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
         cls.thread.start()
@@ -448,6 +454,28 @@ class BrowserTests(unittest.TestCase):
         event.value.save_as(artwork)
         self.assertNotIn('viewButtons',artwork.read_text())
         context.close()
+
+    def test_corner_initial_render_without_a_viewbox(self):
+        # Installed Mac Firefox 120 returns null, rather than an empty SVGRect,
+        # for a new nested SVG's unset viewBox. Exercise the actual renderer.
+        self.open_editor()
+        self.page.evaluate('''() => {
+            const core=MadWeaveCornerCore,original=core.createRenderer;
+            core.createRenderer=(svg,...args)=>{
+                if(!svg.hasAttribute('viewBox')) {
+                    Object.defineProperty(svg,'viewBox',{
+                        configurable:true,value:{baseVal:null}
+                    });
+                }
+                return original(svg,...args);
+            };
+        }''')
+        self.page.locator('#design-mode').select_option('corner')
+        self.page.wait_for_function('''MadWeaveEditor.mode === 'corner' ||
+            document.getElementById('export-status').textContent.startsWith('Mode was not changed:')''')
+        self.assertEqual(self.page.evaluate('MadWeaveEditor.mode'), 'corner',
+                         self.page.locator('#export-status').text_content())
+        self.assertGreater(self.page.frame_locator('#weave').locator('.material-cells').count(), 0)
 
     def test_invalid_project_keeps_current_design(self):
         self.open_editor()

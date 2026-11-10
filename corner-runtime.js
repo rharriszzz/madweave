@@ -268,7 +268,7 @@ function createRenderer(svg,colors,inspection,compositing=null){
   const pad=model.extent+.3,viewBox=`${model.center[0]-pad} ${model.center[1]-pad} ${2*pad} ${2*pad}`;
   // Firefox's nested SVG viewport reports identity; its graphics child carries
   // the actual viewport transform. Root prototype/export SVGs use the same path.
-  const matrix=(svg.querySelector('.material-cells')||svg).getScreenCTM(),oldWidth=svg.viewBox.baseVal.width;
+  const matrix=(svg.querySelector('.material-cells')||svg).getScreenCTM(),oldWidth=svg.viewBox.baseVal?.width||0;
   const factor=oldWidth>0?oldWidth/(2*pad):null;
   let sigma;
   if(factor!==null){

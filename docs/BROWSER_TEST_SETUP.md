@@ -158,6 +158,12 @@ well as its browser profile, avoiding the macOS 27 startup failure documented in
 [the Mac testing record](MAC_TESTING.md#macos-firefox-startup-and-cleanup). It does
 not require granting access to your normal Firefox data.
 
+The integrated Node corner browser suite uses the same isolated application-data
+approach on macOS. Installed Safari needs a separate WebDriver check: see
+[the November 7 native regression record](MAC_TESTING.md#results-on-2026-11-07)
+and `scripts/test_mac_native.py` for the optional Selenium probe, exact commands,
+download isolation, and comparison with Playwright WebKit.
+
 To run the complete suite in an already installed Chrome application:
 
 ```sh

@@ -1,0 +1,614 @@
+{
+  "date": "2026-11-09 America/New_York (2026-11-10 UTC)",
+  "sourceCommit": "6e6aa9fa65872c8c72a39726da5379b854a36209",
+  "environment": {
+    "macOS": "27.2 (26B123), arm64",
+    "python": "3.14.10",
+    "selenium": "4.52.0",
+    "playwright": "1.63.0",
+    "node": "24.22.1",
+    "npm": "11.21.0"
+  },
+  "screenPreflight": {
+    "consoleActive": true,
+    "screenLocked": false,
+    "method": "ioreg -n Root -d1: active logged-in console user; no CGSSessionScreenIsLocked flag",
+    "securitySettingsChanged": false
+  },
+  "native": [
+    {
+      "browser": "safari",
+      "checks": [
+        "Published landing page loads",
+        "Published original SVG has restored bottom controls",
+        "Original SVG transfers to integrated Corner mode",
+        "Flat resizing resets manual strip colors as documented",
+        "Flat sizes, spacings, native painting, visibility, opacity and order controls",
+        "Fresh native session restores the complete planar state",
+        "Network-blocked file restores the complete planar state",
+        "Native offline edits survive another save and fresh session: planar",
+        "Static SVG is standalone and preserves artwork data: planar-artwork.svg",
+        "Open Project restores the complete planar state",
+        "Static SVG is standalone and preserves artwork data: planar-imported-artwork.svg",
+        "Mode round trip retains the separate planar design",
+        "Mode round trip retains the separate corner design",
+        "Native painting selects a whole strip from its extended end",
+        "Corner size 1\u20138 and four spacings retain surviving strip colors",
+        "Unavailable corner controls are dimmed, untabbable, and do not change the model",
+        "All twelve native angle selections preserve palette and edge settings",
+        "All three hexweave classes stage and apply through original buttons",
+        "Native painting selects a whole strip from its extended end",
+        "Corner palette Enter and opacity arrow-key activation",
+        "Zero-opacity material remains present",
+        "Fresh native session restores the complete corner-hexweave state",
+        "Network-blocked file restores the complete corner-hexweave state",
+        "Native painting selects a whole strip from its extended end",
+        "Native offline edits survive another save and fresh session: corner-hexweave",
+        "Static SVG is standalone and preserves artwork data: corner-hexweave-artwork.svg",
+        "Open Project restores the complete corner-hexweave state",
+        "Static SVG is standalone and preserves artwork data: corner-hexweave-imported-artwork.svg",
+        "Restored SVG controls remain available at narrow window sizes",
+        "Original SVG, Stage 3A and earlier integrated editable examples import without modifying originals"
+      ],
+      "files": [
+        {
+          "name": "planar.html",
+          "bytes": 3207445
+        },
+        {
+          "name": "planar-resaved.html",
+          "bytes": 3207595
+        },
+        {
+          "name": "planar-artwork.svg",
+          "bytes": 23095
+        },
+        {
+          "name": "planar-imported-artwork.svg",
+          "bytes": 23128
+        },
+        {
+          "name": "corner-hexweave.html",
+          "bytes": 3204782
+        },
+        {
+          "name": "corner-hexweave-resaved.html",
+          "bytes": 3204932
+        },
+        {
+          "name": "corner-hexweave-artwork.svg",
+          "bytes": 462547
+        },
+        {
+          "name": "corner-hexweave-imported-artwork.svg",
+          "bytes": 462615
+        }
+      ],
+      "screen": {
+        "y": 30,
+        "x": 0,
+        "width": 2240,
+        "height": 1230
+      },
+      "version": "27.2",
+      "windowSamples": [
+        {
+          "innerWidth": 390,
+          "requested": 390,
+          "innerHeight": 898
+        },
+        {
+          "innerWidth": 336,
+          "requested": 320,
+          "innerHeight": 898
+        }
+      ],
+      "passed": true,
+      "exactZeroArtifacts": [
+        {
+          "name": "corner-hexweave.html",
+          "sha256": "83cfd126587e0174b3fe39c88663b448f85e4cb499d7cbdb63b76a9f7fe1e413",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 7
+            }
+          }
+        },
+        {
+          "name": "corner-hexweave-network-blocked.html",
+          "sha256": "d4db49ecbab14bff52ba85477a20e695fbcccfd3ee64bddad95e929f6597903a",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 7
+            }
+          }
+        },
+        {
+          "name": "corner-hexweave-resaved.html",
+          "sha256": "24b88fc3484e405337f668e2cf45610a96fec70dbdfb4b53c321144cddc9d833",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 6
+            }
+          }
+        },
+        {
+          "name": "corner-hexweave-artwork.svg",
+          "sha256": "bf5896988edcdbed7a7cae2631224113522a7c78262a4558d6b9b2e00db0640f",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 6
+            }
+          },
+          "materialOccurrences": 16
+        },
+        {
+          "name": "corner-hexweave-imported-artwork.svg",
+          "sha256": "98c4f00e4eb2b375359e869e52d29c076f4b08d9c8600d0b0c867e629533e475",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 7
+            }
+          },
+          "materialOccurrences": 16
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "checks": [
+        "Published landing page loads",
+        "Published original SVG has restored bottom controls",
+        "Original SVG transfers to integrated Corner mode",
+        "Flat resizing resets manual strip colors as documented",
+        "Flat sizes, spacings, native painting, visibility, opacity and order controls",
+        "Fresh native session restores the complete planar state",
+        "Network-blocked file restores the complete planar state",
+        "Native offline edits survive another save and fresh session: planar",
+        "Static SVG is standalone and preserves artwork data: planar-artwork.svg",
+        "Open Project restores the complete planar state",
+        "Static SVG is standalone and preserves artwork data: planar-imported-artwork.svg",
+        "Mode round trip retains the separate planar design",
+        "Mode round trip retains the separate corner design",
+        "Native painting selects a whole strip from its extended end",
+        "Corner size 1\u20138 and four spacings retain surviving strip colors",
+        "Unavailable corner controls are dimmed, untabbable, and do not change the model",
+        "All twelve native angle selections preserve palette and edge settings",
+        "All three hexweave classes stage and apply through original buttons",
+        "Native painting selects a whole strip from its extended end",
+        "Corner palette Enter and opacity arrow-key activation",
+        "Zero-opacity material remains present",
+        "Fresh native session restores the complete corner-hexweave state",
+        "Network-blocked file restores the complete corner-hexweave state",
+        "Native painting selects a whole strip from its extended end",
+        "Native offline edits survive another save and fresh session: corner-hexweave",
+        "Static SVG is standalone and preserves artwork data: corner-hexweave-artwork.svg",
+        "Open Project restores the complete corner-hexweave state",
+        "Static SVG is standalone and preserves artwork data: corner-hexweave-imported-artwork.svg",
+        "Restored SVG controls remain available at narrow window sizes",
+        "Original SVG, Stage 3A and earlier integrated editable examples import without modifying originals"
+      ],
+      "files": [
+        {
+          "name": "planar.html",
+          "bytes": 3207455
+        },
+        {
+          "name": "planar-resaved.html",
+          "bytes": 3207614
+        },
+        {
+          "name": "planar-artwork.svg",
+          "bytes": 23095
+        },
+        {
+          "name": "planar-imported-artwork.svg",
+          "bytes": 23126
+        },
+        {
+          "name": "corner-hexweave.html",
+          "bytes": 3204808
+        },
+        {
+          "name": "corner-hexweave-resaved.html",
+          "bytes": 3204961
+        },
+        {
+          "name": "corner-hexweave-artwork.svg",
+          "bytes": 462548
+        },
+        {
+          "name": "corner-hexweave-imported-artwork.svg",
+          "bytes": 462620
+        }
+      ],
+      "version": "120.0.1",
+      "windowSamples": [
+        {
+          "innerHeight": 865,
+          "innerWidth": 450,
+          "requested": 390
+        },
+        {
+          "innerHeight": 865,
+          "innerWidth": 450,
+          "requested": 320
+        }
+      ],
+      "passed": true,
+      "exactZeroArtifacts": [
+        {
+          "name": "corner-hexweave.html",
+          "sha256": "42d4b64cd0d02c30b721289b69fc9b2f7e85391b5d61c42bb99883a25bed2e13",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 7
+            }
+          }
+        },
+        {
+          "name": "corner-hexweave-network-blocked.html",
+          "sha256": "721052b6c5854c78a21d707971aae62dee35f6ba6a8cfeac03a67aaa6d3da183",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 7
+            }
+          }
+        },
+        {
+          "name": "corner-hexweave-resaved.html",
+          "sha256": "6127599065f872ac3bbe71692b8d40acf067ee16b863bec9f7d7f3f7c2caadde",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 6
+            }
+          }
+        },
+        {
+          "name": "corner-hexweave-artwork.svg",
+          "sha256": "fde267cf7234a222d81349962845b493f4862e01e75f324c7c7bb646e2f4e14c",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 6
+            }
+          },
+          "materialOccurrences": 16
+        },
+        {
+          "name": "corner-hexweave-imported-artwork.svg",
+          "sha256": "c511b6010dfb82eff7ee37f3375dd4f89c64e7cfb40037c20db1408c47bdaa32",
+          "opacitySlot": 6,
+          "opacity": 0,
+          "material": {
+            "pattern": 2,
+            "overrides": {
+              "0:0:5": 7
+            }
+          },
+          "materialOccurrences": 16
+        }
+      ]
+    }
+  ],
+  "regressions": [
+    {
+      "name": "math",
+      "code": 0,
+      "seconds": 0.13
+    },
+    {
+      "name": "corner-semantic",
+      "code": 0,
+      "seconds": 52.05
+    },
+    {
+      "name": "python-chromium",
+      "code": 0,
+      "seconds": 14.87
+    },
+    {
+      "name": "python-firefox",
+      "code": 0,
+      "seconds": 24.63
+    },
+    {
+      "name": "python-chrome",
+      "code": 0,
+      "seconds": 22.27
+    },
+    {
+      "name": "corner-browsers",
+      "code": 0,
+      "seconds": 137.57
+    },
+    {
+      "name": "corner-chrome",
+      "code": 0,
+      "seconds": 52.69
+    },
+    {
+      "name": "python-webkit",
+      "code": 0,
+      "tests": 18
+    }
+  ],
+  "cornerBrowsers": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "zeroOpacityPreservesAllMaterial": true,
+      "zeroOpacityMaxError": 0,
+      "continuousTranslucentMaxError": 1.4735075755401112,
+      "offlineRequests": [],
+      "errors": [],
+      "legacyRepresentatives": 8,
+      "endPixels": [
+        {
+          "tails": 26,
+          "bodies": 50,
+          "size": 1,
+          "beta": 300,
+          "strips": 8,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 360,
+          "strips": 18,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 420,
+          "strips": 21,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 480,
+          "strips": 24,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 360,
+          "strips": 27,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 480,
+          "strips": 36,
+          "maxError": 1
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "version": "155.0",
+      "zeroOpacityPreservesAllMaterial": true,
+      "zeroOpacityMaxError": 0,
+      "continuousTranslucentMaxError": 0.4735668262949275,
+      "offlineRequests": [],
+      "errors": [],
+      "legacyRepresentatives": 8,
+      "endPixels": [
+        {
+          "tails": 26,
+          "bodies": 50,
+          "size": 1,
+          "beta": 300,
+          "strips": 8,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 360,
+          "strips": 18,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 420,
+          "strips": 21,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 480,
+          "strips": 24,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 360,
+          "strips": 27,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 480,
+          "strips": 36,
+          "maxError": 1
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "zeroOpacityPreservesAllMaterial": true,
+      "zeroOpacityMaxError": 0,
+      "continuousTranslucentMaxError": 1.1250569692794272,
+      "offlineRequests": [],
+      "errors": [],
+      "legacyRepresentatives": 8,
+      "endPixels": [
+        {
+          "tails": 26,
+          "bodies": 50,
+          "size": 1,
+          "beta": 300,
+          "strips": 8,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 360,
+          "strips": 18,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 420,
+          "strips": 21,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 480,
+          "strips": 24,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 360,
+          "strips": 27,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 480,
+          "strips": 36,
+          "maxError": 1
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "version": "157.0.8103.39",
+      "zeroOpacityPreservesAllMaterial": true,
+      "zeroOpacityMaxError": 0,
+      "continuousTranslucentMaxError": 1.1250569692794272,
+      "offlineRequests": [],
+      "errors": [],
+      "legacyRepresentatives": 8,
+      "endPixels": [
+        {
+          "tails": 26,
+          "bodies": 50,
+          "size": 1,
+          "beta": 300,
+          "strips": 8,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 360,
+          "strips": 18,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 420,
+          "strips": 21,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 2,
+          "beta": 480,
+          "strips": 24,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 360,
+          "strips": 27,
+          "maxError": 1
+        },
+        {
+          "tails": 50,
+          "bodies": 50,
+          "size": 3,
+          "beta": 480,
+          "strips": 36,
+          "maxError": 1
+        }
+      ]
+    }
+  ],
+  "generatedAssets": {
+    "commandExitCode": 0,
+    "matchesCommit": true,
+    "integratedCertificates": 1812,
+    "researchConstructions": 84,
+    "sha256": {
+      "corner-runtime.js": "2ad4a0522f767c34019dd57394f6188b77a23eb01013078f00d4e5c6c97d9793",
+      "research/corner-prototype/bundle.mjs": "3a9d53010fd42a9c337ddb443b10baad60992523fd6b54c2147b0bb01df731a3"
+    }
+  }
+}

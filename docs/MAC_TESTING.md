@@ -1,40 +1,359 @@
-# Mac acceptance check
+# Native macOS regression testing
 
-After the updated site is published, repeat this short check in **Safari,
-Chrome, and Firefox** on your Mac. Automated Linux engine tests and Windows
-browser checks complement this check; they do not replace the actual Mac builds.
+## Results on 2026-11-09
 
-1. Open <https://rharriszzz.github.io/madweave/editor.html>. Refresh if the
-   Save Project and Open Project buttons are missing.
-2. Change a pattern, size, spacing, and palette color. Recolor one strip and hide
-   another; try a layer or direction toggle. Choose **Save Project**.
-3. Find the downloaded `madweave-project.html` in Downloads and open it in the
-   browser being tested. Confirm the design matches. Disconnect from the
-   internet (or disable networking for the test) and confirm the editor still
-   works, including the five pattern thumbnails.
-4. Make another visible change and choose **Save Project** again. Open the new
-   download and confirm that change survived. Your browser may add a number to
-   the filename. Keep the newest copy, or rename copies to describe the designs.
-5. Reconnect, return to the website, choose **Open Project**, and select the
-   saved HTML file. Confirm the design and settings return and editing works.
-6. If you have an old editable SVG saved with the original Firefox workflow,
-   try **Open Project** with a copy of that file too. Preserve the original.
-7. Choose **Export artwork as SVG**. Confirm the image has no editor controls.
-   Save Project is the way to retain an editable copy.
-8. Hide the SVG controls with **HB**, save, and reopen. Click HB again to reveal
-   the controls. Try a keyboard Tab to the HTML Save/Open buttons and activate
-   one with Return or Space.
+Resumed [PR #4](https://github.com/rharriszzz/madweave/pull/4) at `6e6aa9f`
+on `test/macos-restored-controls-2026-11-07`. The previously interrupted native
+Safari regression is now complete: **all 30 checks passed**, including the
+unchanged exact-zero-opacity assertion. Installed Firefox also passed all 30
+checks. These runs took place on November 9 EST (November 10 UTC).
 
-For any failure, record the browser/version, whether you were on the website or
-in a downloaded file, the step, and what happened. Keep the failing project file
-so the state can be reproduced. There is no autosave or undo: save before
-replacing a design or experimenting with pattern/size changes.
+The read-only `ioreg -n Root -d1` preflight showed an active, logged-in console
+session with no `CGSSessionScreenIsLocked` flag. Native Safari pointer and
+keyboard events reached the application. No macOS security, privacy, screen-lock,
+browser authorization, or network settings were changed. The existing private
+Python 3.14.10 environment, Selenium 4.52.0, Playwright 1.63.0, Node 24.22.1,
+installed browsers and persistent Playwright browser builds were reused without
+installing or upgrading dependencies.
+
+### Exact-zero result and native coverage
+
+The native slider click followed by ArrowLeft set palette slot 6 to exactly `0`,
+and the material-part count stayed unchanged. Full-state equality passed after
+fresh-session reopening, network-blocked reopening, offline editing/resaving,
+another fresh session, and Open Project. Independent inspection of the resulting
+HTML payloads and SVG metadata confirmed `opacity[6] == 0` in both browsers.
+The offline edit assigns slot 6 to strip `0:0:5`; its resaved HTML and exported
+SVG retain that assignment, and both SVG exports retain all 16 material
+occurrences for `hex-plus-480-s2-sep3`.
+
+The complete runner also passed Flat and Corner controls, sizes 1–8, all four
+spacings, all twelve angle choices, all three hexweave classes, individual-end
+painting, disabled controls, mode retention, both planar/corner file workflows,
+standalone exports, and all three legacy import formats. No application or test
+code change was needed to finish the interrupted run. Assertions, expected
+outputs, geometry certificates, and pixel tolerances are unchanged.
+
+Native Safari reached 390 CSS pixels when requested, but a requested 320-pixel
+window reached 336. Native Firefox reached 450 for both requests. The runner
+records actual sizes rather than claiming a native 320-pixel pass; the existing
+Playwright viewport tests cover smaller widths. The broader limitations in the
+November 7 record still apply, including VoiceOver, physical touch/weaving,
+autosave/undo, and sampling of native designs rather than the entire catalogue.
+
+### Additional regression results
+
+| Check | November 9 result |
+| --- | --- |
+| Python application/static suite | 18/18 passed in each of Playwright Chromium 153.0.8010.12, Firefox 155.0, WebKit 26.6, and installed Chrome 157.0.8103.39 |
+| Integrated Corner browser suite | Passed in all three Playwright engines and installed Chrome; no page errors; zero-opacity pixel error `0`; individual-end maximum channel error `1/255` |
+| Node math | All four tests passed |
+| Corner semantic and size/end suites | Passed: 3,024 round trips, 3,028 independent color cases, all 1,728 size/spacing constructions, 36 tail selections, 36 independent end-color cases, two extreme meshes, and all nine negative controls |
+| Generated assets | Full Python 3.14 rebuild independently checked 1,812 integrated certificates and the 84-construction research bundle; both generated files match the commit byte for byte |
+| Syntax and whitespace | Application JavaScript, modified Node browser runner, native/Python browser scripts, and `git diff --check` passed |
+
+### Reproduction and retained evidence
+
+Use the existing environment; there is no need to reprovision it:
+
+```sh
+MAC_PY="$PWD/test-results/mac-2026-11-07/venv314/bin/python"
+export PLAYWRIGHT_BROWSERS_PATH="$HOME/.local/share/madweave-playwright"
+export PATH="$PWD/test-results/mac-2026-11-07/venv314/bin:$PATH"
+# Separate terminal; stop this driver after testing.
+/usr/bin/safaridriver -p 4445
+# Run without manually interacting with Safari's automation window.
+"$MAC_PY" scripts/test_mac_native.py --browser safari --output test-results/mac-2026-11-09/native
+"$MAC_PY" scripts/test_mac_native.py --browser firefox --geckodriver "$PWD/test-results/geckodriver" --output test-results/mac-2026-11-09/native
+```
+
+The commands for the additional suites remain in the November 7 reproduction
+section. The committed [machine-readable evidence](evidence/mac-2026-11-09.json)
+records native check names, browser versions, actual window sizes, exact-zero
+artifact hashes/material assignments, numerical browser results, and rebuilt
+asset hashes. Raw logs, `results.json`, downloaded projects, SVGs, and screenshots are
+retained under ignored `test-results/mac-2026-11-09/`; the earlier session's
+diagnostic evidence and private Python runtime are retained. Removed 28 disposable
+native Firefox application-data directories from the two sessions after their
+drivers exited. Uniquely named Safari test downloads were moved out of Downloads
+by the runner; personal files and active research branches were left alone.
+
+## Results on 2026-11-07
+
+This section records the November 7 session. Its unfinished Safari repeat was
+completed on November 9; see the current results above.
+
+Reviewed starting from `5afb928`, after a clean fast-forward from the earlier
+Mac checkout. This includes the restored 52 original controls, Flat/Corner/Angle/
+More buttons, size and spacing controls, individual ends, and integrated corner
+editor. Corrections and these results are on
+`test/macos-restored-controls-2026-11-07`; the published site is not automatically
+updated by a push to this test branch.
+
+### Environment
+
+| Component | Actual installation used |
+| --- | --- |
+| Mac | Apple Silicon / arm64; macOS 27.2, build 26B123 |
+| Node / npm | Node 24.22.1; npm 11.21.0; `npm ci` retained the lockfile |
+| Existing Python | MacPorts Python 3.13.18 and the working `.venv`; initial compatibility checks used this environment |
+| Preferred Python | CPython 3.14.10, installed privately with uv 0.13.7 under ignored `test-results/mac-2026-11-07/python-runtime/`; separate `venv314/` |
+| Browser clients | Python and Node Playwright 1.63.0, unchanged from both repository pins; pngjs 7.0.0 |
+| Optional native probe | Selenium 4.52.0; system Safari driver; geckodriver 0.33.0 for installed Firefox 120 |
+| Test browsers | Persistent matching builds in `~/.local/share/madweave-playwright/` |
+
+A MacPorts `3.14` framework directory contained no interpreter. The private
+installation supplied Python 3.14 without modifying MacPorts, Homebrew, system
+Python, shell configuration, or personal browser profiles. The working `.venv`
+was retained; uv was added there only to bootstrap the separate interpreter.
+`uv python install --no-bin` did not add global executable links. Playwright was
+not upgraded. Safari WebDriver was already authorized; no additional privacy or
+Full Disk Access setting was needed.
+
+### Browser comparison
+
+| Browser | Actual version | Regression coverage and result |
+| --- | --- | --- |
+| Installed Safari | 27.2 (22625.2.8.11.9) | November 7 repeat stopped at a locked screen; November 9 completed all 30 checks (see current results above) |
+| Installed Chrome | 156.0.8078.81 | All 18 Python application/static tests and the complete integrated corner browser suite using the installed executable and isolated contexts |
+| Installed Firefox | 120.0.1 | Native WebDriver checks; originally could not enter Corner mode because an unset SVG view box is null; corrected and retested |
+| Playwright WebKit | 26.6 | All 18 Python tests and the complete integrated corner browser suite; independently tested rather than counted as Safari |
+| Playwright Chromium | 153.0.8010.12 | All 18 Python tests and the complete integrated corner browser suite |
+| Playwright Firefox | 155.0 | All 18 Python tests and the complete integrated corner browser suite, including isolated Mac application data |
+
+The 18 Python tests comprise 13 application/browser tests and five static build
+checks. The added application regression forces the older Firefox null-view-box
+behavior through the real Corner renderer. It fails before the renderer fix and
+passes afterward. Original control coordinates are still compared between modes
+at desktop and narrow widths. The focused restored-controls CI selections are
+included in the complete suite; none of their assertions or expected outputs
+were relaxed.
+
+The integrated corner suite retains its independent geometry/material checks,
+eight legacy rendering representatives, six individual-end examples per engine,
+576 end/body pixel probes including 276 beyond the working circle, and the
+unchanged 4/255 channel tolerance. It also checks translucent and exactly
+transparent material, near/exact seam rays, invalid/stale transactions, legacy
+imports, retained modes, network-blocked offline editing/resaving, and independently
+opened plain/annotated exports. End pixel error remains at most 1/255.
+
+### Native Safari and Firefox coverage
+
+The optional [native regression script](../scripts/test_mac_native.py) exercises
+the cases below. Installed Firefox completed all 30 checks after the correction.
+Safari completed an earlier functional run; the strengthened exact-zero
+endpoint repeat was pending at the end of November 7 and passed on November 9:
+
+- The live landing page and original SVG, plus the exact locally built artifact
+  under `/madweave/`. A native Corner click hands the original SVG design to the
+  shared editor. Flat, Corner, Angle and More use their actual mouse handlers.
+- Flat sizes 1–8, four spacings, real dwell/move/click strip painting, individual
+  hide/show, opacity and hue, layer/direction controls, handedness/order/center,
+  and outlines. Flat resizing still resets manual strip colors as documented;
+  this is distinct from Corner's preservation on surviving strips.
+- Corner sizes 1–8 and four certified spacings, retained paint on surviving keys,
+  all twelve 60-degree angle choices, all three hexweave classes, individual-end
+  painting, edge settings, palette Enter, and opacity arrow keys. Unavailable
+  controls are dimmed/untabbable and do not change the design. Exactly zero
+  opacity leaves material in the model and survives saving/export.
+- A nontrivial planar design and a nontrivial corner/hexweave design, each with
+  custom painting and opacity. Complete saved envelopes, including selection,
+  are compared with the design immediately before saving. Each saved file is
+  reopened in a fresh WebDriver session, edited, resaved, and reopened again.
+  Open Project restores the first design exactly, with static SVG export before
+  and after import. Flat/Corner retain their separate in-session designs.
+- A test copy of each downloaded HTML file is opened with a restrictive CSP
+  blocking network connections and external resource loads. A deliberately
+  attempted HTTPS fetch must trigger a policy violation. Editing and resaving
+  still work. This blocks networking for the file and its inherited frames;
+  the Mac's network interface and browser-wide security settings stay enabled.
+- Original editable SVG, Stage 3A corner HTML, and the earlier integrated worked
+  HTML import through the current editor. Original example files are not changed.
+  Static exports contain no scripts, event attributes, editor controls, external
+  image loads, or non-fragment hrefs. Corner artwork metadata retains the exact
+  construction, palette, opacity, and strip material assignments.
+
+Native session artifacts and temporary Firefox application data live under the
+ignored output directory. Safari has no download-directory override in this
+probe: its uniquely named test files briefly enter Downloads and are immediately
+moved into the isolated artifact directory. Only those exact generated paths are
+cleaned up; existing downloads are not read or altered. Each restart uses a new
+Safari automation session or a new Firefox profile/application-data directory.
+Do not manually interact with the Safari automation window during a run.
+
+### November 7 Safari repeat blocked by the locked screen
+
+A late Safari repeat returned successful WebDriver click commands without any
+mousedown/up/click events reaching the document. A captured event trace showed
+zero events while `elementFromPoint` identified the correct restored control.
+The button was within the viewport and screen. A read-only macOS status check
+then reported `CGSSessionScreenIsLocked=Yes`. No browser/application workaround
+or security-setting change was made. The Mac needs to be unlocked normally for
+native input to continue; headless browser results are unaffected.
+
+An earlier Safari run completed controls, sizes/spacings, angles/classes,
+planar/corner file reopening/editing/resaving, exports and legacy imports.
+Inspection of its slider endpoint found a tiny positive opacity from physical
+pixel rounding. The native runner was strengthened to reach exactly zero via
+ArrowLeft and assert that value. Firefox passed this strict check on November 7;
+Safari passed the same unchanged runner on November 9 with an unlocked console.
+The interruption was a native input barrier, not a reproduced application bug.
+
+### Defects and test infrastructure findings
+
+1. **Installed Firefox 120: Corner initialization failed.** Its unset nested SVG
+   `viewBox.baseVal` is null, whereas the newer engines return an empty rectangle.
+   The renderer dereferenced `.width` before reaching its existing no-view-box
+   scale fallback. Optional access now selects that same fallback. The native
+   failure and a regression in modern browsers demonstrate the defect and fix;
+   geometry, certificates, and color rules are unchanged. The integrated runtime
+   and research offline bundle were regenerated from the corrected renderer.
+2. **Node corner suite: Mac Firefox could not start.** The newer suite lacked the
+   existing `CFFIXED_USER_HOME` workaround used by the Python tests. It now creates
+   a private application-data directory, precreates standard folders to avoid
+   macOS deny-delete ACLs, and cleans it up even if browser launch fails. It does
+   not access the personal Firefox data directory or change global permissions.
+3. **Intermittent Chromium/Chrome test downloads failed.** Request diagnostics
+   found loopback asset fetches reset with `net::ERR_CONNECTION_RESET` under the
+   Python test server's default five-connection backlog. The application reported
+   the fetch failure and retained the design. Increasing only the local test
+   servers' listen backlog to 64 removed the resets in three consecutive complete
+   four-spacing save/reopen/resave runs and the final full suites. No application
+   fetch retry, persistence change, or weakened test expectation was added.
+
+Several native probe issues were automation limitations rather than application
+failures: transparent SVG hit rectangles render intentionally at opacity zero,
+so Selenium's `is_displayed()` is inappropriate for them; visible control groups
+are checked instead. Old Marionette's Element Click can fail on mouseup after a
+mode button has already hidden its iframe on mousedown. Top-level native pointer
+actions avoid sending mouseup into that hidden document. Hover selection is
+settled before comparing a disabled click or a save's complete state. Older
+Marionette also rounded returned numeric objects by one floating-point unit in
+some cases. Capturing the application's own JSON as a string preserves its exact
+values and allows strict full-state equality; no numeric tolerance was substituted.
+Sliders have physical-pixel rounding; the supported arrow-key action verifies the exact
+zero-opacity endpoint. The expanded More panel is closed before narrow drawing
+inspection. None of these required interface changes.
+
+### Numerical checks and generated files
+
+Four Node math tests passed. The integrated semantic suite retained 3,024 round
+trips over the original 84 constructions, 3,028 independent color cases and five
+negative controls. The size/end suite checked all 1,728 new constructions, 36
+saved end selections, 36 independent RGBA cases, two extreme-angle meshes and four
+rejected mutations. Final independent Python checker subprocesses used Python
+3.14.10 through the test environment's PATH.
+
+Before application changes, full regeneration of both assets matched the
+committed files byte for byte: 1,812 integrated certificates (84 historical plus
+1,728 size/spacing constructions) and the 84-construction research bundle. After
+the renderer correction, the full Python 3.14 rebuild also matched the
+incrementally packaged result exactly. Only the renderer source changes in these
+assets; the catalogue and certificate data remain unchanged. No certificate,
+reference image, expected pixel output, or error tolerance was replaced to make
+checks pass. The integrated runtime grows from 2,798,480 to 2,798,484 bytes.
+
+### Reproduction commands
+
+From the checkout, the session provisioned the private interpreter as follows:
+
+```sh
+.venv/bin/python -m pip install uv
+.venv/bin/uv python install 3.14 --install-dir test-results/mac-2026-11-07/python-runtime --no-bin
+test-results/mac-2026-11-07/python-runtime/cpython-3.14.10-macos-aarch64-none/bin/python3.14 -m venv test-results/mac-2026-11-07/venv314
+```
+
+For an existing suitable Python 3.14 installation, use that interpreter to create
+the test environment instead. These are session-local environment selections:
+
+```sh
+MAC_PY="$PWD/test-results/mac-2026-11-07/venv314/bin/python"
+"$MAC_PY" -m pip install -r requirements-dev.txt
+# Only the separate native WebDriver probe needs this optional package.
+"$MAC_PY" -m pip install selenium==4.52.0
+npm ci
+export PLAYWRIGHT_BROWSERS_PATH="$HOME/.local/share/madweave-playwright"
+export PATH="$PWD/test-results/mac-2026-11-07/venv314/bin:$PATH"
+
+node --check madweave.js
+node --check project.js
+node --check editor.js
+node --check corner-editor.js
+node --check corner-model.mjs
+node --check corner-runtime.js
+node --test tests/math.test.cjs
+npm run test:corner
+for browser in chromium firefox webkit; do
+  MADWEAVE_BROWSER="$browser" "$MAC_PY" -m unittest discover -s tests -v
+done
+MADWEAVE_BROWSER=chromium MADWEAVE_CHANNEL=chrome "$MAC_PY" -m unittest discover -s tests -v
+MADWEAVE_STAGE2_BROWSERS=chromium,firefox,webkit npm run test:corner:browser
+MADWEAVE_STAGE2_BROWSERS=chromium MADWEAVE_CHROMIUM_EXECUTABLE='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' npm run test:corner:browser
+
+"$MAC_PY" scripts/build_corner_runtime.py
+"$MAC_PY" research/build-corner-package.py
+git diff --exit-code -- corner-runtime.js research/corner-prototype/bundle.mjs
+"$MAC_PY" scripts/build_site.py
+git diff --check
+```
+
+For native Safari, run `/usr/bin/safaridriver -p 4445` in a separate terminal,
+then run the probe without touching its automation window:
+
+```sh
+"$MAC_PY" scripts/test_mac_native.py --browser safari --output test-results/mac-native
+"$MAC_PY" scripts/test_mac_native.py --browser firefox --geckodriver "$PWD/test-results/geckodriver" --output test-results/mac-native
+```
+
+Provide a geckodriver compatible with the installed Firefox; this Mac used
+0.33.0 for Firefox 120.0.1. The native script is deliberately separate from normal
+unittest discovery and Linux CI. It writes `results.json`, downloaded projects,
+SVGs and screenshots in the selected output directory, and exits nonzero on a
+failed assertion. Stop the Safari driver after testing.
+
+### Comparison with committed PC evidence and remaining gaps
+
+The committed November 5 results in [TESTING.md](TESTING.md) cover restored control
+positions, three Playwright engines, size/spacing/end geometry, semantic cases,
+and earlier file workflows. The November 7 workflow adds a focused three-engine
+restored-controls selection and Python 3.14/Node 24 setup. Earlier installed
+Windows browser results are also committed. No uncommitted PC test output was
+assumed available here. Mac runs add actual installed Safari and Firefox, Mac
+file downloads, private Firefox startup, the older Firefox initialization failure,
+and native file/keyboard/pointer behavior. They do not replace the independent
+PC geometry evidence or silently recertify it from screenshots.
+
+The restored controls are suitable for regular use within the documented scope
+after the Firefox compatibility correction, within the completed coverage.
+The native Safari repeat was completed on November 9. Remaining limits:
+
+- Native browser checks cover selected planar/corner designs, not every
+  catalogue/palette/opacity combination. Numerical catalogue checks are broader
+  than native rendered samples. Keep a scheduled Mac smoke run; Linux WebKit
+  cannot certify installed Safari.
+- Native Firefox headless windows stopped at 450 CSS pixels despite requests for
+  390 and 320; those smaller widths are covered by Playwright viewport tests.
+  Native window metrics are recorded in the probe's `windowSamples` output.
+- The installed Firefox is 120.0.1; a newer installed Mac Firefox was not present
+  and was not installed over it. Playwright Firefox 155 is separately covered.
+- Narrow windows and keyboard controls are exercised, but full planar keyboard
+  access, VoiceOver, physical touch devices and physical weaving are not certified.
+- Flat size/formula changes intentionally discard manual strip edits. Corner
+  construction/angle changes can replace custom paint as the proposal states;
+  size/spacing changes retain paint on surviving strips. Save first when needed.
+- Mode switches preserve both live designs; saving persists only the active one.
+  There is still no autosave or complete undo. This is documented behavior, not
+  data silently omitted from a file claiming to contain both designs.
+
+The earlier Mac record below is retained to distinguish the pre-corner editor
+and its already-established Firefox isolation behavior from this regression.
 
 ## Results on 2026-11-01
 
-Tested on an Apple Silicon Mac running macOS 27.2 (26B123), with Python 3.13.18,
-Node.js 24.22.1, and Playwright 1.63.0. The starting application revision was
-`aa3f3ca`; the changes from this review affect test setup and documentation.
+These historical results covered the pre-corner application at `aa3f3ca` on the
+same macOS 27.2 Mac, using Python 3.13.18, Node 24.22.1 and Playwright 1.63.0.
+They establish the previous planar save/open/offline baseline; they did not test
+the restored corner controls introduced afterward.
 
 | Browser | Result | Scope |
 | --- | --- | --- |
@@ -45,87 +364,19 @@ Node.js 24.22.1, and Playwright 1.63.0. The starting application revision was
 | Installed Safari 27.2 (22625.2.8.11.9) | Passed targeted checks | Published editor controls; real HTML downloads; exact state after file reopen, editing, resaving, second reopen, and Open Project; static SVG download after import |
 | Installed Firefox 120.0.1 | Passed targeted checks | Published editor controls; real HTML downloads; exact state after file reopen, editing, resaving, second reopen, and Open Project; static SVG download |
 
-The native Safari/Firefox probes used WebDriver (Selenium 4.52.0, the system
-Safari driver, and geckodriver 0.33.0 for the installed Firefox). They exercised
-pattern, size, palette, extra-wide spacing, layer/direction, orientation, outline,
-and hidden-control changes. Custom strip colors and visibility were also set
-through engine actions before saving. Files received unique test names, and
-only those test downloads were removed. Normal browser profiles were not used
-or modified. The installed Firefox application was not upgraded.
-
-The native probes opened saved projects through `file://` and observed no
-HTTP(S) resources in the outer document's Resource Timing entries. The Mac's
-network connection remained enabled for these probes. The stronger check that
-blocks HTTP(S) requests in the complete browser context is in the Playwright
-suite. These results do not certify physical touch devices, screen readers, or
-complete SVG keyboard operation. The manual checklist above remains useful
-following browser or editor updates.
-
-An initial Safari WebDriver run missed an export click after a file upload:
-the driver returned successfully but dispatched no click event. The user
-reported possibly interacting with the automation window. At their request,
-the entire native save/open/resave sequence was repeated with the window left
-alone; the post-import native export click downloaded a valid SVG successfully.
-The earlier miss is not a confirmed application defect, and no application
-workaround was added. Leave the automation window untouched during these tests.
-
-### Repeating the automated checks
-
-After following [the persistent setup](BROWSER_TEST_SETUP.md#macos):
-
-```sh
-export PLAYWRIGHT_BROWSERS_PATH="$HOME/.local/share/madweave-playwright"
-MADWEAVE_BROWSER=chromium .venv/bin/python -m unittest discover -s tests -v
-MADWEAVE_BROWSER=firefox .venv/bin/python -m unittest discover -s tests -v
-MADWEAVE_BROWSER=webkit .venv/bin/python -m unittest discover -s tests -v
-
-# Exercise the Chrome application already installed on this Mac.
-MADWEAVE_BROWSER=chromium MADWEAVE_CHANNEL=chrome .venv/bin/python -m unittest discover -s tests -v
-```
-
-`MADWEAVE_CHANNEL` is optional. Leave it unset for the bundled engines; use
-`chrome` only with `MADWEAVE_BROWSER=chromium`. It selects the installed browser
-without opening your personal profile.
+Native Safari/Firefox reopened and resaved actual downloads and imported them
+through Open Project. The Mac network remained enabled; only outer-document
+resource timing was observed. The November 7 CSP checks are stronger and cover
+child-frame dependencies. An initial Safari driver click after file upload
+missed its event; the uninterrupted repeat passed. This is useful historical
+evidence for separating a missing automation event from a reproducible defect.
 
 ### macOS Firefox startup and cleanup
 
-Without isolation, the pinned Playwright Firefox exited before loading the app
-with **Could not find profile folder**. The installed Firefox also failed to
-start under direct automation. This matches the shared application-data access
-issue reported in [Playwright #42768](https://github.com/microsoft/playwright/issues/42768).
-
-The suite now supplies `CFFIXED_USER_HOME` only to the Mac Firefox child process,
-pointing at a temporary test directory. It precreates Documents, Downloads, and
-Library support/cache/preferences directories, avoiding macOS deny-delete ACLs
-on automatically created standard folders. Both the tests and cleanup pass.
-No Full Disk Access, personal-profile access, sandbox change, or global shell
-setting was needed. Chromium, WebKit, and Linux CI keep their existing setup.
-
-## GitHub Pages and portfolio review
-
-Both <https://rharriszzz.github.io/madweave/> and
-<https://rharriszzz.github.io/> returned HTTP 200 over HTTPS. GitHub's Pages API
-reported GitHub Actions publishing and HTTPS enforcement for both repositories;
-neither had a custom domain. The latest MadWeave workflow for `aa3f3ca`
-[completed successfully](https://github.com/rharriszzz/madweave/actions/runs/41361706822).
-All 21 application/public files returned HTTP 200 and matched the checkout
-byte for byte; the build separately adds `.nojekyll` as its 22nd file.
-
-The portfolio is suitable as the project's discovery page:
-
-- Its featured MadWeave card has the correct screenshot, repository, project
-  URL, and description of editable offline saving and SVG export.
-- Searching for `madweave` and selecting **Browser apps** keep the card visible;
-  its **Live Site** link reaches the MadWeave landing page.
-- MadWeave's **More projects** link returns to the portfolio.
-- The live landing page, guide, editor wrapper, and filtered portfolio fit 1280,
-  768, 390, and 320 CSS-pixel widths without document-level horizontal overflow.
-  The SVG retains its separately scrolling canvas, as documented.
-- The live Chrome review reported no JavaScript exceptions or HTTP error
-  responses on those routes. The project and portfolio preview images loaded.
-
-Keep the app and its guide in `rharriszzz/madweave`, published at `/madweave/`,
-and keep the portfolio card in `rharriszzz/rharriszzz.github.io`. The existing
-links already implement this arrangement; no portfolio repository change was
-needed. Useful follow-ups are a scheduled Mac test run and a fresh portfolio
-screenshot if the editor's appearance changes substantially.
+The November 1 investigation established the `CFFIXED_USER_HOME` isolation used
+by the Python suite: a disposable profile alone did not prevent access to the
+protected shared application-data directory. Precreating standard folders also
+avoided macOS deny-delete ACLs during cleanup. No Full Disk Access or personal
+profile access was needed. See
+[Playwright #42768](https://github.com/microsoft/playwright/issues/42768).
+The November 7 work extends this existing approach to the Node corner suite.
