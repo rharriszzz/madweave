@@ -1,6 +1,87 @@
 # Native macOS regression testing
 
+## Results on 2026-11-09
+
+Resumed [PR #4](https://github.com/rharriszzz/madweave/pull/4) at `6e6aa9f`
+on `test/macos-restored-controls-2026-11-07`. The previously interrupted native
+Safari regression is now complete: **all 30 checks passed**, including the
+unchanged exact-zero-opacity assertion. Installed Firefox also passed all 30
+checks. These runs took place on November 9 EST (November 10 UTC).
+
+The read-only `ioreg -n Root -d1` preflight showed an active, logged-in console
+session with no `CGSSessionScreenIsLocked` flag. Native Safari pointer and
+keyboard events reached the application. No macOS security, privacy, screen-lock,
+browser authorization, or network settings were changed. The existing private
+Python 3.14.10 environment, Selenium 4.52.0, Playwright 1.63.0, Node 24.22.1,
+installed browsers and persistent Playwright browser builds were reused without
+installing or upgrading dependencies.
+
+### Exact-zero result and native coverage
+
+The native slider click followed by ArrowLeft set palette slot 6 to exactly `0`,
+and the material-part count stayed unchanged. Full-state equality passed after
+fresh-session reopening, network-blocked reopening, offline editing/resaving,
+another fresh session, and Open Project. Independent inspection of the resulting
+HTML payloads and SVG metadata confirmed `opacity[6] == 0` in both browsers.
+The offline edit assigns slot 6 to strip `0:0:5`; its resaved HTML and exported
+SVG retain that assignment, and both SVG exports retain all 16 material
+occurrences for `hex-plus-480-s2-sep3`.
+
+The complete runner also passed Flat and Corner controls, sizes 1–8, all four
+spacings, all twelve angle choices, all three hexweave classes, individual-end
+painting, disabled controls, mode retention, both planar/corner file workflows,
+standalone exports, and all three legacy import formats. No application or test
+code change was needed to finish the interrupted run. Assertions, expected
+outputs, geometry certificates, and pixel tolerances are unchanged.
+
+Native Safari reached 390 CSS pixels when requested, but a requested 320-pixel
+window reached 336. Native Firefox reached 450 for both requests. The runner
+records actual sizes rather than claiming a native 320-pixel pass; the existing
+Playwright viewport tests cover smaller widths. The broader limitations in the
+November 7 record still apply, including VoiceOver, physical touch/weaving,
+autosave/undo, and sampling of native designs rather than the entire catalogue.
+
+### Additional regression results
+
+| Check | November 9 result |
+| --- | --- |
+| Python application/static suite | 18/18 passed in each of Playwright Chromium 153.0.8010.12, Firefox 155.0, WebKit 26.6, and installed Chrome 157.0.8103.39 |
+| Integrated Corner browser suite | Passed in all three Playwright engines and installed Chrome; no page errors; zero-opacity pixel error `0`; individual-end maximum channel error `1/255` |
+| Node math | All four tests passed |
+| Corner semantic and size/end suites | Passed: 3,024 round trips, 3,028 independent color cases, all 1,728 size/spacing constructions, 36 tail selections, 36 independent end-color cases, two extreme meshes, and all nine negative controls |
+| Generated assets | Full Python 3.14 rebuild independently checked 1,812 integrated certificates and the 84-construction research bundle; both generated files match the commit byte for byte |
+| Syntax and whitespace | Application JavaScript, modified Node browser runner, native/Python browser scripts, and `git diff --check` passed |
+
+### Reproduction and retained evidence
+
+Use the existing environment; there is no need to reprovision it:
+
+```sh
+MAC_PY="$PWD/test-results/mac-2026-11-07/venv314/bin/python"
+export PLAYWRIGHT_BROWSERS_PATH="$HOME/.local/share/madweave-playwright"
+export PATH="$PWD/test-results/mac-2026-11-07/venv314/bin:$PATH"
+# Separate terminal; stop this driver after testing.
+/usr/bin/safaridriver -p 4445
+# Run without manually interacting with Safari's automation window.
+"$MAC_PY" scripts/test_mac_native.py --browser safari --output test-results/mac-2026-11-09/native
+"$MAC_PY" scripts/test_mac_native.py --browser firefox --geckodriver "$PWD/test-results/geckodriver" --output test-results/mac-2026-11-09/native
+```
+
+The commands for the additional suites remain in the November 7 reproduction
+section. The committed [machine-readable evidence](evidence/mac-2026-11-09.json)
+records native check names, browser versions, actual window sizes, exact-zero
+artifact hashes/material assignments, numerical browser results, and rebuilt
+asset hashes. Raw logs, `results.json`, downloaded projects, SVGs, and screenshots are
+retained under ignored `test-results/mac-2026-11-09/`; the earlier session's
+diagnostic evidence and private Python runtime are retained. Removed 28 disposable
+native Firefox application-data directories from the two sessions after their
+drivers exited. Uniquely named Safari test downloads were moved out of Downloads
+by the runner; personal files and active research branches were left alone.
+
 ## Results on 2026-11-07
+
+This section records the November 7 session. Its unfinished Safari repeat was
+completed on November 9; see the current results above.
 
 Reviewed starting from `5afb928`, after a clean fast-forward from the earlier
 Mac checkout. This includes the restored 52 original controls, Flat/Corner/Angle/
@@ -33,7 +114,7 @@ Full Disk Access setting was needed.
 
 | Browser | Actual version | Regression coverage and result |
 | --- | --- | --- |
-| Installed Safari | 27.2 (22625.2.8.11.9) | Earlier native functional run passed restored controls and both file workflows; strengthened final repeat stopped at a locked-screen input barrier (see below) |
+| Installed Safari | 27.2 (22625.2.8.11.9) | November 7 repeat stopped at a locked screen; November 9 completed all 30 checks (see current results above) |
 | Installed Chrome | 156.0.8078.81 | All 18 Python application/static tests and the complete integrated corner browser suite using the installed executable and isolated contexts |
 | Installed Firefox | 120.0.1 | Native WebDriver checks; originally could not enter Corner mode because an unset SVG view box is null; corrected and retested |
 | Playwright WebKit | 26.6 | All 18 Python tests and the complete integrated corner browser suite; independently tested rather than counted as Safari |
@@ -60,8 +141,8 @@ opened plain/annotated exports. End pixel error remains at most 1/255.
 
 The optional [native regression script](../scripts/test_mac_native.py) exercises
 the cases below. Installed Firefox completed all 30 checks after the correction.
-Safari completed an earlier functional run, but the strengthened exact-zero
-endpoint repeat remains pending rather than being reported as a final pass:
+Safari completed an earlier functional run; the strengthened exact-zero
+endpoint repeat was pending at the end of November 7 and passed on November 9:
 
 - The live landing page and original SVG, plus the exact locally built artifact
   under `/madweave/`. A native Corner click hands the original SVG design to the
@@ -100,7 +181,7 @@ cleaned up; existing downloads are not read or altered. Each restart uses a new
 Safari automation session or a new Firefox profile/application-data directory.
 Do not manually interact with the Safari automation window during a run.
 
-### Safari repeat blocked by the locked screen
+### November 7 Safari repeat blocked by the locked screen
 
 A late Safari repeat returned successful WebDriver click commands without any
 mousedown/up/click events reaching the document. A captured event trace showed
@@ -114,9 +195,9 @@ An earlier Safari run completed controls, sizes/spacings, angles/classes,
 planar/corner file reopening/editing/resaving, exports and legacy imports.
 Inspection of its slider endpoint found a tiny positive opacity from physical
 pixel rounding. The native runner was strengthened to reach exactly zero via
-ArrowLeft and assert that value. Firefox passes this strict check; Safari's
-final version of that check is pending the unlocked-screen rerun. This is an
-explicit remaining native coverage gap, not a confirmed Safari application bug.
+ArrowLeft and assert that value. Firefox passed this strict check on November 7;
+Safari passed the same unchanged runner on November 9 with an unlocked console.
+The interruption was a native input barrier, not a reproduced application bug.
 
 ### Defects and test infrastructure findings
 
@@ -150,8 +231,7 @@ settled before comparing a disabled click or a save's complete state. Older
 Marionette also rounded returned numeric objects by one floating-point unit in
 some cases. Capturing the application's own JSON as a string preserves its exact
 values and allows strict full-state equality; no numeric tolerance was substituted.
-Sliders
-have physical-pixel rounding; the supported arrow-key action verifies the exact
+Sliders have physical-pixel rounding; the supported arrow-key action verifies the exact
 zero-opacity endpoint. The expanded More panel is closed before narrow drawing
 inspection. None of these required interface changes.
 
@@ -245,7 +325,7 @@ PC geometry evidence or silently recertify it from screenshots.
 
 The restored controls are suitable for regular use within the documented scope
 after the Firefox compatibility correction, within the completed coverage.
-The final native Safari repeat above is incomplete. Remaining limits:
+The native Safari repeat was completed on November 9. Remaining limits:
 
 - Native browser checks cover selected planar/corner designs, not every
   catalogue/palette/opacity combination. Numerical catalogue checks are broader
