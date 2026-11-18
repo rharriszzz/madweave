@@ -3,7 +3,10 @@
 const p=require('playwright'),{PNG}=require('pngjs'),g=require('./planar-geometry.cjs');
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),assert=require('node:assert/strict');
 const BROWSER=process.env.MADWEAVE_RESEARCH_BROWSER||'chromium';
-const OUT='research/output/seam-fix/'+BROWSER;fs.mkdirSync(OUT,{recursive:true});
+const variant=process.env.MADWEAVE_SEAM_VARIANT;
+if(variant)assert(['hard-mask','additive-clip','additive-mask','additive-alpha-mask'].includes(variant),'Unknown research variant');
+const {applyVariant}=require('./chrome-clip-alternatives.cjs');
+const OUT='research/output/seam-fix/'+BROWSER+(variant?'/'+variant:'');fs.mkdirSync(OUT,{recursive:true});
 const engine=vm.createContext({});vm.runInContext(fs.readFileSync(path.join(__dirname,'..','madweave.js'),'utf8'),engine);
 const rgb=s=>s.match(/\d+/g).map(Number),over=(back,front,a)=>front.map((v,i)=>v*a+back[i]*(1-a));
 const at=(png,x,y)=>[...png.data.subarray((y*png.width+x)*4,(y*png.width+x)*4+3)];
@@ -18,7 +21,8 @@ function edges(m){
   .filter(q=>q.every(v=>Math.abs(v)<.9)&&g.clearance(m,q)>.03);
 }
 (async()=>{
- const browser=await p[BROWSER].launch({headless:true}),results=[],fixtures=[],errors=[];
+ const executablePath=BROWSER==='chromium'?process.env.MADWEAVE_CHROMIUM_EXECUTABLE:undefined;
+ const browser=await p[BROWSER].launch({headless:true,executablePath}),results=[],fixtures=[],errors=[];
  try{
   const page=await browser.newPage({viewport:{width:1500,height:1100},deviceScaleFactor:1});
   page.on('pageerror',e=>errors.push(e.message));
@@ -36,6 +40,7 @@ function edges(m){
      [...group.children].forEach((e,i)=>e.setAttribute('fill-opacity',opacity[i]));stack.append(...group.children);group.append(stack);
     }
    },opacity);
+   if(variant)await svg.evaluate(applyVariant,variant);
    const png=PNG.sync.read(await svg.screenshot({path:OUT+'/fixture-'+opacity.join('-')+'.png'}));
    const expected=over(over([255,255,255],[140,118,241],opacity[0]),[252,205,118],opacity[1]);
    const seam=at(png,120,120),interior=at(png,120,115);
@@ -97,6 +102,20 @@ function edges(m){
        return colors.every(c=>delta(c,colors[0])<.01);
       });
       assert(chosen.length>0,'No constant-color seams: '+[size,spacing,orientation]);
+      if(variant){
+       // Swap in copies so the real builder and the legacy negative control
+       // get their original nodes back, even when a clip has become a mask.
+       await svg.evaluate(root=>{
+        const originals=['defs','strips'].map(id=>root.querySelector('#'+id));
+        const copies=originals.map(node=>node.cloneNode(true));
+        originals.forEach((node,i)=>node.replaceWith(copies[i]));
+        root.restoreSeamVariant=()=>{
+         copies.forEach((node,i)=>node.replaceWith(originals[i]));
+         delete root.restoreSeamVariant;
+        };
+       });
+       await svg.evaluate(applyVariant,variant);
+      }
       const png=PNG.sync.read(await svg.screenshot());let worst=0,samples=0,probe=null;
       for(const q of chosen){
        const [a,b,c,d,e,f]=state.matrix,x=Math.round(a*q[0]*m.pitch+c*q[1]*m.pitch+e),y=Math.round(b*q[0]*m.pitch+d*q[1]*m.pitch+f),want=expected(q);
@@ -115,7 +134,9 @@ function edges(m){
        const exportedSvg=fs.readFileSync(OUT+'/exported.svg','utf8');
        assert(!/<script\b|\son\w+=/.test(exportedSvg),'Artwork export contains executable content');
        const original=await svg.evaluate(root=>{
-        const copy=root.cloneNode(true),strips=root.querySelector('#strips');strips.style.isolation='';
+        const copy=root.cloneNode(true);
+        root.restoreSeamVariant?.();
+        const strips=root.querySelector('#strips');strips.style.isolation='';
         for(const group of strips.children){group.style.mixBlendMode='';group.style.filter='';const stack=group.firstElementChild;group.append(...stack.children);stack.remove();}
         const box=root.getBoundingClientRect();copy.setAttribute('width',box.width);copy.setAttribute('height',box.height);return new XMLSerializer().serializeToString(copy);
        });
@@ -133,6 +154,7 @@ function edges(m){
        for(const q of chosen){const [a,b,c,d,e,f]=state.matrix,x=Math.round(a*q[0]*m.pitch+c*q[1]*m.pitch+e),y=Math.round(b*q[0]*m.pitch+d*q[1]*m.pitch+f);for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)exportWorst=Math.max(exportWorst,delta(at(exported,x+dx,y+dy),expected(q)));}
        assert(exportWorst<=4,'Static SVG image lost the solution: '+exportWorst);negativeControl.exportWorst=exportWorst;await staticPage.close();
       }
+      if(variant)await svg.evaluate(root=>root.restoreSeamVariant?.());
      }
     }
    }
@@ -149,6 +171,6 @@ function edges(m){
    }
   });
   assert(negativeControl);assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({browser:BROWSER,version:browser.version(),fixtures,negativeControl,configurations:results.length,samples:results.reduce((n,r)=>n+r.samples,0),maxChannelError:Math.max(...results.map(r=>r.maxChannelError))},null,2));
- }finally{fs.writeFileSync(OUT+'/results.json',JSON.stringify({browser:BROWSER,version:browser.version(),fixtures,results,errors},null,2)+'\n');await browser.close();}
+  console.log(JSON.stringify({browser:BROWSER,variant:variant||'production',version:browser.version(),fixtures,negativeControl,configurations:results.length,samples:results.reduce((n,r)=>n+r.samples,0),maxChannelError:Math.max(...results.map(r=>r.maxChannelError))},null,2));
+ }finally{fs.writeFileSync(OUT+'/results.json',JSON.stringify({browser:BROWSER,variant:variant||'production',version:browser.version(),fixtures,results,errors},null,2)+'\n');await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

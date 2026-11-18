@@ -1,0 +1,1034 @@
+{
+  "linux": {
+    "version": "153.0.8010.12",
+    "results": {
+      "original": {
+        "opaque": [
+          217,
+          181,
+          165,
+          255
+        ],
+        "translucent": [
+          206,
+          166,
+          168,
+          193
+        ],
+        "color-change": [
+          161,
+          137,
+          227,
+          255
+        ],
+        "weave": [
+          214,
+          175,
+          158,
+          240
+        ],
+        "weave-backdrop": [
+          217,
+          181,
+          165,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 106,
+            "maxAlpha": 128,
+            "pixelsOffByMoreThanFour": 7395
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 107,
+            "maxAlpha": 128,
+            "pixelsOffByMoreThanFour": 8157
+          }
+        }
+      },
+      "clip-hint": {
+        "opaque": [
+          217,
+          181,
+          165,
+          255
+        ],
+        "translucent": [
+          206,
+          166,
+          168,
+          193
+        ],
+        "color-change": [
+          161,
+          137,
+          227,
+          255
+        ],
+        "weave": [
+          214,
+          175,
+          158,
+          240
+        ],
+        "weave-backdrop": [
+          217,
+          181,
+          165,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 106,
+            "maxAlpha": 128,
+            "pixelsOffByMoreThanFour": 7395
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 107,
+            "maxAlpha": 128,
+            "pixelsOffByMoreThanFour": 8157
+          }
+        }
+      },
+      "blend-only": {
+        "opaque": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          155,
+          214
+        ],
+        "color-change": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "weave-backdrop": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 124,
+            "maxAlpha": 129,
+            "pixelsOffByMoreThanFour": 0
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 123,
+            "maxAlpha": 132,
+            "pixelsOffByMoreThanFour": 41
+          }
+        }
+      },
+      "additive-clip": {
+        "opaque": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          155,
+          214
+        ],
+        "color-change": [
+          196,
+          162,
+          180,
+          255
+        ],
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "weave-backdrop": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 124,
+            "maxAlpha": 129,
+            "pixelsOffByMoreThanFour": 0
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 123,
+            "maxAlpha": 132,
+            "pixelsOffByMoreThanFour": 41
+          }
+        }
+      },
+      "soft-mask": {
+        "opaque": [
+          252,
+          218,
+          152,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          154,
+          169
+        ],
+        "color-change": [
+          196,
+          174,
+          214,
+          255
+        ],
+        "weave": [
+          251,
+          205,
+          117,
+          192
+        ],
+        "weave-backdrop": [
+          252,
+          218,
+          152,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 106,
+            "maxAlpha": 130,
+            "pixelsOffByMoreThanFour": 7395
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 107,
+            "maxAlpha": 130,
+            "pixelsOffByMoreThanFour": 8139
+          }
+        }
+      },
+      "hard-mask": {
+        "opaque": [
+          252,
+          205,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          180,
+          154,
+          214
+        ],
+        "color-change": [
+          252,
+          205,
+          118,
+          255
+        ],
+        "weave": [
+          252,
+          205,
+          118,
+          255
+        ],
+        "weave-backdrop": [
+          252,
+          205,
+          118,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 128,
+            "maxAlpha": 128,
+            "pixelsOffByMoreThanFour": 0
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 128,
+            "maxAlpha": 128,
+            "pixelsOffByMoreThanFour": 0
+          }
+        }
+      },
+      "additive-mask": {
+        "opaque": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          155,
+          214
+        ],
+        "color-change": [
+          196,
+          162,
+          180,
+          255
+        ],
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "weave-backdrop": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 124,
+            "maxAlpha": 132,
+            "pixelsOffByMoreThanFour": 0
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 123,
+            "maxAlpha": 132,
+            "pixelsOffByMoreThanFour": 23
+          }
+        }
+      },
+      "additive-alpha-mask": {
+        "opaque": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          155,
+          214
+        ],
+        "color-change": [
+          196,
+          162,
+          180,
+          255
+        ],
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "weave-backdrop": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 124,
+            "maxAlpha": 132,
+            "pixelsOffByMoreThanFour": 0
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 123,
+            "maxAlpha": 132,
+            "pixelsOffByMoreThanFour": 23
+          }
+        }
+      },
+      "production": {
+        "opaque": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          155,
+          214
+        ],
+        "color-change": [
+          196,
+          162,
+          180,
+          255
+        ],
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "weave-backdrop": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "partitionByAngle": {
+          "0": {
+            "pixels": 720678,
+            "minAlpha": 124,
+            "maxAlpha": 129,
+            "pixelsOffByMoreThanFour": 0
+          },
+          "17": {
+            "pixels": 720678,
+            "minAlpha": 123,
+            "maxAlpha": 132,
+            "pixelsOffByMoreThanFour": 41
+          }
+        }
+      }
+    },
+    "matrix": {
+      "production": {
+        "measuredConfigurations": 163,
+        "samples": 90350,
+        "maxChannelError": 2.78,
+        "worstCase": {
+          "size": 2,
+          "spacing": 1,
+          "orientation": 2,
+          "mode": "translucent",
+          "probe": {
+            "point": [
+              0.7216878364870389,
+              -0.75
+            ],
+            "pixel": [
+              896,
+              102
+            ],
+            "observed": [
+              249,
+              209,
+              162
+            ],
+            "expected": [
+              248.3,
+              208.2,
+              159.22000000000003
+            ]
+          }
+        },
+        "negativeControl": {
+          "oldWorst": 47,
+          "fixedWorst": 2,
+          "exportWorst": 2
+        }
+      },
+      "additive-clip": {
+        "measuredConfigurations": 163,
+        "samples": 90350,
+        "maxChannelError": 2.78,
+        "worstCase": {
+          "size": 2,
+          "spacing": 1,
+          "orientation": 2,
+          "mode": "translucent",
+          "probe": {
+            "point": [
+              0.7216878364870389,
+              -0.75
+            ],
+            "pixel": [
+              896,
+              102
+            ],
+            "observed": [
+              249,
+              209,
+              162
+            ],
+            "expected": [
+              248.3,
+              208.2,
+              159.22000000000003
+            ]
+          }
+        },
+        "negativeControl": {
+          "oldWorst": 47,
+          "fixedWorst": 2,
+          "exportWorst": 2
+        }
+      },
+      "hard-mask": {
+        "measuredConfigurations": 163,
+        "samples": 90350,
+        "maxChannelError": 1.4,
+        "worstCase": {
+          "size": 1,
+          "spacing": 0,
+          "orientation": 0,
+          "mode": "translucent",
+          "probe": {
+            "point": [
+              -0.28867513459480065,
+              0
+            ],
+            "pixel": [
+              478,
+              411
+            ],
+            "observed": [
+              162,
+              138,
+              227
+            ],
+            "expected": [
+              162.64,
+              139.4,
+              227.36
+            ]
+          }
+        },
+        "negativeControl": {
+          "oldWorst": 47,
+          "fixedWorst": 0,
+          "exportWorst": 0
+        }
+      },
+      "additive-mask": {
+        "measuredConfigurations": 7,
+        "samples": 4550,
+        "maxChannelError": 6,
+        "worstCase": {
+          "size": 1,
+          "spacing": 0,
+          "orientation": 1,
+          "mode": "opaque",
+          "probe": {
+            "point": [
+              0.2886751345948184,
+              0.5
+            ],
+            "pixel": [
+              718,
+              618
+            ],
+            "observed": [
+              226,
+              139,
+              162
+            ],
+            "expected": [
+              220,
+              135,
+              158
+            ]
+          }
+        },
+        "stoppedAtFirstFailure": true
+      },
+      "additive-alpha-mask": {
+        "measuredConfigurations": 7,
+        "samples": 4550,
+        "maxChannelError": 6,
+        "worstCase": {
+          "size": 1,
+          "spacing": 0,
+          "orientation": 1,
+          "mode": "opaque",
+          "probe": {
+            "point": [
+              0.2886751345948184,
+              0.5
+            ],
+            "pixel": [
+              718,
+              618
+            ],
+            "observed": [
+              226,
+              139,
+              162
+            ],
+            "expected": [
+              220,
+              135,
+              158
+            ]
+          }
+        },
+        "stoppedAtFirstFailure": true
+      }
+    }
+  },
+  "windows": {
+    "version": "157.0.8103.40",
+    "results": {
+      "default": {
+        "original": {
+          "weave": [
+            214,
+            175,
+            158,
+            240
+          ],
+          "opaque": [
+            218,
+            181,
+            165,
+            255
+          ],
+          "translucent": [
+            206,
+            169,
+            169,
+            193
+          ],
+          "transition": [
+            162,
+            138,
+            226,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              217,
+              181,
+              165
+            ],
+            "image": [
+              217,
+              181,
+              165
+            ],
+            "canvasOnWhite": [
+              216,
+              180,
+              164
+            ]
+          }
+        },
+        "hard-mask": {
+          "weave": [
+            251,
+            205,
+            117,
+            192
+          ],
+          "opaque": [
+            253,
+            217,
+            153,
+            255
+          ],
+          "translucent": [
+            219,
+            180,
+            152,
+            169
+          ],
+          "transition": [
+            197,
+            174,
+            214,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              205,
+              118
+            ],
+            "image": [
+              252,
+              205,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              217,
+              151
+            ]
+          }
+        },
+        "additive-clip": {
+          "weave": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "opaque": [
+            253,
+            205,
+            119,
+            255
+          ],
+          "translucent": [
+            219,
+            179,
+            153,
+            214
+          ],
+          "transition": [
+            197,
+            162,
+            180,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              206,
+              118
+            ],
+            "image": [
+              252,
+              206,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              206,
+              118
+            ]
+          }
+        },
+        "production": {
+          "weave": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "opaque": [
+            253,
+            205,
+            119,
+            255
+          ],
+          "translucent": [
+            219,
+            179,
+            153,
+            214
+          ],
+          "transition": [
+            197,
+            162,
+            180,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              206,
+              118
+            ],
+            "image": [
+              252,
+              206,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              206,
+              118
+            ]
+          }
+        },
+        "additive-alpha-mask": {
+          "weave": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "opaque": [
+            253,
+            205,
+            119,
+            255
+          ],
+          "translucent": [
+            219,
+            179,
+            153,
+            214
+          ],
+          "transition": [
+            197,
+            162,
+            180,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              206,
+              118
+            ],
+            "image": [
+              252,
+              206,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              206,
+              118
+            ]
+          }
+        }
+      },
+      "software": {
+        "original": {
+          "weave": [
+            214,
+            175,
+            158,
+            240
+          ],
+          "opaque": [
+            217,
+            181,
+            165,
+            255
+          ],
+          "translucent": [
+            206,
+            166,
+            168,
+            193
+          ],
+          "transition": [
+            161,
+            137,
+            227,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              217,
+              181,
+              165
+            ],
+            "image": [
+              217,
+              181,
+              165
+            ],
+            "canvasOnWhite": [
+              216,
+              180,
+              164
+            ]
+          }
+        },
+        "hard-mask": {
+          "weave": [
+            252,
+            205,
+            118,
+            255
+          ],
+          "opaque": [
+            252,
+            205,
+            118,
+            255
+          ],
+          "translucent": [
+            219,
+            180,
+            154,
+            214
+          ],
+          "transition": [
+            252,
+            205,
+            118,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              205,
+              118
+            ],
+            "image": [
+              252,
+              205,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              205,
+              118
+            ]
+          }
+        },
+        "additive-clip": {
+          "weave": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "opaque": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "translucent": [
+            219,
+            181,
+            155,
+            214
+          ],
+          "transition": [
+            196,
+            162,
+            180,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              206,
+              118
+            ],
+            "image": [
+              252,
+              206,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              206,
+              118
+            ]
+          }
+        },
+        "production": {
+          "weave": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "opaque": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "translucent": [
+            219,
+            181,
+            155,
+            214
+          ],
+          "transition": [
+            196,
+            162,
+            180,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              206,
+              118
+            ],
+            "image": [
+              252,
+              206,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              206,
+              118
+            ]
+          }
+        },
+        "additive-alpha-mask": {
+          "weave": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "opaque": [
+            252,
+            206,
+            118,
+            255
+          ],
+          "translucent": [
+            219,
+            181,
+            155,
+            214
+          ],
+          "transition": [
+            196,
+            162,
+            180,
+            255
+          ],
+          "displayRGB": {
+            "inline": [
+              252,
+              206,
+              118
+            ],
+            "image": [
+              252,
+              206,
+              118
+            ],
+            "canvasOnWhite": [
+              252,
+              206,
+              118
+            ]
+          }
+        }
+      }
+    }
+  }
+}
