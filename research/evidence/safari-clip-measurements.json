@@ -1798,6 +1798,59 @@
         118,
         255
       ]
+    },
+    "size2To8AndBackPostGC": {
+      "chromium": "153.0.8010.12",
+      "rows": [
+        {
+          "cycles": 2,
+          "heapMiB": 11.78,
+          "activeElements": 573,
+          "documents": 2,
+          "nodes": 1959,
+          "jsEventListeners": 237
+        },
+        {
+          "cycles": 12,
+          "heapMiB": 11.97,
+          "activeElements": 573,
+          "documents": 2,
+          "nodes": 1959,
+          "jsEventListeners": 237
+        },
+        {
+          "cycles": 22,
+          "heapMiB": 11.99,
+          "activeElements": 573,
+          "documents": 2,
+          "nodes": 1959,
+          "jsEventListeners": 237
+        },
+        {
+          "cycles": 32,
+          "heapMiB": 12,
+          "activeElements": 573,
+          "documents": 2,
+          "nodes": 1959,
+          "jsEventListeners": 237
+        },
+        {
+          "cycles": 42,
+          "heapMiB": 12.05,
+          "activeElements": 573,
+          "documents": 2,
+          "nodes": 1959,
+          "jsEventListeners": 237
+        },
+        {
+          "cycles": 52,
+          "heapMiB": 12.06,
+          "activeElements": 573,
+          "documents": 2,
+          "nodes": 1959,
+          "jsEventListeners": 237
+        }
+      ]
     }
   }
 }

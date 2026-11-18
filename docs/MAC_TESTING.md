@@ -6,6 +6,10 @@ Safari 27.2 on macOS 27.2.1 reproduced a pale line in the published editor and i
 
 The expanded replay triggered Safari’s significant-memory warning while rendering repeated SVG images and canvases. The four-configuration replay completed with the same production counts. A diagnosis of an editor leak would require measuring repeated edits in the editor itself. Batik 1.7 also exposed an export regression when the candidate masks were applied unconditionally. Preserving the original SVG clips restored the baseline Batik raster. [Replay memory](../research/SAFARI_CLIP_SEAMS.md#replay-memory) · [Batik fallback](../research/SAFARI_CLIP_SEAMS.md#batik-export-fallback)
 
+A repeat-edit check in Chromium kept exactly 1,959 DOM nodes and 237 listeners after each ten-cycle batch. The native Safari replay also completed in batches. Both results and the limits of the memory measurements are recorded in the [Safari report](../research/SAFARI_CLIP_SEAMS.md#replay-memory).
+
+The separate restored-controls smoke workflow failed during dependency installation on all three GitHub runners. The runner's Python 3.14 reported missing SSL support, so pip could not download Playwright. That job uses `ubuntu-latest` with the Noble container. The Pages workflow uses `ubuntu-24.04` with the same container and installed the dependencies successfully. On the Mac the full application suite passed all 19 tests in each of Chromium, Firefox and WebKit. If this recurs, check `python -c "import ssl"` inside the container and align the host runner with its Python tool cache before diagnosing browser failures. [Smoke job log](https://github.com/rharriszzz/madweave/actions/runs/44399396274) · [Pages build](https://github.com/rharriszzz/madweave/actions/runs/44399396358)
+
 ## Results on 2026-11-09
 
 Resumed [PR #4](https://github.com/rharriszzz/madweave/pull/4) at `6e6aa9f`
