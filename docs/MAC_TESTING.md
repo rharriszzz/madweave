@@ -1,5 +1,7 @@
 # Native macOS regression testing
 
+The [installed Safari seam check](MAC_SAFARI_SEAM_CHECK.md) covers the November 18 planar SVG stylesheet and the exported artwork.
+
 ## Results on 2026-11-09
 
 Resumed [PR #4](https://github.com/rharriszzz/madweave/pull/4) at `6e6aa9f`
