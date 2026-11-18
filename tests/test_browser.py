@@ -99,6 +99,7 @@ class BrowserTests(unittest.TestCase):
         expected_order = self.page.locator('#strips use').evaluate_all('(uses) => uses.map(u => u.id)')
         self.page.evaluate("""() => {
             document.querySelector('#mw-strip-clip-style').remove();
+            document.querySelector('#strips-order-masks').remove();
             const strips = document.querySelector('#strips');
             strips.removeAttribute('data-mw-strip-regions');
             strips.style.isolation = 'isolate';
@@ -117,7 +118,8 @@ class BrowserTests(unittest.TestCase):
         self.assertEqual(self.page.locator('#strips > g > g > use').evaluate_all('(uses) => uses.map(u => u.id)'), expected_order)
         self.assertTrue(self.page.locator('#strips > g').evaluate_all("""groups => groups.every(g =>
             !g.style.mixBlendMode && !g.style.filter && !g.firstElementChild.style.isolation &&
-            getComputedStyle(g).mixBlendMode === 'plus-lighter' && getComputedStyle(g).filter !== 'none' &&
+            getComputedStyle(g).mixBlendMode === 'plus-lighter' && getComputedStyle(g).filter === 'none' &&
+            getComputedStyle(g).clipPath === 'none' && getComputedStyle(g).maskImage.includes(g.id + '-order-mask') &&
             getComputedStyle(g.firstElementChild).isolation === 'isolate')"""))
 
     def test_every_size_pattern_color_count_and_spacing(self):

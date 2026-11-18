@@ -883,14 +883,7 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
 // isolated group around its ordered paints. See research/SVG_SEAM_FIX.md.
 function prepareStripClips(document, strips) {
     var style = createSVGElementWithId(document, "style", "mw-strip-clip-style");
-    if (!style.parentNode) {
-        style.textContent =
-            "@supports (mix-blend-mode: plus-lighter) and (filter: opacity(1)) {\n" +
-            "  [data-mw-strip-regions], [data-mw-strip-regions] > g[clip-path] > g { isolation: isolate }\n" +
-            "  [data-mw-strip-regions] > g[clip-path] { mix-blend-mode: plus-lighter; filter: opacity(1) }\n" +
-            "}";
-        getDefs(document).appendChild(style);
-    }
+    if (!style.parentNode) getDefs(document).appendChild(style);
     strips.setAttribute("data-mw-strip-regions", "");
     // Earlier editable SVGs can have either bare uses or inline-styled stacks.
     if (strips.hasAttribute("style")) strips.style.removeProperty("isolation");
@@ -908,6 +901,65 @@ function prepareStripClips(document, strips) {
             group.appendChild(stack);
         }
     }
+    prepareStripMasks(document, strips, style);
+}
+// Keep the clip attributes for SVG 1.1 viewers. Modern viewers use a common
+// black-and-white coverage map for every stack. Underpainting in reverse
+// priority keeps both sides of a real color transition available to antialias.
+function prepareStripMasks(document, strips, style) {
+    const defs = getDefs(document);
+    const maps = createSVGElementWithId(document, "g", strips.id + "-order-masks");
+    removeChildren(maps);
+    if (!maps.parentNode) defs.appendChild(maps);
+
+    const groups = Array.from(strips.children).filter(group => group.hasAttribute("clip-path"));
+    const paths = groups.map(group => {
+        const clip = group.getAttribute("clip-path");
+        const clipPath = document.getElementById(clip.slice(5, -1));
+        const path = clipPath.firstElementChild;
+        if (!path.id) path.id = clipPath.id + "_path";
+        return path;
+    });
+    const rules = [];
+    const extent = 3 * stripsPerDirection + 6; // Encloses all integer maskPath vertices.
+    for (const path of paths) path.setAttribute("vector-effect", "non-scaling-stroke");
+    for (const [index, group] of groups.entries()) {
+        const mask = createSVGElement(document, "mask");
+        mask.id = group.id + "-order-mask";
+        maps.appendChild(mask);
+        const base = createSVGElement(document, "rect");
+        base.setAttribute("transform", paths[0].getAttribute("transform"));
+        base.setAttribute("x", -extent);
+        base.setAttribute("y", -extent);
+        base.setAttribute("width", 2 * extent);
+        base.setAttribute("height", 2 * extent);
+        base.setAttribute("fill", index === 0 ? "white" : "black");
+        mask.appendChild(base);
+
+        function paintRegion(other, extend) {
+            const paint = createSVGElement(document, "use");
+            const color = index === other ? "white" : "black";
+            paint.setAttributeNS(xlinkNS, "xlink:href", "#" + paths[other].id);
+            paint.setAttribute("fill", color);
+            if (extend) {
+                paint.setAttribute("stroke", color);
+                paint.setAttribute("stroke-width", "3");
+                paint.setAttribute("stroke-linejoin", "round");
+            }
+            mask.appendChild(paint);
+        }
+        for (let i = groups.length - 1; i >= 0; i--) paintRegion(i, true);
+        for (let i = 1; i < groups.length; i++) paintRegion(i, false);
+        rules.push("    [data-mw-strip-regions] > #" + group.id +
+            " { clip-path: none; mask: url(#" + mask.id + "); filter: none }");
+    }
+    style.textContent =
+        "@supports (mix-blend-mode: plus-lighter) and (filter: opacity(1)) {\n" +
+        "  [data-mw-strip-regions], [data-mw-strip-regions] > g[clip-path] > g { isolation: isolate }\n" +
+        "  [data-mw-strip-regions] > g[clip-path] { mix-blend-mode: plus-lighter; filter: opacity(1) }\n" +
+        "  @supports (mask: url(#strips-order-masks)) and (vector-effect: non-scaling-stroke) {\n" +
+        "    [data-mw-strip-regions] { filter: opacity(1) }\n" +
+        rules.join("\n") + "\n  }\n}";
 }
 var stripSelectorHeightFraction = 0.80;
 var stripSelectorWidthFraction = 0.72;

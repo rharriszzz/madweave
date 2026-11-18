@@ -4,8 +4,10 @@ const p=require('playwright'),{PNG}=require('pngjs'),g=require('./planar-geometr
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),assert=require('node:assert/strict');
 const BROWSER=process.env.MADWEAVE_RESEARCH_BROWSER||'chromium';
 const variant=process.env.MADWEAVE_SEAM_VARIANT;
-if(variant)assert(['hard-mask','additive-clip','filtered-clip','additive-mask','additive-alpha-mask'].includes(variant),'Unknown research variant');
+if(variant)assert(['hard-mask','additive-clip','filtered-clip','additive-mask','additive-alpha-mask','ordered-hard-mask','underpaint-mask'].includes(variant),'Unknown research variant');
 const {applyVariant}=require('./chrome-clip-alternatives.cjs');
+const {applyOrderedMasks}=require('./ordered-strip-masks.cjs');
+const renderVariant=['ordered-hard-mask','underpaint-mask'].includes(variant)?applyOrderedMasks:applyVariant;
 const matrixFile=process.env.MADWEAVE_SEAM_MATRIX_HTML, matrixCases=[];
 if(matrixFile)assert(!variant,'Capture the unmodified production geometry for the portable matrix');
 const OUT='research/output/seam-fix/'+BROWSER+(variant?'/'+variant:'');fs.mkdirSync(OUT,{recursive:true});
@@ -42,7 +44,7 @@ function edges(m){
      [...group.children].forEach((e,i)=>e.setAttribute('fill-opacity',opacity[i]));stack.append(...group.children);group.append(stack);
     }
    },opacity);
-   if(variant)await svg.evaluate(applyVariant,variant);
+   if(variant)await svg.evaluate(renderVariant,variant);
    const png=PNG.sync.read(await svg.screenshot({path:OUT+'/fixture-'+opacity.join('-')+'.png'}));
    const expected=over(over([255,255,255],[140,118,241],opacity[0]),[252,205,118],opacity[1]);
    const seam=at(png,120,120),interior=at(png,120,115);
@@ -116,7 +118,7 @@ function edges(m){
          delete root.restoreSeamVariant;
         };
        });
-       await svg.evaluate(applyVariant,variant);
+       await svg.evaluate(renderVariant,variant);
       }
       const png=PNG.sync.read(await svg.screenshot());let worst=0,samples=0,probe=null;
       const probes=matrixFile?[]:null;
@@ -188,7 +190,9 @@ function edges(m){
    sheet.textContent=rules;
   });
   assert(negativeControl);assert.deepEqual(errors,[]);
-  if(matrixFile)require('./seam-image-matrix.cjs').writeMatrix(matrixFile,matrixCases);
+  if(matrixFile)require('./seam-image-matrix.cjs').writeMatrix(matrixFile,matrixCases,{
+   compareMasks:process.env.MADWEAVE_SEAM_COMPARE_MASKS==='1'
+  });
   console.log(JSON.stringify({browser:BROWSER,variant:variant||'production',version:browser.version(),fixtures,negativeControl,configurations:results.length,samples:results.reduce((n,r)=>n+r.samples,0),maxChannelError:Math.max(...results.map(r=>r.maxChannelError))},null,2));
  }finally{fs.writeFileSync(OUT+'/results.json',JSON.stringify({browser:BROWSER,variant:variant||'production',version:browser.version(),fixtures,results,errors},null,2)+'\n');await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

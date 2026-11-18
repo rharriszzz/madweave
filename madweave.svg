@@ -18,9 +18,41 @@
     </title>
     <defs id="defs">
         <style id="mw-strip-clip-style">@supports (mix-blend-mode: plus-lighter) and (filter: opacity(1)) {
-  [data-mw-strip-regions], [data-mw-strip-regions] > g[clip-path] > g { isolation: isolate }
-  [data-mw-strip-regions] > g[clip-path] { mix-blend-mode: plus-lighter; filter: opacity(1) }
+  [data-mw-strip-regions], [data-mw-strip-regions] &gt; g[clip-path] &gt; g { isolation: isolate }
+  [data-mw-strip-regions] &gt; g[clip-path] { mix-blend-mode: plus-lighter; filter: opacity(1) }
+  @supports (mask: url(#strips-order-masks)) and (vector-effect: non-scaling-stroke) {
+    [data-mw-strip-regions] { filter: opacity(1) }
+    [data-mw-strip-regions] &gt; #HRLG { clip-path: none; mask: url(#HRLG-order-mask); filter: none }
+    [data-mw-strip-regions] &gt; #RLHG { clip-path: none; mask: url(#RLHG-order-mask); filter: none }
+    [data-mw-strip-regions] &gt; #LHRG { clip-path: none; mask: url(#LHRG-order-mask); filter: none }
+  }
 }</style>
+        <g id="strips-order-masks">
+            <mask id="HRLG-order-mask">
+                <rect transform="scale(1.33) scale(0.5773502691896257 1.0)" x="-24" y="-24" width="48" height="48" fill="white"/>
+                <use xlink:href="#LHRClipPath_path" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#RLHClipPath_path" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#HRLClipPath_path" fill="white" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#RLHClipPath_path" fill="black"/>
+                <use xlink:href="#LHRClipPath_path" fill="black"/>
+            </mask>
+            <mask id="RLHG-order-mask">
+                <rect transform="scale(1.33) scale(0.5773502691896257 1.0)" x="-24" y="-24" width="48" height="48" fill="black"/>
+                <use xlink:href="#LHRClipPath_path" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#RLHClipPath_path" fill="white" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#HRLClipPath_path" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#RLHClipPath_path" fill="white"/>
+                <use xlink:href="#LHRClipPath_path" fill="black"/>
+            </mask>
+            <mask id="LHRG-order-mask">
+                <rect transform="scale(1.33) scale(0.5773502691896257 1.0)" x="-24" y="-24" width="48" height="48" fill="black"/>
+                <use xlink:href="#LHRClipPath_path" fill="white" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#RLHClipPath_path" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#HRLClipPath_path" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+                <use xlink:href="#RLHClipPath_path" fill="black"/>
+                <use xlink:href="#LHRClipPath_path" fill="white"/>
+            </mask>
+        </g>
         <linearGradient xlink:actuate="onLoad" xlink:type="simple"
                         id="hueAtSatValue" xlink:show="other"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -237,17 +269,17 @@
         </g>
         <clipPath id="HRLClipPath">
             <path d="M 4 -6 L 5 -5 L 3 -5 Z M 2 -6 L 3 -5 L 4 -6 Z M -2 -6 L -1 -5 L -3 -5 Z M -4 -6 L -3 -5 L -2 -6 Z M 7 -5 L 8 -4 L 6 -4 Z M 5 -5 L 6 -4 L 7 -5 Z M 1 -5 L 2 -4 L 0 -4 Z M -1 -5 L 0 -4 L 1 -5 Z M -5 -5 L -4 -4 L -6 -4 Z M -7 -5 L -6 -4 L -5 -5 Z M 4 -4 L 5 -3 L 3 -3 Z M 2 -4 L 3 -3 L 4 -4 Z M -2 -4 L -1 -3 L -3 -3 Z M -4 -4 L -3 -3 L -2 -4 Z M -8 -4 L -7 -3 L -9 -3 Z M 7 -3 L 8 -2 L 6 -2 Z M 5 -3 L 6 -2 L 7 -3 Z M 1 -3 L 2 -2 L 0 -2 Z M -1 -3 L 0 -2 L 1 -3 Z M -5 -3 L -4 -2 L -6 -2 Z M -7 -3 L -6 -2 L -5 -3 Z M 10 -2 L 11 -1 L 9 -1 Z M 8 -2 L 9 -1 L 10 -2 Z M 4 -2 L 5 -1 L 3 -1 Z M 2 -2 L 3 -1 L 4 -2 Z M -2 -2 L -1 -1 L -3 -1 Z M -4 -2 L -3 -1 L -2 -2 Z M -8 -2 L -7 -1 L -9 -1 Z M -10 -2 L -9 -1 L -8 -2 Z M 7 -1 L 8 0 L 6 0 Z M 5 -1 L 6 0 L 7 -1 Z M 1 -1 L 2 0 L 0 0 Z M -1 -1 L 0 0 L 1 -1 Z M -5 -1 L -4 0 L -6 0 Z M -7 -1 L -6 0 L -5 -1 Z M -11 -1 L -10 0 L -12 0 Z M 10 0 L 11 1 L 9 1 Z M 8 0 L 9 1 L 10 0 Z M 4 0 L 5 1 L 3 1 Z M 2 0 L 3 1 L 4 0 Z M -2 0 L -1 1 L -3 1 Z M -4 0 L -3 1 L -2 0 Z M -8 0 L -7 1 L -9 1 Z M -10 0 L -9 1 L -8 0 Z M 7 1 L 8 2 L 6 2 Z M 5 1 L 6 2 L 7 1 Z M 1 1 L 2 2 L 0 2 Z M -1 1 L 0 2 L 1 1 Z M -5 1 L -4 2 L -6 2 Z M -7 1 L -6 2 L -5 1 Z M 8 2 L 9 3 L 10 2 Z M 4 2 L 5 3 L 3 3 Z M 2 2 L 3 3 L 4 2 Z M -2 2 L -1 3 L -3 3 Z M -4 2 L -3 3 L -2 2 Z M -8 2 L -7 3 L -9 3 Z M -10 2 L -9 3 L -8 2 Z M 7 3 L 8 4 L 6 4 Z M 5 3 L 6 4 L 7 3 Z M 1 3 L 2 4 L 0 4 Z M -1 3 L 0 4 L 1 3 Z M -5 3 L -4 4 L -6 4 Z M -7 3 L -6 4 L -5 3 Z M 4 4 L 5 5 L 3 5 Z M 2 4 L 3 5 L 4 4 Z M -2 4 L -1 5 L -3 5 Z M -4 4 L -3 5 L -2 4 Z M 5 5 L 6 6 L 7 5 Z M 1 5 L 2 6 L 0 6 Z M -1 5 L 0 6 L 1 5 Z M -5 5 L -4 6 L -6 6 Z M -7 5 L -6 6 L -5 5 Z "
-                  id="HRLClipPath_path"
+                  id="HRLClipPath_path" vector-effect="non-scaling-stroke"
                   transform="scale(1.33) scale(0.5773502691896257 1.0)"/>
         </clipPath>
         <clipPath id="RLHClipPath">
             <path d="M 6 -6 L 7 -5 L 5 -5 Z M 0 -6 L 1 -5 L -1 -5 Z M 0 -6 L 1 -5 L 2 -6 Z M -6 -6 L -5 -5 L -7 -5 Z M -6 -6 L -5 -5 L -4 -6 Z M 3 -5 L 4 -4 L 2 -4 Z M 3 -5 L 4 -4 L 5 -5 Z M -3 -5 L -2 -4 L -4 -4 Z M -3 -5 L -2 -4 L -1 -5 Z M 6 -4 L 7 -3 L 5 -3 Z M 6 -4 L 7 -3 L 8 -4 Z M 0 -4 L 1 -3 L -1 -3 Z M 0 -4 L 1 -3 L 2 -4 Z M -6 -4 L -5 -3 L -7 -3 Z M -6 -4 L -5 -3 L -4 -4 Z M 9 -3 L 10 -2 L 8 -2 Z M 3 -3 L 4 -2 L 2 -2 Z M 3 -3 L 4 -2 L 5 -3 Z M -3 -3 L -2 -2 L -4 -2 Z M -3 -3 L -2 -2 L -1 -3 Z M -9 -3 L -8 -2 L -10 -2 Z M -9 -3 L -8 -2 L -7 -3 Z M 6 -2 L 7 -1 L 5 -1 Z M 6 -2 L 7 -1 L 8 -2 Z M 0 -2 L 1 -1 L -1 -1 Z M 0 -2 L 1 -1 L 2 -2 Z M -6 -2 L -5 -1 L -7 -1 Z M -6 -2 L -5 -1 L -4 -2 Z M 9 -1 L 10 0 L 8 0 Z M 9 -1 L 10 0 L 11 -1 Z M 3 -1 L 4 0 L 2 0 Z M 3 -1 L 4 0 L 5 -1 Z M -3 -1 L -2 0 L -4 0 Z M -3 -1 L -2 0 L -1 -1 Z M -9 -1 L -8 0 L -10 0 Z M -9 -1 L -8 0 L -7 -1 Z M 6 0 L 7 1 L 5 1 Z M 6 0 L 7 1 L 8 0 Z M 0 0 L 1 1 L -1 1 Z M 0 0 L 1 1 L 2 0 Z M -6 0 L -5 1 L -7 1 Z M -6 0 L -5 1 L -4 0 Z M -12 0 L -11 1 L -10 0 Z M 9 1 L 10 2 L 8 2 Z M 9 1 L 10 2 L 11 1 Z M 3 1 L 4 2 L 2 2 Z M 3 1 L 4 2 L 5 1 Z M -3 1 L -2 2 L -4 2 Z M -3 1 L -2 2 L -1 1 Z M -9 1 L -8 2 L -10 2 Z M -9 1 L -8 2 L -7 1 Z M 6 2 L 7 3 L 5 3 Z M 6 2 L 7 3 L 8 2 Z M 0 2 L 1 3 L -1 3 Z M 0 2 L 1 3 L 2 2 Z M -6 2 L -5 3 L -7 3 Z M -6 2 L -5 3 L -4 2 Z M 3 3 L 4 4 L 2 4 Z M 3 3 L 4 4 L 5 3 Z M -3 3 L -2 4 L -4 4 Z M -3 3 L -2 4 L -1 3 Z M -9 3 L -8 4 L -7 3 Z M 6 4 L 7 5 L 5 5 Z M 6 4 L 7 5 L 8 4 Z M 0 4 L 1 5 L -1 5 Z M 0 4 L 1 5 L 2 4 Z M -6 4 L -5 5 L -7 5 Z M -6 4 L -5 5 L -4 4 Z M 3 5 L 4 6 L 2 6 Z M 3 5 L 4 6 L 5 5 Z M -3 5 L -2 6 L -4 6 Z M -3 5 L -2 6 L -1 5 Z "
-                  id="RLHClipPath_path"
+                  id="RLHClipPath_path" vector-effect="non-scaling-stroke"
                   transform="scale(1.33) scale(0.5773502691896257 1.0)"/>
         </clipPath>
         <clipPath id="LHRClipPath">
             <path d="M 4 -6 L 5 -5 L 6 -6 Z M 2 -6 L 3 -5 L 1 -5 Z M -2 -6 L -1 -5 L 0 -6 Z M -4 -6 L -3 -5 L -5 -5 Z M 5 -5 L 6 -4 L 4 -4 Z M 1 -5 L 2 -4 L 3 -5 Z M -1 -5 L 0 -4 L -2 -4 Z M -5 -5 L -4 -4 L -3 -5 Z M -7 -5 L -6 -4 L -8 -4 Z M 8 -4 L 9 -3 L 7 -3 Z M 4 -4 L 5 -3 L 6 -4 Z M 2 -4 L 3 -3 L 1 -3 Z M -2 -4 L -1 -3 L 0 -4 Z M -4 -4 L -3 -3 L -5 -3 Z M -8 -4 L -7 -3 L -6 -4 Z M 7 -3 L 8 -2 L 9 -3 Z M 5 -3 L 6 -2 L 4 -2 Z M 1 -3 L 2 -2 L 3 -3 Z M -1 -3 L 0 -2 L -2 -2 Z M -5 -3 L -4 -2 L -3 -3 Z M -7 -3 L -6 -2 L -8 -2 Z M 8 -2 L 9 -1 L 7 -1 Z M 4 -2 L 5 -1 L 6 -2 Z M 2 -2 L 3 -1 L 1 -1 Z M -2 -2 L -1 -1 L 0 -2 Z M -4 -2 L -3 -1 L -5 -1 Z M -8 -2 L -7 -1 L -6 -2 Z M -10 -2 L -9 -1 L -11 -1 Z M 11 -1 L 12 0 L 10 0 Z M 7 -1 L 8 0 L 9 -1 Z M 5 -1 L 6 0 L 4 0 Z M 1 -1 L 2 0 L 3 -1 Z M -1 -1 L 0 0 L -2 0 Z M -5 -1 L -4 0 L -3 -1 Z M -7 -1 L -6 0 L -8 0 Z M -11 -1 L -10 0 L -9 -1 Z M 10 0 L 11 1 L 12 0 Z M 8 0 L 9 1 L 7 1 Z M 4 0 L 5 1 L 6 0 Z M 2 0 L 3 1 L 1 1 Z M -2 0 L -1 1 L 0 0 Z M -4 0 L -3 1 L -5 1 Z M -8 0 L -7 1 L -6 0 Z M -10 0 L -9 1 L -11 1 Z M 7 1 L 8 2 L 9 1 Z M 5 1 L 6 2 L 4 2 Z M 1 1 L 2 2 L 3 1 Z M -1 1 L 0 2 L -2 2 Z M -5 1 L -4 2 L -3 1 Z M -7 1 L -6 2 L -8 2 Z M -11 1 L -10 2 L -9 1 Z M 8 2 L 9 3 L 7 3 Z M 4 2 L 5 3 L 6 2 Z M 2 2 L 3 3 L 1 3 Z M -2 2 L -1 3 L 0 2 Z M -4 2 L -3 3 L -5 3 Z M -8 2 L -7 3 L -6 2 Z M 7 3 L 8 4 L 9 3 Z M 5 3 L 6 4 L 4 4 Z M 1 3 L 2 4 L 3 3 Z M -1 3 L 0 4 L -2 4 Z M -5 3 L -4 4 L -3 3 Z M -7 3 L -6 4 L -8 4 Z M 4 4 L 5 5 L 6 4 Z M 2 4 L 3 5 L 1 5 Z M -2 4 L -1 5 L 0 4 Z M -4 4 L -3 5 L -5 5 Z M -8 4 L -7 5 L -6 4 Z M 5 5 L 6 6 L 4 6 Z M 1 5 L 2 6 L 3 5 Z M -1 5 L 0 6 L -2 6 Z M -5 5 L -4 6 L -3 5 Z "
-                  id="LHRClipPath_path"
+                  id="LHRClipPath_path" vector-effect="non-scaling-stroke"
                   transform="scale(1.33) scale(0.5773502691896257 1.0)"/>
         </clipPath>
         <linearGradient xlink:actuate="onLoad" xlink:type="simple"

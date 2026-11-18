@@ -1,6 +1,10 @@
 # Native macOS regression testing
 
-The [installed Safari seam check](MAC_SAFARI_SEAM_CHECK.md) covers the November 18 planar SVG stylesheet and the exported artwork.
+## Planar seams on 2026-11-18
+
+Safari 27.2 on macOS 27.2.1 reproduced a pale line in the published editor and its SVG download. The pre-fix canvas replay exceeded tolerance at 4,365 of 90,350 samples. The integrated editor passed all 90,350 installed Safari samples, with maximum error 2.40. The line disappeared in both the live editor and its reopened download. Printing exposed a separate Chromium blending problem. An identity filter on the whole weave restored the yellow seam pixel in the PDF. [Results and comparison image](../research/SAFARI_CLIP_SEAMS.md) · [Native test procedure](MAC_SAFARI_SEAM_CHECK.md)
+
+The expanded replay triggered Safari’s significant-memory warning while rendering repeated SVG images and canvases. The four-configuration replay completed with the same production counts. A diagnosis of an editor leak would require measuring repeated edits in the editor itself. Batik 1.7 also exposed an export regression when the candidate masks were applied unconditionally. Preserving the original SVG clips restored the baseline Batik raster. [Replay memory](../research/SAFARI_CLIP_SEAMS.md#replay-memory) · [Batik fallback](../research/SAFARI_CLIP_SEAMS.md#batik-export-fallback)
 
 ## Results on 2026-11-09
 

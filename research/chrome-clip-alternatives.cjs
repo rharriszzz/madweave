@@ -1,9 +1,10 @@
 // Compare alternate SVG representations on the same historical artwork.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const { applyOrderedMasks } = require('./ordered-strip-masks.cjs');
 const path = require('node:path');
 
-const variants = ['original', 'clip-hint', 'blend-only', 'additive-clip', 'filtered-clip', 'soft-mask', 'hard-mask', 'additive-mask', 'additive-alpha-mask', 'production'];
+const variants = ['original', 'clip-hint', 'blend-only', 'additive-clip', 'filtered-clip', 'soft-mask', 'hard-mask', 'additive-mask', 'additive-alpha-mask', 'production', 'ordered-hard-mask', 'underpaint-mask'];
 
 function applyVariant(root, variant) {
   const doc = root.ownerDocument;
@@ -92,7 +93,10 @@ async function measure(page, markup, variant, scene, side, shift = 0, angle = 0)
     }
     if (scene === 'color-change') groups[1].lastElementChild.setAttribute('fill', 'rgb(140,118,241)');
   }, { scene, side, shift, angle });
-  await svg.evaluate(applyVariant, variant);
+  if (variant === 'ordered-hard-mask' || variant === 'underpaint-mask') {
+    await svg.evaluate(applyVariant, 'production');
+    await svg.evaluate(applyOrderedMasks, variant);
+  } else await svg.evaluate(applyVariant, variant);
   return svg.evaluate(async (root, { scene, side }) => {
     // Decode the serialized SVG as an image, preserving transparent RGBA.
     const image = new Image();
@@ -118,8 +122,9 @@ async function measure(page, markup, variant, scene, side, shift = 0, angle = 0)
 
 // This runs in an ordinary browser opened from disk. Each inline SVG gets its
 // own document so references to clip and strip IDs cannot cross between cases.
-async function browserComparison(apply, weave, minimal) {
-  const methods = ['original', 'hard-mask', 'additive-clip', 'production', 'additive-alpha-mask', 'filtered-clip'];
+async function browserComparison(apply, weave, minimal, orderedMasks) {
+  const methods = ['original', 'hard-mask', 'additive-clip', 'production', 'additive-alpha-mask', 'filtered-clip',
+    'ordered-hard-mask', 'underpaint-mask'];
   const results = {};
   for (const method of methods) {
     const column = document.createElement('section');
@@ -137,7 +142,10 @@ async function browserComparison(apply, weave, minimal) {
       }
       if (scene === 'transition')
         root.querySelector('g:last-of-type rect:last-of-type').setAttribute('fill', 'rgb(140,118,241)');
-      apply(root, method);
+      if (method === 'ordered-hard-mask' || method === 'underpaint-mask') {
+        apply(root, 'production');
+        orderedMasks(root, method);
+      } else apply(root, method);
       const xml = new XMLSerializer().serializeToString(root);
       const image = new Image();
       image.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
@@ -167,7 +175,7 @@ function writeBrowserTest(filename, weave, minimal) {
 <p>Rows show the inline SVG, the SVG loaded as an image, and the image drawn on a transparent canvas. Canvas probes below are RGBA.</p>
 <pre id="results">Rendering…</pre>
 <script>
-(${browserComparison.toString()})(${applyVariant.toString()}, ${JSON.stringify(weave)}, ${JSON.stringify(minimal)})
+(${browserComparison.toString()})(${applyVariant.toString()}, ${JSON.stringify(weave)}, ${JSON.stringify(minimal)}, ${applyOrderedMasks.toString()})
 .catch(error => document.querySelector('#results').textContent = error.stack);
 </script>`;
   fs.writeFileSync(filename, html);

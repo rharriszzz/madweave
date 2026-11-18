@@ -41,13 +41,16 @@ produce the interlacing. `maskPath`, `stripPath`, and `trans` generate clipping,
 shape, and positioning geometry. `buildButtons` creates the original SVG controls
 and hover documentation. A transparent selector overlays the weave for picking.
 
-The starter SVG and generated planar SVGs each carry one stylesheet in their
-definitions. It isolates the strip layer, blends adjoining clipped groups with
-`plus-lighter`, and flattens each local stack using `filter: opacity(1)` and an
-isolated inner group. A CSS feature query activates these rules together in the
-viewer. `prepareStripClips` also wraps the existing paints when an older editable
-SVG is opened directly. Preserve the order of its three `<use>` elements when
-changing this code. [Chrome and Squiggle](../research/SQUIGGLE_AND_CHROME_CLIP_SEAMS.md) · [Edge and Firefox](../research/EDGE_FIREFOX_CLIP_SEAMS.md)
+The starter and generated planar SVGs carry one stylesheet in their definitions.
+In mask-capable viewers each local stack uses the same region paths to apportion
+coverage. Reverse-order underpainting lets adjacent stacks meet smoothly, and
+`plus-lighter` combines them. The opacity filter on the outer weave preserves
+the yellow seam pixel when Chromium prints the SVG to PDF. Original clip
+attributes provide the Batik fallback. When restoring older editable SVGs,
+`prepareStripClips` wraps the original paints in their existing order and builds
+the masks. The automated seam replay runs in batches because holding many SVG
+images and canvas buffers previously triggered Safari’s memory reload.
+[Safari measurements, print and memory diagnosis](../research/SAFARI_CLIP_SEAMS.md) · [Earlier Windows results](../research/EDGE_FIREFOX_CLIP_SEAMS.md)
 
 Palette colors and opacity are shared by index. `colorIndexArray` and
 `visibilityIndexArray` track per-strip editing. `showC` and `showD` control layers
