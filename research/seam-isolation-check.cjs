@@ -33,7 +33,7 @@ function fixture(stack,options={}){
   const setup=await svg.evaluate(root=>{
    const w=root.ownerDocument.defaultView,p=w.stripWidth+w.stripSpacing;
    // Keep the original rendering mechanism as an explicit negative control.
-   const strips=root.querySelector('#strips');strips.style.isolation='';
+   const strips=root.querySelector('#strips');strips.removeAttribute('data-mw-strip-regions');
    for(const group of strips.children){
     group.style.mixBlendMode='';group.style.filter='';
     const stack=[...group.children].find(node=>node.id.endsWith('Stack'));

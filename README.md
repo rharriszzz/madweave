@@ -125,8 +125,10 @@ sliders support arrow keys, and inspection has keyboard controls. Complete
 planar keyboard and physical touch-device operation remain unimplemented or
 unverified. Both views keep the original control positions; unavailable corner
 controls appear dimmed. The direct SVG view scales with the browser window.
-Automated checks cover Chromium, Firefox and Playwright WebKit; WebKit automation is not installed Safari verification. See the
-[testing record](docs/TESTING.md) and [Mac testing results](docs/MAC_TESTING.md).
+The editor and SVG exports are tested in Chromium, Firefox and WebKit. Windows Edge
+and Firefox were also checked for thin lines along clip boundaries. Installed Safari on
+macOS passed the editor controls and file workflow checks.
+[Windows rendering results](research/EDGE_FIREFOX_CLIP_SEAMS.md) · [Mac testing results](docs/MAC_TESTING.md)
 
 ## Documentation
 
@@ -137,8 +139,8 @@ Automated checks cover Chromium, Firefox and Playwright WebKit; WebKit automatio
   source map, local checks, and GitHub Pages publishing.
 - [Testing record](docs/TESTING.md): checks, regression evidence, and coverage limits.
 - [Possible improvements](IMPROVEMENTS.md): prioritized follow-up work.
-- [Original 2012 project notes](MadWeaver.html) and
-  [handbook notes](HandbookOfTriaxialWeaves.html): historical context.
+- [Illustrated controls](MadWeaver.html) and [weaving book notes](HandbookOfTriaxialWeaves.html).
+- [Squiggle and Chrome rendering tests](research/SQUIGGLE_AND_CHROME_CLIP_SEAMS.md) explain the clip styles embedded in planar SVG exports.
 
 ## Test and build
 

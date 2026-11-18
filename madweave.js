@@ -811,13 +811,6 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
 
     var index;
     var defs = getDefs(document);
-    // Clip each completed local stack once, then add complementary edge coverage.
-    // See research/SEAM_ROOT_CAUSE.md for the reduction and compositing model.
-    var css = document.defaultView && document.defaultView.CSS;
-    var seamlessClips = css && typeof css.supports === 'function' &&
-        css.supports('mix-blend-mode', 'plus-lighter') &&
-        css.supports('filter', 'opacity(1)');
-    strips.style.isolation = seamlessClips ? 'isolate' : '';
     var d;
     for (d=0; d<3; d++) {
         var sgname = baseName+dname[d]+"Strips";
@@ -868,17 +861,7 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
         var gname = baseName+pname[p]+"G";
         var g = createSVGElementWithId(document, "g", gname);
         g.setAttribute("clip-path", "url(#"+cpname+")");
-        g.style.mixBlendMode = seamlessClips ? 'plus-lighter' : '';
-        // Firefox needs the CSS filter to flatten before clipping; WebKit needs
-        // the nested isolated stack as well. CSS opacity(1) preserves sRGB alpha.
-        g.style.filter = seamlessClips ? 'opacity(1)' : '';
         if (g.parentNode == null) strips.appendChild(g);
-        var stack = g;
-        if (seamlessClips) {
-            stack = createSVGElementWithId(document, 'g', gname+'Stack');
-            stack.style.isolation = 'isolate';
-            g.appendChild(stack);
-        }
         var dd;
         for (dd=2; dd>=0; dd--) {
             // ppn[p][0] is the direction number of the top direction
@@ -886,12 +869,44 @@ function buildStripsInternal(document, baseName, clipBaseName, svg, colorIndexAr
             var useDName = dname[ppn[p][dd]];
             var use = createSVGElementWithId(document, "use", baseName+pname[p]+"Use"+useDName);
             use.setAttributeNS(xlinkNS, "xlink:href", "#"+baseName+useDName+"Strips");
-            stack.appendChild(use);
+            g.appendChild(use);
         }
     }
+    prepareStripClips(document, strips);
     if (baseName==="") {
         buildStripSelector(document);
         maybeShowPattern(document);
+    }
+}
+// Share the same paint rules between the live drawing and script-free exports.
+// The filter flattens each clipped stack in Firefox. WebKit also needs the
+// isolated group around its ordered paints. See research/SVG_SEAM_FIX.md.
+function prepareStripClips(document, strips) {
+    var style = createSVGElementWithId(document, "style", "mw-strip-clip-style");
+    if (!style.parentNode) {
+        style.textContent =
+            "@supports (mix-blend-mode: plus-lighter) and (filter: opacity(1)) {\n" +
+            "  [data-mw-strip-regions], [data-mw-strip-regions] > g[clip-path] > g { isolation: isolate }\n" +
+            "  [data-mw-strip-regions] > g[clip-path] { mix-blend-mode: plus-lighter; filter: opacity(1) }\n" +
+            "}";
+        getDefs(document).appendChild(style);
+    }
+    strips.setAttribute("data-mw-strip-regions", "");
+    // Earlier editable SVGs can have either bare uses or inline-styled stacks.
+    if (strips.hasAttribute("style")) strips.style.removeProperty("isolation");
+    for (var group = strips.firstChild; group; group = group.nextSibling) {
+        if (group.nodeType !== 1 || !group.hasAttribute("clip-path")) continue;
+        if (group.hasAttribute("style")) {
+            group.style.removeProperty("mix-blend-mode");
+            group.style.removeProperty("filter");
+        }
+        var stack = createSVGElementWithId(document, "g", group.getAttribute("id")+"Stack");
+        if (stack.parentNode === group) {
+            if (stack.hasAttribute("style")) stack.style.removeProperty("isolation");
+        } else {
+            while (group.firstChild) stack.appendChild(group.firstChild);
+            group.appendChild(stack);
+        }
     }
 }
 var stripSelectorHeightFraction = 0.80;
@@ -1671,6 +1686,7 @@ function setSavedContent(g) {
     var defaultColorButton = document.getElementById("buttonC"+defaultColorIndex);
     hidingButtons = document.getElementById("gbuttonLines").getAttribute("visibility") == "hidden";
     setColorChooserColor(document, defaultColorButton.getAttribute("fill"), defaultColorButton.getAttribute("fill-opacity"));
+    prepareStripClips(document, document.getElementById("strips"));
     buildViewButtons(document);
 
   processing = false;

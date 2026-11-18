@@ -12,7 +12,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   test-and-build:
-    runs-on: ubuntu-latest
+    # setup-python uses the runner tool cache inside the Noble container.
+    runs-on: ubuntu-24.04
     container:
       # Keep this image aligned with package-lock.json and requirements-dev.txt.
       image: mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0

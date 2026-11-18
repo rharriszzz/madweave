@@ -17,6 +17,10 @@
         MadWeave
     </title>
     <defs id="defs">
+        <style id="mw-strip-clip-style">@supports (mix-blend-mode: plus-lighter) and (filter: opacity(1)) {
+  [data-mw-strip-regions], [data-mw-strip-regions] > g[clip-path] > g { isolation: isolate }
+  [data-mw-strip-regions] > g[clip-path] { mix-blend-mode: plus-lighter; filter: opacity(1) }
+}</style>
         <linearGradient xlink:actuate="onLoad" xlink:type="simple"
                         id="hueAtSatValue" xlink:show="other"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -293,39 +297,45 @@
                   id="opacityAtColorstop15" offset="100%"/>
         </linearGradient>
     </defs>
-    <g inkscape:groupmode="layer" id="strips">
+    <g inkscape:groupmode="layer" id="strips" data-mw-strip-regions="">
         <g id="HRLG" clip-path="url(#HRLClipPath)">
-            <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseL"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#LStrips"/>
-            <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseR"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#RStrips"/>
-            <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseH"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#HStrips"/>
+            <g id="HRLGStack">
+                <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseL"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#LStrips"/>
+                <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseR"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#RStrips"/>
+                <use xlink:actuate="onLoad" xlink:type="simple" id="HRLUseH"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#HStrips"/>
+            </g>
         </g>
         <g id="RLHG" clip-path="url(#RLHClipPath)">
-            <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseH"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#HStrips"/>
-            <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseL"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#LStrips"/>
-            <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseR"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#RStrips"/>
+            <g id="RLHGStack">
+                <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseH"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#HStrips"/>
+                <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseL"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#LStrips"/>
+                <use xlink:actuate="onLoad" xlink:type="simple" id="RLHUseR"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#RStrips"/>
+            </g>
         </g>
         <g id="LHRG" clip-path="url(#LHRClipPath)">
-            <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseR"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#RStrips"/>
-            <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseH"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#HStrips"/>
-            <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseL"
-                 xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="#LStrips"/>
+            <g id="LHRGStack">
+                <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseR"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#RStrips"/>
+                <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseH"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#HStrips"/>
+                <use xlink:actuate="onLoad" xlink:type="simple" id="LHRUseL"
+                     xlink:show="embed" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="#LStrips"/>
+            </g>
         </g>
     </g>
     <g inkscape:groupmode="layer" id="tools">

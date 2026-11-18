@@ -52,6 +52,19 @@ Rendering each clipped group in isolation showed where the excess comes from. At
 
 Repeating with the **same Edge executable** and `--disable-gpu` changed the adjacent group's alpha from 7 to 0. The entire production matrix then stayed within tolerance, with maximum error **3.14**. Firefox also gave that group alpha 0 under its default test settings. The switch was a diagnostic control. The shared SVG fix works at ordinary browser settings for the original strong seam. The remaining Edge error is a separate target if closer pixel agreement is needed.
 
+## Production stylesheet follow-up
+
+The planar renderer now puts its clip styles in one stylesheet inside the SVG.
+The starter drawing includes it for script-free viewing. The editor reuses it
+on redraw and installs it when loading an older editable drawing. A CSS feature
+query gates the whole set of paint rules in the viewing browser. The isolated
+inner group remains part of the portable SVG for WebKit.
+
+The installed Windows Edge and Firefox builds replayed the 163 configurations
+from the revised renderer. The result summaries, including worst pixels and
+counts above tolerance, matched the preceding runs byte for byte. Edge retained
+its 472 samples over tolerance and Firefox passed all 90,350. [Linux browser checks and PDF print](SQUIGGLE_AND_CHROME_CLIP_SEAMS.md#implementation-and-remaining-checks)
+
 ## Reproducing the checks
 
 The first command generates a self-contained page for the live comparison of inline SVG, SVG images and transparent canvas readback. Open it at 100% zoom in each browser.

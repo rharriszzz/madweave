@@ -14,7 +14,7 @@
 | `madweave.svg` | Serialized starter design, loaded with `setSavedContent` |
 | `madweave_init.svg` | Minimal fresh-design entry point, loaded with `setContent(..., 2)` |
 | `cp1.png`–`cp5.png` | Five pattern-preview buttons used by the SVG engine |
-| `MadWeaver.html`, `madweave.html`, `HandbookOfTriaxialWeaves.html` | Original historical documentation |
+| `MadWeaver.html`, `madweave.html`, `HandbookOfTriaxialWeaves.html` | Illustrated controls, book notes and original site entry point |
 | `test*.svg`, `test.html` | Historical experiments; not an automated test suite or published entry point |
 | `convert`, `convert_all`, `convert.txt` | Historical Batik rasterization helpers with local macOS paths |
 | `scripts/build_site.py` | Explicit static publication list; output in ignored `dist/` |
@@ -40,6 +40,14 @@ inside `<defs>`, then six clipped sectors reference those groups with `<use>` to
 produce the interlacing. `maskPath`, `stripPath`, and `trans` generate clipping,
 shape, and positioning geometry. `buildButtons` creates the original SVG controls
 and hover documentation. A transparent selector overlays the weave for picking.
+
+The starter SVG and generated planar SVGs each carry one stylesheet in their
+definitions. It isolates the strip layer, blends adjoining clipped groups with
+`plus-lighter`, and flattens each local stack using `filter: opacity(1)` and an
+isolated inner group. A CSS feature query activates these rules together in the
+viewer. `prepareStripClips` also wraps the existing paints when an older editable
+SVG is opened directly. Preserve the order of its three `<use>` elements when
+changing this code. [Chrome and Squiggle](../research/SQUIGGLE_AND_CHROME_CLIP_SEAMS.md) · [Edge and Firefox](../research/EDGE_FIREFOX_CLIP_SEAMS.md)
 
 Palette colors and opacity are shared by index. `colorIndexArray` and
 `visibilityIndexArray` track per-strip editing. `showC` and `showD` control layers

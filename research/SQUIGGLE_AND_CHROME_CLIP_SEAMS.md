@@ -26,7 +26,7 @@ One commit changed production painting, [`43f3695`](https://github.com/rharriszz
 
 On November 18, 2026, separate Git archives of `286c94e` and `43f3695` were opened in Chrome for Testing. The size-2 and spacing-1 controls rebuilt the weave in each historical editor. In a 1500 × 1100 viewport at device scale 1, with SVG viewBox `-1.33 -1.33 2.66 2.66`, pixel (954, 412) of the live SVG capture changed from **(217, 181, 165)** to **(252, 206, 118)**. The intended strip color is **(252, 205, 118)**.
 
-The historical editor's **Export artwork as SVG** command supplied the artwork for the renderer comparison. A 241 × 241 viewport puts the horizontal edge through the center of row 120. The figure samples (224, 120). Squiggle captures came from the completed render of the viewer's own canvas on Linux with OpenJDK 21.0.13. Squiggle 1.7 is the version linked in the [original MadWeaver guide](../MadWeaver.html). Its captures and Squiggle 1.18's matched pixel for pixel in all seven Batik cases.
+The historical editor's **Export artwork as SVG** command supplied the artwork for the renderer comparison. A 241 × 241 viewport puts the horizontal edge through the center of row 120. The figure samples (224, 120). Squiggle captures came from the completed render of the viewer's own canvas on Linux with OpenJDK 21.0.13. Squiggle 1.7 is the version linked in the [original MadWeaver guide](https://github.com/rharriszzz/madweave/blob/76a3da0/MadWeaver.html). Its captures and Squiggle 1.18's matched pixel for pixel in all seven Batik cases.
 
 ![The horizontal line through the yellow strip in old Chrome, clean Squiggle, Squiggle with clip antialiasing enabled, and corrected Chrome. Outlined regions are enlarged six times.](evidence/squiggle-clip-comparison.png)
 
@@ -72,11 +72,35 @@ The same script-free 241 × 241 historical weave was displayed inline, displayed
 
 The hard-mask canvas showed a pale (252, 217, 151) line on the white page. With translucent material the same method gave alpha 169 instead of 214. Disabling GPU acceleration eliminated the hard-mask discrepancy on this machine. This narrows the difference to a graphics-dependent path. Identifying the exact backend instruction would require tracing the Windows build. The two CSS rules matched production in the opaque, translucent, genuine color transition and weave probes on both Windows settings. [Measured pixels and matrix summaries](evidence/chrome-clip-measurements.json)
 
-## Next steps for a simpler renderer
+## Implementation and remaining checks
 
-1. **Use the two-rule SVG as the Chrome reference.** It retains smooth physical edges, transparent materials, and local over/under order with the existing geometry. Compare it with the original at normal size and at the zoom levels used for designing and printing. [Open the two-rule weave](evidence/chrome-two-rule-weave.svg)
-2. **Before simplifying the shared builder, run the shorter form in the other supported consumers.** Start with the same editor matrix in Firefox and WebKit, then native Safari and one print/PDF export. Check transparent canvas readback as well as the visible artwork. Earlier Firefox and WebKit builds needed the filter or nested isolation, respectively. If those failures persist, retain the portable production structure. Choosing export markup from the browser that created the file would lose that portability.
-3. **If the cross-engine work is still needed, simplify where it is expressed.** A low-risk experiment is to keep the existing layer structure and put its repeated styles in one stylesheet inside the exported SVG. Verify editable save/reopen, script-free export, and unsupported-feature fallback before adopting it. The evidence favors this over adding overlapping triangles, changing the weave coordinates, or requiring a graphics setting on the user's machine.
+The planar editor now embeds a single stylesheet in its SVG definitions. The
+same rules cover the built-in design on first display, older editable SVGs
+opened with the current engine, and newly exported artwork. The viewer enables
+the rules together using CSS `@supports`. Each region still contains its
+ordered paints inside an isolated group for WebKit. The two-rule SVG remains
+the smaller Chrome reference. [Production renderer](../madweave.js) · [Edge and Firefox results](EDGE_FIREFOX_CLIP_SEAMS.md)
+
+The production stylesheet passed 163 configurations and 90,350 samples per
+engine in Linux Chromium 153, Firefox 155 and WebKit 26.6. The maximum channel
+errors were 2.78, 2.40 and 2.78, respectively, against a tolerance of four.
+The actual artwork download also passed as an SVG image in all three engines.
+With either CSS feature made unavailable, each browser used ordinary group
+painting and preserved all three strip directions. All 19 site and editor tests
+passed in each engine, including editable HTML save, offline reopen and resave.
+The starter SVG, loaded directly as a script-free image at the historical probe
+viewBox, changed from (217, 181, 165) to (252, 206, 118) in Chromium.
+
+At the yellow probe (224, 120), Batik 1.18's PNG transcoder rendered the new
+241 × 241 export as (252, 205, 118), exactly the intended color. A Chromium
+PDF print of that image on a 241 CSS-pixel square page, rasterized by Poppler at
+96 dpi, gave (251, 204, 118) both on the seam and immediately above and below.
+The historical image through the same print path gave (223, 185, 155) on the
+seam and (252, 205, 118) on the adjacent rows. This checks one PDF pipeline.
+
+The remaining measurement targets are the small Edge overcoverage and rotated
+clips described above. An installed Safari check of this particular stylesheet
+would supplement the WebKit sweep and the earlier native Safari editor tests.
 
 ## Repeat the Chrome experiments
 

@@ -9,6 +9,7 @@ function applyVariant(root, variant) {
   const doc = root.ownerDocument;
   const make = name => doc.createElementNS(root.namespaceURI, name);
   const weave = root.querySelector('#strips') || root;
+  weave.removeAttribute('data-mw-strip-regions');
   const groups = [...weave.querySelectorAll('g[clip-path]')];
   let parent = groups[0].parentElement;
   const stylesheet = variant === 'additive-clip' || variant === 'filtered-clip';
@@ -23,7 +24,7 @@ function applyVariant(root, variant) {
     // The live editor supplies the production wrappers. Start every candidate
     // with the same ordered child paints as the historical reproduction.
     const stack = group.firstElementChild;
-    if (stack?.localName === 'g' && stack.style.isolation === 'isolate')
+    if (stack?.localName === 'g' && (stack.id === group.id + 'Stack' || stack.style.isolation === 'isolate'))
       stack.replaceWith(...stack.children);
     group.style.removeProperty('filter');
     group.style.removeProperty('mix-blend-mode');

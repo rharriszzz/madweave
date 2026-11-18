@@ -88,6 +88,38 @@ class BrowserTests(unittest.TestCase):
             self.assertEqual(self.page.locator('path[mwColorIndex]').count(), 18)
             self.assertFalse(self.page.evaluate('processing'))
 
+    def test_shared_clip_styles_in_fresh_and_restored_svg(self):
+        style_id = '#mw-strip-clip-style'
+        self.open_svg('madweave_init.svg')
+        generated_css = self.page.locator(style_id).text_content()
+        self.open_svg('madweave.svg')
+        self.assertEqual(self.page.locator(style_id).text_content(), generated_css)
+
+        # Simulate both earlier file formats in one saved drawing.
+        expected_order = self.page.locator('#strips use').evaluate_all('(uses) => uses.map(u => u.id)')
+        self.page.evaluate("""() => {
+            document.querySelector('#mw-strip-clip-style').remove();
+            const strips = document.querySelector('#strips');
+            strips.removeAttribute('data-mw-strip-regions');
+            strips.style.isolation = 'isolate';
+            for (const [index, group] of Array.from(strips.children).entries()) {
+                const stack = group.firstElementChild;
+                if (index === 0) stack.replaceWith(...stack.children);
+                else {
+                    group.style.mixBlendMode = 'plus-lighter';
+                    group.style.filter = 'opacity(1)';
+                    stack.style.isolation = 'isolate';
+                }
+            }
+        }""")
+        self.reload_serialized_svg()
+        self.assertEqual(self.page.locator(style_id).text_content(), generated_css)
+        self.assertEqual(self.page.locator('#strips > g > g > use').evaluate_all('(uses) => uses.map(u => u.id)'), expected_order)
+        self.assertTrue(self.page.locator('#strips > g').evaluate_all("""groups => groups.every(g =>
+            !g.style.mixBlendMode && !g.style.filter && !g.firstElementChild.style.isolation &&
+            getComputedStyle(g).mixBlendMode === 'plus-lighter' && getComputedStyle(g).filter !== 'none' &&
+            getComputedStyle(g.firstElementChild).isolation === 'isolate')"""))
+
     def test_every_size_pattern_color_count_and_spacing(self):
         self.open_svg()
         for size in range(1, 9):

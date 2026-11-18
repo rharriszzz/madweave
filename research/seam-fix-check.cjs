@@ -145,7 +145,7 @@ function edges(m){
        const original=await svg.evaluate(root=>{
         const copy=root.cloneNode(true);
         root.restoreSeamVariant?.();
-        const strips=root.querySelector('#strips');strips.style.isolation='';
+        const strips=root.querySelector('#strips');strips.removeAttribute('data-mw-strip-regions');
         for(const group of strips.children){group.style.mixBlendMode='';group.style.filter='';const stack=group.firstElementChild;group.append(...stack.children);stack.remove();}
         const box=root.getBoundingClientRect();copy.setAttribute('width',box.width);copy.setAttribute('height',box.height);return new XMLSerializer().serializeToString(copy);
        });
@@ -169,15 +169,23 @@ function edges(m){
    }
    console.log('PASS seam pixels B'+size+' in '+BROWSER);
   }
-  // Exercise the unsupported-feature path with the actual builder.
+  // Exercise each missing feature in the actual exported stylesheet.
   await svg.evaluate(root=>{
-   const w=root.ownerDocument.defaultView,supports=w.CSS.supports;
-   w.CSS.supports=()=>false;
-   try{w.buildStrips(root.ownerDocument);}finally{w.CSS.supports=supports;}
-   for(const group of root.querySelector('#strips').children){
-    if(group.style.mixBlendMode||group.style.filter||group.querySelector('[id$="Stack"]'))throw Error('Fallback retained additive rendering');
-    if(group.querySelectorAll('use').length!==3)throw Error('Fallback lost a direction');
+   const strips=root.querySelector('#strips'), sheets=root.querySelectorAll('#mw-strip-clip-style');
+   if(sheets.length!==1)throw Error('Expected one shared clip stylesheet');
+   const sheet=sheets[0], rules=sheet.textContent;
+   for(const feature of ['mix-blend-mode','filter']){
+    sheet.textContent=rules.replace('@supports (mix-blend-mode: plus-lighter) and (filter: opacity(1))',
+     condition=>condition.replace(feature+':', 'unsupported-'+feature+':'));
+    if(getComputedStyle(strips).isolation!=='auto')throw Error('Fallback retained strip isolation');
+    for(const group of strips.children){
+     const paint=getComputedStyle(group),stack=group.firstElementChild;
+     if(paint.mixBlendMode!=='normal'||paint.filter!=='none'||getComputedStyle(stack).isolation!=='auto')
+      throw Error('Fallback retained clip effects');
+     if(stack.querySelectorAll('use').length!==3)throw Error('Fallback lost a direction');
+    }
    }
+   sheet.textContent=rules;
   });
   assert(negativeControl);assert.deepEqual(errors,[]);
   if(matrixFile)require('./seam-image-matrix.cjs').writeMatrix(matrixFile,matrixCases);
