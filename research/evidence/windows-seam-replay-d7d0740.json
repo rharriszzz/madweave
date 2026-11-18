@@ -1,0 +1,460 @@
+{
+  "checkout": "d7d074076e0c94f615e21d7611a798843b04662f",
+  "matrixSha256": "60fbd9a135337fb0f638d4fcd70598eeb713962b45bd93ef91025dc07b6c997d",
+  "method": "Installed Windows browsers, headless at device scale factor 1, default graphics. Captured at the size-2, medium-spacing live yellow seam and the adjacent rows, then replayed the portable SVG matrix on loopback.",
+  "browsers": [
+    {
+      "browser": "chrome",
+      "version": "Chrome/157.0.8103.40",
+      "liveYellow": [
+        [
+          252,
+          205,
+          118
+        ],
+        [
+          252,
+          205,
+          118
+        ],
+        [
+          252,
+          205,
+          118
+        ]
+      ],
+      "probe": [
+        1107,
+        798
+      ],
+      "rows": {
+        "production": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 0,
+          "samplesOverFour": 0,
+          "differingFromProductionRGBA": 0,
+          "maxError": 1.2705882352941273,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "translucent"
+            },
+            "pixel": [
+              240,
+              204
+            ],
+            "expected": [
+              160.54999999999998,
+              137,
+              237.01
+            ],
+            "rgba": [
+              146,
+              118,
+              234,
+              222
+            ]
+          }
+        },
+        "original": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 163,
+          "samplesOverFour": 7803,
+          "differingFromProductionRGBA": 9669,
+          "maxError": 35.133333333333326,
+          "worst": {
+            "scene": {
+              "size": 2,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "hidden"
+            },
+            "pixel": [
+              421,
+              720
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              140,
+              119,
+              242,
+              191
+            ]
+          }
+        },
+        "additive-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 132,
+          "samplesOverFour": 472,
+          "differingFromProductionRGBA": 5442,
+          "maxError": 7,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "opaque"
+            },
+            "pixel": [
+              955,
+              620
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              144,
+              121,
+              248,
+              255
+            ]
+          }
+        },
+        "filtered-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 132,
+          "samplesOverFour": 472,
+          "differingFromProductionRGBA": 5442,
+          "maxError": 7,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "opaque"
+            },
+            "pixel": [
+              955,
+              620
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              144,
+              121,
+              248,
+              255
+            ]
+          }
+        }
+      }
+    },
+    {
+      "browser": "edge",
+      "version": "Edg/157.0.4341.46",
+      "liveYellow": [
+        [
+          252,
+          205,
+          118
+        ],
+        [
+          252,
+          205,
+          118
+        ],
+        [
+          252,
+          205,
+          118
+        ]
+      ],
+      "probe": [
+        1107,
+        798
+      ],
+      "rows": {
+        "production": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 0,
+          "samplesOverFour": 0,
+          "differingFromProductionRGBA": 0,
+          "maxError": 1.2705882352941273,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "translucent"
+            },
+            "pixel": [
+              240,
+              204
+            ],
+            "expected": [
+              160.54999999999998,
+              137,
+              237.01
+            ],
+            "rgba": [
+              146,
+              118,
+              234,
+              222
+            ]
+          }
+        },
+        "original": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 163,
+          "samplesOverFour": 7803,
+          "differingFromProductionRGBA": 9669,
+          "maxError": 35.133333333333326,
+          "worst": {
+            "scene": {
+              "size": 2,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "hidden"
+            },
+            "pixel": [
+              421,
+              720
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              140,
+              119,
+              242,
+              191
+            ]
+          }
+        },
+        "additive-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 132,
+          "samplesOverFour": 472,
+          "differingFromProductionRGBA": 5442,
+          "maxError": 7,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "opaque"
+            },
+            "pixel": [
+              955,
+              620
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              144,
+              121,
+              248,
+              255
+            ]
+          }
+        },
+        "filtered-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 132,
+          "samplesOverFour": 472,
+          "differingFromProductionRGBA": 5442,
+          "maxError": 7,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "opaque"
+            },
+            "pixel": [
+              955,
+              620
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              144,
+              121,
+              248,
+              255
+            ]
+          }
+        }
+      }
+    },
+    {
+      "browser": "firefox",
+      "version": "firefox/158.0.1",
+      "liveYellow": [
+        [
+          252,
+          205,
+          118
+        ],
+        [
+          252,
+          205,
+          118
+        ],
+        [
+          252,
+          205,
+          118
+        ]
+      ],
+      "probe": [
+        1107,
+        798
+      ],
+      "rows": {
+        "production": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 0,
+          "samplesOverFour": 0,
+          "differingFromProductionRGBA": 0,
+          "maxError": 1.7286274509803832,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "translucent"
+            },
+            "pixel": [
+              954,
+              411
+            ],
+            "expected": [
+              216.39999999999998,
+              181.16,
+              168.32
+            ],
+            "rgba": [
+              212,
+              173,
+              160,
+              235
+            ]
+          }
+        },
+        "original": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 163,
+          "samplesOverFour": 7748,
+          "differingFromProductionRGBA": 8098,
+          "maxError": 34.921568627450995,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "hidden"
+            },
+            "pixel": [
+              421,
+              105
+            ],
+            "expected": [
+              252,
+              205,
+              118
+            ],
+            "rgba": [
+              252,
+              205,
+              118,
+              190
+            ]
+          }
+        },
+        "additive-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 163,
+          "samplesOverFour": 7334,
+          "differingFromProductionRGBA": 8050,
+          "maxError": 109,
+          "worst": {
+            "scene": {
+              "size": 1,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "opaque"
+            },
+            "pixel": [
+              955,
+              621
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              249,
+              182,
+              255,
+              255
+            ]
+          }
+        },
+        "filtered-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 0,
+          "samplesOverFour": 0,
+          "differingFromProductionRGBA": 7170,
+          "maxError": 2.5482352941176316,
+          "worst": {
+            "scene": {
+              "size": 2,
+              "spacing": 1,
+              "orientation": 2,
+              "mode": "translucent"
+            },
+            "pixel": [
+              240,
+              207
+            ],
+            "expected": [
+              182.95,
+              141.76,
+              213.76999999999998
+            ],
+            "rgba": [
+              171,
+              122,
+              206,
+              222
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

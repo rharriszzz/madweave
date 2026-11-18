@@ -1,5 +1,7 @@
 # SVG clip seams in Microsoft Edge and Mozilla Firefox
 
+The later smooth-mask renderer passed all 90,350 Windows samples in Chrome, Edge and Firefox, including the Edge cases described below. [Final Windows results](SAFARI_CLIP_SEAMS.md#windows-verification)
+
 **Both browsers need a correction for the historical artwork. Edge accepts the two CSS declarations that worked in Chrome. Firefox also needs the identity filter.** In the tested Windows builds, this shared stylesheet matched the current production renderer at every sampled RGBA pixel. It goes inside the SVG so that it travels with the artwork.
 
 ```css

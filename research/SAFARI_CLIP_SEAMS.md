@@ -60,11 +60,23 @@ Installed Safari passed all 163 configurations and 90,350 samples with the integ
 
 Printing exposed a separate problem. Chromium displayed the artwork correctly on screen but printed purple at the known yellow seam. Applying an identity opacity filter to the isolated weave group keeps the entire blend together in the print output. With the integrated Safari export at the historical 241 × 241 viewport, Batik 1.7 returned RGBA (252, 205, 118, 255) at (224, 120). The Chromium PDF, rasterized and converted from its embedded Display P3 profile to sRGB, returned (251, 205, 118, 255). Check the seam itself and both adjacent rows when changing the stylesheet.
 
+## Windows verification
+
+The installed Windows browsers tested the integrated masks at `d7d0740` in headless mode with default graphics settings. Each browser replayed 163 editor configurations and compared 90,350 samples with the expected strip colors. The tolerance was four levels per RGB channel.
+
+| Browser | Historical samples over four | Production samples over four | Maximum production error |
+|---|---:|---:|---:|
+| Chrome 157.0.8103.40 | 7,803 | 0 | 1.27 |
+| Edge 157.0.4341.46 | 7,803 | 0 | 1.27 |
+| Firefox 158.0.1 | 7,748 | 0 | 1.73 |
+
+In the size-2, medium-spacing live editor, all three browsers showed the intended yellow (252, 205, 118) at the seam and on both adjacent rows. Edge had 472 samples outside tolerance with the earlier clip workaround and zero with the integrated masks. This completes the Windows desktop comparison. [Windows measurements](evidence/windows-seam-replay-d7d0740.json) · [Earlier Edge results](EDGE_FIREFOX_CLIP_SEAMS.md)
+
 ## Reproduce
 
 1. Generate the matrix and inspect the native Safari editor and actual download using the [Mac test procedure](../docs/MAC_SAFARI_SEAM_CHECK.md). Set `MADWEAVE_SEAM_COMPARE_MASKS=1` to include the experimental variants. The portable page displays the complete results at 163 / 163.
 2. Serve the checkout on port 8766 and run `node research/seam-fix-check.cjs` for the live editor, export and historical control. Choose an engine with `MADWEAVE_RESEARCH_BROWSER`. Generate the reduced fixtures with `node research/chrome-clip-alternatives.cjs --write-browser-test test-results/clip-comparison.html`.
-3. For Windows, copy the generated portable matrix to the loopback server. Install Selenium in a test environment and run the following command for each installed browser, replacing `edge` with `firefox` for the second run. Each JSON report records the browser version, failure counts and worst pixel. The integrated renderer still needs this native Windows comparison. [Previous Windows measurements](EDGE_FIREFOX_CLIP_SEAMS.md)
+3. For Windows, copy the generated portable matrix to the loopback server. Install Selenium in a test environment and run the following command for each installed browser, replacing `edge` with `firefox` for the second run. Each JSON report records the browser version, failure counts and worst pixel. [Previous Windows measurements](EDGE_FIREFOX_CLIP_SEAMS.md)
 
    ```sh
    python scripts/test_seam_replay.py edge http://127.0.0.1:8766/matrix.html edge-results.json
