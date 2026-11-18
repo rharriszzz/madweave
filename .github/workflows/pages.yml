@@ -12,11 +12,11 @@ concurrency:
   cancel-in-progress: false
 jobs:
   test-and-build:
-    # setup-python uses the runner tool cache inside the Noble container.
-    runs-on: ubuntu-24.04
+    # setup-python mounts the host tool cache, so match the container release.
+    runs-on: ubuntu-26.04
     container:
       # Keep this image aligned with package-lock.json and requirements-dev.txt.
-      image: mcr.microsoft.com/playwright/python:v1.63.0-noble@sha256:72bd171a9ffc2b4b59532aaa6210e21014d07093120dc25528870c0b840da1f0
+      image: mcr.microsoft.com/playwright/python:v1.63.0-resolute@sha256:26b40009555f399ba9b6a2260e8c2896a2f086bf8e7ce3daf27ea85f03c26368
       options: --ipc=host
     strategy:
       fail-fast: false
@@ -42,7 +42,10 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.14'
-      - run: python -m pip install -r requirements-dev.txt
+      - name: Verify Python SSL and install browser test dependencies
+        run: |
+          python -c "import ssl; print(ssl.OPENSSL_VERSION)"
+          python -m pip install -r requirements-dev.txt
       - run: npm ci
       - run: node --check madweave.js && node --check project.js && node --check editor.js && node --check corner-editor.js && node --check corner-model.mjs && node --check corner-runtime.js
       - name: Verify generated corner assets
