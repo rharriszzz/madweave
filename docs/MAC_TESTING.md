@@ -10,6 +10,12 @@ A repeat-edit check in Chromium kept exactly 1,959 DOM nodes and 237 listeners a
 
 The separate restored-controls smoke workflow failed during dependency installation on all three GitHub runners. The runner's Python 3.14 reported missing SSL support, so pip could not download Playwright. At the time, `ubuntu-latest` selected Ubuntu 26.04 for a Noble (24.04) container. The Pages workflow used a 24.04 host with that container and installed the dependencies successfully. Both workflows now use the Ubuntu 26.04 host and Resolute image. [Current CI setup](BROWSER_TEST_SETUP.md#ubuntu-2604-browser-ci) On the Mac the full application suite passed all 19 tests in each of Chromium, Firefox and WebKit. If this recurs, check `python -c "import ssl"` inside the container and align the host runner with its Python tool cache before diagnosing browser failures. [Smoke job log](https://github.com/rharriszzz/madweave/actions/runs/44399396274) · [Pages build](https://github.com/rharriszzz/madweave/actions/runs/44399396358)
 
+### iMac and iPhone simulator acceptance
+
+An M4 iMac running macOS 27.2.1 and Xcode 27.2’s iPhone 18 Pro simulator running iOS 27.2 both passed the four-scene batched replay in Safari 27.2. Each completed 163 configurations and 90,350 samples with zero over tolerance and a maximum channel error of 2.40. The historical control exceeded tolerance on both devices. The simulator completed the replay that had previously triggered Safari’s significant-memory reload. A physical iPhone’s graphics memory limit still needs an on-device check.
+
+Both browsers exercised the editor at commit `d35138a`, changed size, generated an SVG that Safari could decode, parsed a saved project back to the same state and retained the Flat design through a switch to Corner and back. The simulator’s portrait editor fit its 402 CSS-pixel viewport. On the published site, a simulated tap changed the weave to size 3. Mobile Safari downloaded the resulting 31,177-byte SVG through **More → Export artwork as SVG**. It contained 27 strip paths and three masks and displayed when reopened on its own. The published renderer matched the checked-out JavaScript by SHA-256. The paired physical iPhone was unavailable. [Measurements and export hash](evidence/apple-safari-2026-11-18.json)
+
 ## Results on 2026-11-09
 
 Resumed [PR #4](https://github.com/rharriszzz/madweave/pull/4) at `6e6aa9f`

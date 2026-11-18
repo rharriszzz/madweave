@@ -1,0 +1,305 @@
+{
+  "checkout": "d35138a28af47a918b9b7d233fe0dd9281b5117d",
+  "xcode": "27.2 (27B52)",
+  "imacHardware": "iMac M4 (Mac16,3), macOS 27.2.1 (26B131)",
+  "simulator": "iPhone 18 Pro, iOS 27.2 (24B8117)",
+  "rendererSHA256": "cf6c53dba06af3c12cb779c58c5eb2213b68fef7e4290011a25a06133f8eab1e",
+  "imac": {
+    "editor": {
+      "device": "imac",
+      "agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+      "touchPoints": 0,
+      "viewport": [
+        1420,
+        1403
+      ],
+      "initialSize": 2,
+      "size3Strips": 27,
+      "exportMasks": 3,
+      "svgDecoded": true,
+      "projectRoundTrip": true,
+      "cornerParts": 72,
+      "retainedPlanar": true,
+      "passed": true
+    },
+    "seamReplay": {
+      "production": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 0,
+        "samplesOverFour": 0,
+        "differingFromProductionRGBA": 0,
+        "maxError": 2.4000000000000057,
+        "worst": {
+          "scene": {
+            "size": 8,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "opaque"
+          },
+          "pixel": [
+            538,
+            307
+          ],
+          "expected": [
+            220,
+            135,
+            158
+          ],
+          "rgba": [
+            221,
+            136,
+            158,
+            252
+          ]
+        }
+      },
+      "original": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 12521,
+        "differingFromProductionRGBA": 27690,
+        "maxError": 130.02745098039216,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 1,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            204
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "rgba": [
+            237,
+            182,
+            128,
+            14
+          ]
+        }
+      },
+      "additive-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 12765,
+        "differingFromProductionRGBA": 27691,
+        "maxError": 130.02745098039216,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 1,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            204
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "rgba": [
+            237,
+            182,
+            128,
+            14
+          ]
+        }
+      },
+      "filtered-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 12765,
+        "differingFromProductionRGBA": 27691,
+        "maxError": 130.02745098039216,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 1,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            204
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "rgba": [
+            237,
+            182,
+            128,
+            14
+          ]
+        }
+      }
+    }
+  },
+  "iphone": {
+    "editor": {
+      "device": "iphone",
+      "agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+      "touchPoints": 5,
+      "viewport": [
+        402,
+        402
+      ],
+      "initialSize": 2,
+      "size3Strips": 27,
+      "exportMasks": 3,
+      "svgDecoded": true,
+      "projectRoundTrip": true,
+      "cornerParts": 72,
+      "retainedPlanar": true,
+      "passed": true
+    },
+    "seamReplay": {
+      "production": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 0,
+        "samplesOverFour": 0,
+        "differingFromProductionRGBA": 0,
+        "maxError": 2.4000000000000057,
+        "worst": {
+          "scene": {
+            "size": 8,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "opaque"
+          },
+          "pixel": [
+            538,
+            307
+          ],
+          "expected": [
+            220,
+            135,
+            158
+          ],
+          "rgba": [
+            221,
+            136,
+            158,
+            252
+          ]
+        }
+      },
+      "original": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 12579,
+        "differingFromProductionRGBA": 26831,
+        "maxError": 130.02745098039216,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 1,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            204
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "rgba": [
+            237,
+            182,
+            128,
+            14
+          ]
+        }
+      },
+      "additive-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 12889,
+        "differingFromProductionRGBA": 26521,
+        "maxError": 130.02745098039216,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 1,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            204
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "rgba": [
+            237,
+            182,
+            128,
+            14
+          ]
+        }
+      },
+      "filtered-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 12889,
+        "differingFromProductionRGBA": 26521,
+        "maxError": 130.02745098039216,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 1,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            204
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "rgba": [
+            237,
+            182,
+            128,
+            14
+          ]
+        }
+      }
+    }
+  },
+  "simulatorDownload": {
+    "source": "Published SVG editor, size 3, More > Export artwork as SVG",
+    "bytes": 31177,
+    "stripPaths": 27,
+    "masks": 3,
+    "sha256": "35059d12582f9adfba8bf51e52e4bd275fadcc273ea153d14d5875589c6ac758",
+    "reopenedInMobileSafari": true
+  }
+}
