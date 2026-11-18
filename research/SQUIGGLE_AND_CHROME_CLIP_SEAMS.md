@@ -9,6 +9,8 @@
 
 On Linux Chrome for Testing 153.0.8010.12, this passed the same 163 editor configurations and 90,350 seam samples as the production implementation. On installed Windows Google Chrome 157.0.8103.40 it also matched the production fix in the display and transparency probes below. **Keep the existing fix for general-purpose exports for now.** Earlier Firefox and WebKit tests needed additional steps to flatten each local stack. An SVG saved in Chrome may later be opened in either engine. [Earlier three-engine results and rejected simplifications](SVG_SEAM_FIX.md)
 
+The [Windows Edge and Firefox follow-up](EDGE_FIREFOX_CLIP_SEAMS.md) tests this stylesheet in the installed browsers, isolates the extra filter Firefox needs, and measures an Edge coverage error that survives the production fix.
+
 ## The renderers behind the browser names
 
 | Desktop browser | Where its SVG rendering comes from |

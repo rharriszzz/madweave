@@ -4,8 +4,10 @@ const p=require('playwright'),{PNG}=require('pngjs'),g=require('./planar-geometr
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),assert=require('node:assert/strict');
 const BROWSER=process.env.MADWEAVE_RESEARCH_BROWSER||'chromium';
 const variant=process.env.MADWEAVE_SEAM_VARIANT;
-if(variant)assert(['hard-mask','additive-clip','additive-mask','additive-alpha-mask'].includes(variant),'Unknown research variant');
+if(variant)assert(['hard-mask','additive-clip','filtered-clip','additive-mask','additive-alpha-mask'].includes(variant),'Unknown research variant');
 const {applyVariant}=require('./chrome-clip-alternatives.cjs');
+const matrixFile=process.env.MADWEAVE_SEAM_MATRIX_HTML, matrixCases=[];
+if(matrixFile)assert(!variant,'Capture the unmodified production geometry for the portable matrix');
 const OUT='research/output/seam-fix/'+BROWSER+(variant?'/'+variant:'');fs.mkdirSync(OUT,{recursive:true});
 const engine=vm.createContext({});vm.runInContext(fs.readFileSync(path.join(__dirname,'..','madweave.js'),'utf8'),engine);
 const rgb=s=>s.match(/\d+/g).map(Number),over=(back,front,a)=>front.map((v,i)=>v*a+back[i]*(1-a));
@@ -117,12 +119,19 @@ function edges(m){
        await svg.evaluate(applyVariant,variant);
       }
       const png=PNG.sync.read(await svg.screenshot());let worst=0,samples=0,probe=null;
+      const probes=matrixFile?[]:null;
       for(const q of chosen){
        const [a,b,c,d,e,f]=state.matrix,x=Math.round(a*q[0]*m.pitch+c*q[1]*m.pitch+e),y=Math.round(b*q[0]*m.pitch+d*q[1]*m.pitch+f),want=expected(q);
+       if(probes)probes.push([x,y,want]);
        for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){
         const observed=at(png,x+dx,y+dy),difference=delta(observed,want);samples++;
         if(difference>worst){worst=difference;probe={point:q,pixel:[x+dx,y+dy],observed,expected:want};}
        }
+      }
+      if(matrixFile){
+       const {captureArtwork}=require('./seam-image-matrix.cjs');
+       const artwork=await svg.evaluate(captureArtwork,[png.width,png.height]);
+       matrixCases.push({name:{size,spacing,orientation,mode},svg:artwork,probes});
       }
       const row={size,spacing,orientation,mode,seams:chosen.length,samples,maxChannelError:worst,probe};results.push(row);
       if(worst>4)await svg.screenshot({path:OUT+'/failure.png'});
@@ -171,6 +180,7 @@ function edges(m){
    }
   });
   assert(negativeControl);assert.deepEqual(errors,[]);
+  if(matrixFile)require('./seam-image-matrix.cjs').writeMatrix(matrixFile,matrixCases);
   console.log(JSON.stringify({browser:BROWSER,variant:variant||'production',version:browser.version(),fixtures,negativeControl,configurations:results.length,samples:results.reduce((n,r)=>n+r.samples,0),maxChannelError:Math.max(...results.map(r=>r.maxChannelError))},null,2));
  }finally{fs.writeFileSync(OUT+'/results.json',JSON.stringify({browser:BROWSER,variant:variant||'production',version:browser.version(),fixtures,results,errors},null,2)+'\n');await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

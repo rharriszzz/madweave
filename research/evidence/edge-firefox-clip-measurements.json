@@ -1,0 +1,1602 @@
+{
+  "platform": "Windows x64, installed headless browsers, device scale factor 1",
+  "caseCount": 163,
+  "samplesPerMethod": 90350,
+  "canvasErrors": "Maximum absolute RGB channel error after compositing over white, against the independent finite-strip model. Counts include repeated probe coordinates.",
+  "edge": {
+    "version": "Edg/157.0.4341.46",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+    "deviceScaleFactor": 1,
+    "fixtureResults": {
+      "original": {
+        "weave": [
+          214,
+          175,
+          158,
+          240
+        ],
+        "opaque": [
+          218,
+          181,
+          165,
+          255
+        ],
+        "translucent": [
+          206,
+          169,
+          169,
+          193
+        ],
+        "transition": [
+          162,
+          138,
+          226,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            217,
+            181,
+            165
+          ],
+          "img": [
+            217,
+            181,
+            165
+          ],
+          "canvas": [
+            216,
+            180,
+            164
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "hard-mask": {
+        "weave": [
+          251,
+          205,
+          117,
+          192
+        ],
+        "opaque": [
+          253,
+          217,
+          153,
+          255
+        ],
+        "translucent": [
+          219,
+          180,
+          152,
+          169
+        ],
+        "transition": [
+          197,
+          174,
+          214,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            217,
+            151
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "additive-clip": {
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "opaque": [
+          253,
+          205,
+          119,
+          255
+        ],
+        "translucent": [
+          219,
+          179,
+          153,
+          214
+        ],
+        "transition": [
+          197,
+          162,
+          180,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            206,
+            118
+          ],
+          "img": [
+            252,
+            206,
+            118
+          ],
+          "canvas": [
+            252,
+            206,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "production": {
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "opaque": [
+          253,
+          205,
+          119,
+          255
+        ],
+        "translucent": [
+          219,
+          179,
+          153,
+          214
+        ],
+        "transition": [
+          197,
+          162,
+          180,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            206,
+            118
+          ],
+          "img": [
+            252,
+            206,
+            118
+          ],
+          "canvas": [
+            252,
+            206,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "additive-alpha-mask": {
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "opaque": [
+          253,
+          205,
+          119,
+          255
+        ],
+        "translucent": [
+          219,
+          179,
+          153,
+          214
+        ],
+        "transition": [
+          197,
+          162,
+          180,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            206,
+            118
+          ],
+          "img": [
+            252,
+            206,
+            118
+          ],
+          "canvas": [
+            252,
+            206,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "filtered-clip": {
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "opaque": [
+          253,
+          205,
+          119,
+          255
+        ],
+        "translucent": [
+          219,
+          179,
+          153,
+          214
+        ],
+        "transition": [
+          197,
+          162,
+          180,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            206,
+            118
+          ],
+          "img": [
+            252,
+            206,
+            118
+          ],
+          "canvas": [
+            252,
+            206,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      }
+    },
+    "liveEditorAndWitness": {
+      "original": {
+        "position": [
+          1107,
+          663
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            217,
+            181,
+            165
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            142,
+            119,
+            238
+          ],
+          "img": [
+            142,
+            119,
+            238
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      },
+      "additive-clip": {
+        "position": [
+          1107,
+          663
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            206,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            144,
+            121,
+            248
+          ],
+          "img": [
+            144,
+            121,
+            248
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      },
+      "filtered-clip": {
+        "position": [
+          1107,
+          663
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            206,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            144,
+            121,
+            248
+          ],
+          "img": [
+            144,
+            121,
+            248
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      },
+      "production": {
+        "position": [
+          1107,
+          798
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            206,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            144,
+            121,
+            248
+          ],
+          "img": [
+            144,
+            121,
+            248
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      }
+    },
+    "imageMatrix": {
+      "production": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 132,
+        "samplesOverFour": 472,
+        "differingFromProductionRGBA": 0,
+        "maxError": 7,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            620
+          ],
+          "expected": [
+            140,
+            118,
+            241
+          ],
+          "rgba": [
+            144,
+            121,
+            248,
+            255
+          ]
+        }
+      },
+      "original": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 7803,
+        "differingFromProductionRGBA": 9962,
+        "maxError": 35.133333333333326,
+        "worst": {
+          "scene": {
+            "size": 2,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "hidden"
+          },
+          "pixel": [
+            421,
+            720
+          ],
+          "expected": [
+            140,
+            118,
+            241
+          ],
+          "rgba": [
+            140,
+            119,
+            242,
+            191
+          ]
+        }
+      },
+      "additive-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 132,
+        "samplesOverFour": 472,
+        "differingFromProductionRGBA": 0,
+        "maxError": 7,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            620
+          ],
+          "expected": [
+            140,
+            118,
+            241
+          ],
+          "rgba": [
+            144,
+            121,
+            248,
+            255
+          ]
+        }
+      },
+      "filtered-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 132,
+        "samplesOverFour": 472,
+        "differingFromProductionRGBA": 0,
+        "maxError": 7,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            620
+          ],
+          "expected": [
+            140,
+            118,
+            241
+          ],
+          "rgba": [
+            144,
+            121,
+            248,
+            255
+          ]
+        }
+      }
+    },
+    "witnessByGroupRGBA": {
+      "all": [
+        144,
+        121,
+        248,
+        255
+      ],
+      "HRLG": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "RLHG": [
+        140,
+        118,
+        241,
+        255
+      ],
+      "LHRG": [
+        146,
+        109,
+        255,
+        7
+      ]
+    },
+    "disableGpu": {
+      "imageMatrix": {
+        "production": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 0,
+          "samplesOverFour": 0,
+          "differingFromProductionRGBA": 0,
+          "maxError": 3.1447058823529233,
+          "worst": {
+            "scene": {
+              "size": 2,
+              "spacing": 1,
+              "orientation": 2,
+              "mode": "translucent"
+            },
+            "pixel": [
+              955,
+              204
+            ],
+            "expected": [
+              248.3,
+              208.2,
+              159.22000000000003
+            ],
+            "rgba": [
+              247,
+              192,
+              128,
+              186
+            ]
+          }
+        },
+        "original": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 163,
+          "samplesOverFour": 7775,
+          "differingFromProductionRGBA": 8098,
+          "maxError": 34.921568627450995,
+          "worst": {
+            "scene": {
+              "size": 2,
+              "spacing": 0,
+              "orientation": 0,
+              "mode": "hidden"
+            },
+            "pixel": [
+              421,
+              720
+            ],
+            "expected": [
+              140,
+              118,
+              241
+            ],
+            "rgba": [
+              140,
+              118,
+              242,
+              190
+            ]
+          }
+        },
+        "additive-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 0,
+          "samplesOverFour": 0,
+          "differingFromProductionRGBA": 0,
+          "maxError": 3.1447058823529233,
+          "worst": {
+            "scene": {
+              "size": 2,
+              "spacing": 1,
+              "orientation": 2,
+              "mode": "translucent"
+            },
+            "pixel": [
+              955,
+              204
+            ],
+            "expected": [
+              248.3,
+              208.2,
+              159.22000000000003
+            ],
+            "rgba": [
+              247,
+              192,
+              128,
+              186
+            ]
+          }
+        },
+        "filtered-clip": {
+          "cases": 163,
+          "samples": 90350,
+          "casesOverFour": 0,
+          "samplesOverFour": 0,
+          "differingFromProductionRGBA": 0,
+          "maxError": 3.1447058823529233,
+          "worst": {
+            "scene": {
+              "size": 2,
+              "spacing": 1,
+              "orientation": 2,
+              "mode": "translucent"
+            },
+            "pixel": [
+              955,
+              204
+            ],
+            "expected": [
+              248.3,
+              208.2,
+              159.22000000000003
+            ],
+            "rgba": [
+              247,
+              192,
+              128,
+              186
+            ]
+          }
+        }
+      },
+      "witnessByGroupRGBA": {
+        "all": [
+          140,
+          118,
+          241,
+          255
+        ],
+        "HRLG": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "RLHG": [
+          140,
+          118,
+          241,
+          255
+        ],
+        "LHRG": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "firefox": {
+    "version": "firefox/158.0.1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0",
+    "deviceScaleFactor": 1,
+    "fixtureResults": {
+      "original": {
+        "weave": [
+          213,
+          175,
+          158,
+          240
+        ],
+        "opaque": [
+          217,
+          181,
+          165,
+          255
+        ],
+        "translucent": [
+          206,
+          166,
+          167,
+          193
+        ],
+        "transition": [
+          161,
+          137,
+          227,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            217,
+            181,
+            165
+          ],
+          "img": [
+            217,
+            181,
+            165
+          ],
+          "canvas": [
+            216,
+            180,
+            164
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "hard-mask": {
+        "weave": [
+          252,
+          205,
+          118,
+          255
+        ],
+        "opaque": [
+          252,
+          205,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          179,
+          153,
+          214
+        ],
+        "transition": [
+          252,
+          205,
+          118,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "additive-clip": {
+        "weave": [
+          255,
+          255,
+          238,
+          255
+        ],
+        "opaque": [
+          255,
+          255,
+          238,
+          255
+        ],
+        "translucent": [
+          210,
+          170,
+          172,
+          255
+        ],
+        "transition": [
+          255,
+          220,
+          255,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            255,
+            255,
+            238
+          ],
+          "img": [
+            255,
+            255,
+            238
+          ],
+          "canvas": [
+            255,
+            255,
+            238
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "production": {
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "opaque": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          154,
+          214
+        ],
+        "transition": [
+          196,
+          162,
+          180,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            206,
+            118
+          ],
+          "img": [
+            252,
+            206,
+            118
+          ],
+          "canvas": [
+            252,
+            206,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "additive-alpha-mask": {
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "opaque": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          154,
+          214
+        ],
+        "transition": [
+          196,
+          162,
+          180,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            206,
+            118
+          ],
+          "img": [
+            252,
+            206,
+            118
+          ],
+          "canvas": [
+            252,
+            206,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      },
+      "filtered-clip": {
+        "weave": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "opaque": [
+          252,
+          206,
+          118,
+          255
+        ],
+        "translucent": [
+          219,
+          181,
+          154,
+          214
+        ],
+        "transition": [
+          196,
+          162,
+          180,
+          255
+        ],
+        "displayRGB": {
+          "iframe": [
+            252,
+            206,
+            118
+          ],
+          "img": [
+            252,
+            206,
+            118
+          ],
+          "canvas": [
+            252,
+            206,
+            118
+          ]
+        },
+        "neighborRGB": {
+          "iframe": [
+            252,
+            205,
+            118
+          ],
+          "img": [
+            252,
+            205,
+            118
+          ],
+          "canvas": [
+            252,
+            205,
+            118
+          ]
+        }
+      }
+    },
+    "liveEditorAndWitness": {
+      "original": {
+        "position": [
+          1107,
+          663
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            217,
+            181,
+            165
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            140,
+            118,
+            241
+          ],
+          "img": [
+            140,
+            118,
+            241
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      },
+      "additive-clip": {
+        "position": [
+          1107,
+          663
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            255,
+            255,
+            238
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            140,
+            118,
+            241
+          ],
+          "img": [
+            140,
+            118,
+            241
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      },
+      "filtered-clip": {
+        "position": [
+          1107,
+          663
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            206,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            140,
+            118,
+            241
+          ],
+          "img": [
+            140,
+            118,
+            241
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      },
+      "production": {
+        "position": [
+          1107,
+          798
+        ],
+        "scan": [
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            206,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ],
+          [
+            252,
+            205,
+            118
+          ]
+        ],
+        "worstCaseDisplay": {
+          "inline": [
+            140,
+            118,
+            241
+          ],
+          "img": [
+            140,
+            118,
+            241
+          ],
+          "neighbor": [
+            140,
+            118,
+            241
+          ]
+        }
+      }
+    },
+    "imageMatrix": {
+      "production": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 0,
+        "samplesOverFour": 0,
+        "differingFromProductionRGBA": 0,
+        "maxError": 2.5482352941176316,
+        "worst": {
+          "scene": {
+            "size": 2,
+            "spacing": 1,
+            "orientation": 2,
+            "mode": "translucent"
+          },
+          "pixel": [
+            240,
+            207
+          ],
+          "expected": [
+            182.95,
+            141.76,
+            213.76999999999998
+          ],
+          "rgba": [
+            171,
+            122,
+            206,
+            222
+          ]
+        }
+      },
+      "original": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 7748,
+        "differingFromProductionRGBA": 8098,
+        "maxError": 34.921568627450995,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "hidden"
+          },
+          "pixel": [
+            421,
+            105
+          ],
+          "expected": [
+            252,
+            205,
+            118
+          ],
+          "rgba": [
+            252,
+            205,
+            118,
+            190
+          ]
+        }
+      },
+      "additive-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 163,
+        "samplesOverFour": 7334,
+        "differingFromProductionRGBA": 7386,
+        "maxError": 109,
+        "worst": {
+          "scene": {
+            "size": 1,
+            "spacing": 0,
+            "orientation": 0,
+            "mode": "opaque"
+          },
+          "pixel": [
+            955,
+            621
+          ],
+          "expected": [
+            140,
+            118,
+            241
+          ],
+          "rgba": [
+            249,
+            182,
+            255,
+            255
+          ]
+        }
+      },
+      "filtered-clip": {
+        "cases": 163,
+        "samples": 90350,
+        "casesOverFour": 0,
+        "samplesOverFour": 0,
+        "differingFromProductionRGBA": 0,
+        "maxError": 2.5482352941176316,
+        "worst": {
+          "scene": {
+            "size": 2,
+            "spacing": 1,
+            "orientation": 2,
+            "mode": "translucent"
+          },
+          "pixel": [
+            240,
+            207
+          ],
+          "expected": [
+            182.95,
+            141.76,
+            213.76999999999998
+          ],
+          "rgba": [
+            171,
+            122,
+            206,
+            222
+          ]
+        }
+      }
+    },
+    "witnessByGroupRGBA": {
+      "all": [
+        140,
+        118,
+        241,
+        255
+      ],
+      "HRLG": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "RLHG": [
+        140,
+        118,
+        241,
+        255
+      ],
+      "LHRG": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

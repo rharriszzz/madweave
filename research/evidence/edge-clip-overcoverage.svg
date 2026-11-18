@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="text/ecmascript" zoomAndPan="disable" baseProfile="full" contentStyleType="text/css" id="svg" version="1.1" mwBaseSize="1" preserveAspectRatio="xMidYMid meet" viewBox="-1.07 -1.07 2.14 2.14" width="1198" height="826"><defs id="defs">
+        <linearGradient xlink:actuate="onLoad" xlink:type="simple" id="hueAtSatValue" xlink:show="other">
+            <stop stop-color="rgb(220,135,135)" offset="0%" id="hueAtSatValuestop0"/>
+            <stop stop-color="rgb(220,169,135)" offset="6%" id="hueAtSatValuestop1"/>
+            <stop stop-color="rgb(220,203,135)" offset="13%" id="hueAtSatValuestop2"/>
+            <stop stop-color="rgb(203,220,135)" offset="20%" id="hueAtSatValuestop3"/>
+            <stop stop-color="rgb(169,220,135)" offset="26%" id="hueAtSatValuestop4"/>
+            <stop stop-color="rgb(135,220,135)" offset="33%" id="hueAtSatValuestop5"/>
+            <stop stop-color="rgb(135,220,169)" offset="40%" id="hueAtSatValuestop6"/>
+            <stop stop-color="rgb(135,220,203)" offset="46%" id="hueAtSatValuestop7"/>
+            <stop stop-color="rgb(135,203,220)" offset="53%" id="hueAtSatValuestop8"/>
+            <stop stop-color="rgb(135,169,220)" offset="60%" id="hueAtSatValuestop9"/>
+            <stop stop-color="rgb(135,135,220)" offset="66%" id="hueAtSatValuestop10"/>
+            <stop stop-color="rgb(169,135,220)" offset="73%" id="hueAtSatValuestop11"/>
+            <stop stop-color="rgb(203,135,220)" offset="80%" id="hueAtSatValuestop12"/>
+            <stop stop-color="rgb(220,135,203)" offset="86%" id="hueAtSatValuestop13"/>
+            <stop stop-color="rgb(220,135,169)" offset="93%" id="hueAtSatValuestop14"/>
+            <stop stop-color="rgb(220,135,135)" offset="100%" id="hueAtSatValuestop15"/>
+        </linearGradient>
+        <linearGradient xlink:actuate="onLoad" xlink:type="simple" id="satAtHueValue" xlink:show="other">
+            <stop stop-color="rgb(220,220,220)" offset="0%" id="satAtHueValuestop0"/>
+            <stop stop-color="rgb(220,206,210)" offset="6%" id="satAtHueValuestop1"/>
+            <stop stop-color="rgb(220,191,199)" offset="13%" id="satAtHueValuestop2"/>
+            <stop stop-color="rgb(220,176,188)" offset="20%" id="satAtHueValuestop3"/>
+            <stop stop-color="rgb(220,161,177)" offset="26%" id="satAtHueValuestop4"/>
+            <stop stop-color="rgb(220,147,167)" offset="33%" id="satAtHueValuestop5"/>
+            <stop stop-color="rgb(220,132,156)" offset="40%" id="satAtHueValuestop6"/>
+            <stop stop-color="rgb(220,117,145)" offset="46%" id="satAtHueValuestop7"/>
+            <stop stop-color="rgb(220,103,134)" offset="53%" id="satAtHueValuestop8"/>
+            <stop stop-color="rgb(220,88,124)" offset="60%" id="satAtHueValuestop9"/>
+            <stop stop-color="rgb(220,73,113)" offset="66%" id="satAtHueValuestop10"/>
+            <stop stop-color="rgb(220,58,102)" offset="73%" id="satAtHueValuestop11"/>
+            <stop stop-color="rgb(220,44,91)" offset="80%" id="satAtHueValuestop12"/>
+            <stop stop-color="rgb(220,29,81)" offset="86%" id="satAtHueValuestop13"/>
+            <stop stop-color="rgb(220,14,70)" offset="93%" id="satAtHueValuestop14"/>
+            <stop stop-color="rgb(220,0,59)" offset="100%" id="satAtHueValuestop15"/>
+        </linearGradient>
+        <linearGradient xlink:actuate="onLoad" xlink:type="simple" id="valueAtHueSat" xlink:show="other">
+            <stop stop-color="rgb(0,0,0)" offset="0%" id="valueAtHueSatstop0"/>
+            <stop stop-color="rgb(17,10,12)" offset="6%" id="valueAtHueSatstop1"/>
+            <stop stop-color="rgb(34,20,24)" offset="13%" id="valueAtHueSatstop2"/>
+            <stop stop-color="rgb(51,31,36)" offset="20%" id="valueAtHueSatstop3"/>
+            <stop stop-color="rgb(68,41,49)" offset="26%" id="valueAtHueSatstop4"/>
+            <stop stop-color="rgb(85,52,61)" offset="33%" id="valueAtHueSatstop5"/>
+            <stop stop-color="rgb(102,62,73)" offset="40%" id="valueAtHueSatstop6"/>
+            <stop stop-color="rgb(119,73,85)" offset="46%" id="valueAtHueSatstop7"/>
+            <stop stop-color="rgb(136,83,98)" offset="53%" id="valueAtHueSatstop8"/>
+            <stop stop-color="rgb(153,94,110)" offset="60%" id="valueAtHueSatstop9"/>
+            <stop stop-color="rgb(170,104,122)" offset="66%" id="valueAtHueSatstop10"/>
+            <stop stop-color="rgb(187,115,134)" offset="73%" id="valueAtHueSatstop11"/>
+            <stop stop-color="rgb(204,125,147)" offset="80%" id="valueAtHueSatstop12"/>
+            <stop stop-color="rgb(221,136,159)" offset="86%" id="valueAtHueSatstop13"/>
+            <stop stop-color="rgb(238,146,171)" offset="93%" id="valueAtHueSatstop14"/>
+            <stop stop-color="rgb(255,157,183)" offset="100%" id="valueAtHueSatstop15"/>
+        </linearGradient>
+        <g id="HStrips"><g id="GPHa0" mwVisibility="visible" visibility="visible"><path id="PHa0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(0) translate(0,-0.535)" mwColorIndex="0" fill="rgb(220,135,158)" fill-opacity="1"/></g><g id="GPHb0" mwVisibility="visible" visibility="visible"><path id="PHb0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(0) translate(0,0.535)" mwColorIndex="0" fill="rgb(220,135,158)" fill-opacity="1"/></g><g id="GPHc0" mwVisibility="visible" visibility="visible"><path id="PHc0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(0) translate(0,1.605)" mwColorIndex="0" fill="rgb(220,135,158)" fill-opacity="1"/></g></g>
+        <g id="RStrips"><g id="GPRa0" mwVisibility="visible" visibility="visible"><path id="PRa0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(120) translate(0,-0.535)" mwColorIndex="1" fill="rgb(252,205,118)" fill-opacity="1"/></g><g id="GPRb0" mwVisibility="visible" visibility="visible"><path id="PRb0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(120) translate(0,0.535)" mwColorIndex="1" fill="rgb(252,205,118)" fill-opacity="1"/></g><g id="GPRc0" mwVisibility="visible" visibility="visible"><path id="PRc0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(120) translate(0,1.605)" mwColorIndex="1" fill="rgb(252,205,118)" fill-opacity="1"/></g></g>
+        <g id="LStrips"><g id="GPLa0" mwVisibility="visible" visibility="visible"><path id="PLa0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(240) translate(0,-0.535)" mwColorIndex="2" fill="rgb(140,118,241)" fill-opacity="1"/></g><g id="GPLb0" mwVisibility="visible" visibility="visible"><path id="PLb0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(240) translate(0,0.535)" mwColorIndex="2" fill="rgb(140,118,241)" fill-opacity="1"/></g><g id="GPLc0" mwVisibility="visible" visibility="visible"><path id="PLc0" d="M -3.21 -0.5 L -3.21 0.5 L 3.21 0.5 L 3.21 -0.5 Z" transform="rotate(240) translate(0,1.605)" mwColorIndex="2" fill="rgb(140,118,241)" fill-opacity="1"/></g></g>
+        <clipPath id="HRLClipPath">
+            <path d="M 4 -4 L 5 -3 L 3 -3 Z M 2 -4 L 3 -3 L 4 -4 Z M -2 -4 L -1 -3 L -3 -3 Z M -4 -4 L -3 -3 L -2 -4 Z M 1 -3 L 2 -2 L 0 -2 Z M -1 -3 L 0 -2 L 1 -3 Z M -5 -3 L -4 -2 L -6 -2 Z M 4 -2 L 5 -1 L 3 -1 Z M 2 -2 L 3 -1 L 4 -2 Z M -2 -2 L -1 -1 L -3 -1 Z M -4 -2 L -3 -1 L -2 -2 Z M 7 -1 L 8 0 L 6 0 Z M 5 -1 L 6 0 L 7 -1 Z M 1 -1 L 2 0 L 0 0 Z M -1 -1 L 0 0 L 1 -1 Z M -5 -1 L -4 0 L -6 0 Z M -7 -1 L -6 0 L -5 -1 Z M 4 0 L 5 1 L 3 1 Z M 2 0 L 3 1 L 4 0 Z M -2 0 L -1 1 L -3 1 Z M -4 0 L -3 1 L -2 0 Z M 5 1 L 6 2 L 7 1 Z M 1 1 L 2 2 L 0 2 Z M -1 1 L 0 2 L 1 1 Z M -5 1 L -4 2 L -6 2 Z M -7 1 L -6 2 L -5 1 Z M 4 2 L 5 3 L 3 3 Z M 2 2 L 3 3 L 4 2 Z M -2 2 L -1 3 L -3 3 Z M -4 2 L -3 3 L -2 2 Z M 1 3 L 2 4 L 0 4 Z M -1 3 L 0 4 L 1 3 Z " id="HRLClipPath_path" transform="scale(1.07) scale(0.5773502691896257 1.0)"/>
+        </clipPath>
+        <clipPath id="RLHClipPath">
+            <path d="M 0 -4 L 1 -3 L -1 -3 Z M 0 -4 L 1 -3 L 2 -4 Z M 3 -3 L 4 -2 L 2 -2 Z M 3 -3 L 4 -2 L 5 -3 Z M -3 -3 L -2 -2 L -4 -2 Z M -3 -3 L -2 -2 L -1 -3 Z M 6 -2 L 7 -1 L 5 -1 Z M 0 -2 L 1 -1 L -1 -1 Z M 0 -2 L 1 -1 L 2 -2 Z M -6 -2 L -5 -1 L -7 -1 Z M -6 -2 L -5 -1 L -4 -2 Z M 3 -1 L 4 0 L 2 0 Z M 3 -1 L 4 0 L 5 -1 Z M -3 -1 L -2 0 L -4 0 Z M -3 -1 L -2 0 L -1 -1 Z M 6 0 L 7 1 L 5 1 Z M 6 0 L 7 1 L 8 0 Z M 0 0 L 1 1 L -1 1 Z M 0 0 L 1 1 L 2 0 Z M -6 0 L -5 1 L -7 1 Z M -6 0 L -5 1 L -4 0 Z M 3 1 L 4 2 L 2 2 Z M 3 1 L 4 2 L 5 1 Z M -3 1 L -2 2 L -4 2 Z M -3 1 L -2 2 L -1 1 Z M 0 2 L 1 3 L -1 3 Z M 0 2 L 1 3 L 2 2 Z M -6 2 L -5 3 L -4 2 Z M 3 3 L 4 4 L 2 4 Z M 3 3 L 4 4 L 5 3 Z M -3 3 L -2 4 L -4 4 Z M -3 3 L -2 4 L -1 3 Z " id="RLHClipPath_path" transform="scale(1.07) scale(0.5773502691896257 1.0)"/>
+        </clipPath>
+        <clipPath id="LHRClipPath">
+            <path d="M 2 -4 L 3 -3 L 1 -3 Z M -2 -4 L -1 -3 L 0 -4 Z M -4 -4 L -3 -3 L -5 -3 Z M 5 -3 L 6 -2 L 4 -2 Z M 1 -3 L 2 -2 L 3 -3 Z M -1 -3 L 0 -2 L -2 -2 Z M -5 -3 L -4 -2 L -3 -3 Z M 4 -2 L 5 -1 L 6 -2 Z M 2 -2 L 3 -1 L 1 -1 Z M -2 -2 L -1 -1 L 0 -2 Z M -4 -2 L -3 -1 L -5 -1 Z M 5 -1 L 6 0 L 4 0 Z M 1 -1 L 2 0 L 3 -1 Z M -1 -1 L 0 0 L -2 0 Z M -5 -1 L -4 0 L -3 -1 Z M -7 -1 L -6 0 L -8 0 Z M 4 0 L 5 1 L 6 0 Z M 2 0 L 3 1 L 1 1 Z M -2 0 L -1 1 L 0 0 Z M -4 0 L -3 1 L -5 1 Z M -8 0 L -7 1 L -6 0 Z M 5 1 L 6 2 L 4 2 Z M 1 1 L 2 2 L 3 1 Z M -1 1 L 0 2 L -2 2 Z M -5 1 L -4 2 L -3 1 Z M 4 2 L 5 3 L 6 2 Z M 2 2 L 3 3 L 1 3 Z M -2 2 L -1 3 L 0 2 Z M -4 2 L -3 3 L -5 3 Z M 1 3 L 2 4 L 3 3 Z M -1 3 L 0 4 L -2 4 Z M -5 3 L -4 4 L -3 3 Z " id="LHRClipPath_path" transform="scale(1.07) scale(0.5773502691896257 1.0)"/>
+        </clipPath>
+        <linearGradient xlink:actuate="onLoad" xlink:type="simple" id="opacityAtColor" xlink:show="other">
+            <stop stop-opacity="0" stop-color="rgb(220,135,158)" id="opacityAtColorstop0" offset="0%"/>
+            <stop stop-opacity="0.06666666666666667" stop-color="rgb(220,135,158)" id="opacityAtColorstop1" offset="6%"/>
+            <stop stop-opacity="0.13333333333333333" stop-color="rgb(220,135,158)" id="opacityAtColorstop2" offset="13%"/>
+            <stop stop-opacity="0.2" stop-color="rgb(220,135,158)" id="opacityAtColorstop3" offset="20%"/>
+            <stop stop-opacity="0.26666666666666666" stop-color="rgb(220,135,158)" id="opacityAtColorstop4" offset="26%"/>
+            <stop stop-opacity="0.3333333333333333" stop-color="rgb(220,135,158)" id="opacityAtColorstop5" offset="33%"/>
+            <stop stop-opacity="0.4" stop-color="rgb(220,135,158)" id="opacityAtColorstop6" offset="40%"/>
+            <stop stop-opacity="0.4666666666666667" stop-color="rgb(220,135,158)" id="opacityAtColorstop7" offset="46%"/>
+            <stop stop-opacity="0.5333333333333333" stop-color="rgb(220,135,158)" id="opacityAtColorstop8" offset="53%"/>
+            <stop stop-opacity="0.6" stop-color="rgb(220,135,158)" id="opacityAtColorstop9" offset="60%"/>
+            <stop stop-opacity="0.6666666666666666" stop-color="rgb(220,135,158)" id="opacityAtColorstop10" offset="66%"/>
+            <stop stop-opacity="0.7333333333333333" stop-color="rgb(220,135,158)" id="opacityAtColorstop11" offset="73%"/>
+            <stop stop-opacity="0.8" stop-color="rgb(220,135,158)" id="opacityAtColorstop12" offset="80%"/>
+            <stop stop-opacity="0.8666666666666667" stop-color="rgb(220,135,158)" id="opacityAtColorstop13" offset="86%"/>
+            <stop stop-opacity="0.9333333333333333" stop-color="rgb(220,135,158)" id="opacityAtColorstop14" offset="93%"/>
+            <stop stop-opacity="1" stop-color="rgb(220,135,158)" id="opacityAtColorstop15" offset="100%"/>
+        </linearGradient>
+    </defs><g inkscape:groupmode="layer" id="strips" style="isolation: isolate;"><g id="HRLG" clip-path="url(#HRLClipPath)" style="mix-blend-mode: plus-lighter; filter: opacity(1);"><g id="HRLGStack" style="isolation: isolate;"><use id="HRLUseL" xlink:href="#LStrips"/><use id="HRLUseR" xlink:href="#RStrips"/><use id="HRLUseH" xlink:href="#HStrips"/></g></g><g id="RLHG" clip-path="url(#RLHClipPath)" style="mix-blend-mode: plus-lighter; filter: opacity(1);"><g id="RLHGStack" style="isolation: isolate;"><use id="RLHUseH" xlink:href="#HStrips"/><use id="RLHUseL" xlink:href="#LStrips"/><use id="RLHUseR" xlink:href="#RStrips"/></g></g><g id="LHRG" clip-path="url(#LHRClipPath)" style="mix-blend-mode: plus-lighter; filter: opacity(1);"><g id="LHRGStack" style="isolation: isolate;"><use id="LHRUseR" xlink:href="#RStrips"/><use id="LHRUseH" xlink:href="#HStrips"/><use id="LHRUseL" xlink:href="#LStrips"/></g></g></g></svg>

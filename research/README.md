@@ -20,6 +20,7 @@ The rest of Stage 3 remains on hold and the production application's
 | Source of faint seams | [SVG reduction and root cause](SEAM_ROOT_CAUSE.md) | Minimal fixture, repeated alpha blending, and versioned renderer source |
 | Fix for faint seams | [Problem and solution](SVG_SEAM_FIX.md) | Compositing structure, rejected candidates, verification, and compatibility |
 | Squiggle and Chrome clip seams | [Renderer comparison and simpler Chrome options](SQUIGGLE_AND_CHROME_CLIP_SEAMS.md) | Historical reproduction, Batik source, two-rule SVG, and Windows canvas measurements |
+| Edge and Firefox clip seams | [Windows browser tests](EDGE_FIREFOX_CLIP_SEAMS.md) | Which declarations each browser needs, transparent exports, and the remaining Edge coverage error |
 | Single-corner project prompt | [Accepted scope and stage gates](SINGLE_CORNER_PROJECT_PROMPT.md) | Stage 3C bounded editor integration delivered; broader product and physical gates remain |
 | Single-corner Stage 1 results | [Model, catalogue and certificates](SINGLE_CORNER_STAGE1.md) | Required hole families, finite excess/deficit ledgers, color witnesses, open-strip proof, crop-fringe limit and future acceptance plan; stop for review |
 | Stage 1 crop/checker follow-up | [Full regions and independent checker](SINGLE_CORNER_CROP_FOLLOWUP.md) | R/P=6 and neighboring crops, supplied-certificate mutations, rotated inverse coordinates and circle error bounds; stop for review |

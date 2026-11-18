@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const variants = ['original', 'clip-hint', 'blend-only', 'additive-clip', 'soft-mask', 'hard-mask', 'additive-mask', 'additive-alpha-mask', 'production'];
+const variants = ['original', 'clip-hint', 'blend-only', 'additive-clip', 'filtered-clip', 'soft-mask', 'hard-mask', 'additive-mask', 'additive-alpha-mask', 'production'];
 
 function applyVariant(root, variant) {
   const doc = root.ownerDocument;
@@ -11,13 +11,14 @@ function applyVariant(root, variant) {
   const weave = root.querySelector('#strips') || root;
   const groups = [...weave.querySelectorAll('g[clip-path]')];
   let parent = groups[0].parentElement;
-  const additive = ['additive-clip', 'additive-mask', 'additive-alpha-mask', 'production'].includes(variant);
+  const stylesheet = variant === 'additive-clip' || variant === 'filtered-clip';
+  const additive = stylesheet || ['additive-mask', 'additive-alpha-mask', 'production'].includes(variant);
   if (parent === root && additive) {
     parent = make('g');
     root.append(parent);
     parent.append(...groups);
   }
-  if (parent !== root) parent.style.isolation = additive && variant !== 'additive-clip' ? 'isolate' : '';
+  if (parent !== root) parent.style.isolation = additive && !stylesheet ? 'isolate' : '';
   for (const group of groups) {
     // The live editor supplies the production wrappers. Start every candidate
     // with the same ordered child paints as the historical reproduction.
@@ -42,7 +43,7 @@ function applyVariant(root, variant) {
       group.removeAttribute('clip-path');
       group.setAttribute('mask', url);
     }
-    if (variant === 'blend-only' || (additive && variant !== 'additive-clip')) group.style.mixBlendMode = 'plus-lighter';
+    if (variant === 'blend-only' || (additive && !stylesheet)) group.style.mixBlendMode = 'plus-lighter';
     if (variant === 'production') {
       group.style.filter = 'opacity(1)';
       const stack = make('g');
@@ -51,10 +52,11 @@ function applyVariant(root, variant) {
       group.append(stack);
     }
   }
-  if (variant === 'additive-clip') {
+  if (stylesheet) {
     parent.id = 'strips';
     const style = make('style');
-    style.textContent = '#strips { isolation: isolate }\n#strips > g[clip-path] { mix-blend-mode: plus-lighter }';
+    const filter = variant === 'filtered-clip' ? '; filter: opacity(1)' : '';
+    style.textContent = '#strips { isolation: isolate }\n#strips > g[clip-path] { mix-blend-mode: plus-lighter' + filter + ' }';
     root.querySelector('defs').append(style);
   }
 }
@@ -116,7 +118,7 @@ async function measure(page, markup, variant, scene, side, shift = 0, angle = 0)
 // This runs in an ordinary browser opened from disk. Each inline SVG gets its
 // own document so references to clip and strip IDs cannot cross between cases.
 async function browserComparison(apply, weave, minimal) {
-  const methods = ['original', 'hard-mask', 'additive-clip', 'production', 'additive-alpha-mask'];
+  const methods = ['original', 'hard-mask', 'additive-clip', 'production', 'additive-alpha-mask', 'filtered-clip'];
   const results = {};
   for (const method of methods) {
     const column = document.createElement('section');
