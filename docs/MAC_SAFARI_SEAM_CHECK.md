@@ -1,8 +1,8 @@
-# Test the planar SVG seams in installed Safari on a Mac
+# Test planar SVG seams in Safari on Mac and iPhone
 
 **Handoff for the Mac AI:** Run the pixel test below in the installed Safari app. Then export a weave from the live editor, reopen the downloaded SVG in Safari, and inspect it for a pale line through a solid strip. Return the measurements, the visual result and the evidence paths. The November 9 Mac regression covered the previous renderer. This check exercises the shared stylesheet introduced in `34b7f0d`. [Earlier Mac results](MAC_TESTING.md) · [Renderer and reference colors](../research/SQUIGGLE_AND_CHROME_CLIP_SEAMS.md)
 
-Safari 27.2 displayed a pale diagonal where two clipped regions met inside an opaque yellow strip. The published editor and the reopened download both showed it. The shared editor and its SVG downloads use a smooth mask in Safari and retains the original clips for Batik 1.7. [Results, comparison image and verified export](../research/SAFARI_CLIP_SEAMS.md)
+Safari 27.2 displayed a pale diagonal where two clipped regions met inside an opaque yellow strip. The published editor and the reopened download both showed it. The shared editor and its SVG downloads use a smooth mask in Safari and retain the original clips for Batik 1.7. [Results, comparison image and verified export](../research/SAFARI_CLIP_SEAMS.md)
 
 **If Safari reports “using significant memory” during the replay**, check which page was open. The expanded test decoded many SVGs and read back a full canvas for each rendering method. The warning alone cannot establish a leak in the editor. Regenerate older matrix pages with the current generator. It checkpoints every four configurations in the tab’s session storage, then reloads deliberately. Keep that tab open and use the JSON displayed at **163 / 163**. If session storage is unavailable, the batches run in one document. [Memory diagnosis](../research/SAFARI_CLIP_SEAMS.md#replay-memory)
 
@@ -91,3 +91,12 @@ The target is **zero production samples with an RGB channel error greater than f
 3. Open that file in Safari at 100% zoom. Inspect a continuous yellow strip where the thin line used to appear. Compare with the live editor and save screenshots of both in the run directory. Record whether a pale line crosses the strip in either view. Use the historical screenshot to distinguish the artifact from an intentional edge between materials. [Illustrated comparison](../research/SQUIGGLE_AND_CHROME_CLIP_SEAMS.md#reproducing-the-historical-image)
 
 Stop the loopback server you started with `kill "$server_pid"`. Report the checkout SHA, matrix source if supplied, macOS and Safari versions, production counts and maximum error, historical-control result, visual observation, and paths to the JSON, SVG and screenshots. Keep the visual observation separate from the measured canvas result. [Windows replay for comparison](../research/EDGE_FIREFOX_CLIP_SEAMS.md)
+
+## 4. Check editing and export on a physical iPhone
+
+On November 18, 2026, Safari 27.2 on the M4 iMac and the iPhone 18 Pro simulator each passed all 90,350 samples across 163 configurations. The simulator also downloaded and displayed a size-3 SVG with 27 strip paths and three masks. The paired physical iPhone was unavailable. Device memory pressure during ordinary editing remains an open question. [Apple test results](MAC_TESTING.md#imac-and-iphone-simulator-acceptance) · [Recorded measurements](evidence/apple-safari-2026-11-18.json)
+
+1. Record the iPhone model and iOS version. Open the published editor in a fresh Safari tab. Keep the replay closed so a reload can be tied to an editor action. [Published editor](https://rharriszzz.github.io/madweave/madweave.svg)
+2. In **Flat** view, select size **2** and medium **M** spacing. Look for a pale diagonal through an uninterrupted yellow strip. Switch to size **8** and back to **2** ten times. Record whether the design redraws and whether Safari reloads the tab.
+3. Select size **3**, choose **More → Export artwork as SVG**, and confirm the download. Open the SVG from Safari’s downloads and compare it with the editor. Record any visible seam and save screenshots of both views.
+4. If Safari displays “using significant memory,” record the exact warning, the page that reloaded, the last action, and the cycle number. Repeat that sequence in a fresh tab and record whether it recurs. A reload establishes that Safari reclaimed memory. Diagnosing a leak requires evidence that allocations persist across repeated actions. [Memory investigation](../research/SAFARI_CLIP_SEAMS.md#replay-memory)
