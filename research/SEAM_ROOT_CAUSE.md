@@ -1,8 +1,10 @@
 # Source of the faint SVG seams
 
-The renderer now includes the [tested solution](SVG_SEAM_FIX.md). This report
-records the original mechanism; its reduction test explicitly restores the old
-painting method before measuring it.
+This report traces the original painting mechanism. The reduction test restores
+that mechanism before measuring it. The first fix grouped and blended the
+clipped stacks. The current renderer uses smooth masks in supporting browsers
+and retains the original clip paths for Batik. [First fix](SVG_SEAM_FIX.md) ·
+[Current renderer and desktop results](SAFARI_CLIP_SEAMS.md)
 
 The faint lines come from **antialiased clip coverage being composited repeatedly
 as transparency**. MadWeave paints separate direction stacks through adjoining
@@ -169,6 +171,22 @@ local order is what makes the weave. A production remedy must combine compatible
 paint regions or otherwise preserve correlated coverage while retaining local
 order, palette opacity, hidden strips, and outlines. The follow-up [solution report](SVG_SEAM_FIX.md) describes the implemented
 compositing change and its browser regression tests.
+
+## Why the same SVG looks clean in Squiggle
+
+In Batik 1.7 and 1.18, `SVGClipPathElementBridge.createClip` starts with clip
+antialiasing disabled. With the default `shape-rendering="auto"`,
+`CSSUtilities.convertShapeRendering` leaves that choice in place. Java2D then
+assigns each boundary pixel to one triangle. In the reduced fixture their pixel
+counts were 29,159 and 28,441, covering all 57,600 pixels exactly once.
+
+To see the difference, set `shape-rendering="geometricPrecision"` on **both
+`<clipPath>` elements** in the reduced fixture and reopen it in Squiggle.
+Batik now applies a grayscale coverage mask to each completed stack. At the
+diagonal, two half-covered yellow paints leave one quarter of the white
+background visible. The pixel at (120, 120) changes from (252, 205, 118) to
+(253, 217, 153). The full comparison includes the historical artwork, screenshots
+and the Batik and Chromium source references. [Reduced fixture](fixtures/clip-seam-minimal.svg) · [Squiggle and Chrome comparison](SQUIGGLE_AND_CHROME_CLIP_SEAMS.md#why-batik-gives-a-different-result)
 
 ## Reproduce
 
