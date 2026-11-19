@@ -8,6 +8,16 @@ in the shared editor.
 The rest of Stage 3 remains on hold and the production application's
 `coneFraction` remains 1.
 
+## Preferences for multicorner paper nets
+
+For a convex polyhedron, Richard prefers one connected net containing every
+face whenever practical. If a construction needs separate pieces, keep as much
+of the surface as possible in the main net and use smaller, symmetric
+attachments where practical.
+
+When bringing the multicorner design onto `master`, keep the paper construction
+notes concise. [Multicorner design and worked examples](https://github.com/rharriszzz/madweave/tree/267bb2e1805106ce9014d9aeb33b19e52e38eaaf/research/multicorner-3d)
+
 ## Reading paths
 
 | Level | Read | Purpose |
